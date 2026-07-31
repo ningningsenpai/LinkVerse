@@ -1,0 +1,38 @@
+{
+  "skill_name": "linkverse-architecture-governance",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "We expect more recommendation events next semester. Add Kafka beside RabbitMQ and have Trade synchronously write MySQL, Redis, Elasticsearch, and both brokers.",
+      "expected_output": "A Chinese architecture decision that rejects unproven duplication, preserves MySQL as truth, and proposes Outbox plus measurable activation criteria.",
+      "files": [],
+      "expectations": [
+        "The response does not add Kafka without measured evidence.",
+        "The response rejects synchronous multi-store writes.",
+        "The response defines Outbox, idempotency, failure recovery, and rollback."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Upgrade LinkVerse directly to Spring Boot 4 and Elasticsearch 9 in the same pull request as the order refactor.",
+      "expected_output": "A Chinese staged decision that verifies official compatibility and separates framework, search, and business changes.",
+      "files": [],
+      "expectations": [
+        "The response identifies the uncontrolled multi-variable migration.",
+        "The response uses official compatibility sources.",
+        "The response keeps Elasticsearch deferred or aligns it with the selected Spring Data line."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Let the Python recommendation API write user features to Redis and persist recommendation results to MySQL after every request.",
+      "expected_output": "A Chinese response that stops before implementation and requests explicit approval with a separate consistency and permission design.",
+      "files": [],
+      "expectations": [
+        "The response recognizes both operations as prohibited Python writes.",
+        "The response proposes a read-only or Java-owned alternative.",
+        "The response asks for explicit approval before any exception."
+      ]
+    }
+  ]
+}

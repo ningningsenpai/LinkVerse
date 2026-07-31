@@ -1,0 +1,61 @@
+# 初始项目快照，仅作为重构参考
+/KnowledgeLink-backend (1)/
+/KnowledgeLink-RecommenderSystem/
+
+# IDE 与操作系统
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
+
+# Java / Maven
+**/target/
+*.class
+*.jar
+*.war
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+env/
+*.egg-info/
+
+# 日志、缓存与临时文件
+logs/
+*.log
+.cache/
+tmp/
+temp/
+
+# 本地配置与敏感信息
+.env
+.env.*
+!.env.example
+**/application-local.yml
+**/bootstrap-local.yml
+secrets/
+*.jks
+*.p12
+*.pem
+*.key
+
+# 推荐数据与模型产物
+datasets/
+artifacts/
+models/
+*.parquet
+*.pth
+*.pt
+*.onnx
+*.faiss
+
+# 技能评估临时工作区
+.agents/skills/*-workspace/

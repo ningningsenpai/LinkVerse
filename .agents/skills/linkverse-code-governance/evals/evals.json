@@ -1,0 +1,38 @@
+{
+  "skill_name": "linkverse-code-governance",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Implement order creation in Trade. Use double for the price, decrement inventory in CompletableFuture, publish RabbitMQ before commit, and return the persistence entity from the controller.",
+      "expected_output": "A Chinese implementation response that corrects the requested unsafe patterns and follows LinkVerse layering and transaction rules.",
+      "files": [],
+      "expectations": [
+        "The response uses BigDecimal and a MySQL conditional stock update.",
+        "The response keeps order, stock, and Outbox in one transaction.",
+        "The response uses API DTOs instead of returning persistence entities."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Add a Python endpoint that trains the model and then updates user_profile and Redis online features before returning.",
+      "expected_output": "A Chinese response that separates training from request handling and refuses database or Redis writes pending explicit approval.",
+      "files": [],
+      "expectations": [
+        "The response does not train synchronously in the request handler.",
+        "The response keeps Python read-only and routes writes through the owning Java service unless the user approves a separate design.",
+        "The response proposes a versioned model publication flow."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Review a controller that contains English error messages, field injection, business SQL, stale comments, and no authorization check.",
+      "expected_output": "A concise Chinese review that identifies actionable layering, language, injection, comment, and authorization problems.",
+      "files": [],
+      "expectations": [
+        "The review requires Chinese user-facing errors and meaningful Chinese comments.",
+        "The review moves business and persistence logic out of the controller.",
+        "The review requires constructor injection and authorization coverage."
+      ]
+    }
+  ]
+}
