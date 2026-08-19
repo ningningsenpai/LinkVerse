@@ -1,5 +1,5 @@
 # 初始项目快照，仅作为重构参考
-/KnowledgeLink-backend (1)/
+/KnowledgeLink-backend/
 /KnowledgeLink-RecommenderSystem/
 
 # IDE 与操作系统
@@ -11,8 +11,11 @@ Thumbs.db
 
 # Java / Maven
 **/target/
+**/.mvn/repository/
+**/.mvn/user-home/
 *.class
 *.jar
+!**/.mvn/wrapper/maven-wrapper.jar
 *.war
 
 # Python
@@ -24,6 +27,7 @@ __pycache__/
 .coverage
 htmlcov/
 .venv/
+.venv-*/
 venv/
 env/
 *.egg-info/
@@ -46,6 +50,10 @@ secrets/
 *.p12
 *.pem
 *.key
+
+# prepare-local.ps1 生成的本地运行材料（与上述通用规则重复声明）
+/linkverse-platform/infrastructure/.env
+/linkverse-platform/infrastructure/secrets/
 
 # 推荐数据与模型产物
 datasets/

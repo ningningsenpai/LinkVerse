@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.5.15</version>
+        <relativePath/>
+    </parent>
+
+    <groupId>io.github.ningningsenpai.linkverse</groupId>
+    <artifactId>linkverse-backend</artifactId>
+    <version>0.1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>LinkVerse Backend</name>
+    <description>LinkVerse 求职 MVP 后端聚合工程</description>
+
+    <modules>
+        <module>platform-bom</module>
+        <module>platform-core</module>
+        <module>platform-starter-web</module>
+        <module>platform-starter-security</module>
+        <module>platform-starter-observability</module>
+        <module>platform-starter-messaging</module>
+        <module>linkverse-gateway</module>
+        <module>linkverse-identity</module>
+        <module>linkverse-trade</module>
+        <module>linkverse-payment</module>
+    </modules>
+
+    <properties>
+        <java.version>21</java.version>
+        <maven.version>3.9.10</maven.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <spring-cloud.version>2025.0.3</spring-cloud.version>
+        <spring-cloud-alibaba.version>2025.0.0.0</spring-cloud-alibaba.version>
+        <nimbus-jose-jwt.version>9.47</nimbus-jose-jwt.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>platform-core</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>platform-starter-web</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>platform-starter-security</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>platform-starter-observability</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>platform-starter-messaging</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.nimbusds</groupId>
+                <artifactId>nimbus-jose-jwt</artifactId>
+                <version>${nimbus-jose-jwt.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>enforce-build-environment</id>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                        <configuration>
+                            <rules>
+                                <requireJavaVersion>
+                                    <version>[21,22)</version>
+                                    <message>构建必须使用 JDK 21。</message>
+                                </requireJavaVersion>
+                                <requireMavenVersion>
+                                    <version>[3.9.10,3.9.11)</version>
+                                    <message>构建必须使用 Maven 3.9.10。</message>
+                                </requireMavenVersion>
+                                <dependencyConvergence/>
+                                <requireReleaseDeps>
+                                    <onlyWhenRelease>false</onlyWhenRelease>
+                                    <failWhenParentIsSnapshot>false</failWhenParentIsSnapshot>
+                                    <searchTransitive>true</searchTransitive>
+                                    <excludes>
+                                        <exclude>io.github.ningningsenpai.linkverse:*</exclude>
+                                    </excludes>
+                                </requireReleaseDeps>
+                                <banDynamicVersions>
+                                    <allowSnapshots>true</allowSnapshots>
+                                    <allowLatest>false</allowLatest>
+                                    <allowRelease>false</allowRelease>
+                                    <allowRanges>false</allowRanges>
+                                    <allowRangesWithIdenticalBounds>false</allowRangesWithIdenticalBounds>
+                                </banDynamicVersions>
+                                <bannedDependencies>
+                                    <searchTransitive>true</searchTransitive>
+                                    <excludes>
+                                        <exclude>io.swagger:*</exclude>
+                                        <exclude>io.swagger.core.v3:*</exclude>
+                                        <exclude>io.springfox:*</exclude>
+                                        <exclude>org.springdoc:*</exclude>
+                                        <exclude>com.github.xiaoymin:*</exclude>
+                                        <exclude>org.elasticsearch:*</exclude>
+                                        <exclude>org.elasticsearch.client:*</exclude>
+                                        <exclude>org.elasticsearch.plugin:*</exclude>
+                                        <exclude>co.elastic.clients:*</exclude>
+                                        <exclude>org.springframework.data:spring-data-elasticsearch</exclude>
+                                        <exclude>org.apache.kafka:*</exclude>
+                                        <exclude>org.springframework.kafka:*</exclude>
+                                        <exclude>org.springframework.cloud:spring-cloud-stream-binder-kafka</exclude>
+                                        <exclude>org.springframework.cloud:spring-cloud-stream-binder-kafka-core</exclude>
+                                        <exclude>org.springframework.cloud:spring-cloud-stream-binder-kafka-streams</exclude>
+                                        <exclude>io.seata:*</exclude>
+                                        <exclude>com.alibaba.cloud:spring-cloud-starter-alibaba-seata</exclude>
+                                        <exclude>com.alibaba.csp:*</exclude>
+                                        <exclude>com.alibaba.cloud:spring-cloud-starter-alibaba-sentinel</exclude>
+                                    </excludes>
+                                    <message>当前 MVP 禁止引入 Swagger、Knife4j、Elasticsearch、Kafka、Seata 或 Sentinel 依赖。</message>
+                                </bannedDependencies>
+                            </rules>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

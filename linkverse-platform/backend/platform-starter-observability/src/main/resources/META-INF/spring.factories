@@ -1,0 +1,2 @@
+org.springframework.boot.env.EnvironmentPostProcessor=\
+io.github.ningningsenpai.linkverse.observability.autoconfigure.PlatformObservabilityEnvironmentPostProcessor

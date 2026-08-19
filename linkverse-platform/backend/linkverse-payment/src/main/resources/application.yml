@@ -1,0 +1,51 @@
+server:
+  port: 18083
+
+spring:
+  application:
+    name: linkverse-payment
+  datasource:
+    url: ${PAYMENT_DB_URL:jdbc:mysql://localhost:13306/linkverse_mvp_payment?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC}
+    username: ${PAYMENT_DB_USERNAME:}
+    password: ${PAYMENT_DB_PASSWORD:}
+    hikari:
+      connection-timeout: 3000
+      maximum-pool-size: 10
+  flyway:
+    enabled: true
+    user: ${PAYMENT_FLYWAY_USERNAME:}
+    password: ${PAYMENT_FLYWAY_PASSWORD:}
+    locations: classpath:db/migration
+    validate-migration-naming: true
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ${NACOS_SERVER_ADDR:localhost:18848}
+        namespace: ${NACOS_NAMESPACE:linkverse-mvp}
+        group: ${NACOS_GROUP:LINKVERSE_MVP}
+        username: ${NACOS_RUNTIME_USERNAME:}
+        password: ${NACOS_RUNTIME_PASSWORD:}
+
+linkverse:
+  security:
+    issuer-uri: ${LINKVERSE_ISSUER_URI:http://localhost:18080}
+    jwk-set-uri: ${LINKVERSE_JWK_SET_URI:http://localhost:18081/oauth2/jwks}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: never
+      probes:
+        enabled: true
+  health:
+    nacos-discovery:
+      enabled: true
+
+logging:
+  structured:
+    format:
+      console: logstash

@@ -1,0 +1,50 @@
+server:
+  port: ${LINKVERSE_IDENTITY_PORT:18081}
+
+spring:
+  application:
+    name: linkverse-identity
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ${NACOS_SERVER_ADDR:127.0.0.1:18848}
+        namespace: ${NACOS_NAMESPACE:linkverse-mvp}
+        group: ${NACOS_GROUP:LINKVERSE_MVP}
+        username: ${NACOS_RUNTIME_USERNAME:}
+        password: ${NACOS_RUNTIME_PASSWORD:}
+  datasource:
+    url: ${LINKVERSE_IDENTITY_DB_URL:jdbc:mysql://127.0.0.1:13306/linkverse_mvp_identity?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC}
+    username: ${LINKVERSE_IDENTITY_DB_USERNAME:linkverse_mvp_identity_app}
+    password: ${LINKVERSE_IDENTITY_DB_PASSWORD:}
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    url: ${LINKVERSE_IDENTITY_FLYWAY_URL:jdbc:mysql://127.0.0.1:13306/linkverse_mvp_identity?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC}
+    user: ${LINKVERSE_IDENTITY_FLYWAY_USERNAME:linkverse_mvp_identity_migrator}
+    password: ${LINKVERSE_IDENTITY_FLYWAY_PASSWORD:}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: never
+      probes:
+        enabled: true
+
+linkverse:
+  security:
+    jwt:
+      issuer: ${LINKVERSE_SECURITY_ISSUER:http://localhost:18080}
+      key-id: ${LINKVERSE_JWT_KEY_ID:}
+      private-key: ${LINKVERSE_JWT_PRIVATE_KEY:}
+      public-key: ${LINKVERSE_JWT_PUBLIC_KEY:}
+      user-access-token-ttl: ${LINKVERSE_USER_ACCESS_TOKEN_TTL:PT15M}
+      service-access-token-ttl: ${LINKVERSE_SERVICE_ACCESS_TOKEN_TTL:PT5M}
+      clock-skew: ${LINKVERSE_JWT_CLOCK_SKEW:PT30S}
+    trade-client:
+      enabled: ${LINKVERSE_TRADE_CLIENT_BOOTSTRAP_ENABLED:false}
+      client-id: ${LINKVERSE_TRADE_CLIENT_ID:linkverse-trade}
+      client-secret: ${LINKVERSE_TRADE_CLIENT_SECRET:}

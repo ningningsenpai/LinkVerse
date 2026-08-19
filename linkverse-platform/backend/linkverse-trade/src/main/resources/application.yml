@@ -1,0 +1,81 @@
+server:
+  port: 18082
+
+spring:
+  application:
+    name: linkverse-trade
+  datasource:
+    url: ${TRADE_DB_URL:jdbc:mysql://localhost:13306/linkverse_mvp_trade?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC}
+    username: ${TRADE_DB_USERNAME:}
+    password: ${TRADE_DB_PASSWORD:}
+    hikari:
+      connection-timeout: 3000
+      maximum-pool-size: 10
+  flyway:
+    enabled: true
+    user: ${TRADE_FLYWAY_USERNAME:}
+    password: ${TRADE_FLYWAY_PASSWORD:}
+    locations: classpath:db/migration
+    validate-migration-naming: true
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:16379}
+      password: ${REDIS_PASSWORD:}
+      connect-timeout: 2s
+      timeout: 3s
+      client-name: linkverse-trade
+  rabbitmq:
+    host: ${RABBITMQ_HOST:localhost}
+    port: ${RABBITMQ_PORT:15673}
+    username: ${RABBITMQ_USERNAME:}
+    password: ${RABBITMQ_PASSWORD:}
+    virtual-host: ${RABBITMQ_VHOST:linkverse-mvp}
+    connection-timeout: 3s
+    requested-heartbeat: 15s
+  security:
+    oauth2:
+      client:
+        registration:
+          linkverse-payment-client:
+            provider: linkverse-identity
+            client-id: ${TRADE_OAUTH_CLIENT_ID:linkverse-trade}
+            client-secret: ${TRADE_OAUTH_CLIENT_SECRET:}
+            client-authentication-method: client_secret_basic
+            authorization-grant-type: client_credentials
+            scope: payment.internal
+        provider:
+          linkverse-identity:
+            token-uri: ${IDENTITY_TOKEN_URI:http://linkverse-identity/oauth2/token}
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ${NACOS_SERVER_ADDR:localhost:18848}
+        namespace: ${NACOS_NAMESPACE:linkverse-mvp}
+        group: ${NACOS_GROUP:LINKVERSE_MVP}
+        username: ${NACOS_RUNTIME_USERNAME:}
+        password: ${NACOS_RUNTIME_PASSWORD:}
+
+linkverse:
+  security:
+    issuer-uri: ${LINKVERSE_ISSUER_URI:http://localhost:18080}
+    jwk-set-uri: ${LINKVERSE_JWK_SET_URI:http://localhost:18081/oauth2/jwks}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: never
+      probes:
+        enabled: true
+  health:
+    nacos-discovery:
+      enabled: true
+
+logging:
+  structured:
+    format:
+      console: logstash

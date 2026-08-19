@@ -1,0 +1,148 @@
+name: ${COMPOSE_PROJECT_NAME:?请通过 versions.env 提供 COMPOSE_PROJECT_NAME}
+
+services:
+  mysql:
+    image: ${MYSQL_IMAGE:?请通过 versions.env 提供 MYSQL_IMAGE}${MYSQL_IMAGE_DIGEST:+@${MYSQL_IMAGE_DIGEST}}
+    container_name: ${COMPOSE_PROJECT_NAME}-mysql
+    restart: unless-stopped
+    environment:
+      TZ: UTC
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?请在 .env 中配置 MYSQL_ROOT_PASSWORD}
+      IDENTITY_DB_NAME: ${IDENTITY_DB_NAME}
+      IDENTITY_APP_USER: ${IDENTITY_APP_USER}
+      IDENTITY_APP_PASSWORD: ${IDENTITY_APP_PASSWORD:?请在 .env 中配置 IDENTITY_APP_PASSWORD}
+      IDENTITY_MIGRATOR_USER: ${IDENTITY_MIGRATOR_USER}
+      IDENTITY_MIGRATOR_PASSWORD: ${IDENTITY_MIGRATOR_PASSWORD:?请在 .env 中配置 IDENTITY_MIGRATOR_PASSWORD}
+      TRADE_DB_NAME: ${TRADE_DB_NAME}
+      TRADE_APP_USER: ${TRADE_APP_USER}
+      TRADE_APP_PASSWORD: ${TRADE_APP_PASSWORD:?请在 .env 中配置 TRADE_APP_PASSWORD}
+      TRADE_MIGRATOR_USER: ${TRADE_MIGRATOR_USER}
+      TRADE_MIGRATOR_PASSWORD: ${TRADE_MIGRATOR_PASSWORD:?请在 .env 中配置 TRADE_MIGRATOR_PASSWORD}
+      PAYMENT_DB_NAME: ${PAYMENT_DB_NAME}
+      PAYMENT_APP_USER: ${PAYMENT_APP_USER}
+      PAYMENT_APP_PASSWORD: ${PAYMENT_APP_PASSWORD:?请在 .env 中配置 PAYMENT_APP_PASSWORD}
+      PAYMENT_MIGRATOR_USER: ${PAYMENT_MIGRATOR_USER}
+      PAYMENT_MIGRATOR_PASSWORD: ${PAYMENT_MIGRATOR_PASSWORD:?请在 .env 中配置 PAYMENT_MIGRATOR_PASSWORD}
+    ports:
+      - "127.0.0.1:${MYSQL_HOST_PORT}:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ../mysql/init/10-create-business-databases.sh:/docker-entrypoint-initdb.d/10-create-business-databases.sh:ro
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - MYSQL_PWD="$${MYSQL_ROOT_PASSWORD}" mysqladmin ping --host=127.0.0.1 --user=root --silent
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 40s
+    networks:
+      - linkverse_mvp
+
+  redis:
+    image: ${REDIS_IMAGE:?请通过 versions.env 提供 REDIS_IMAGE}${REDIS_IMAGE_DIGEST:+@${REDIS_IMAGE_DIGEST}}
+    container_name: ${COMPOSE_PROJECT_NAME}-redis
+    restart: unless-stopped
+    environment:
+      TZ: UTC
+      REDIS_PASSWORD: ${REDIS_PASSWORD:?请在 .env 中配置 REDIS_PASSWORD}
+    command:
+      - sh
+      - -ec
+      - exec redis-server --appendonly yes --requirepass "$${REDIS_PASSWORD}"
+    ports:
+      - "127.0.0.1:${REDIS_HOST_PORT}:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - REDISCLI_AUTH="$${REDIS_PASSWORD}" redis-cli --no-auth-warning ping | grep -q PONG
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 10s
+    networks:
+      - linkverse_mvp
+
+  rabbitmq:
+    image: ${RABBITMQ_IMAGE:?请通过 versions.env 提供 RABBITMQ_IMAGE}${RABBITMQ_IMAGE_DIGEST:+@${RABBITMQ_IMAGE_DIGEST}}
+    container_name: ${COMPOSE_PROJECT_NAME}-rabbitmq
+    restart: unless-stopped
+    environment:
+      TZ: UTC
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASSWORD:?请在 .env 中配置 RABBITMQ_PASSWORD}
+      RABBITMQ_DEFAULT_VHOST: ${RABBITMQ_VHOST}
+    ports:
+      - "127.0.0.1:${RABBITMQ_AMQP_HOST_PORT}:5672"
+      - "127.0.0.1:${RABBITMQ_MANAGEMENT_HOST_PORT}:15672"
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    healthcheck:
+      test:
+        - CMD
+        - rabbitmq-diagnostics
+        - -q
+        - ping
+      interval: 10s
+      timeout: 10s
+      retries: 12
+      start_period: 30s
+    networks:
+      - linkverse_mvp
+
+  nacos:
+    image: ${NACOS_IMAGE:?请通过 versions.env 提供 NACOS_IMAGE}${NACOS_IMAGE_DIGEST:+@${NACOS_IMAGE_DIGEST}}
+    container_name: ${COMPOSE_PROJECT_NAME}-nacos
+    restart: unless-stopped
+    environment:
+      TZ: UTC
+      MODE: standalone
+      PREFER_HOST_MODE: hostname
+      NACOS_AUTH_ENABLE: "true"
+      NACOS_AUTH_ADMIN_ENABLE: "true"
+      NACOS_AUTH_CONSOLE_ENABLE: "true"
+      NACOS_AUTH_SYSTEM_TYPE: nacos
+      NACOS_AUTH_TOKEN: ${NACOS_AUTH_TOKEN:?请在 .env 中配置 NACOS_AUTH_TOKEN}
+      NACOS_AUTH_IDENTITY_KEY: ${NACOS_AUTH_IDENTITY_KEY:?请在 .env 中配置 NACOS_AUTH_IDENTITY_KEY}
+      NACOS_AUTH_IDENTITY_VALUE: ${NACOS_AUTH_IDENTITY_VALUE:?请在 .env 中配置 NACOS_AUTH_IDENTITY_VALUE}
+      NACOS_AUTH_USER_AGENT_AUTH_WHITE_ENABLE: "false"
+      NACOS_CORE_PARAM_CHECK_ENABLED: "true"
+      JVM_XMS: 256m
+      JVM_XMX: 512m
+      JVM_XMN: 128m
+    ports:
+      - "127.0.0.1:${NACOS_CONSOLE_HOST_PORT}:8080"
+      - "127.0.0.1:${NACOS_SERVER_HOST_PORT}:8848"
+      - "127.0.0.1:${NACOS_GRPC_HOST_PORT}:9848"
+    volumes:
+      - nacos_data:/home/nacos/data
+      - nacos_logs:/home/nacos/logs
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - curl --fail --silent --show-error http://127.0.0.1:8848/nacos/v3/admin/core/state/readiness >/dev/null
+      interval: 10s
+      timeout: 5s
+      retries: 18
+      start_period: 60s
+    networks:
+      - linkverse_mvp
+
+networks:
+  linkverse_mvp:
+    name: ${COMPOSE_PROJECT_NAME}-network
+    driver: bridge
+
+volumes:
+  mysql_data:
+    name: ${COMPOSE_PROJECT_NAME}-mysql-data
+  redis_data:
+    name: ${COMPOSE_PROJECT_NAME}-redis-data
+  rabbitmq_data:
+    name: ${COMPOSE_PROJECT_NAME}-rabbitmq-data
+  nacos_data:
+    name: ${COMPOSE_PROJECT_NAME}-nacos-data
+  nacos_logs:
+    name: ${COMPOSE_PROJECT_NAME}-nacos-logs
