@@ -114,7 +114,7 @@ linkverse-platform/
 
 共享模块只放错误协议、安全适配、日志和消息信封等基础能力。禁止共享实体、Mapper、Repository 或领域服务，避免形成“分布式单体”。
 
-后端统一使用 `io.github.ningningsenpai.linkverse` groupId，artifactId、Nacos 服务名与上表部署单元一致。默认服务端口为 Gateway `18080`、Identity `18081`、Trade `18082`、Payment `18083`；若本机冲突，只能在阶段 0 的端口表中统一调整。
+后端统一使用 `ning.linkverse` groupId，artifactId、Nacos 服务名与上表部署单元一致。默认服务端口为 Gateway `18080`、Identity `18081`、Trade `18082`、Payment `18083`；若本机冲突，只能在阶段 0 的端口表中统一调整。
 
 ### 2.3 中间件基线
 

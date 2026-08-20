@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>io.github.ningningsenpai.linkverse</groupId>
+        <groupId>ning.linkverse</groupId>
         <artifactId>linkverse-backend</artifactId>
         <version>0.1.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
@@ -16,17 +16,17 @@
 
     <dependencies>
         <dependency>
-            <groupId>io.github.ningningsenpai.linkverse</groupId>
+            <groupId>ning.linkverse</groupId>
             <artifactId>platform-core</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>io.github.ningningsenpai.linkverse</groupId>
+            <groupId>ning.linkverse</groupId>
             <artifactId>platform-starter-security</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>io.github.ningningsenpai.linkverse</groupId>
+            <groupId>ning.linkverse</groupId>
             <artifactId>platform-starter-observability</artifactId>
             <version>${project.version}</version>
         </dependency>

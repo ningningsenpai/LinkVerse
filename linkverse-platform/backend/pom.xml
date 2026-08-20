@@ -11,7 +11,7 @@
         <relativePath/>
     </parent>
 
-    <groupId>io.github.ningningsenpai.linkverse</groupId>
+    <groupId>ning.linkverse</groupId>
     <artifactId>linkverse-backend</artifactId>
     <version>0.1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
@@ -118,7 +118,7 @@
                                     <failWhenParentIsSnapshot>false</failWhenParentIsSnapshot>
                                     <searchTransitive>true</searchTransitive>
                                     <excludes>
-                                        <exclude>io.github.ningningsenpai.linkverse:*</exclude>
+                                        <exclude>ning.linkverse:*</exclude>
                                     </excludes>
                                 </requireReleaseDeps>
                                 <banDynamicVersions>

@@ -5,7 +5,7 @@ spring:
   application:
     name: linkverse-trade
   datasource:
-    url: ${TRADE_DB_URL:jdbc:mysql://localhost:13306/linkverse_mvp_trade?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC}
+    url: ${TRADE_DB_URL:jdbc:mysql://localhost:13307/linkverse_mvp_trade?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC}
     username: ${TRADE_DB_USERNAME:}
     password: ${TRADE_DB_PASSWORD:}
     hikari:
@@ -20,14 +20,14 @@ spring:
   data:
     redis:
       host: ${REDIS_HOST:localhost}
-      port: ${REDIS_PORT:16379}
+      port: ${REDIS_PORT:16380}
       password: ${REDIS_PASSWORD:}
       connect-timeout: 2s
       timeout: 3s
       client-name: linkverse-trade
   rabbitmq:
     host: ${RABBITMQ_HOST:localhost}
-    port: ${RABBITMQ_PORT:15673}
+    port: ${RABBITMQ_PORT:15674}
     username: ${RABBITMQ_USERNAME:}
     password: ${RABBITMQ_PASSWORD:}
     virtual-host: ${RABBITMQ_VHOST:linkverse-mvp}
@@ -50,7 +50,7 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: ${NACOS_SERVER_ADDR:localhost:18848}
+        server-addr: ${NACOS_SERVER_ADDR:localhost:18849}
         namespace: ${NACOS_NAMESPACE:linkverse-mvp}
         group: ${NACOS_GROUP:LINKVERSE_MVP}
         username: ${NACOS_RUNTIME_USERNAME:}

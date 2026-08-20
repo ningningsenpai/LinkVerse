@@ -51,6 +51,7 @@ fi
 rabbitmqctl set_user_tags "$RABBITMQ_DEFAULT_USER" management
 rabbitmqctl set_permissions --vhost "$RABBITMQ_DEFAULT_VHOST" "$RABBITMQ_DEFAULT_USER" '.*' '.*' '.*'
 '@
+$rabbitBootstrapCommand = $rabbitBootstrapCommand.Replace("`r`n", "`n")
 Invoke-LinkVerseCompose -Context $context -EnvironmentFile $context.EnvironmentFile `
     -ComposeArguments @('exec', '--no-TTY', 'rabbitmq', 'sh', '-ec', $rabbitBootstrapCommand)
 

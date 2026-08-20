@@ -7,19 +7,19 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: ${NACOS_SERVER_ADDR:127.0.0.1:18848}
+        server-addr: ${NACOS_SERVER_ADDR:127.0.0.1:18849}
         namespace: ${NACOS_NAMESPACE:linkverse-mvp}
         group: ${NACOS_GROUP:LINKVERSE_MVP}
         username: ${NACOS_RUNTIME_USERNAME:}
         password: ${NACOS_RUNTIME_PASSWORD:}
   datasource:
-    url: ${LINKVERSE_IDENTITY_DB_URL:jdbc:mysql://127.0.0.1:13306/linkverse_mvp_identity?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC}
+    url: ${LINKVERSE_IDENTITY_DB_URL:jdbc:mysql://127.0.0.1:13307/linkverse_mvp_identity?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC}
     username: ${LINKVERSE_IDENTITY_DB_USERNAME:linkverse_mvp_identity_app}
     password: ${LINKVERSE_IDENTITY_DB_PASSWORD:}
   flyway:
     enabled: true
     locations: classpath:db/migration
-    url: ${LINKVERSE_IDENTITY_FLYWAY_URL:jdbc:mysql://127.0.0.1:13306/linkverse_mvp_identity?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC}
+    url: ${LINKVERSE_IDENTITY_FLYWAY_URL:jdbc:mysql://127.0.0.1:13307/linkverse_mvp_identity?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC}
     user: ${LINKVERSE_IDENTITY_FLYWAY_USERNAME:linkverse_mvp_identity_migrator}
     password: ${LINKVERSE_IDENTITY_FLYWAY_PASSWORD:}
 

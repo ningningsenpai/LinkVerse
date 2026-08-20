@@ -7,7 +7,7 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: ${NACOS_SERVER_ADDR:localhost:18848}
+        server-addr: ${NACOS_SERVER_ADDR:localhost:18849}
         namespace: ${NACOS_NAMESPACE:linkverse-mvp}
         group: ${NACOS_GROUP:LINKVERSE_MVP}
         username: ${NACOS_RUNTIME_USERNAME:}

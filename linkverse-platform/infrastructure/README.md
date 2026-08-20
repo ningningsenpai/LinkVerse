@@ -27,7 +27,7 @@
 
 每个 Schema 有两个账号：`*_app` 只拥有运行期读写权限，`*_migrator` 额外拥有 Flyway 所需的 DDL 权限。账号不能访问其他业务 Schema；服务不得跨 Schema Join。
 
-所有宿主端口只绑定到 `127.0.0.1`：MySQL `13306`、Redis `16379`、RabbitMQ AMQP `15673`、RabbitMQ 管理端 `15674`、Nacos 控制台 `18090`、Nacos 服务端 `18848`、Nacos gRPC `19848`。
+所有宿主端口只绑定到 `127.0.0.1`：MySQL `13307`、Redis `16380`、RabbitMQ AMQP `15674`、RabbitMQ 管理端 `15675`、Nacos 控制台 `18091`、Nacos 服务端 `18849`、Nacos gRPC `19849`。
 
 ## 启动
 
