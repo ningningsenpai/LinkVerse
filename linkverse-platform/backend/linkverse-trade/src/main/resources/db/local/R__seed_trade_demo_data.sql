@@ -8,3 +8,19 @@ ON DUPLICATE KEY UPDATE id = book_listing.id;
 INSERT INTO sku_stock (listing_id, available, version)
 VALUES (10001, 10, 0), (10002, 100, 0)
 ON DUPLICATE KEY UPDATE listing_id = sku_stock.listing_id;
+
+INSERT INTO seckill_campaign (
+    id, campaign_no, listing_id, version, status, initial_stock, starts_at, ends_at
+) VALUES (
+    20001, '00000000000000000000000000020001', 10002, 1, 'ENABLED', 100,
+    '2026-01-01 00:00:00.000000', '2036-01-01 00:00:00.000000'
+)
+ON DUPLICATE KEY UPDATE id = seckill_campaign.id;
+
+INSERT INTO seckill_campaign (
+    id, campaign_no, listing_id, version, status, initial_stock, starts_at, ends_at
+) VALUES (
+    20001, '00000000000000000000000000020001', 10002, 1, 'ENABLED', 100,
+    '2026-01-01 00:00:00.000000', '2036-01-01 00:00:00.000000'
+)
+ON DUPLICATE KEY UPDATE id = seckill_campaign.id;

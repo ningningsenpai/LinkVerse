@@ -32,7 +32,11 @@ public interface TradeRepository {
 
     boolean decrementStock(long listingId, Instant now);
 
+    boolean isSeckillProtected(long listingId, Instant now);
+
     void insertOrderItem(long orderId, NewOrder order);
+
+    boolean attachReservation(String orderNo, long reservationId, Instant now);
 
     boolean attachPaymentIntent(String orderNo, long buyerId, String intentNo, Instant now);
 

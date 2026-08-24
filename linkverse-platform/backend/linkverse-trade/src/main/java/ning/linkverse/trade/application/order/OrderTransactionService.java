@@ -56,6 +56,9 @@ public class OrderTransactionService {
         }
 
         Instant now = clock.instant();
+        if (tradeRepository.isSeckillProtected(listingId, now)) {
+            throw new PlatformException(TradeErrorCode.SECKILL_LISTING_PROTECTED);
+        }
         OrderItemSnapshot item = new OrderItemSnapshot(
                 listing.id(),
                 listing.sellerId(),

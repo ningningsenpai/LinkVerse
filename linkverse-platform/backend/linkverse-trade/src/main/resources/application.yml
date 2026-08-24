@@ -33,6 +33,10 @@ spring:
     virtual-host: ${RABBITMQ_VHOST:linkverse-mvp}
     connection-timeout: 3s
     requested-heartbeat: 15s
+    publisher-confirm-type: correlated
+    publisher-returns: true
+    template:
+      mandatory: true
   security:
     oauth2:
       client:
@@ -63,6 +67,10 @@ linkverse:
   trade:
     order-payment-timeout: ${TRADE_ORDER_PAYMENT_TIMEOUT:15m}
     payment-base-url: ${PAYMENT_BASE_URL:http://linkverse-payment}
+    seckill:
+      redis-prefix: ${TRADE_SECKILL_REDIS_PREFIX:lv:mvp:trade:}
+      relay-delay: ${TRADE_SECKILL_RELAY_DELAY:500ms}
+      recovery-delay: ${TRADE_SECKILL_RECOVERY_DELAY:2s}
 
 management:
   endpoints:

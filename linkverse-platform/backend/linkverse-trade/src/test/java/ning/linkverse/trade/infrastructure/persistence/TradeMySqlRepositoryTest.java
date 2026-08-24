@@ -3,6 +3,8 @@ package ning.linkverse.trade.infrastructure.persistence;
 import ning.linkverse.trade.application.order.OrderApplicationService;
 import ning.linkverse.trade.application.order.OrderCreationResult;
 import ning.linkverse.trade.application.order.OrderTransactionService;
+import ning.linkverse.trade.application.seckill.SeckillOrderTransactionService;
+import ning.linkverse.trade.domain.seckill.SeckillRequest;
 import ning.linkverse.trade.domain.order.NewOrder;
 import ning.linkverse.trade.domain.order.OrderItemSnapshot;
 import ning.linkverse.trade.domain.order.TradeOrder;
@@ -31,6 +33,7 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -82,9 +85,12 @@ class TradeMySqlRepositoryTest {
 
     @BeforeEach
     void setUp() {
+        jdbcTemplate.update("DELETE FROM trade_outbox_event");
         jdbcTemplate.update("DELETE FROM consumed_event");
         jdbcTemplate.update("DELETE FROM order_item");
         jdbcTemplate.update("DELETE FROM trade_order");
+        jdbcTemplate.update("DELETE FROM seckill_reservation");
+        jdbcTemplate.update("DELETE FROM seckill_campaign");
         jdbcTemplate.update("DELETE FROM sku_stock");
         jdbcTemplate.update("DELETE FROM book_listing");
         insertListing(1, new BigDecimal("39.9000"), "初始标题", 3L);
@@ -244,6 +250,94 @@ class TradeMySqlRepositoryTest {
                 .containsExactly(order.orderNo());
     }
 
+    @Test
+    void shouldCreateAtMostOneHundredOrdersForOneThousandSeckillRequests() throws Exception {
+        jdbcTemplate.update("UPDATE sku_stock SET available = 100 WHERE listing_id = ?", LISTING_ID);
+        jdbcTemplate.update("""
+                        INSERT INTO seckill_campaign (
+                            id, campaign_no, listing_id, version, status, initial_stock, starts_at, ends_at
+                        ) VALUES (20001, ?, ?, 1, 'ENABLED', 100, ?, ?)
+                        """, "9".repeat(32), LISTING_ID, NOW.minusSeconds(60), NOW.plusSeconds(3600));
+        JdbcSeckillRepository seckillRepository = new JdbcSeckillRepository(jdbcTemplate);
+        SeckillOrderTransactionService service = new SeckillOrderTransactionService(
+                seckillRepository,
+                repository,
+                new ObjectMapper().findAndRegisterModules(),
+                Clock.fixed(NOW, ZoneOffset.UTC),
+                Duration.ofMinutes(15)
+        );
+        List<String> eventIds = new ArrayList<>();
+        for (int index = 0; index < 1000; index++) {
+            String reservationNo = String.format("%032x", index + 1);
+            String eventId = String.format("%032x", index + 2001);
+            eventIds.add(eventId);
+            seckillRepository.insertPending(new SeckillRequest(
+                    reservationNo,
+                    eventId,
+                    20001,
+                    1,
+                    100000L + index,
+                    "seckill-key-" + index,
+                    String.format("%064d", index),
+                    NOW
+            ), "{}");
+        }
+
+        ExecutorService executor = Executors.newFixedThreadPool(20);
+        try {
+            List<Future<?>> futures = new ArrayList<>();
+            for (String eventId : eventIds) {
+                futures.add(executor.submit(() -> {
+                    try {
+                        transactionTemplate.executeWithoutResult(status -> service.consume(eventId));
+                    } catch (SeckillOrderTransactionService.SeckillStockConflictException conflict) {
+                        transactionTemplate.executeWithoutResult(status -> service.recordStockFailure(conflict));
+                    }
+                }));
+            }
+            for (Future<?> future : futures) {
+                future.get();
+            }
+        } finally {
+            executor.shutdownNow();
+        }
+
+        assertThat(jdbcTemplate.queryForObject("SELECT COUNT(*) FROM trade_order", Integer.class)).isEqualTo(100);
+        assertThat(jdbcTemplate.queryForObject(
+                "SELECT COUNT(*) FROM seckill_reservation WHERE status = 'ORDER_CREATED'", Integer.class))
+                .isEqualTo(100);
+        assertThat(jdbcTemplate.queryForObject(
+                "SELECT COUNT(*) FROM seckill_reservation WHERE status = 'FAILED'", Integer.class))
+                .isEqualTo(900);
+        assertThat(stock()).isZero();
+    }
+
+    @Test
+    void shouldCreateOnlyOneOrderWhenSeckillEventIsDeliveredTenTimes() {
+        jdbcTemplate.update("UPDATE sku_stock SET available = 2 WHERE listing_id = ?", LISTING_ID);
+        insertSeckillCampaign();
+        JdbcSeckillRepository seckillRepository = new JdbcSeckillRepository(jdbcTemplate);
+        SeckillRequest request = new SeckillRequest(
+                "7".repeat(32), "8".repeat(32), 20001, 1, BUYER_ID,
+                "seckill-redelivery-key", "7".repeat(64), NOW);
+        seckillRepository.insertPending(request, "{}");
+        SeckillOrderTransactionService service = new SeckillOrderTransactionService(
+                seckillRepository,
+                repository,
+                new ObjectMapper().findAndRegisterModules(),
+                Clock.fixed(NOW, ZoneOffset.UTC),
+                Duration.ofMinutes(15)
+        );
+
+        for (int delivery = 0; delivery < 10; delivery++) {
+            transactionTemplate.executeWithoutResult(status -> service.consume(request.eventId()));
+        }
+
+        assertThat(jdbcTemplate.queryForObject("SELECT COUNT(*) FROM trade_order", Integer.class)).isEqualTo(1);
+        assertThat(jdbcTemplate.queryForObject("SELECT COUNT(*) FROM order_item", Integer.class)).isEqualTo(1);
+        assertThat(stock()).isEqualTo(1);
+    }
+
     private boolean purchaseAfterSignal(
             NewOrder order,
             CountDownLatch ready,
@@ -293,6 +387,14 @@ class TradeMySqlRepositoryTest {
                 stock,
                 NOW
         );
+    }
+
+    private void insertSeckillCampaign() {
+        jdbcTemplate.update("""
+                        INSERT INTO seckill_campaign (
+                            id, campaign_no, listing_id, version, status, initial_stock, starts_at, ends_at
+                        ) VALUES (20001, ?, ?, 1, 'ENABLED', 100, ?, ?)
+                        """, "9".repeat(32), LISTING_ID, NOW.minusSeconds(60), NOW.plusSeconds(3600));
     }
 
     private NewOrder newOrder(String orderNo, String idempotencyKey, String fingerprint) {

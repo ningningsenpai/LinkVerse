@@ -129,6 +129,16 @@ public class JdbcTradeRepository implements TradeRepository {
     }
 
     @Override
+    public boolean isSeckillProtected(long listingId, Instant now) {
+        Integer count = jdbcTemplate.queryForObject("""
+                        SELECT COUNT(*) FROM seckill_campaign
+                        WHERE listing_id = ? AND status = 'ENABLED'
+                          AND starts_at <= ? AND ends_at > ?
+                        """, Integer.class, listingId, Timestamp.from(now), Timestamp.from(now));
+        return count != null && count > 0;
+    }
+
+    @Override
     public void insertOrderItem(long orderId, NewOrder order) {
         OrderItemSnapshot item = order.item();
         jdbcTemplate.update("""
@@ -150,6 +160,15 @@ public class JdbcTradeRepository implements TradeRepository {
                 item.currency(),
                 Timestamp.from(order.now())
         );
+    }
+
+    @Override
+    public boolean attachReservation(String orderNo, long reservationId, Instant now) {
+        return jdbcTemplate.update("""
+                        UPDATE trade_order
+                        SET reservation_id = ?, version = version + 1, updated_at = ?
+                        WHERE order_no = ? AND reservation_id IS NULL
+                        """, reservationId, Timestamp.from(now), orderNo) == 1;
     }
 
     @Override
