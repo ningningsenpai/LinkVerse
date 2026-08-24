@@ -60,6 +60,8 @@ linkverse:
   security:
     issuer-uri: ${LINKVERSE_ISSUER_URI:http://localhost:18080}
     jwk-set-uri: ${LINKVERSE_JWK_SET_URI:http://localhost:18081/oauth2/jwks}
+  trade:
+    order-payment-timeout: ${TRADE_ORDER_PAYMENT_TIMEOUT:15m}
 
 management:
   endpoints:
@@ -79,3 +81,11 @@ logging:
   structured:
     format:
       console: logstash
+
+---
+spring:
+  config:
+    activate:
+      on-profile: local
+  flyway:
+    locations: classpath:db/migration,classpath:db/local
