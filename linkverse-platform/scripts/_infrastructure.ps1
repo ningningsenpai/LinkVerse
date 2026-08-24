@@ -94,6 +94,7 @@ function Test-LinkVerseInfrastructureSecrets {
         'PAYMENT_MIGRATOR_PASSWORD',
         'REDIS_PASSWORD',
         'RABBITMQ_PASSWORD',
+        'PAYMENT_MOCK_HMAC_SECRET',
         'NACOS_ADMIN_PASSWORD',
         'NACOS_RUNTIME_USERNAME',
         'NACOS_RUNTIME_PASSWORD',

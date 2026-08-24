@@ -72,7 +72,7 @@ management:
         enabled: true
   health:
     nacos-discovery:
-      enabled: true
+      enabled: false
 
 logging:
   structured:

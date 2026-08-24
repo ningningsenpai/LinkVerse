@@ -185,6 +185,7 @@ function Initialize-LinkVerseEnvironmentFile {
         PAYMENT_MIGRATOR_PASSWORD            = $paymentMigratorPassword
         REDIS_PASSWORD                       = New-LinkVerseSafeSecret
         RABBITMQ_PASSWORD                    = New-LinkVerseSafeSecret
+        PAYMENT_MOCK_HMAC_SECRET             = New-LinkVerseSafeSecret
         NACOS_ADMIN_PASSWORD                 = New-LinkVerseSafeSecret
         NACOS_RUNTIME_PASSWORD               = New-LinkVerseSafeSecret
         NACOS_AUTH_TOKEN                     = New-LinkVerseNacosToken

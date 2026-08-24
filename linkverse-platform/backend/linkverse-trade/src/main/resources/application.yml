@@ -62,6 +62,7 @@ linkverse:
     jwk-set-uri: ${LINKVERSE_JWK_SET_URI:http://localhost:18081/oauth2/jwks}
   trade:
     order-payment-timeout: ${TRADE_ORDER_PAYMENT_TIMEOUT:15m}
+    payment-base-url: ${PAYMENT_BASE_URL:http://linkverse-payment}
 
 management:
   endpoints:
@@ -75,7 +76,7 @@ management:
         enabled: true
   health:
     nacos-discovery:
-      enabled: true
+      enabled: false
 
 logging:
   structured:

@@ -116,10 +116,10 @@ class PaymentSecurityTest {
     }
 
     @Test
-    void shouldKeepExactMockCallbackClosedForAuthenticatedUser() throws Exception {
+    void shouldLeaveExactMockCallbackToHmacController() throws Exception {
         mockMvc.perform(post("/api/v1/payments/callbacks/mock").with(jwt()))
-                .andExpect(status().isForbidden())
-                .andExpect(jsonPath("$.code").value("SECURITY_FORBIDDEN"));
+                .andExpect(status().isOk())
+                .andExpect(content().string("回调端点已交由 HMAC 验签控制器处理"));
     }
 
     private Jwt userJwt() {
@@ -181,7 +181,7 @@ class PaymentSecurityTest {
 
         @PostMapping("/api/v1/payments/callbacks/mock")
         public String callbackEndpoint() {
-            return "阶段 2 不得进入回调处理";
+            return "回调端点已交由 HMAC 验签控制器处理";
         }
     }
 }

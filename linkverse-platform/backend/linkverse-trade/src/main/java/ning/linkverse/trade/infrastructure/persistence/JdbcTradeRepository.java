@@ -5,6 +5,7 @@ import ning.linkverse.trade.domain.listing.BookListing;
 import ning.linkverse.trade.domain.order.DueOrderCandidate;
 import ning.linkverse.trade.domain.order.NewOrder;
 import ning.linkverse.trade.domain.order.OrderItemSnapshot;
+import ning.linkverse.trade.domain.order.PayableOrder;
 import ning.linkverse.trade.domain.order.TradeOrder;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
@@ -80,6 +81,16 @@ public class JdbcTradeRepository implements TradeRepository {
     }
 
     @Override
+    public Optional<PayableOrder> findPayableByOrder(String orderNo) {
+        return findPayable("WHERE order_no = ?", orderNo);
+    }
+
+    @Override
+    public Optional<PayableOrder> findPayableByOrderAndBuyer(String orderNo, long buyerId) {
+        return findPayable("WHERE order_no = ? AND buyer_id = ?", orderNo, buyerId);
+    }
+
+    @Override
     public long insertOrder(NewOrder order) {
         KeyHolder keyHolder = new GeneratedKeyHolder();
         jdbcTemplate.update(connection -> {
@@ -142,6 +153,98 @@ public class JdbcTradeRepository implements TradeRepository {
     }
 
     @Override
+    public boolean attachPaymentIntent(String orderNo, long buyerId, String intentNo, Instant now) {
+        return jdbcTemplate.update("""
+                        UPDATE trade_order
+                        SET payment_intent_no = ?, version = version + 1, updated_at = ?
+                        WHERE order_no = ? AND buyer_id = ? AND status = 'PENDING_PAYMENT'
+                          AND (payment_intent_no IS NULL OR payment_intent_no = ?)
+                        """, intentNo, Timestamp.from(now), orderNo, buyerId, intentNo) == 1;
+    }
+
+    @Override
+    public boolean claimClosing(String orderNo, Instant now) {
+        return jdbcTemplate.update("""
+                        UPDATE trade_order
+                        SET status = 'CLOSING', version = version + 1, updated_at = ?
+                        WHERE order_no = ? AND status = 'PENDING_PAYMENT' AND expire_at <= ?
+                        """, Timestamp.from(now), orderNo, Timestamp.from(now)) == 1;
+    }
+
+    @Override
+    public boolean releaseClosing(String orderNo, Instant now) {
+        return jdbcTemplate.update("""
+                        UPDATE trade_order
+                        SET status = 'PENDING_PAYMENT', version = version + 1, updated_at = ?
+                        WHERE order_no = ? AND status = 'CLOSING'
+                        """, Timestamp.from(now), orderNo) == 1;
+    }
+
+    @Override
+    public boolean markPaid(String orderNo, String intentNo, Instant paidAt) {
+        return jdbcTemplate.update("""
+                        UPDATE trade_order
+                        SET status = 'PAID', payment_intent_no = ?, paid_at = ?,
+                            version = version + 1, updated_at = ?
+                        WHERE order_no = ? AND status IN ('PENDING_PAYMENT', 'CLOSING')
+                          AND (payment_intent_no IS NULL OR payment_intent_no = ?)
+                        """,
+                intentNo,
+                Timestamp.from(paidAt),
+                Timestamp.from(paidAt),
+                orderNo,
+                intentNo
+        ) == 1;
+    }
+
+    @Override
+    public boolean closeAndRestoreStock(String orderNo, Instant closedAt) {
+        Long listingId = jdbcTemplate.query("""
+                        SELECT i.listing_id
+                        FROM trade_order o
+                        JOIN order_item i ON i.order_id = o.id AND i.line_no = 1
+                        WHERE o.order_no = ? AND o.status = 'CLOSING'
+                        FOR UPDATE
+                        """, (resultSet, rowNumber) -> resultSet.getLong("listing_id"), orderNo)
+                .stream().findFirst().orElse(null);
+        if (listingId == null) {
+            return false;
+        }
+        int updated = jdbcTemplate.update("""
+                        UPDATE trade_order
+                        SET status = 'CLOSED', closed_at = ?, version = version + 1, updated_at = ?
+                        WHERE order_no = ? AND status = 'CLOSING'
+                        """, Timestamp.from(closedAt), Timestamp.from(closedAt), orderNo);
+        if (updated != 1) {
+            return false;
+        }
+        jdbcTemplate.update("""
+                        UPDATE sku_stock
+                        SET available = available + 1, version = version + 1, updated_at = ?
+                        WHERE listing_id = ?
+                        """, Timestamp.from(closedAt), listingId);
+        return true;
+    }
+
+    @Override
+    public boolean recordConsumedEvent(
+            String consumerName,
+            String eventId,
+            String eventType,
+            Instant consumedAt
+    ) {
+        try {
+            return jdbcTemplate.update("""
+                            INSERT INTO consumed_event (
+                                consumer_name, event_id, event_type, consumed_at
+                            ) VALUES (?, ?, ?, ?)
+                            """, consumerName, eventId, eventType, Timestamp.from(consumedAt)) == 1;
+        } catch (org.springframework.dao.DuplicateKeyException exception) {
+            return false;
+        }
+    }
+
+    @Override
     public List<DueOrderCandidate> findDuePending(
             Instant cutoff,
             Instant afterExpireAt,
@@ -151,9 +254,13 @@ public class JdbcTradeRepository implements TradeRepository {
         StringBuilder sql = new StringBuilder("""
                 SELECT id, order_no, expire_at
                 FROM trade_order
-                WHERE status = 'PENDING_PAYMENT' AND expire_at <= ?
+                WHERE (
+                    (status = 'PENDING_PAYMENT' AND expire_at <= ?)
+                    OR (status = 'CLOSING' AND updated_at <= DATE_SUB(?, INTERVAL 30 SECOND))
+                )
                 """);
         List<Object> parameters = new ArrayList<>();
+        parameters.add(Timestamp.from(cutoff));
         parameters.add(Timestamp.from(cutoff));
         if (afterExpireAt != null && afterId != null) {
             sql.append(" AND (expire_at > ? OR (expire_at = ? AND id > ?))");
@@ -195,5 +302,22 @@ public class JdbcTradeRepository implements TradeRepository {
                         rs.getString("item_currency")
                 )
         ), parameters).stream().findFirst();
+    }
+
+    private Optional<PayableOrder> findPayable(String predicate, Object... parameters) {
+        return jdbcTemplate.query("""
+                        SELECT order_no, buyer_id, seller_id, total_amount, currency,
+                               status, expire_at, payment_intent_no
+                        FROM trade_order
+                        """ + predicate, (resultSet, rowNumber) -> new PayableOrder(
+                        resultSet.getString("order_no"),
+                        resultSet.getLong("buyer_id"),
+                        resultSet.getLong("seller_id"),
+                        resultSet.getBigDecimal("total_amount"),
+                        resultSet.getString("currency"),
+                        resultSet.getString("status"),
+                        resultSet.getTimestamp("expire_at").toInstant(),
+                        resultSet.getString("payment_intent_no")
+                ), parameters).stream().findFirst();
     }
 }

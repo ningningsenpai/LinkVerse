@@ -16,7 +16,9 @@ import org.springframework.security.oauth2.client.OAuth2AuthorizedClientService;
 import org.springframework.security.oauth2.client.endpoint.OAuth2AccessTokenResponseClient;
 import org.springframework.security.oauth2.client.endpoint.OAuth2ClientCredentialsGrantRequest;
 import org.springframework.security.oauth2.client.endpoint.RestClientClientCredentialsTokenResponseClient;
+import org.springframework.security.oauth2.client.http.OAuth2ErrorResponseErrorHandler;
 import org.springframework.security.oauth2.client.registration.ClientRegistrationRepository;
+import org.springframework.security.oauth2.core.http.converter.OAuth2AccessTokenResponseHttpMessageConverter;
 import org.springframework.web.client.RestClient;
 
 /**
@@ -44,7 +46,13 @@ public class TradeOAuth2ClientConfiguration {
             @LoadBalanced RestClient.Builder serviceRestClientBuilder) {
         RestClientClientCredentialsTokenResponseClient responseClient =
                 new RestClientClientCredentialsTokenResponseClient();
-        responseClient.setRestClient(serviceRestClientBuilder.build());
+        responseClient.setRestClient(serviceRestClientBuilder
+                .messageConverters(converters -> converters.add(
+                        0,
+                        new OAuth2AccessTokenResponseHttpMessageConverter()
+                ))
+                .defaultStatusHandler(new OAuth2ErrorResponseErrorHandler())
+                .build());
         return responseClient;
     }
 

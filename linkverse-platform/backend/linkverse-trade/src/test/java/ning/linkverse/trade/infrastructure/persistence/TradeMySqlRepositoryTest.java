@@ -82,6 +82,7 @@ class TradeMySqlRepositoryTest {
 
     @BeforeEach
     void setUp() {
+        jdbcTemplate.update("DELETE FROM consumed_event");
         jdbcTemplate.update("DELETE FROM order_item");
         jdbcTemplate.update("DELETE FROM trade_order");
         jdbcTemplate.update("DELETE FROM sku_stock");
@@ -215,7 +216,7 @@ class TradeMySqlRepositoryTest {
     }
 
     @Test
-    void shouldScanOnlyDuePendingOrdersInStableOrder() {
+    void shouldScanDuePendingOrdersInStableOrder() {
         NewOrder first = newOrder("d".repeat(32), "due-key-00000001", "fingerprint-due-1");
         NewOrder second = newOrder("e".repeat(32), "due-key-00000002", "fingerprint-due-2");
         transactionTemplate.executeWithoutResult(status -> {
@@ -226,6 +227,21 @@ class TradeMySqlRepositoryTest {
         assertThat(repository.findDuePending(NOW.plusSeconds(901), null, null, 10))
                 .extracting(candidate -> candidate.orderNo())
                 .containsExactly(first.orderNo(), second.orderNo());
+    }
+
+    @Test
+    void shouldRecoverClosingOrderAfterLeaseTimeout() {
+        NewOrder order = newOrder("f".repeat(32), "closing-key-0001", "fingerprint-closing");
+        transactionTemplate.executeWithoutResult(status -> insertCompleteOrder(order));
+        jdbcTemplate.update(
+                "UPDATE trade_order SET status = 'CLOSING', updated_at = ? WHERE order_no = ?",
+                NOW.minusSeconds(31),
+                order.orderNo()
+        );
+
+        assertThat(repository.findDuePending(NOW, null, null, 10))
+                .extracting(candidate -> candidate.orderNo())
+                .containsExactly(order.orderNo());
     }
 
     private boolean purchaseAfterSignal(

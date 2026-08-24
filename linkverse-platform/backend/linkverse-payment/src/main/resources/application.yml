@@ -17,6 +17,17 @@ spring:
     password: ${PAYMENT_FLYWAY_PASSWORD:}
     locations: classpath:db/migration
     validate-migration-naming: true
+  rabbitmq:
+    host: ${RABBITMQ_HOST:localhost}
+    port: ${RABBITMQ_PORT:15674}
+    username: ${RABBITMQ_USERNAME:}
+    password: ${RABBITMQ_PASSWORD:}
+    virtual-host: ${RABBITMQ_VHOST:linkverse-mvp}
+    connection-timeout: 3s
+    publisher-confirm-type: correlated
+    publisher-returns: true
+    template:
+      mandatory: true
   cloud:
     nacos:
       discovery:
@@ -30,6 +41,12 @@ linkverse:
   security:
     issuer-uri: ${LINKVERSE_ISSUER_URI:http://localhost:18080}
     jwk-set-uri: ${LINKVERSE_JWK_SET_URI:http://localhost:18081/oauth2/jwks}
+  payment:
+    mock-provider:
+      secret: ${PAYMENT_MOCK_HMAC_SECRET:}
+      callback-tolerance: ${PAYMENT_MOCK_CALLBACK_TOLERANCE:5m}
+    outbox:
+      enabled: ${PAYMENT_OUTBOX_ENABLED:true}
 
 management:
   endpoints:
@@ -43,7 +60,7 @@ management:
         enabled: true
   health:
     nacos-discovery:
-      enabled: true
+      enabled: false
 
 logging:
   structured:

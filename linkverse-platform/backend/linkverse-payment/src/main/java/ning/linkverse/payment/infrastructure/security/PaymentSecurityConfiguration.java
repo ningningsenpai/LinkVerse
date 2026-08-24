@@ -67,13 +67,13 @@ public class PaymentSecurityConfiguration {
     @Order(1)
     SecurityFilterChain unsignedProviderCallbackChain(HttpSecurity http, ObjectMapper objectMapper)
             throws Exception {
-        // Provider 验签器落地前保持精确路径关闭，避免空回调入口被误开放。
+        // 回调入口不依赖用户 JWT，业务控制器仍需先完成 HMAC 验签再访问数据库。
         return http
                 .securityMatcher(request -> "POST".equals(request.getMethod())
                         && "/api/v1/payments/callbacks/mock".equals(request.getRequestURI()))
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .authorizeHttpRequests(authorize -> authorize.anyRequest().denyAll())
+                .authorizeHttpRequests(authorize -> authorize.anyRequest().permitAll())
                 .exceptionHandling(exceptions -> exceptions
                         .authenticationEntryPoint(new LinkVerseAuthenticationEntryPoint(objectMapper))
                         .accessDeniedHandler(new LinkVerseAccessDeniedHandler(objectMapper)))

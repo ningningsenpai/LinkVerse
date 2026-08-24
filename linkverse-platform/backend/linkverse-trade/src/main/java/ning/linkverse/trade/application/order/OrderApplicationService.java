@@ -6,6 +6,7 @@ import ning.linkverse.trade.domain.TradeRepository;
 import ning.linkverse.trade.domain.order.DueOrderCandidate;
 import ning.linkverse.trade.domain.order.TradeOrder;
 import org.springframework.dao.DuplicateKeyException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.nio.charset.StandardCharsets;
@@ -34,6 +35,7 @@ public class OrderApplicationService {
     private final OrderTransactionService transactionService;
     private final Supplier<String> orderNumberSupplier;
 
+    @Autowired
     public OrderApplicationService(
             TradeRepository tradeRepository,
             OrderTransactionService transactionService
