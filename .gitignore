@@ -38,6 +38,9 @@ logs/
 .cache/
 tmp/
 temp/
+.runtime/
+**/test-results/raw/
+**/test-results/generated/
 
 # 本地配置与敏感信息
 .env

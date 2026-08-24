@@ -10,6 +10,7 @@ import io.micrometer.core.instrument.simple.SimpleMeterRegistry;
 import java.time.Clock;
 import java.time.Instant;
 import java.time.ZoneOffset;
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -69,6 +70,26 @@ class OutboxRelayTest {
     }
 
     @Test
+    void shouldParkPoisonMessageAndContinueWithNextMessage() {
+        BatchRecordingStore store = new BatchRecordingStore(List.of(
+                message(1L, "event-poison", 4),
+                message(2L, "event-2", 0)
+        ));
+        PoisonThenSuccessRabbitTemplate rabbitTemplate = new PoisonThenSuccessRabbitTemplate();
+
+        int count = new OutboxRelay(store, rabbitTemplate, fixedClock()).relayOnce(10);
+
+        assertEquals(2, count);
+        assertEquals(List.of(2L), store.publishedIds);
+        assertEquals(1, store.failures.size());
+        assertEquals(1L, store.failures.get(0).id());
+        assertEquals(5, store.failures.get(0).attempts());
+        assertTrue(store.failures.get(0).parked());
+        assertEquals(List.of("event-2"), rabbitTemplate.publishedEventIds);
+        assertEquals(List.of("event-poison"), rabbitTemplate.parkedEventIds);
+    }
+
+    @Test
     void shouldExposeBoundedOutboxMetrics() {
         RecordingStore store = new RecordingStore(message(0));
         store.stats = new OutboxStats(2, 1, 30);
@@ -101,12 +122,16 @@ class OutboxRelayTest {
     }
 
     private OutboxMessage message(int attemptCount) {
+        return message(1L, "event-1", attemptCount);
+    }
+
+    private OutboxMessage message(long id, String eventId, int attemptCount) {
         return new OutboxMessage(
-                1L,
-                "event-1",
+                id,
+                eventId,
                 "linkverse.events",
                 "payment.fact",
-                "{\"event_id\":\"event-1\"}",
+                "{\"event_id\":\"" + eventId + "\"}",
                 attemptCount,
                 NOW
         );
@@ -204,6 +229,70 @@ class OutboxRelayTest {
         @Override
         public OutboxStats stats(Instant now) {
             return stats;
+        }
+    }
+
+    private static final class BatchRecordingStore implements OutboxStore {
+
+        private final List<OutboxMessage> messages;
+        private final List<Long> publishedIds = new ArrayList<>();
+        private final List<Failure> failures = new ArrayList<>();
+
+        private BatchRecordingStore(List<OutboxMessage> messages) {
+            this.messages = messages;
+        }
+
+        @Override
+        public List<OutboxMessage> claim(Instant now, Instant leaseUntil, int limit) {
+            return messages;
+        }
+
+        @Override
+        public void markPublished(long id, Instant publishedAt) {
+            publishedIds.add(id);
+        }
+
+        @Override
+        public void markFailed(
+                long id,
+                int attempts,
+                Instant nextAttemptAt,
+                String errorDigest,
+                boolean parked
+        ) {
+            failures.add(new Failure(id, attempts, parked));
+        }
+
+        private record Failure(long id, int attempts, boolean parked) {
+        }
+    }
+
+    private static final class PoisonThenSuccessRabbitTemplate extends RabbitTemplate {
+
+        private final List<String> publishedEventIds = new ArrayList<>();
+        private final List<String> parkedEventIds = new ArrayList<>();
+
+        @Override
+        public void send(
+                String exchange,
+                String routingKey,
+                Message message,
+                CorrelationData correlationData
+        ) {
+            String eventId = message.getMessageProperties().getMessageId();
+            boolean poison = "event-poison".equals(eventId);
+            if (!poison) {
+                publishedEventIds.add(eventId);
+            }
+            correlationData.getFuture().complete(new CorrelationData.Confirm(
+                    !poison,
+                    poison ? "模拟 Broker 拒绝" : null
+            ));
+        }
+
+        @Override
+        public void send(String exchange, String routingKey, Message message) {
+            parkedEventIds.add(message.getMessageProperties().getMessageId());
         }
     }
 }
