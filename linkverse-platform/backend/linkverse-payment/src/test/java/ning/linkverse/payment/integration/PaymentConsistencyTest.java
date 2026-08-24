@@ -157,6 +157,32 @@ class PaymentConsistencyTest {
     }
 
     @Test
+    void shouldQueryAndReplayParkedOutboxWithoutExposingPayload() {
+        String eventId = compactUuid();
+        jdbcTemplate.update("""
+                        INSERT INTO outbox_event (
+                            event_id, aggregate_id, event_type, exchange_name, routing_key,
+                            payload_json, status, attempt_count, next_attempt_at, locked_until,
+                            last_error_digest, created_at
+                        ) VALUES (?, ?, 'PaymentSucceeded', 'linkverse.events', 'payment.fact',
+                                  CAST(? AS JSON), 'PARKED', 5, ?, ?, ?, ?)
+                        """,
+                eventId, compactUuid(), "{\"secret\":\"不得返回\"}", NOW, NOW,
+                "a".repeat(64), NOW);
+
+        var parked = repository.findByEventId(eventId).orElseThrow();
+        assertThat(parked.status()).isEqualTo("PARKED");
+        assertThat(parked.attemptCount()).isEqualTo(5);
+        assertThat(repository.replayParked(eventId, NOW.plusSeconds(1))).isTrue();
+        assertThat(repository.replayParked(eventId, NOW.plusSeconds(2))).isFalse();
+
+        var pending = repository.findByEventId(eventId).orElseThrow();
+        assertThat(pending.status()).isEqualTo("PENDING");
+        assertThat(pending.attemptCount()).isZero();
+        assertThat(pending.lastErrorDigest()).isNull();
+    }
+
+    @Test
     void shouldRejectForgedSignatureAndWrongBusinessFields() throws Exception {
         PaymentIntent intent = paymentService.create(command(compactUuid()));
         SignedCallback valid = signed(intent, "valid-base");

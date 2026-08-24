@@ -1,6 +1,8 @@
 package ning.linkverse.payment.infrastructure.persistence;
 
 import ning.linkverse.messaging.outbox.OutboxMessage;
+import ning.linkverse.messaging.outbox.OutboxEventView;
+import ning.linkverse.messaging.outbox.OutboxStats;
 import ning.linkverse.payment.domain.CreatePaymentIntent;
 import ning.linkverse.payment.domain.PaymentCallback;
 import ning.linkverse.payment.domain.PaymentIntent;
@@ -260,6 +262,46 @@ public class JdbcPaymentRepository implements PaymentRepository {
                 errorDigest,
                 id
         );
+    }
+
+    @Override
+    public Optional<OutboxEventView> findByEventId(String eventId) {
+        return jdbcTemplate.query("""
+                        SELECT event_id, aggregate_id, event_type, status, attempt_count,
+                               next_attempt_at, created_at, published_at, last_error_digest
+                        FROM outbox_event WHERE event_id = ?
+                        """, (rs, rowNumber) -> new OutboxEventView(
+                        rs.getString("event_id"), rs.getString("aggregate_id"), rs.getString("event_type"),
+                        rs.getString("status"), rs.getInt("attempt_count"),
+                        instant(rs.getTimestamp("next_attempt_at")), instant(rs.getTimestamp("created_at")),
+                        instant(rs.getTimestamp("published_at")), rs.getString("last_error_digest")
+                ), eventId).stream().findFirst();
+    }
+
+    @Override
+    public boolean replayParked(String eventId, Instant now) {
+        return jdbcTemplate.update("""
+                        UPDATE outbox_event
+                        SET status = 'PENDING', attempt_count = 0, next_attempt_at = ?,
+                            locked_until = NULL, last_error_digest = NULL
+                        WHERE event_id = ? AND status = 'PARKED'
+                        """, Timestamp.from(now), eventId) == 1;
+    }
+
+    @Override
+    public OutboxStats stats(Instant now) {
+        return jdbcTemplate.queryForObject("""
+                        SELECT
+                          SUM(status IN ('PENDING', 'SENDING')) AS pending_count,
+                          SUM(status = 'PARKED') AS parked_count,
+                          COALESCE(TIMESTAMPDIFF(SECOND,
+                            MIN(CASE WHEN status IN ('PENDING', 'SENDING') THEN created_at END), ?), 0)
+                            AS oldest_seconds
+                        FROM outbox_event
+                        """, (rs, rowNumber) -> new OutboxStats(
+                        rs.getLong("pending_count"), rs.getLong("parked_count"),
+                        Math.max(0, rs.getLong("oldest_seconds"))
+                ), Timestamp.from(now));
     }
 
     private Optional<PaymentIntent> find(String sql, Object... parameters) {

@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import ning.linkverse.core.error.CommonErrorCode;
 import ning.linkverse.core.error.PlatformException;
+import ning.linkverse.core.request.RequestContextKeys;
 import ning.linkverse.messaging.MessageEnvelope;
 import ning.linkverse.trade.domain.TradeErrorCode;
 import ning.linkverse.trade.domain.seckill.SeckillCampaign;
@@ -162,7 +163,7 @@ public class SeckillApplicationService {
     }
 
     private String traceId() {
-        String value = MDC.get("trace_id");
+        String value = MDC.get(RequestContextKeys.TRACE_ID_MDC_KEY);
         return value == null || value.isBlank() ? "no-trace" : value;
     }
 }

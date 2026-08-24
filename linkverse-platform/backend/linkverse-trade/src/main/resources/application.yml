@@ -37,6 +37,15 @@ spring:
     publisher-returns: true
     template:
       mandatory: true
+    listener:
+      simple:
+        default-requeue-rejected: false
+        retry:
+          enabled: true
+          max-attempts: 5
+          initial-interval: 500ms
+          multiplier: 2
+          max-interval: 5s
   security:
     oauth2:
       client:
@@ -76,7 +85,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: health,info
+        include: health,info,metrics
   endpoint:
     health:
       show-details: never

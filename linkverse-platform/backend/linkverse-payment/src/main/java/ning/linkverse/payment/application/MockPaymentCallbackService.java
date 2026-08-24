@@ -1,6 +1,7 @@
 package ning.linkverse.payment.application;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import ning.linkverse.core.request.RequestContextKeys;
 import ning.linkverse.core.error.PlatformException;
 import ning.linkverse.messaging.MessageEnvelope;
 import ning.linkverse.payment.domain.PaymentCallback;
@@ -9,6 +10,7 @@ import ning.linkverse.payment.domain.PaymentIntent;
 import ning.linkverse.payment.domain.PaymentRepository;
 import org.slf4j.MDC;
 import org.springframework.context.annotation.Profile;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -35,6 +37,22 @@ public class MockPaymentCallbackService {
     private final MockHmacVerifier verifier;
     private final ObjectMapper objectMapper;
     private final Clock clock;
+    private final PaymentBusinessMetrics metrics;
+
+    @Autowired
+    public MockPaymentCallbackService(
+            PaymentRepository repository,
+            MockHmacVerifier verifier,
+            ObjectMapper objectMapper,
+            Clock clock,
+            PaymentBusinessMetrics metrics
+    ) {
+        this.repository = repository;
+        this.verifier = verifier;
+        this.objectMapper = objectMapper;
+        this.clock = clock;
+        this.metrics = metrics;
+    }
 
     public MockPaymentCallbackService(
             PaymentRepository repository,
@@ -42,10 +60,7 @@ public class MockPaymentCallbackService {
             ObjectMapper objectMapper,
             Clock clock
     ) {
-        this.repository = repository;
-        this.verifier = verifier;
-        this.objectMapper = objectMapper;
-        this.clock = clock;
+        this(repository, verifier, objectMapper, clock, null);
     }
 
     @Transactional
@@ -81,7 +96,13 @@ public class MockPaymentCallbackService {
         }
         if (repository.markLateSuccess(intent.intentNo(), callback.providerTxnNo(), now)) {
             PaymentIntent refundPending = requireIntent(intent.intentNo());
-            repository.completeMockRefund(refundPending, callback.providerTxnNo(), digest, now);
+            try {
+                repository.completeMockRefund(refundPending, callback.providerTxnNo(), digest, now);
+                recordRefund("success");
+            } catch (RuntimeException exception) {
+                recordRefund("failure");
+                throw exception;
+            }
             return requireIntent(intent.intentNo());
         }
         PaymentIntent current = requireIntent(intent.intentNo());
@@ -157,8 +178,14 @@ public class MockPaymentCallbackService {
     }
 
     private String traceId() {
-        String traceId = MDC.get("traceId");
+        String traceId = MDC.get(RequestContextKeys.TRACE_ID_MDC_KEY);
         return traceId == null || traceId.isBlank() ? "trace-unavailable" : traceId;
+    }
+
+    private void recordRefund(String result) {
+        if (metrics != null) {
+            metrics.record("refund", result);
+        }
     }
 
     private String compactUuid() {

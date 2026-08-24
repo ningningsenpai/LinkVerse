@@ -2,16 +2,21 @@ package ning.linkverse.trade.infrastructure.messaging;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import ning.linkverse.trade.application.TradeBusinessMetrics;
 import ning.linkverse.trade.application.closing.OrderClosingService;
 import ning.linkverse.trade.application.payment.PaymentEventService;
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
 import org.springframework.amqp.core.Queue;
+import org.springframework.amqp.core.QueueBuilder;
 import org.springframework.amqp.core.TopicExchange;
 import org.springframework.amqp.rabbit.annotation.EnableRabbit;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.slf4j.MDC;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.stereotype.Component;
 
@@ -39,11 +44,17 @@ public class TradePaymentMessaging {
 
     @Bean
     Queue tradePaymentQueue() {
-        return new Queue(QUEUE, true);
+        return QueueBuilder.durable(QUEUE)
+                .deadLetterExchange(TradeSeckillMessaging.PARKING_EXCHANGE)
+                .deadLetterRoutingKey(QUEUE)
+                .build();
     }
 
     @Bean
-    Binding tradePaymentBinding(Queue tradePaymentQueue, TopicExchange linkVerseEventExchange) {
+    Binding tradePaymentBinding(
+            Queue tradePaymentQueue,
+            @Qualifier("linkVerseEventExchange") TopicExchange linkVerseEventExchange
+    ) {
         return BindingBuilder.bind(tradePaymentQueue).to(linkVerseEventExchange).with("payment.fact");
     }
 
@@ -59,15 +70,27 @@ public class TradePaymentMessaging {
         private final ObjectMapper objectMapper;
         private final PaymentEventService eventService;
         private final OrderClosingService closingService;
+        private final TradeBusinessMetrics metrics;
+
+        @Autowired
+        public Listener(
+                ObjectMapper objectMapper,
+                PaymentEventService eventService,
+                OrderClosingService closingService,
+                TradeBusinessMetrics metrics
+        ) {
+            this.objectMapper = objectMapper;
+            this.eventService = eventService;
+            this.closingService = closingService;
+            this.metrics = metrics;
+        }
 
         public Listener(
                 ObjectMapper objectMapper,
                 PaymentEventService eventService,
                 OrderClosingService closingService
         ) {
-            this.objectMapper = objectMapper;
-            this.eventService = eventService;
-            this.closingService = closingService;
+            this(objectMapper, eventService, closingService, null);
         }
 
         @RabbitListener(
@@ -75,25 +98,54 @@ public class TradePaymentMessaging {
                 autoStartup = "${linkverse.trade.payment-events-enabled:true}"
         )
         public void consume(byte[] rawBody) throws Exception {
+            long started = System.nanoTime();
             JsonNode root = objectMapper.readTree(rawBody);
             String eventType = required(root, "event_type");
             String eventId = required(root, "event_id");
             JsonNode payload = root.path("payload");
-            if ("PaymentSucceeded".equals(eventType)) {
-                eventService.acceptSucceeded(
-                        eventId,
-                        required(payload, "intent_no"),
-                        required(payload, "order_no"),
-                        new BigDecimal(required(payload, "amount")),
-                        required(payload, "currency"),
-                        Instant.parse(required(root, "occurred_at"))
-                );
-            } else if ("PaymentClosed".equals(eventType)) {
-                String orderNo = required(payload, "order_no");
-                if (!closingService.reconcile(orderNo)) {
-                    throw new IllegalStateException("支付关闭事件尚未完成订单收敛");
+            String orderNo = required(payload, "order_no");
+            String intentNo = payload.path("intent_no").asText();
+            try (MDC.MDCCloseable ignoredEvent = MDC.putCloseable("event_id", eventId);
+                 MDC.MDCCloseable ignoredOrder = MDC.putCloseable("order_no", orderNo)) {
+                if (!intentNo.isBlank()) {
+                    MDC.put("intent_no", intentNo);
                 }
-                eventService.recordClosed(eventId, required(root, "occurred_at"));
+                try {
+                    if ("PaymentSucceeded".equals(eventType)) {
+                        eventService.acceptSucceeded(
+                                eventId,
+                                required(payload, "intent_no"),
+                                orderNo,
+                                new BigDecimal(required(payload, "amount")),
+                                required(payload, "currency"),
+                                Instant.parse(required(root, "occurred_at"))
+                        );
+                    } else if ("PaymentClosed".equals(eventType)) {
+                        if (!closingService.reconcile(orderNo)) {
+                            throw new IllegalStateException("支付关闭事件尚未完成订单收敛");
+                        }
+                        eventService.recordClosed(eventId, required(root, "occurred_at"));
+                    }
+                    consumeMetric(eventType, "success", started);
+                } catch (Exception exception) {
+                    consumeMetric(eventType, "failure", started);
+                    throw exception;
+                } finally {
+                    if (!intentNo.isBlank()) {
+                        MDC.remove("intent_no");
+                    }
+                }
+            }
+        }
+
+        private void consumeMetric(String eventType, String result, long started) {
+            if (metrics != null) {
+                String stream = switch (eventType) {
+                    case "PaymentSucceeded" -> "payment_succeeded";
+                    case "PaymentClosed" -> "payment_closed";
+                    default -> "payment_unknown";
+                };
+                metrics.consume(stream, result, System.nanoTime() - started);
             }
         }
 

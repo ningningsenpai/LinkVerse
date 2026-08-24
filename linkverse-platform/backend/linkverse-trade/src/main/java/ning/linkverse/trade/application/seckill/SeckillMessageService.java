@@ -3,6 +3,8 @@ package ning.linkverse.trade.application.seckill;
 import ning.linkverse.trade.domain.seckill.SeckillRepository;
 import ning.linkverse.trade.domain.seckill.SeckillReservation;
 import ning.linkverse.trade.infrastructure.seckill.SeckillRedisStore;
+import ning.linkverse.trade.application.TradeBusinessMetrics;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.Clock;
@@ -21,11 +23,23 @@ public class SeckillMessageService {
     private final SeckillRepository repository;
     private final SeckillRedisStore redisStore;
     private final Clock clock;
+    private final TradeBusinessMetrics metrics;
 
-    public SeckillMessageService(SeckillRepository repository, SeckillRedisStore redisStore, Clock clock) {
+    @Autowired
+    public SeckillMessageService(
+            SeckillRepository repository,
+            SeckillRedisStore redisStore,
+            Clock clock,
+            TradeBusinessMetrics metrics
+    ) {
         this.repository = repository;
         this.redisStore = redisStore;
         this.clock = clock;
+        this.metrics = metrics;
+    }
+
+    public SeckillMessageService(SeckillRepository repository, SeckillRedisStore redisStore, Clock clock) {
+        this(repository, redisStore, clock, null);
     }
 
     public void project(
@@ -54,6 +68,8 @@ public class SeckillMessageService {
             }
             redisStore.complete(campaignId, reservationNo, rawJson);
         }
-        repository.recordConsumed(CONSUMER, eventId, eventType, clock.instant());
+        if (!repository.recordConsumed(CONSUMER, eventId, eventType, clock.instant()) && metrics != null) {
+            metrics.record("consumer_duplicate", "seckill_result");
+        }
     }
 }

@@ -1,6 +1,7 @@
 package ning.linkverse.payment.application;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import ning.linkverse.core.request.RequestContextKeys;
 import ning.linkverse.messaging.MessageEnvelope;
 import ning.linkverse.payment.domain.CreatePaymentIntent;
 import ning.linkverse.payment.domain.PaymentIntent;
@@ -83,7 +84,7 @@ public class PaymentTransactionService {
     }
 
     private String traceId() {
-        String traceId = MDC.get("traceId");
+        String traceId = MDC.get(RequestContextKeys.TRACE_ID_MDC_KEY);
         return traceId == null || traceId.isBlank() ? "trace-unavailable" : traceId;
     }
 

@@ -5,6 +5,7 @@ import org.springframework.amqp.core.Message;
 import org.springframework.amqp.core.ReturnedMessage;
 import org.springframework.amqp.rabbit.connection.CorrelationData;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import io.micrometer.core.instrument.simple.SimpleMeterRegistry;
 
 import java.time.Clock;
 import java.time.Instant;
@@ -56,11 +57,31 @@ class OutboxRelayTest {
     @Test
     void shouldParkMessageAfterFifthFailure() {
         RecordingStore store = new RecordingStore(message(4));
+        AcknowledgingRabbitTemplate rabbitTemplate = new AcknowledgingRabbitTemplate(false);
 
-        new OutboxRelay(store, new AcknowledgingRabbitTemplate(false), fixedClock()).relayOnce(10);
+        new OutboxRelay(store, rabbitTemplate, fixedClock()).relayOnce(10);
 
         assertEquals(5, store.failedAttempts);
         assertTrue(store.parked);
+        assertEquals("linkverse.events.parking", rabbitTemplate.parkingExchange);
+        assertEquals("payment.fact", rabbitTemplate.parkingRoutingKey);
+        assertTrue(Boolean.TRUE.equals(rabbitTemplate.parked.getMessageProperties().getHeader("parked")));
+    }
+
+    @Test
+    void shouldExposeBoundedOutboxMetrics() {
+        RecordingStore store = new RecordingStore(message(0));
+        store.stats = new OutboxStats(2, 1, 30);
+        SimpleMeterRegistry registry = new SimpleMeterRegistry();
+
+        new OutboxRelay(store, new AcknowledgingRabbitTemplate(true), fixedClock(), registry)
+                .relayOnce(10);
+
+        assertEquals(1.0, registry.get("linkverse.outbox.publish")
+                .tag("result", "published").counter().count());
+        assertEquals(2.0, registry.get("linkverse.outbox.pending").gauge().value());
+        assertEquals(1.0, registry.get("linkverse.outbox.parked").gauge().value());
+        assertEquals(30.0, registry.get("linkverse.outbox.oldest.seconds").gauge().value());
     }
 
     @Test
@@ -96,6 +117,9 @@ class OutboxRelayTest {
         private final boolean acknowledged;
         private final boolean returned;
         private Message sent;
+        private Message parked;
+        private String parkingExchange;
+        private String parkingRoutingKey;
 
         private AcknowledgingRabbitTemplate(boolean acknowledged) {
             this(acknowledged, false);
@@ -128,6 +152,13 @@ class OutboxRelayTest {
                     acknowledged ? null : "模拟 Broker 拒绝"
             ));
         }
+
+        @Override
+        public void send(String exchange, String routingKey, Message message) {
+            parkingExchange = exchange;
+            parkingRoutingKey = routingKey;
+            parked = message;
+        }
     }
 
     private static final class RecordingStore implements OutboxStore {
@@ -139,6 +170,7 @@ class OutboxRelayTest {
         private Instant nextAttemptAt;
         private String errorDigest;
         private boolean parked;
+        private OutboxStats stats = OutboxStats.empty();
 
         private RecordingStore(OutboxMessage message) {
             this.message = message;
@@ -167,6 +199,11 @@ class OutboxRelayTest {
             this.nextAttemptAt = nextAttemptAt;
             this.errorDigest = errorDigest;
             this.parked = parked;
+        }
+
+        @Override
+        public OutboxStats stats(Instant now) {
+            return stats;
         }
     }
 }

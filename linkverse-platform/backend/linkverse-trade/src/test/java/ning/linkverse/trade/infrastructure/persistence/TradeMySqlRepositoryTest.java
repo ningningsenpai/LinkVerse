@@ -338,6 +338,33 @@ class TradeMySqlRepositoryTest {
         assertThat(stock()).isEqualTo(1);
     }
 
+    @Test
+    void shouldQueryAndReplayTradeParkedOutboxWithSameEventId() {
+        String eventId = "6".repeat(32);
+        jdbcTemplate.update("""
+                        INSERT INTO trade_outbox_event (
+                            event_id, aggregate_id, event_type, exchange_name, routing_key,
+                            payload_json, status, attempt_count, next_attempt_at, locked_until,
+                            published_at, last_error_digest, created_at
+                        ) VALUES (?, ?, 'SeckillRequested', 'linkverse.events', 'seckill.request',
+                                  CAST(? AS JSON), 'PARKED', 5, ?, ?, NULL, ?, ?)
+                        """,
+                eventId, "7".repeat(32), "{\"token\":\"不得返回\"}", NOW, NOW,
+                "b".repeat(64), NOW);
+        JdbcSeckillRepository seckillRepository = new JdbcSeckillRepository(jdbcTemplate);
+
+        assertThat(seckillRepository.findByEventId(eventId).orElseThrow().status()).isEqualTo("PARKED");
+        assertThat(seckillRepository.replayParked(eventId, NOW.plusSeconds(1))).isTrue();
+        assertThat(seckillRepository.replayParked(eventId, NOW.plusSeconds(2))).isFalse();
+        assertThat(seckillRepository.findByEventId(eventId).orElseThrow())
+                .satisfies(event -> {
+                    assertThat(event.eventId()).isEqualTo(eventId);
+                    assertThat(event.status()).isEqualTo("PENDING");
+                    assertThat(event.attemptCount()).isZero();
+                    assertThat(event.lastErrorDigest()).isNull();
+                });
+    }
+
     private boolean purchaseAfterSignal(
             NewOrder order,
             CountDownLatch ready,

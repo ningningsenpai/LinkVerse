@@ -3,6 +3,7 @@ package ning.linkverse.trade.application.seckill;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import ning.linkverse.messaging.MessageEnvelope;
+import ning.linkverse.core.request.RequestContextKeys;
 import ning.linkverse.trade.domain.TradeRepository;
 import ning.linkverse.trade.domain.listing.BookListing;
 import ning.linkverse.trade.domain.order.NewOrder;
@@ -155,7 +156,7 @@ public class SeckillOrderTransactionService {
     }
 
     private String traceId() {
-        String value = MDC.get("trace_id");
+        String value = MDC.get(RequestContextKeys.TRACE_ID_MDC_KEY);
         return value == null || value.isBlank() ? "no-trace" : value;
     }
 
