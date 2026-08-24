@@ -38,8 +38,8 @@
 - 所有命令默认从仓库根目录执行，新工程固定创建在 `linkverse-platform/`；
 - 不复制旧 Java/Python 模块，不依赖旧服务、旧 Schema 或旧运行环境；
 - 阶段 0 开始前先阅读 `02-技术选型.md` 与 `03-业务规范.md`；
-- 精确依赖版本、镜像补丁、摘要及前端工具版本统一锁定在 `linkverse-platform/infrastructure/versions.env` 和 Compose 文件中，二者是构建版本真值；
-- 最小前端固定使用 Vue 3、TypeScript 与 Vite，具体版本随 `versions.env` 锁定。
+- 精确依赖版本、镜像补丁和摘要统一锁定在 `linkverse-platform/infrastructure/versions.env` 和 Compose 文件中，二者是构建版本真值；
+- 前端实现延期至界面标准与视觉风格完成评审后，本轮阶段 7 只交付后端测试、脚本、报告和 README。
 
 MVP 的支付服务边界有意覆盖长期规划中的部分条款。出现冲突时，本文件对 MVP 实施具有优先级：
 
@@ -100,7 +100,6 @@ linkverse-platform/
 │  ├─ linkverse-identity/
 │  ├─ linkverse-trade/
 │  └─ linkverse-payment/
-├─ frontend/                       # 最小登录、秒杀、订单和支付状态页
 ├─ infrastructure/
 │  ├─ compose/
 │  ├─ mysql/
@@ -267,7 +266,7 @@ stateDiagram-v2
 | D16 | 日志、指标及三方对账 | 差异可定位、敏感信息脱敏 |
 | D17 | Testcontainers 集成测试 | 自动化主套件稳定通过 |
 | D18 | failpoint、并发和故障注入 | 全部硬性场景收敛 |
-| D19 | 最小前端、脚本、README 和报告 | 第三方可按文档演示 |
+| D19 | 后端脚本、README 和报告 | 第三方可按文档演示后端闭环 |
 | D20 | 干净环境复验和版本冻结 | 无阻断缺陷，证据完整 |
 
 ### 阶段 0：范围冻结（第 1 日）
@@ -275,7 +274,7 @@ stateDiagram-v2
 #### 开发任务
 
 1. 确认仓库根目录和全新 `linkverse-platform/` 边界，禁止复制旧模块。
-2. 阅读 02、03 文档，将精确依赖、镜像及前端工具版本写入 `versions.env`。
+2. 阅读 02、03 文档，将精确后端依赖、镜像及测试工具版本写入 `versions.env`。
 3. 固定四个部署单元、三个 Schema、Redis 前缀和 RabbitMQ vhost。
 4. 画出订单、支付、退款和秒杀预约状态机。
 5. 固定最小接口、表、事件、不变量和延期清单。
@@ -511,7 +510,7 @@ stateDiagram-v2
 - 日志可从 HTTP 请求关联到订单、支付和事件；
 - 对账不静默覆盖未知异常，而是输出明确的人工处理项。
 
-### 阶段 7：自动化测试、前端与求职交付（第 17～20 日）
+### 阶段 7：自动化测试与后端交付（第 17～20 日）
 
 #### 第 17 日：集成测试
 
@@ -543,13 +542,11 @@ stateDiagram-v2
 
 性能目标仅作为优化方向：秒杀入口持续 1000 RPS、p95 小于 100 ms、p99 小于 200 ms，准入到订单可查询 p99 小于 3 秒。未实测达成前不得写入简历。
 
-#### 第 19 日：最小前端与演示材料
+#### 第 19 日：后端脚本与演示材料
 
-只实现登录、活动/商品展示、秒杀提交、排队结果、订单状态、模拟支付和最终状态页面。前端轮询只查询服务端状态，不能推进支付或订单状态。
+本轮不实现前端。固定以下仓库入口，脚本必须从自身位置解析仓库根：
 
-同时固定以下仓库入口，脚本必须从自身位置解析仓库根：
-
-- `scripts/start.ps1`：启动中间件、四服务和前端并等待健康；
+- `scripts/start.ps1`：启动中间件和四服务并等待健康；
 - `scripts/seed.ps1`：重置专用活动、生成用户和临时令牌；
 - `scripts/verify.ps1`：运行构建、单元与集成测试；
 - `scripts/fault-test.ps1`：运行重复、宕机、网络和竞态场景；
@@ -557,7 +554,7 @@ stateDiagram-v2
 - `scripts/acceptance.ps1`：依次编排 seed、verify、fault-test 和 reconcile，任一步失败即非零退出；
 - `scripts/replay.ps1 -EventId <id>`：修复原因后重放停车消息；
 - `scripts/clean.ps1`：确认后仅清理 `linkverse-mvp-*` 本地资源；
-- README、架构图、秒杀和支付时序图；
+- README、接口测试记录和后端演示说明；
 - 压测原始数据、汇总报告和已知限制统一输出到 `linkverse-platform/artifacts/`；
 - 3～5 分钟演示顺序：正常闭环 → 重复回调 → 消费者重启 → 对账收敛。
 
@@ -592,7 +589,7 @@ stateDiagram-v2
 | 用途 | 命令 | 主要产物 |
 |---|---|---|
 | 校验 Compose | `docker compose -f linkverse-platform/infrastructure/compose/compose.yml config` | 标准输出，无配置错误 |
-| 启动完整环境 | `.\linkverse-platform\scripts\start.ps1` | 四服务和前端健康 |
+| 启动完整环境 | `.\linkverse-platform\scripts\start.ps1` | 四服务和中间件健康 |
 | 初始化演示/压测数据 | `.\linkverse-platform\scripts\seed.ps1 -Users 1000 -Stock 100` | 临时令牌与活动摘要，目录已被 Git 忽略 |
 | 后端全量验证 | `Set-Location linkverse-platform/backend; .\mvnw.cmd clean verify` | Surefire/Failsafe 报告 |
 | 基础验证 | `.\linkverse-platform\scripts\verify.ps1` | `artifacts/tests/` |
@@ -606,13 +603,12 @@ k6 的精确版本随 `versions.env` 锁定，压测脚本必须自行准备活�
 
 进度落后时，按以下顺序裁剪：
 
-1. 前端视觉细节，保留最小页面；
-2. Grafana 仪表盘，保留指标端点和结构化日志；
-3. 用户刷新令牌与复杂权限；
-4. 支付主动查询页面，保留后台任务；
-5. 用户主动退款，保留迟到支付自动补偿；
-6. 普通订单的多数量能力，退回单商品单数量；
-7. Nacos 动态配置，仅保留注册发现。
+1. Grafana 仪表盘，保留指标端点和结构化日志；
+2. 用户刷新令牌与复杂权限；
+3. 支付主动查询界面，保留后台任务和接口；
+4. 用户主动退款，保留迟到支付自动补偿；
+5. 普通订单的多数量能力，退回单商品单数量；
+6. Nacos 动态配置，仅保留注册发现。
 
 不得裁剪：
 
@@ -625,7 +621,7 @@ k6 的精确版本随 `versions.env` 锁定，压测脚本必须自行准备活�
 - 秒杀发布失败补偿和数据对账；
 - 并发、重复消息、伪造回调及宕机测试。
 
-若第 14 日仍未打通支付和秒杀主链路，应停止新增观测界面和前端细节，优先修复一致性与测试；不能通过删除保障机制换取表面演示成功。
+若第 14 日仍未打通支付和秒杀主链路，应停止新增非必要观测展示，优先修复一致性与测试；不能通过删除保障机制换取表面演示成功。
 
 ## 8. 最终验收清单
 
