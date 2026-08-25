@@ -4,8 +4,10 @@ import { buildSummary } from './summary.js';
 
 const baseUrl = __ENV.BASE_URL || 'http://127.0.0.1:18080';
 const token = __ENV.ACCESS_TOKEN || '';
+const listingId = Number(__ENV.LISTING_ID || 10001);
 
 export const options = {
+  summaryTrendStats: ['avg', 'min', 'med', 'max', 'p(90)', 'p(95)', 'p(99)'],
   scenarios: {
     normal_trade: {
       executor: 'shared-iterations',
@@ -27,7 +29,7 @@ export default function () {
     'Content-Type': 'application/json',
     'Idempotency-Key': key,
   };
-  const created = http.post(`${baseUrl}/api/v1/orders`, JSON.stringify({ listing_id: 10001, quantity: 1 }), {
+  const created = http.post(`${baseUrl}/api/v1/orders`, JSON.stringify({ listing_id: listingId, quantity: 1 }), {
     headers, tags: { operation: 'order_create' },
   });
   check(created, { '普通订单创建成功': (response) => response.status === 201 });

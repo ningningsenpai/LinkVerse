@@ -40,8 +40,9 @@ Set-Location linkverse-platform
 .\scripts\acceptance.ps1
 .\scripts\fault-test.ps1
 .\scripts\reconcile.ps1
+.\scripts\load-test.ps1
 Set-Location backend
 .\mvnw.cmd clean verify
 ```
 
-原始响应和运行时令牌保存在 Git 忽略目录。人工重放仅允许 `PARKED` 事件，并要求 `replay.ps1 -ConfirmReplay`。完整接口、参数、预期响应和实测结论见 [`../docs/13-MVP接口与测试报告.md`](../docs/13-MVP接口与测试报告.md)。
+`load-test.ps1` 会生成隔离商品与活动，默认以 50 VU 执行 1000 次普通交易、25 VU 执行 500 次支付链路、100 VU 执行 1000 个独立用户的秒杀请求，并核验 MySQL/Redis 最终库存。原始响应和运行时令牌保存在 Git 忽略目录。人工重放仅允许 `PARKED` 事件，并要求 `replay.ps1 -ConfirmReplay`。完整接口、参数、预期响应和实测结论见 [`../docs/13-MVP接口与测试报告.md`](../docs/13-MVP接口与测试报告.md)。

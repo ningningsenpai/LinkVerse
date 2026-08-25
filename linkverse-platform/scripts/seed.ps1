@@ -35,14 +35,14 @@ for ($index = $users.Count; $index -lt $UserCount; $index++) {
     if ($register.StatusCode -notin @(201, 409)) {
         throw "创建本地测试用户失败：$username，状态码 $($register.StatusCode)"
     }
-    $login = Invoke-LinkVerseJsonRequest -Method Post -Uri 'http://127.0.0.1:18080/api/v1/auth/login' `
-        -Body @{ username = $username; password = $state.password }
-    Assert-LinkVerseStatus -Response $login -Expected 200 -Operation "登录本地测试用户 $username"
     $users.Add([PSCustomObject]@{
         username = $username
         user_id = if ($register.StatusCode -eq 201) { $register.Json.user_id } else { $null }
-        access_token = $login.Json.access_token
+        access_token = $null
     })
+    if (($index + 1) % 100 -eq 0 -or ($index + 1) -eq $UserCount) {
+        Write-Host "本地测试用户准备进度：$($index + 1)/$UserCount"
+    }
 }
 
 # 每次执行都刷新已有用户的短期令牌，避免 k6 使用过期令牌。
@@ -51,6 +51,9 @@ for ($index = 0; $index -lt [Math]::Min($UserCount, $users.Count); $index++) {
         -Body @{ username = $users[$index].username; password = $state.password }
     Assert-LinkVerseStatus -Response $login -Expected 200 -Operation "刷新本地测试用户 $($users[$index].username)"
     $users[$index].access_token = $login.Json.access_token
+    if (($index + 1) % 100 -eq 0 -or ($index + 1) -eq $UserCount) {
+        Write-Host "本地测试令牌刷新进度：$($index + 1)/$UserCount"
+    }
 }
 $state.users = @($users)
 $state | ConvertTo-Json -Depth 6 | Set-Content -LiteralPath $statePath -Encoding utf8

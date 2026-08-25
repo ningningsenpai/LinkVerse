@@ -4,8 +4,10 @@ import { buildSummary } from './summary.js';
 
 const baseUrl = __ENV.BASE_URL || 'http://127.0.0.1:18080';
 const token = __ENV.ACCESS_TOKEN || '';
+const listingId = Number(__ENV.PAYMENT_LISTING_ID || __ENV.LISTING_ID || 10001);
 
 export const options = {
+  summaryTrendStats: ['avg', 'min', 'med', 'max', 'p(90)', 'p(95)', 'p(99)'],
   scenarios: {
     payment_chain: {
       executor: 'shared-iterations', vus: Number(__ENV.VUS || 1),
@@ -20,7 +22,7 @@ export function setup() {
 
 export default function () {
   const suffix = `${__VU}-${__ITER}-${Date.now()}`;
-  const order = http.post(`${baseUrl}/api/v1/orders`, JSON.stringify({ listing_id: 10001, quantity: 1 }), {
+  const order = http.post(`${baseUrl}/api/v1/orders`, JSON.stringify({ listing_id: listingId, quantity: 1 }), {
     headers: {
       Authorization: `Bearer ${token}`, 'Content-Type': 'application/json',
       'Idempotency-Key': `k6-pay-order-${suffix}`,

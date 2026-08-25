@@ -2,10 +2,12 @@
 
 ## 1. 测试基线
 
-- 测试日期：2026-08-24；JDK：`D:\Java JDK\jdk-21.0.12+8`；
+- 测试日期：2026-08-25；工作区基于提交 `cfd03cb`；JDK：`D:\Java JDK\jdk-21.0.12+8`；
 - 服务入口：Gateway `http://127.0.0.1:18080`；
 - 中间件：MySQL 8.4、Redis 8.2、RabbitMQ 4.3、Nacos；
 - 自动化：JUnit 5、Testcontainers、WireMock、Toxiproxy、k6 2.2.0；
+- 测试机：Windows 11，AMD Ryzen 7 6800H（8 核 16 线程），13.7 GB 内存；Docker Desktop 29.5.2 分配 16 CPU、约 6.6 GB 内存；
+- Java 服务未显式设置 `-Xms/-Xmx`，使用 JDK 21 默认人体工学参数；压测数据为 1000 个真实注册用户、两个库存 10000 的独立商品和一个库存 100 的独立秒杀活动；
 - `mvnw.cmd clean verify`：11 个模块通过，126 个测试，0 failure、0 error、0 skipped；
 - `acceptance.ps1` 与 `fault-test.ps1` 通过。令牌、密码、签名和密钥均以 `<脱敏>` 表示。
 
@@ -56,15 +58,17 @@
 - `GET /internal/v1/outbox-events/{eventId}`：查询事件状态，不返回业务载荷；
 - `POST /internal/v1/outbox-events/{eventId}/replay`：仅 `PARKED` 可重放，事件 ID 不变；
 - `POST /internal/v1/reconciliation`：Trade 与 Payment 分别执行订单、库存、预约、支付、退款差异扫描；
+- `prepare-load-test.ps1`：每次创建独立商品、库存和活动，不修改演示数据；
+- `load-test.ps1`：刷新本地令牌、执行三组 k6 场景并核验 MySQL/Redis 最终状态；
 - `replay.ps1` 必须提供 `-ConfirmReplay`；`clean.ps1` 删除卷必须提供 `-RemoveData -ConfirmProject linkverse-mvp` 并接受高风险确认。
 
-本次黑盒对账结果：`closingOrder=0`、`intermediateReservation=0`、`reservationOrderMismatch=0`、`expiredPending=0`、`uncertainRefund=0`、`openException=0`。
+本次黑盒对账结果：`closingOrder=0`、`intermediateReservation=0`、`reservationOrderMismatch=0`、`expiredPending=0`、`uncertainRefund=0`、`openException=0`。压测活动最终 MySQL 库存为 0，Redis 投影库存为 0，Redis `pending` 与 `pending-order` 均为 0。测试数据卷累计 Trade Outbox 1004 条、Payment Outbox 1717 条，状态全部为 `PUBLISHED`；四个 RabbitMQ 业务/停车队列的就绪和未确认消息均为 0。
 
 ## 7. 关键一致性与故障场景
 
 | 场景 | 实测结果 |
 |---|---|
-| 库存 100、1000 用户 Redis 准入 | 恰好 100 个接受；MySQL 消费 1000 条请求后最多 100 个订单，无超卖 |
+| 库存 100、1000 个独立用户 HTTP 秒杀 | 100 VU 完成 1000 次请求；恰好 100 个接受、900 个受控拒绝、100 个订单，MySQL/Redis 库存均为 0，无超卖 |
 | 同一用户并发 100 次 | 仅一个有效预约；同一普通订单幂等键并发 100 次仅一个订单 |
 | 支付回调重放 100 次 | 一条回调记录、一次状态迁移、一个 Outbox 事实 |
 | 创建/关单竞态 1000 轮 | 每轮收敛为合法单一状态，通过 |
@@ -77,14 +81,23 @@
 
 ## 8. k6 实测
 
-k6 固定为 `2.2.0`。本次只运行 1 VU、1 iteration 烟测，不作为容量承诺。
+k6 固定为 `2.2.0`，用户令牌仅在本地启动时延长为 2 小时；应用默认值仍为 15 分钟。正式结果来自 `load-20260825T022835Z`：
 
-| 场景 | 请求数 | checks rate | HTTP failure rate | 吞吐 | p95 | p99 |
-|---|---:|---:|---:|---|---:|---|
-| 普通交易 | 2 | 1 | 0 | 本次旧汇总未保留该聚合值 | 35.01 ms | 样本不足，无实测值 |
-| 支付链路 | 3 | 1 | 0 | 本次旧汇总未保留该聚合值 | 45.10 ms | 样本不足，无实测值 |
+| 场景 | 负载模型 | 迭代 | 每次迭代 |
+|---|---|---:|---|
+| 普通交易 | 50 VU，共享迭代 | 1000 | 创建订单并查询，共 2 个 HTTP 请求 |
+| 支付链路 | 25 VU，共享迭代 | 500 | 创建订单、Intent、Mock 确认，共 3 个 HTTP 请求 |
+| 商品秒杀 | 100 VU，共享迭代 | 1000 | 1000 个独立用户各请求一次，共 1000 个 HTTP 请求 |
 
-`summary.js` 已补充后续 `iterations/s` 输出。1000 用户 k6 秒杀需要 1000 个独立短期令牌，本次未执行；对应并发正确性已由 Redis/MySQL Testcontainers 用例验证，不能据此推导 HTTP 容量。
+| 场景 | 请求数 | checks rate | HTTP failure rate | 吞吐（迭代/秒） | p95 | p99 |
+|---|---:|---:|---:|---:|---:|---:|
+| 普通交易 | 2000 | 100% | 0% | 95.88 | 415.08 ms | 507.36 ms |
+| 支付链路 | 1500 | 100% | 0% | 51.92 | 302.65 ms | 703.92 ms |
+| 商品秒杀 | 1000 | 100% | 0% | 1083.10 | 258.55 ms | 349.21 ms |
+
+秒杀的 `202` 和 `409` 都是预期状态，k6 将二者标记为受控响应；最终为 100 个 `202`、900 个 `409`、0 个非预期响应。原始 JSON 与汇总位于 Git 忽略目录 `linkverse-platform/test-results/{raw,generated}/load-20260825T022835Z/`。
+
+预检曾以 1000 VU 同时建连，100 个请求被接受后出现 472 个本机连接拒绝；四个 Java 进程仍存活且健康，推断瓶颈是本机 TCP 建连队列而非业务状态机。该失败结果不计入正式性能数字，也说明当前单机结果不能外推为 1000 瞬时并发能力。
 
 ## 9. 验收结论
 

@@ -44,6 +44,7 @@ LinkVerse/
 .\scripts\start.ps1
 .\scripts\seed.ps1
 .\scripts\acceptance.ps1
+.\scripts\load-test.ps1
 ```
 
 运行故障恢复与全量 Java 测试：

@@ -2,6 +2,8 @@
 param(
     [switch]$SkipBuild,
     [int]$HealthTimeoutSeconds = 90,
+    [ValidatePattern('^PT(?=\d|.*[HMS])')]
+    [string]$UserAccessTokenTtl = 'PT2H',
     [string]$JavaHome = 'D:\Java JDK\jdk-21.0.12+8'
 )
 
@@ -10,6 +12,7 @@ $ErrorActionPreference = 'Stop'
 . (Join-Path $PSScriptRoot '_delivery.ps1')
 
 $context = Initialize-LinkVerseDeliveryEnvironment -JavaHome $JavaHome
+[Environment]::SetEnvironmentVariable('LINKVERSE_USER_ACCESS_TOKEN_TTL', $UserAccessTokenTtl, 'Process')
 Assert-LinkVerseCommand -Name 'docker'
 
 & (Join-Path $PSScriptRoot 'bootstrap.ps1')

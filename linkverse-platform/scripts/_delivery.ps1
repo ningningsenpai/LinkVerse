@@ -125,3 +125,33 @@ function Wait-LinkVerseHealth {
 function Get-LinkVerseSeedStatePath {
     Join-Path (Get-LinkVerseDeliveryContext).RuntimeRoot 'seed-state.json'
 }
+
+function Invoke-LinkVerseTradeSql {
+    param(
+        [Parameter(Mandatory = $true)][object]$Context,
+        [Parameter(Mandatory = $true)][string]$Sql
+    )
+
+    $command = 'MYSQL_PWD="$TRADE_APP_PASSWORD" mysql --protocol=socket --user="$TRADE_APP_USER" ' +
+        '--database="$TRADE_DB_NAME" --batch --skip-column-names --execute="$1"'
+    Invoke-LinkVerseCompose -Context $Context.Infrastructure `
+        -EnvironmentFile $Context.Infrastructure.EnvironmentFile `
+        -ComposeArguments @(
+            'exec', '--no-TTY', 'mysql', 'sh', '-ec', $command, 'linkverse-trade-sql', $Sql
+        )
+}
+
+function Invoke-LinkVerseRedisCli {
+    param(
+        [Parameter(Mandatory = $true)][object]$Context,
+        [Parameter(Mandatory = $true)][string[]]$RedisArguments
+    )
+
+    $command = 'REDISCLI_AUTH="$REDIS_PASSWORD" redis-cli --no-auth-warning "$@"'
+    $composeArguments = @(
+        'exec', '--no-TTY', 'redis', 'sh', '-ec', $command, 'linkverse-redis-cli'
+    ) + $RedisArguments
+    Invoke-LinkVerseCompose -Context $Context.Infrastructure `
+        -EnvironmentFile $Context.Infrastructure.EnvironmentFile `
+        -ComposeArguments $composeArguments
+}

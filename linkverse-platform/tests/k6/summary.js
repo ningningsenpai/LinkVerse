@@ -14,6 +14,9 @@ export function buildSummary(data, suite) {
     http_req_failed_rate: value(data, 'http_req_failed', 'rate'),
     p95_ms: value(data, 'http_req_duration', 'p(95)'),
     p99_ms: value(data, 'http_req_duration', 'p(99)'),
+    seckill_accepted: value(data, 'seckill_accepted', 'count'),
+    seckill_rejected: value(data, 'seckill_rejected', 'count'),
+    seckill_unexpected: value(data, 'seckill_unexpected', 'count'),
   };
   const markdown = [
     `# ${suite} k6 实测汇总`, '', '| 指标 | 实测值 |', '|---|---:|',
@@ -24,10 +27,17 @@ export function buildSummary(data, suite) {
     `| HTTP failure rate | ${measured.http_req_failed_rate ?? '无'} |`,
     `| p95 (ms) | ${measured.p95_ms ?? '无'} |`,
     `| p99 (ms) | ${measured.p99_ms ?? '无'} |`, '',
-    '> 本文件只记录本次实测结果，不构成容量承诺。', '',
-  ].join('\n');
-  const outputs = { stdout: markdown };
+  ];
+  if (measured.seckill_accepted !== null) {
+    markdown.splice(markdown.length - 1, 0,
+      `| 秒杀接受数 | ${measured.seckill_accepted} |`,
+      `| 秒杀受控拒绝数 | ${measured.seckill_rejected ?? 0} |`,
+      `| 秒杀非预期响应数 | ${measured.seckill_unexpected ?? 0} |`);
+  }
+  markdown.push('> 本文件只记录本次实测结果，不构成容量承诺。', '');
+  const markdownText = markdown.join('\n');
+  const outputs = { stdout: markdownText };
   if (__ENV.SUMMARY_JSON) outputs[__ENV.SUMMARY_JSON] = JSON.stringify(measured, null, 2);
-  if (__ENV.SUMMARY_MD) outputs[__ENV.SUMMARY_MD] = markdown;
+  if (__ENV.SUMMARY_MD) outputs[__ENV.SUMMARY_MD] = markdownText;
   return outputs;
 }
