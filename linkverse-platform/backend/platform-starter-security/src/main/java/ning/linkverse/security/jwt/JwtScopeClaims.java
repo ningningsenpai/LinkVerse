@@ -19,6 +19,12 @@ public final class JwtScopeClaims {
     private JwtScopeClaims() {
     }
 
+    /**
+     * 从 JWT 中解析 scope/scp 声明。
+     *
+     * @param jwt JWT 令牌
+     * @return scope/scp 声明的集合
+     */
     public static Set<String> parse(Jwt jwt) {
         Objects.requireNonNull(jwt, "JWT 不能为空");
         Object rawScopes = jwt.getClaims().get("scope");
@@ -28,6 +34,12 @@ public final class JwtScopeClaims {
         return parseValue(rawScopes);
     }
 
+    /**
+     * 解析字符串或集合形式的 scope/scp 声明。
+     *
+     * @param rawScopes scope/scp 声明的原始值
+     * @return scope/scp 声明的集合
+     */
     static Set<String> parseValue(Object rawScopes) {
         if (rawScopes instanceof String value) {
             if (value.isBlank()) {
