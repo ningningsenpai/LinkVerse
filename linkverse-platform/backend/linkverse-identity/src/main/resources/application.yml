@@ -14,13 +14,13 @@ spring:
         password: ${NACOS_RUNTIME_PASSWORD:}
   datasource:
     url: ${LINKVERSE_IDENTITY_DB_URL:jdbc:mysql://127.0.0.1:13307/linkverse_mvp_identity?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC}
-    username: ${LINKVERSE_IDENTITY_DB_USERNAME:linkverse_mvp_identity_app}
+    username: ${LINKVERSE_IDENTITY_DB_USERNAME:}
     password: ${LINKVERSE_IDENTITY_DB_PASSWORD:}
   flyway:
     enabled: true
     locations: classpath:db/migration
     url: ${LINKVERSE_IDENTITY_FLYWAY_URL:jdbc:mysql://127.0.0.1:13307/linkverse_mvp_identity?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC}
-    user: ${LINKVERSE_IDENTITY_FLYWAY_USERNAME:linkverse_mvp_identity_migrator}
+    user: ${LINKVERSE_IDENTITY_FLYWAY_USERNAME:}
     password: ${LINKVERSE_IDENTITY_FLYWAY_PASSWORD:}
 
 management:
@@ -48,3 +48,22 @@ linkverse:
       enabled: ${LINKVERSE_TRADE_CLIENT_BOOTSTRAP_ENABLED:false}
       client-id: ${LINKVERSE_TRADE_CLIENT_ID:linkverse-trade}
       client-secret: ${LINKVERSE_TRADE_CLIENT_SECRET:}
+
+---
+spring:
+  config:
+    activate:
+      on-profile: local
+
+logging:
+  file:
+    name: ${LINKVERSE_LOG_ROOT}/linkverse-identity/application/application.log
+  structured:
+    format:
+      file: logstash
+  logback:
+    rollingpolicy:
+      file-name-pattern: ${LINKVERSE_LOG_ROOT}/linkverse-identity/application/archive/application.%d{yyyy-MM-dd}.%i.log.gz
+      max-file-size: 10MB
+      max-history: 7
+      total-size-cap: 200MB

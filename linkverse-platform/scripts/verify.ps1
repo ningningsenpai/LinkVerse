@@ -73,7 +73,7 @@ foreach ($service in $expectedServices) {
     }
 }
 
-Write-Host '正在检查业务 Schema 与六个数据库账号……'
+Write-Host '正在检查业务 Schema 与受限来源的 root 共享账号……'
 $databaseOutput = @(
     Invoke-LinkVerseCompose -Context $context -EnvironmentFile $environmentFile `
         -ComposeArguments @(
@@ -92,43 +92,43 @@ foreach ($database in $expectedDatabases) {
     }
 }
 
+$configuredAccounts = @(
+    Get-LinkVerseEnvironmentValue -Name 'IDENTITY_APP_USER'
+    Get-LinkVerseEnvironmentValue -Name 'IDENTITY_MIGRATOR_USER'
+    Get-LinkVerseEnvironmentValue -Name 'TRADE_APP_USER'
+    Get-LinkVerseEnvironmentValue -Name 'TRADE_MIGRATOR_USER'
+    Get-LinkVerseEnvironmentValue -Name 'PAYMENT_APP_USER'
+    Get-LinkVerseEnvironmentValue -Name 'PAYMENT_MIGRATOR_USER'
+)
+if (@($configuredAccounts | Where-Object { $_ -cne 'root' }).Count -gt 0) {
+    throw '本地 MVP 的数据库运行与迁移账号必须统一为 root。'
+}
+
 $accountOutput = @(
     Invoke-LinkVerseCompose -Context $context -EnvironmentFile $environmentFile `
         -ComposeArguments @(
             'exec', '--no-TTY', 'mysql', 'sh', '-ec',
-            'MYSQL_PWD="$MYSQL_ROOT_PASSWORD" mysql --protocol=socket --user=root --batch --skip-column-names --execute="SELECT User FROM mysql.user"'
+            'MYSQL_PWD="$MYSQL_ROOT_PASSWORD" mysql --protocol=socket --user=root --batch --skip-column-names --execute="SELECT CONCAT(User, CHAR(64), Host) FROM mysql.user"'
         )
 )
-$accountMappings = @(
-    @{ User = Get-LinkVerseEnvironmentValue -Name 'IDENTITY_APP_USER'; Database = Get-LinkVerseEnvironmentValue -Name 'IDENTITY_DB_NAME'; Migrator = $false },
-    @{ User = Get-LinkVerseEnvironmentValue -Name 'IDENTITY_MIGRATOR_USER'; Database = Get-LinkVerseEnvironmentValue -Name 'IDENTITY_DB_NAME'; Migrator = $true },
-    @{ User = Get-LinkVerseEnvironmentValue -Name 'TRADE_APP_USER'; Database = Get-LinkVerseEnvironmentValue -Name 'TRADE_DB_NAME'; Migrator = $false },
-    @{ User = Get-LinkVerseEnvironmentValue -Name 'TRADE_MIGRATOR_USER'; Database = Get-LinkVerseEnvironmentValue -Name 'TRADE_DB_NAME'; Migrator = $true },
-    @{ User = Get-LinkVerseEnvironmentValue -Name 'PAYMENT_APP_USER'; Database = Get-LinkVerseEnvironmentValue -Name 'PAYMENT_DB_NAME'; Migrator = $false },
-    @{ User = Get-LinkVerseEnvironmentValue -Name 'PAYMENT_MIGRATOR_USER'; Database = Get-LinkVerseEnvironmentValue -Name 'PAYMENT_DB_NAME'; Migrator = $true }
-)
-foreach ($mapping in $accountMappings) {
-    if ($accountOutput -notcontains $mapping.User) {
-        throw "数据库账号不存在：$($mapping.User)"
-    }
+if ($accountOutput -notcontains 'root@172.18.%') {
+    throw '缺少仅供 LinkVerse Docker 网段访问的 root 账号。'
+}
+if ($accountOutput -contains 'root@%') {
+    throw '检测到允许任意来源访问的 root@% 账号。'
+}
 
-    $grantQuery = "SHOW GRANTS FOR '$($mapping.User)'@'%';"
-    $grantCommand = 'MYSQL_PWD="$MYSQL_ROOT_PASSWORD" mysql --protocol=socket --user=root --batch --skip-column-names --execute="' + $grantQuery + '"'
-    $grantOutput = @(
-        Invoke-LinkVerseCompose -Context $context -EnvironmentFile $environmentFile `
-            -ComposeArguments @('exec', '--no-TTY', 'mysql', 'sh', '-ec', $grantCommand)
-    )
-    $grantText = $grantOutput -join "`n"
-    if ($grantText -notmatch [Regex]::Escape($mapping.Database)) {
-        throw "数据库账号缺少所属 Schema 权限：$($mapping.User)"
-    }
-    foreach ($otherDatabase in $expectedDatabases) {
-        if ($otherDatabase -ne $mapping.Database -and $grantText -match [Regex]::Escape($otherDatabase)) {
-            throw "数据库账号越权访问其他 Schema：$($mapping.User) -> $otherDatabase"
-        }
-    }
-    if (-not $mapping.Migrator -and $grantText -match '\b(CREATE|ALTER|DROP)\b') {
-        throw "应用运行账号错误地拥有 DDL 权限：$($mapping.User)"
+$grantOutput = @(
+    Invoke-LinkVerseCompose -Context $context -EnvironmentFile $environmentFile `
+        -ComposeArguments @(
+            'exec', '--no-TTY', 'mysql', 'sh', '-ec',
+            'MYSQL_PWD="$MYSQL_ROOT_PASSWORD" mysql --protocol=socket --user=root --batch --skip-column-names --execute="SHOW GRANTS FOR root@''172.18.%''"'
+        )
+)
+$grantText = $grantOutput -join "`n"
+foreach ($database in $expectedDatabases) {
+    if ($grantText -notmatch [Regex]::Escape($database)) {
+        throw "root 共享账号缺少业务 Schema 权限：$database"
     }
 }
 
@@ -153,7 +153,7 @@ if ($rabbitVhosts -notcontains $expectedVhost) {
     throw "RabbitMQ vhost 不存在：$expectedVhost"
 }
 
-Write-Host '正在检查 Nacos 隔离 namespace 与 runtime 账号……'
+Write-Host '正在检查 Nacos 隔离 namespace 与本地共享账号……'
 Test-LinkVerseNacosNamespace
 Test-LinkVerseNacosRuntimeLogin
 

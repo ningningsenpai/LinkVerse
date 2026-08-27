@@ -32,7 +32,6 @@ if (-not $SkipBuild) {
 }
 
 New-Item -ItemType Directory -Path $context.RuntimeRoot -Force | Out-Null
-New-Item -ItemType Directory -Path $context.LogRoot -Force | Out-Null
 $pidFile = Join-Path $context.RuntimeRoot 'services.json'
 if (Test-Path -LiteralPath $pidFile) {
     $running = @((Get-Content -LiteralPath $pidFile -Raw | ConvertFrom-Json) | Where-Object {
@@ -56,12 +55,14 @@ try {
         if (-not (Test-Path -LiteralPath $jar -PathType Leaf)) {
             throw "服务包不存在：$jar"
         }
-        $stdout = Join-Path $context.LogRoot "$($service.Name).out.log"
-        $stderr = Join-Path $context.LogRoot "$($service.Name).error.log"
+        $processLogRoot = Initialize-LinkVerseLogDirectory -Context $context `
+            -Module $service.Name -Category 'process'
+        $stderr = Join-Path $processLogRoot 'stderr.log'
+        $jvmErrorFile = Join-Path $processLogRoot 'hs_err_pid%p.log'
         $process = Start-Process -FilePath (Join-Path $JavaHome 'bin/java.exe') `
-            -ArgumentList @('-jar', $jar, '--spring.profiles.active=local') `
+            -ArgumentList @("-XX:ErrorFile=$jvmErrorFile", '-jar', $jar, '--spring.profiles.active=local') `
             -WorkingDirectory $context.BackendRoot -WindowStyle Hidden -PassThru `
-            -RedirectStandardOutput $stdout -RedirectStandardError $stderr
+            -RedirectStandardError $stderr
         $started.Add([PSCustomObject]@{
             name = $service.Name; pid = $process.Id; port = $service.Port; jar = $jar
         })

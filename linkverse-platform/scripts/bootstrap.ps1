@@ -30,7 +30,7 @@ Invoke-LinkVerseCompose -Context $context -EnvironmentFile $context.EnvironmentF
         'mysql', 'redis', 'rabbitmq', 'nacos'
     )
 
-Write-Host '正在收敛三个 Schema 与六个数据库账号的授权……'
+Write-Host '正在收敛三个 Schema 与本地 root 共享账号……'
 Invoke-LinkVerseCompose -Context $context -EnvironmentFile $context.EnvironmentFile `
     -ComposeArguments @(
         'exec', '--no-TTY', 'mysql',
@@ -55,7 +55,7 @@ $rabbitBootstrapCommand = $rabbitBootstrapCommand.Replace("`r`n", "`n")
 Invoke-LinkVerseCompose -Context $context -EnvironmentFile $context.EnvironmentFile `
     -ComposeArguments @('exec', '--no-TTY', 'rabbitmq', 'sh', '-ec', $rabbitBootstrapCommand)
 
-Write-Host '正在初始化 Nacos 管理员、隔离 namespace 与 runtime 权限……'
+Write-Host '正在初始化 Nacos 本地共享账号与隔离 namespace……'
 Initialize-LinkVerseNacos | Out-Null
 
 $nacosConsolePort = Get-LinkVerseEnvironmentValue -Name 'NACOS_CONSOLE_HOST_PORT'

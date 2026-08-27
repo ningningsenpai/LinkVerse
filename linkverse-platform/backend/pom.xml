@@ -17,7 +17,7 @@
     <packaging>pom</packaging>
 
     <name>LinkVerse Backend</name>
-    <description>LinkVerse 求职 MVP 后端聚合工程</description>
+    <description>LinkVerse Backend Project</description>
 
     <modules>
         <module>platform-bom</module>

@@ -36,6 +36,8 @@ spring:
         group: ${NACOS_GROUP:LINKVERSE_MVP}
         username: ${NACOS_RUNTIME_USERNAME:}
         password: ${NACOS_RUNTIME_PASSWORD:}
+        health-indicator:
+          enabled: false
 
 linkverse:
   security:
@@ -58,11 +60,26 @@ management:
       show-details: never
       probes:
         enabled: true
-  health:
-    nacos-discovery:
-      enabled: false
-
 logging:
   structured:
     format:
       console: logstash
+
+---
+spring:
+  config:
+    activate:
+      on-profile: local
+
+logging:
+  file:
+    name: ${LINKVERSE_LOG_ROOT}/linkverse-payment/application/application.log
+  structured:
+    format:
+      file: logstash
+  logback:
+    rollingpolicy:
+      file-name-pattern: ${LINKVERSE_LOG_ROOT}/linkverse-payment/application/archive/application.%d{yyyy-MM-dd}.%i.log.gz
+      max-file-size: 10MB
+      max-history: 7
+      total-size-cap: 200MB

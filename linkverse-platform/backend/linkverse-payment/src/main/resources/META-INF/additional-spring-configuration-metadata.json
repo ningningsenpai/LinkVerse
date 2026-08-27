@@ -1,0 +1,16 @@
+{
+  "properties": [
+    {
+      "name": "linkverse.payment.outbox.enabled",
+      "type": "java.lang.Boolean",
+      "description": "是否启用支付 Outbox 定时投递。",
+      "defaultValue": true
+    },
+    {
+      "name": "linkverse.payment.outbox.fixed-delay",
+      "type": "java.time.Duration",
+      "description": "支付 Outbox 两次投递任务之间的固定延迟。",
+      "defaultValue": "1000ms"
+    }
+  ]
+}

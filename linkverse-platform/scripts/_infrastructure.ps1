@@ -111,18 +111,22 @@ function Test-LinkVerseInfrastructureSecrets {
     }
 
     $restrictedPasswordNames = @(
+        'MYSQL_ROOT_PASSWORD',
         'IDENTITY_APP_PASSWORD',
         'IDENTITY_MIGRATOR_PASSWORD',
         'TRADE_APP_PASSWORD',
         'TRADE_MIGRATOR_PASSWORD',
         'PAYMENT_APP_PASSWORD',
         'PAYMENT_MIGRATOR_PASSWORD',
+        'REDIS_PASSWORD',
+        'RABBITMQ_PASSWORD',
+        'NACOS_ADMIN_PASSWORD',
         'NACOS_RUNTIME_PASSWORD'
     )
     foreach ($name in $restrictedPasswordNames) {
         $value = Get-LinkVerseEnvironmentValue -Name $name
-        if ($value -notmatch '^[A-Za-z0-9_@%+=:,.-]{16,128}$') {
-            throw "$name 必须为 16～128 位安全字符，且不得包含引号、空格或反斜杠。"
+        if ($value -notmatch '^[A-Za-z0-9_@%+=:,.-]{8,128}$') {
+            throw "$name 必须为 8～128 位安全字符，且不得包含引号、空格或反斜杠。"
         }
     }
 
@@ -142,7 +146,11 @@ function Test-LinkVerseInfrastructureSecrets {
     }
     $adminUsername = Get-LinkVerseEnvironmentValue -Name 'NACOS_ADMIN_USERNAME'
     if ($runtimeUsername.Equals($adminUsername, [StringComparison]::OrdinalIgnoreCase)) {
-        throw 'NACOS_RUNTIME_USERNAME 不得使用 Nacos 管理员账号。'
+        $runtimePassword = Get-LinkVerseEnvironmentValue -Name 'NACOS_RUNTIME_PASSWORD'
+        $adminPassword = Get-LinkVerseEnvironmentValue -Name 'NACOS_ADMIN_PASSWORD'
+        if ($runtimePassword -cne $adminPassword) {
+            throw 'Nacos 本地运行账号与管理员账号相同时，两处密码必须一致。'
+        }
     }
 }
 
@@ -414,6 +422,15 @@ function Initialize-LinkVerseNacosRuntimeAccount {
     $runtimeRole = Get-LinkVerseEnvironmentValue -Name 'NACOS_RUNTIME_ROLE'
     $headers = @{ Authorization = "Bearer $AdminToken" }
 
+    $adminUsername = Get-LinkVerseEnvironmentValue -Name 'NACOS_ADMIN_USERNAME'
+    if ($runtimeUsername.Equals($adminUsername, [StringComparison]::OrdinalIgnoreCase)) {
+        $runtimeToken = Get-LinkVerseNacosAccessToken -Username $runtimeUsername -Password $runtimePassword
+        if ([string]::IsNullOrWhiteSpace($runtimeToken)) {
+            throw 'Nacos 本地共享账号无法登录。'
+        }
+        return
+    }
+
     $encodedUsername = [Uri]::EscapeDataString($runtimeUsername)
     $userListUri = "http://127.0.0.1:$serverPort/nacos/v3/auth/user/list?pageNo=1&pageSize=10&username=$encodedUsername&search=accurate"
     $userListResponse = Invoke-RestMethod -Method Get -Uri $userListUri -Headers $headers -TimeoutSec 10
@@ -598,6 +615,10 @@ function Test-LinkVerseNacosRuntimeLogin {
     }
 
     $adminUsername = Get-LinkVerseEnvironmentValue -Name 'NACOS_ADMIN_USERNAME'
+    if ($runtimeUsername.Equals($adminUsername, [StringComparison]::OrdinalIgnoreCase)) {
+        return
+    }
+
     $adminPassword = Get-LinkVerseEnvironmentValue -Name 'NACOS_ADMIN_PASSWORD'
     $adminToken = Get-LinkVerseNacosAccessToken -Username $adminUsername -Password $adminPassword
     if ([string]::IsNullOrWhiteSpace($adminToken)) {

@@ -166,37 +166,32 @@ function Initialize-LinkVerseEnvironmentFile {
         return $false
     }
 
-    $identityAppPassword = New-LinkVerseSafeSecret
-    $identityMigratorPassword = New-LinkVerseSafeSecret
-    $tradeAppPassword = New-LinkVerseSafeSecret
-    $tradeMigratorPassword = New-LinkVerseSafeSecret
-    $paymentAppPassword = New-LinkVerseSafeSecret
-    $paymentMigratorPassword = New-LinkVerseSafeSecret
+    $middlewarePassword = '123456abc'
     $tradeClientSecret = New-LinkVerseSafeSecret
     [byte[]]$keyIdBytes = New-LinkVerseRandomBytes -Length 16
 
     $generatedValues = @{
-        MYSQL_ROOT_PASSWORD                  = New-LinkVerseSafeSecret
-        IDENTITY_APP_PASSWORD                = $identityAppPassword
-        IDENTITY_MIGRATOR_PASSWORD           = $identityMigratorPassword
-        TRADE_APP_PASSWORD                   = $tradeAppPassword
-        TRADE_MIGRATOR_PASSWORD              = $tradeMigratorPassword
-        PAYMENT_APP_PASSWORD                 = $paymentAppPassword
-        PAYMENT_MIGRATOR_PASSWORD            = $paymentMigratorPassword
-        REDIS_PASSWORD                       = New-LinkVerseSafeSecret
-        RABBITMQ_PASSWORD                    = New-LinkVerseSafeSecret
+        MYSQL_ROOT_PASSWORD                  = $middlewarePassword
+        IDENTITY_APP_PASSWORD                = $middlewarePassword
+        IDENTITY_MIGRATOR_PASSWORD           = $middlewarePassword
+        TRADE_APP_PASSWORD                   = $middlewarePassword
+        TRADE_MIGRATOR_PASSWORD              = $middlewarePassword
+        PAYMENT_APP_PASSWORD                 = $middlewarePassword
+        PAYMENT_MIGRATOR_PASSWORD            = $middlewarePassword
+        REDIS_PASSWORD                       = $middlewarePassword
+        RABBITMQ_PASSWORD                    = $middlewarePassword
         PAYMENT_MOCK_HMAC_SECRET             = New-LinkVerseSafeSecret
-        NACOS_ADMIN_PASSWORD                 = New-LinkVerseSafeSecret
-        NACOS_RUNTIME_PASSWORD               = New-LinkVerseSafeSecret
+        NACOS_ADMIN_PASSWORD                 = $middlewarePassword
+        NACOS_RUNTIME_PASSWORD               = $middlewarePassword
         NACOS_AUTH_TOKEN                     = New-LinkVerseNacosToken
         NACOS_AUTH_IDENTITY_KEY              = New-LinkVerseSafeSecret
         NACOS_AUTH_IDENTITY_VALUE            = New-LinkVerseSafeSecret
-        LINKVERSE_IDENTITY_DB_PASSWORD       = $identityAppPassword
-        LINKVERSE_IDENTITY_FLYWAY_PASSWORD   = $identityMigratorPassword
-        TRADE_DB_PASSWORD                    = $tradeAppPassword
-        TRADE_FLYWAY_PASSWORD                = $tradeMigratorPassword
-        PAYMENT_DB_PASSWORD                  = $paymentAppPassword
-        PAYMENT_FLYWAY_PASSWORD              = $paymentMigratorPassword
+        LINKVERSE_IDENTITY_DB_PASSWORD       = $middlewarePassword
+        LINKVERSE_IDENTITY_FLYWAY_PASSWORD   = $middlewarePassword
+        TRADE_DB_PASSWORD                    = $middlewarePassword
+        TRADE_FLYWAY_PASSWORD                = $middlewarePassword
+        PAYMENT_DB_PASSWORD                  = $middlewarePassword
+        PAYMENT_FLYWAY_PASSWORD              = $middlewarePassword
         LINKVERSE_JWT_KEY_ID                 = 'linkverse-local-' + [Convert]::ToHexString($keyIdBytes).ToLowerInvariant()
         LINKVERSE_JWT_PRIVATE_KEY            = ([Uri]::new($KeyPaths.PrivateKeyPath)).AbsoluteUri
         LINKVERSE_JWT_PUBLIC_KEY             = ([Uri]::new($KeyPaths.PublicKeyPath)).AbsoluteUri

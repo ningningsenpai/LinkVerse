@@ -15,6 +15,35 @@ function Get-LinkVerseDeliveryContext {
     }
 }
 
+function Initialize-LinkVerseLogDirectory {
+    param(
+        [Parameter(Mandatory = $true)][object]$Context,
+        [Parameter(Mandatory = $true)]
+        [ValidatePattern('^[a-z0-9][a-z0-9-]*$')]
+        [string]$Module,
+        [Parameter(Mandatory = $true)]
+        [ValidateSet('process', 'build', 'test')]
+        [string]$Category
+    )
+
+    $directory = Join-Path (Join-Path $Context.LogRoot $Module) $Category
+    New-Item -ItemType Directory -Path $directory -Force | Out-Null
+    return [IO.Path]::GetFullPath($directory)
+}
+
+function Initialize-LinkVerseJavaEnvironment {
+    param(
+        [string]$JavaHome = 'D:\Java JDK\jdk-21.0.12+8'
+    )
+
+    $javaExecutable = Join-Path $JavaHome 'bin/java.exe'
+    if (-not (Test-Path -LiteralPath $javaExecutable -PathType Leaf)) {
+        throw "指定的 JDK 21 不存在：$JavaHome"
+    }
+    [Environment]::SetEnvironmentVariable('JAVA_HOME', $JavaHome, 'Process')
+    [Environment]::SetEnvironmentVariable('Path', "$JavaHome\bin;$env:Path", 'Process')
+}
+
 function Initialize-LinkVerseDeliveryEnvironment {
     param(
         [string]$JavaHome = 'D:\Java JDK\jdk-21.0.12+8'
@@ -28,13 +57,9 @@ function Initialize-LinkVerseDeliveryEnvironment {
         -EnvironmentFile $context.Infrastructure.EnvironmentFile
     Test-LinkVerseInfrastructureSecrets
 
-    $javaExecutable = Join-Path $JavaHome 'bin/java.exe'
-    if (-not (Test-Path -LiteralPath $javaExecutable -PathType Leaf)) {
-        throw "指定的 JDK 21 不存在：$JavaHome"
-    }
-    [Environment]::SetEnvironmentVariable('JAVA_HOME', $JavaHome, 'Process')
-    [Environment]::SetEnvironmentVariable('Path', "$JavaHome\bin;$env:Path", 'Process')
+    Initialize-LinkVerseJavaEnvironment -JavaHome $JavaHome
     [Environment]::SetEnvironmentVariable('SPRING_PROFILES_ACTIVE', 'local', 'Process')
+    [Environment]::SetEnvironmentVariable('LINKVERSE_LOG_ROOT', $context.LogRoot, 'Process')
     [Environment]::SetEnvironmentVariable('NACOS_SERVER_ADDR',
         "127.0.0.1:$((Get-LinkVerseEnvironmentValue -Name 'NACOS_SERVER_HOST_PORT'))", 'Process')
     [Environment]::SetEnvironmentVariable('REDIS_PORT',

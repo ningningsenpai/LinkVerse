@@ -2,7 +2,7 @@ name: ${COMPOSE_PROJECT_NAME:?请通过 versions.env 提供 COMPOSE_PROJECT_NAME
 
 services:
   mysql:
-    image: ${MYSQL_IMAGE:?请通过 versions.env 提供 MYSQL_IMAGE}${MYSQL_IMAGE_DIGEST:+@${MYSQL_IMAGE_DIGEST}}
+    image: ${MYSQL_IMAGE_REF}
     container_name: ${COMPOSE_PROJECT_NAME}-mysql
     restart: unless-stopped
     environment:
@@ -29,9 +29,7 @@ services:
       - mysql_data:/var/lib/mysql
       - ../mysql/init/10-create-business-databases.sh:/docker-entrypoint-initdb.d/10-create-business-databases.sh:ro
     healthcheck:
-      test:
-        - CMD-SHELL
-        - MYSQL_PWD="$${MYSQL_ROOT_PASSWORD}" mysqladmin ping --host=127.0.0.1 --user=root --silent
+      test: 'MYSQL_PWD="$${MYSQL_ROOT_PASSWORD}" mysqladmin ping --host=127.0.0.1 --user=root --silent'
       interval: 10s
       timeout: 5s
       retries: 12
@@ -40,7 +38,7 @@ services:
       - linkverse_mvp
 
   redis:
-    image: ${REDIS_IMAGE:?请通过 versions.env 提供 REDIS_IMAGE}${REDIS_IMAGE_DIGEST:+@${REDIS_IMAGE_DIGEST}}
+    image: ${REDIS_IMAGE_REF}
     container_name: ${COMPOSE_PROJECT_NAME}-redis
     restart: unless-stopped
     environment:
@@ -55,9 +53,7 @@ services:
     volumes:
       - redis_data:/data
     healthcheck:
-      test:
-        - CMD-SHELL
-        - REDISCLI_AUTH="$${REDIS_PASSWORD}" redis-cli --no-auth-warning ping | grep -q PONG
+      test: 'REDISCLI_AUTH="$${REDIS_PASSWORD}" redis-cli --no-auth-warning ping | grep -q PONG'
       interval: 10s
       timeout: 5s
       retries: 12
@@ -66,7 +62,7 @@ services:
       - linkverse_mvp
 
   rabbitmq:
-    image: ${RABBITMQ_IMAGE:?请通过 versions.env 提供 RABBITMQ_IMAGE}${RABBITMQ_IMAGE_DIGEST:+@${RABBITMQ_IMAGE_DIGEST}}
+    image: ${RABBITMQ_IMAGE_REF}
     container_name: ${COMPOSE_PROJECT_NAME}-rabbitmq
     restart: unless-stopped
     environment:
@@ -80,11 +76,7 @@ services:
     volumes:
       - rabbitmq_data:/var/lib/rabbitmq
     healthcheck:
-      test:
-        - CMD
-        - rabbitmq-diagnostics
-        - -q
-        - ping
+      test: rabbitmq-diagnostics -q ping
       interval: 10s
       timeout: 10s
       retries: 12
@@ -93,7 +85,7 @@ services:
       - linkverse_mvp
 
   nacos:
-    image: ${NACOS_IMAGE:?请通过 versions.env 提供 NACOS_IMAGE}${NACOS_IMAGE_DIGEST:+@${NACOS_IMAGE_DIGEST}}
+    image: ${NACOS_IMAGE_REF}
     container_name: ${COMPOSE_PROJECT_NAME}-nacos
     restart: unless-stopped
     environment:
@@ -120,9 +112,7 @@ services:
       - nacos_data:/home/nacos/data
       - nacos_logs:/home/nacos/logs
     healthcheck:
-      test:
-        - CMD-SHELL
-        - curl --fail --silent --show-error http://127.0.0.1:8848/nacos/v3/admin/core/state/readiness >/dev/null
+      test: curl --fail --silent --show-error http://127.0.0.1:8848/nacos/v3/admin/core/state/readiness >/dev/null
       interval: 10s
       timeout: 5s
       retries: 18
@@ -134,6 +124,9 @@ networks:
   linkverse_mvp:
     name: ${COMPOSE_PROJECT_NAME}-network
     driver: bridge
+    ipam:
+      config:
+        - subnet: 172.18.0.0/16
 
 volumes:
   mysql_data:

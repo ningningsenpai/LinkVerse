@@ -21,11 +21,13 @@
 | MySQL Schema | `linkverse_mvp_identity`、`linkverse_mvp_trade`、`linkverse_mvp_payment` |
 | Nacos namespace ID | `linkverse-mvp` |
 | Nacos group | `LINKVERSE_MVP` |
-| Nacos 服务角色 | `linkverse_mvp_runtime` |
+| 本地 MySQL 账号 | `root`（仅三个业务 Schema） |
+| 本地 Nacos 账号 | `nacos` |
+| 本地 RabbitMQ 账号 | `rabbitmq` |
 | RabbitMQ vhost | `linkverse-mvp` |
 | Redis Key 前缀 | `lv:mvp:{domain}:` |
 
-每个 Schema 有两个账号：`*_app` 只拥有运行期读写权限，`*_migrator` 额外拥有 Flyway 所需的 DDL 权限。账号不能访问其他业务 Schema；服务不得跨 Schema Join。
+三个 Schema 仍保持物理隔离，服务不得跨 Schema Join。为降低本地 MVP 的使用成本，应用和 Flyway 统一使用 `root`，且该远程账号只允许当前 Docker 网段访问三个业务 Schema；生产环境必须恢复按服务拆分的运行账号和迁移账号。
 
 所有宿主端口只绑定到 `127.0.0.1`：MySQL `13307`、Redis `16380`、RabbitMQ AMQP `15674`、RabbitMQ 管理端 `15675`、Nacos 控制台 `18091`、Nacos 服务端 `18849`、Nacos gRPC `19849`。
 
@@ -39,9 +41,9 @@
 ./scripts/verify.ps1
 ```
 
-`prepare-local.ps1` 使用系统密码学随机数生成忽略的 `infrastructure/.env`，并在同样忽略的 `infrastructure/secrets/` 下生成 PKCS#8 `identity-private.pem` 和 X.509 `identity-public.pem`（RSA 2048）。该目录在首次运行前故意不存在，不应添加占位密钥。任一文件已存在时，脚本都不会覆盖它；密钥对不匹配或只留下公钥时会明确失败。脚本不会回显秘密。
+`prepare-local.ps1` 生成忽略的 `infrastructure/.env`：MySQL、Redis、RabbitMQ 和 Nacos 的本地密码统一为 `123456abc`，JWT 密钥、Nacos token、内部鉴权值、支付签名密钥和 OAuth2 客户端密钥仍使用系统密码学随机数。脚本还会在同样忽略的 `infrastructure/secrets/` 下生成 PKCS#8 `identity-private.pem` 和 X.509 `identity-public.pem`（RSA 2048）。任一文件已存在时都不会覆盖；密钥对不匹配或只留下公钥时会明确失败。脚本不会回显随机秘密。
 
-`prepare-local.ps1` 会自动满足以下规则。若必须手工维护，MySQL 业务密码仅允许 16～128 位字母、数字及 `_@%+=:,.-`。`NACOS_AUTH_TOKEN` 必须是至少 32 个随机字节的 Base64 编码，可在 PowerShell 中生成：
+`prepare-local.ps1` 会自动满足以下规则。若必须手工维护，中间件密码仅允许 8～128 位字母、数字及 `_@%+=:,.-`。`NACOS_AUTH_TOKEN` 必须是至少 32 个随机字节的 Base64 编码，可在 PowerShell 中生成：
 
 ```powershell
 $tokenBytes = New-Object byte[] 48
@@ -49,7 +51,7 @@ $tokenBytes = New-Object byte[] 48
 [Convert]::ToBase64String($tokenBytes)
 ```
 
-`bootstrap.ps1` 可重复执行：它不会删除数据，会重新收敛六个数据库账号的授权，并只在目标 namespace、runtime 账号、角色或权限不存在时创建。本期仅使用服务发现，runtime 角色只对四个固定资源 `linkverse-mvp:LINKVERSE_MVP:naming/linkverse-{gateway|identity|trade|payment}` 拥有读写权限，不授予通配服务权限或 `config/*` 权限。若已有 Nacos 数据卷使用了不同管理员密码，脚本会失败并要求显式处理，不会猜测或重置凭据。
+`bootstrap.ps1` 可重复执行：它不会删除业务数据，会收敛三个 Schema、受限来源的 MySQL `root`、RabbitMQ `rabbitmq` 账号以及 Nacos `nacos` 账号。若已有数据卷使用不同密码，脚本会失败并要求显式处理，不会猜测或重置凭据。
 
 ## 验证与停止
 
@@ -78,11 +80,12 @@ docker compose --env-file infrastructure/.env --env-file infrastructure/versions
 
 ## 安全说明
 
-- `.env`、数据库密码、Nacos token、管理员密码和 runtime 密码不得提交或写入 Nacos 明文配置。
+- `.env`、Nacos token、内部鉴权值和业务签名密钥不得提交或写入 Nacos 明文配置。
 - `identity-private.pem` 只供 Identity 本地签发使用，不得被 Gateway、Trade 或 Payment 读取；其他服务只通过 JWK 端点获取公钥。
-- Gateway、Identity、Trade 和 Payment 必须使用 `.env` 中的 `NACOS_RUNTIME_USERNAME/PASSWORD`；`nacos` 管理员只供 bootstrap 和本地运维使用。
+- Gateway、Identity、Trade 和 Payment 本地共用 `nacos` 账号；该简化仅适用于绑定到 `127.0.0.1` 的开发环境。
 - Nacos 内置鉴权只适用于受信任的本地网络；本 Compose 不可直接暴露到公网。
 - Redis 仅用于限流、缓存和后续秒杀准入；RabbitMQ 仅用于至少一次消息投递；两者都不是业务事实源。
 - MySQL 是唯一业务事实源。Nacos 当前使用自身的本地持久化，不占用业务 Schema。
+- `123456abc` 是便于记忆的本地开发密码，禁止用于公网、共享测试环境或生产环境。
 
 Nacos 鉴权与 namespace 自动化依据：[Nacos 3.2 鉴权](https://nacos.io/docs/latest/manual/admin/auth/)、[Nacos 3.x 运维 API](https://nacos.io/docs/latest/manual/admin/admin-api/)。

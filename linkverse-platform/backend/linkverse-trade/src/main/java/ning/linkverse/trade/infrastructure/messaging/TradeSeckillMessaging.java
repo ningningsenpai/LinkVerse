@@ -247,12 +247,12 @@ public class TradeSeckillMessaging {
                     .register(meterRegistry);
         }
 
-        @Scheduled(fixedDelayString = "${linkverse.trade.seckill-relay-delay:500ms}")
+        @Scheduled(fixedDelayString = "${linkverse.trade.seckill.relay-delay:500ms}")
         public void relay() {
             relay.relayOnce(50);
         }
 
-        @Scheduled(fixedDelayString = "${linkverse.trade.seckill-recovery-delay:2s}")
+        @Scheduled(fixedDelayString = "${linkverse.trade.seckill.recovery-delay:2s}")
         public void recover() {
             long differences = 0;
             for (var campaign : repository.findCampaigns()) {

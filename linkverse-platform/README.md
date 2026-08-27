@@ -15,7 +15,7 @@
 
 ## 数据与一致性
 
-Identity、Trade、Payment 分别拥有独立 MySQL Schema 和最小权限账号。普通订单使用 MySQL 条件更新扣减库存；秒杀先由 Redis Lua 原子准入，再由 RabbitMQ 异步建单，MySQL 仍是最终库存防线。支付事实通过本地 Outbox 发布，Trade 幂等消费；失败事件采用有限重试、停车队列、人工重放和定时对账。
+Identity、Trade、Payment 分别拥有独立 MySQL Schema；本地 MVP 为便于调试统一使用 `root`，生产部署必须恢复按 Schema 划分的最小权限账号。普通订单使用 MySQL 条件更新扣减库存；秒杀先由 Redis Lua 原子准入，再由 RabbitMQ 异步建单，MySQL 仍是最终库存防线。支付事实通过本地 Outbox 发布，Trade 幂等消费；失败事件采用有限重试、停车队列、人工重放和定时对账。
 
 ## 本地启动
 
@@ -33,6 +33,60 @@ Set-Location linkverse-platform
 ```
 
 删除命名卷必须显式执行 `-RemoveData -ConfirmProject linkverse-mvp`，并接受 PowerShell 高风险确认。
+
+## 日志目录
+
+本地日志统一写入 Git 忽略的 `logs/`，按模块和用途分目录：
+
+```text
+logs/
+├─ backend/
+│  ├─ build/
+│  └─ test/
+├─ linkverse-gateway/
+│  ├─ application/
+│  │  ├─ application.log
+│  │  └─ archive/
+│  └─ process/
+│     ├─ stderr.log
+│     └─ hs_err_pid*.log
+├─ linkverse-identity/
+│  ├─ application/
+│  └─ process/
+├─ linkverse-trade/
+│  ├─ application/
+│  ├─ process/
+│  ├─ build/
+│  └─ test/
+└─ linkverse-payment/
+   ├─ application/
+   └─ process/
+```
+
+`application.yml` 在 `local` profile 下将 Spring、业务和框架日志写入对应模块的
+`application/application.log`，使用 Logstash JSON 格式，并按 10 MB、保留 7 天、总量 200 MB 的规则归档。
+`start.ps1` 不再重复保存控制台日志，只把进程标准错误写入 `process/stderr.log`，并通过
+`-XX:ErrorFile` 将 JVM 致命错误写入 `process/hs_err_pid*.log`。
+
+脚本启动时会自动把 `LINKVERSE_LOG_ROOT` 设置为当前平台的绝对 `logs/` 路径。通过 IDEA 直接启动时，
+需要启用 `local` profile，并在 Run Configuration 中把 `LINKVERSE_LOG_ROOT` 设置为
+`linkverse-platform/logs` 的绝对路径。构建或测试诊断需要保存日志时，使用统一入口并显式指定归属模块：
+
+```powershell
+.\scripts\invoke-maven-diagnostic.ps1 `
+  -Module linkverse-trade `
+  -Category test `
+  -LogName payment-wiremock `
+  -MavenArguments @(
+    '-pl', 'linkverse-trade', '-am',
+    '-Dtest=PaymentInternalClientWireMockTest',
+    '-Dsurefire.failIfNoSpecifiedTests=false',
+    'test'
+  )
+```
+
+该命令会同时在终端显示 Maven 输出，并保存到
+`logs/linkverse-trade/test/payment-wiremock.log`。跨模块 Reactor 诊断使用 `backend` 作为模块名；目录均按需创建。
 
 ## 测试入口
 

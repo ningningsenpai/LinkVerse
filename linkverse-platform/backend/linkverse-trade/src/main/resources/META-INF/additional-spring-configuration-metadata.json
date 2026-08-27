@@ -1,0 +1,22 @@
+{
+  "properties": [
+    {
+      "name": "linkverse.trade.seckill.redis-prefix",
+      "type": "java.lang.String",
+      "description": "Trade 秒杀 Redis 键前缀。",
+      "defaultValue": "lv:mvp:trade:"
+    },
+    {
+      "name": "linkverse.trade.seckill.relay-delay",
+      "type": "java.time.Duration",
+      "description": "Trade 秒杀 Outbox 两次投递任务之间的固定延迟。",
+      "defaultValue": "500ms"
+    },
+    {
+      "name": "linkverse.trade.seckill.recovery-delay",
+      "type": "java.time.Duration",
+      "description": "Trade 秒杀恢复与库存对账任务的固定延迟。",
+      "defaultValue": "2s"
+    }
+  ]
+}
