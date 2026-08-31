@@ -8,6 +8,9 @@ import ning.linkverse.trade.domain.seckill.SeckillRequest;
 import ning.linkverse.trade.domain.order.NewOrder;
 import ning.linkverse.trade.domain.order.OrderItemSnapshot;
 import ning.linkverse.trade.domain.order.TradeOrder;
+import ning.linkverse.trade.infrastructure.persistence.mapper.SeckillMapper;
+import ning.linkverse.trade.infrastructure.persistence.mapper.TradeMapper;
+import ning.linkverse.trade.support.MyBatisPlusTestSupport;
 import org.flywaydb.core.Flyway;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -15,6 +18,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.transaction.support.TransactionTemplate;
 import org.testcontainers.containers.MySQLContainer;
 import org.testcontainers.junit.jupiter.Container;
@@ -59,9 +63,10 @@ class TradeMySqlRepositoryTest {
             .withPassword("trade_test_password");
 
     private static JdbcTemplate jdbcTemplate;
+    private static SqlSessionTemplate sqlSessionTemplate;
     private static TransactionTemplate transactionTemplate;
 
-    private JdbcTradeRepository repository;
+    private MyBatisPlusTradeRepository repository;
 
     @BeforeAll
     static void migrateSchema() {
@@ -80,6 +85,11 @@ class TradeMySqlRepositoryTest {
                 .isEqualTo(2);
         assertThat(jdbcTemplate.queryForObject("SELECT SUM(available) FROM sku_stock", Integer.class))
                 .isEqualTo(110);
+        sqlSessionTemplate = MyBatisPlusTestSupport.create(
+                dataSource,
+                TradeMapper.class,
+                SeckillMapper.class
+        );
         transactionTemplate = new TransactionTemplate(new DataSourceTransactionManager(dataSource));
     }
 
@@ -94,7 +104,7 @@ class TradeMySqlRepositoryTest {
         jdbcTemplate.update("DELETE FROM sku_stock");
         jdbcTemplate.update("DELETE FROM book_listing");
         insertListing(1, new BigDecimal("39.9000"), "初始标题", 3L);
-        repository = new JdbcTradeRepository(jdbcTemplate);
+        repository = new MyBatisPlusTradeRepository(sqlSessionTemplate.getMapper(TradeMapper.class));
     }
 
     @Test
@@ -258,7 +268,9 @@ class TradeMySqlRepositoryTest {
                             id, campaign_no, listing_id, version, status, initial_stock, starts_at, ends_at
                         ) VALUES (20001, ?, ?, 1, 'ENABLED', 100, ?, ?)
                         """, "9".repeat(32), LISTING_ID, NOW.minusSeconds(60), NOW.plusSeconds(3600));
-        JdbcSeckillRepository seckillRepository = new JdbcSeckillRepository(jdbcTemplate);
+        MyBatisPlusSeckillRepository seckillRepository = new MyBatisPlusSeckillRepository(
+                sqlSessionTemplate.getMapper(SeckillMapper.class)
+        );
         SeckillOrderTransactionService service = new SeckillOrderTransactionService(
                 seckillRepository,
                 repository,
@@ -316,7 +328,9 @@ class TradeMySqlRepositoryTest {
     void shouldCreateOnlyOneOrderWhenSeckillEventIsDeliveredTenTimes() {
         jdbcTemplate.update("UPDATE sku_stock SET available = 2 WHERE listing_id = ?", LISTING_ID);
         insertSeckillCampaign();
-        JdbcSeckillRepository seckillRepository = new JdbcSeckillRepository(jdbcTemplate);
+        MyBatisPlusSeckillRepository seckillRepository = new MyBatisPlusSeckillRepository(
+                sqlSessionTemplate.getMapper(SeckillMapper.class)
+        );
         SeckillRequest request = new SeckillRequest(
                 "7".repeat(32), "8".repeat(32), 20001, 1, BUYER_ID,
                 "seckill-redelivery-key", "7".repeat(64), NOW);
@@ -351,7 +365,9 @@ class TradeMySqlRepositoryTest {
                         """,
                 eventId, "7".repeat(32), "{\"token\":\"不得返回\"}", NOW, NOW,
                 "b".repeat(64), NOW);
-        JdbcSeckillRepository seckillRepository = new JdbcSeckillRepository(jdbcTemplate);
+        MyBatisPlusSeckillRepository seckillRepository = new MyBatisPlusSeckillRepository(
+                sqlSessionTemplate.getMapper(SeckillMapper.class)
+        );
 
         assertThat(seckillRepository.findByEventId(eventId).orElseThrow().status()).isEqualTo("PARKED");
         assertThat(seckillRepository.replayParked(eventId, NOW.plusSeconds(1))).isTrue();

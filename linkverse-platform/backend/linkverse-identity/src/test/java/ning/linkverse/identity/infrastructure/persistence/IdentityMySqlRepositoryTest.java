@@ -4,12 +4,16 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import ning.linkverse.core.error.PlatformException;
 import ning.linkverse.identity.domain.IdentityErrorCode;
 import ning.linkverse.identity.domain.UserAccount;
+import ning.linkverse.identity.infrastructure.persistence.mapper.AuthClientMapper;
+import ning.linkverse.identity.infrastructure.persistence.mapper.UserAccountMapper;
+import ning.linkverse.identity.support.MyBatisPlusTestSupport;
 import org.flywaydb.core.Flyway;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.DelegatingPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -32,7 +36,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 /**
- * IdentityMySqlRepositoryTest 在真实 MySQL 协议上验证 Flyway、唯一约束和两个 JDBC 仓储。
+ * IdentityMySqlRepositoryTest 在真实 MySQL 协议上验证 Flyway、唯一约束和两个 MyBatis-Plus 仓储。
  *
  * @author ning
  * @date 2026-08-19
@@ -47,9 +51,10 @@ class IdentityMySqlRepositoryTest {
             .withPassword("identity_test_password");
 
     private static JdbcTemplate jdbcTemplate;
+    private static SqlSessionTemplate sqlSessionTemplate;
 
-    private JdbcUserAccountRepository userRepository;
-    private IdentityJdbcRegisteredClientRepository clientRepository;
+    private MyBatisPlusUserAccountRepository userRepository;
+    private MyBatisPlusRegisteredClientRepository clientRepository;
     private PasswordEncoder passwordEncoder;
 
     @BeforeAll
@@ -65,14 +70,24 @@ class IdentityMySqlRepositoryTest {
                 MYSQL.getPassword()
         );
         jdbcTemplate = new JdbcTemplate(dataSource);
+        sqlSessionTemplate = MyBatisPlusTestSupport.create(
+                dataSource,
+                UserAccountMapper.class,
+                AuthClientMapper.class
+        );
     }
 
     @BeforeEach
     void setUp() {
         jdbcTemplate.update("DELETE FROM auth_client");
         jdbcTemplate.update("DELETE FROM user_account");
-        userRepository = new JdbcUserAccountRepository(jdbcTemplate);
-        clientRepository = new IdentityJdbcRegisteredClientRepository(jdbcTemplate, new ObjectMapper());
+        userRepository = new MyBatisPlusUserAccountRepository(
+                sqlSessionTemplate.getMapper(UserAccountMapper.class)
+        );
+        clientRepository = new MyBatisPlusRegisteredClientRepository(
+                sqlSessionTemplate.getMapper(AuthClientMapper.class),
+                new ObjectMapper()
+        );
         passwordEncoder = new DelegatingPasswordEncoder(
                 "bcrypt",
                 Map.of("bcrypt", new BCryptPasswordEncoder(4))
@@ -136,7 +151,7 @@ class IdentityMySqlRepositoryTest {
                 .scope("payment.internal")
                 .clientSettings(ClientSettings.builder()
                         .setting(
-                                IdentityJdbcRegisteredClientRepository.AUDIENCE_SETTING,
+                                MyBatisPlusRegisteredClientRepository.AUDIENCE_SETTING,
                                 "linkverse-payment"
                         )
                         .build())

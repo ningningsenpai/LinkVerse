@@ -50,6 +50,11 @@ linkverse:
     outbox:
       enabled: ${PAYMENT_OUTBOX_ENABLED:true}
 
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    arg-name-based-constructor-auto-mapping: true
+
 management:
   endpoints:
     web:

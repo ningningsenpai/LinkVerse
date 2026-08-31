@@ -1,6 +1,6 @@
 package ning.linkverse.identity.infrastructure.security;
 
-import ning.linkverse.identity.infrastructure.persistence.IdentityJdbcRegisteredClientRepository;
+import ning.linkverse.identity.infrastructure.persistence.MyBatisPlusRegisteredClientRepository;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -69,7 +69,7 @@ public class TradeClientBootstrap implements ApplicationRunner {
                 .scope(IdentityTokenProfile.PAYMENT_INTERNAL_SCOPE)
                 .clientSettings(ClientSettings.builder()
                         .setting(
-                                IdentityJdbcRegisteredClientRepository.AUDIENCE_SETTING,
+                                MyBatisPlusRegisteredClientRepository.AUDIENCE_SETTING,
                                 IdentityTokenProfile.PAYMENT_AUDIENCE
                         )
                         .build())

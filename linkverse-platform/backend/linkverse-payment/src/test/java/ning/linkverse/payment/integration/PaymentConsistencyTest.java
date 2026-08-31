@@ -13,7 +13,9 @@ import ning.linkverse.payment.domain.CreatePaymentIntent;
 import ning.linkverse.payment.domain.PaymentCallback;
 import ning.linkverse.payment.domain.PaymentErrorCode;
 import ning.linkverse.payment.domain.PaymentIntent;
-import ning.linkverse.payment.infrastructure.persistence.JdbcPaymentRepository;
+import ning.linkverse.payment.infrastructure.persistence.MyBatisPlusPaymentRepository;
+import ning.linkverse.payment.infrastructure.persistence.mapper.PaymentMapper;
+import ning.linkverse.payment.support.MyBatisPlusTestSupport;
 import org.flywaydb.core.Flyway;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -21,6 +23,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.transaction.support.TransactionTemplate;
 import org.testcontainers.containers.MySQLContainer;
 import org.testcontainers.junit.jupiter.Container;
@@ -64,10 +67,11 @@ class PaymentConsistencyTest {
             .withPassword("payment_test_password");
 
     private static JdbcTemplate jdbcTemplate;
+    private static SqlSessionTemplate sqlSessionTemplate;
     private static TransactionTemplate transactions;
     private static HikariDataSource dataSource;
 
-    private JdbcPaymentRepository repository;
+    private MyBatisPlusPaymentRepository repository;
     private PaymentApplicationService paymentService;
     private MockPaymentCallbackService callbackService;
     private MockHmacVerifier verifier;
@@ -88,6 +92,7 @@ class PaymentConsistencyTest {
         hikariConfig.setPoolName("payment-consistency-test");
         dataSource = new HikariDataSource(hikariConfig);
         jdbcTemplate = new JdbcTemplate(dataSource);
+        sqlSessionTemplate = MyBatisPlusTestSupport.create(dataSource, PaymentMapper.class);
         transactions = new TransactionTemplate(new DataSourceTransactionManager(dataSource));
     }
 
@@ -103,7 +108,7 @@ class PaymentConsistencyTest {
         jdbcTemplate.update("DELETE FROM payment_exception");
         jdbcTemplate.update("DELETE FROM payment_callback_log");
         jdbcTemplate.update("DELETE FROM payment_intent");
-        repository = new JdbcPaymentRepository(jdbcTemplate);
+        repository = new MyBatisPlusPaymentRepository(sqlSessionTemplate.getMapper(PaymentMapper.class));
         objectMapper = new ObjectMapper().registerModule(new JavaTimeModule());
         Clock clock = Clock.fixed(NOW, ZoneOffset.UTC);
         PaymentTransactionService transactionService = transactionalWriteService(repository, objectMapper);
@@ -276,7 +281,7 @@ class PaymentConsistencyTest {
     }
 
     private PaymentTransactionService transactionalWriteService(
-            JdbcPaymentRepository repository,
+            MyBatisPlusPaymentRepository repository,
             ObjectMapper mapper
     ) {
         return new PaymentTransactionService(repository, mapper) {
@@ -298,7 +303,7 @@ class PaymentConsistencyTest {
     }
 
     private MockPaymentCallbackService transactionalCallbackService(
-            JdbcPaymentRepository repository,
+            MyBatisPlusPaymentRepository repository,
             MockHmacVerifier verifier,
             ObjectMapper mapper,
             Clock clock

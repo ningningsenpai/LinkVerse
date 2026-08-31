@@ -1,6 +1,8 @@
 package ning.linkverse.identity.infrastructure.persistence;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import ning.linkverse.identity.infrastructure.persistence.mapper.AuthClientMapper;
+import ning.linkverse.identity.support.MyBatisPlusTestSupport;
 import org.h2.jdbcx.JdbcDataSource;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -24,15 +26,15 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 /**
- * IdentityJdbcRegisteredClientRepositoryComponentTest 通过内存数据库验证自定义客户端仓储映射。
+ * MyBatisPlusRegisteredClientRepositoryComponentTest 通过内存数据库验证 MyBatis-Plus 客户端仓储映射。
  *
  * @author ning
  * @date 2026-08-19
  */
-class IdentityJdbcRegisteredClientRepositoryComponentTest {
+class MyBatisPlusRegisteredClientRepositoryComponentTest {
 
     private JdbcTemplate jdbcTemplate;
-    private IdentityJdbcRegisteredClientRepository repository;
+    private MyBatisPlusRegisteredClientRepository repository;
     private PasswordEncoder passwordEncoder;
 
     @BeforeEach
@@ -57,7 +59,11 @@ class IdentityJdbcRegisteredClientRepositoryComponentTest {
                     updated_at TIMESTAMP(6) NOT NULL
                 )
                 """);
-        repository = new IdentityJdbcRegisteredClientRepository(jdbcTemplate, new ObjectMapper());
+        repository = new MyBatisPlusRegisteredClientRepository(
+                MyBatisPlusTestSupport.create(dataSource, AuthClientMapper.class)
+                        .getMapper(AuthClientMapper.class),
+                new ObjectMapper()
+        );
         passwordEncoder = new DelegatingPasswordEncoder(
                 "bcrypt",
                 Map.of("bcrypt", new BCryptPasswordEncoder(4))
@@ -84,7 +90,7 @@ class IdentityJdbcRegisteredClientRepositoryComponentTest {
                 .containsExactly(AuthorizationGrantType.CLIENT_CREDENTIALS);
         assertThat(restored.getScopes()).containsExactly("payment.internal");
         String audience = restored.getClientSettings().getSetting(
-                IdentityJdbcRegisteredClientRepository.AUDIENCE_SETTING
+                MyBatisPlusRegisteredClientRepository.AUDIENCE_SETTING
         );
         assertThat(audience).isEqualTo("linkverse-payment");
         assertThat(restored.getTokenSettings().getAccessTokenFormat())
@@ -157,7 +163,7 @@ class IdentityJdbcRegisteredClientRepositoryComponentTest {
                 .scope("payment.internal")
                 .clientSettings(ClientSettings.builder()
                         .setting(
-                                IdentityJdbcRegisteredClientRepository.AUDIENCE_SETTING,
+                                MyBatisPlusRegisteredClientRepository.AUDIENCE_SETTING,
                                 "linkverse-payment"
                         )
                         .build())

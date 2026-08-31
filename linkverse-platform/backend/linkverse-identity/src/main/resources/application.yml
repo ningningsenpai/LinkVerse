@@ -34,6 +34,11 @@ management:
       probes:
         enabled: true
 
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    arg-name-based-constructor-auto-mapping: true
+
 linkverse:
   security:
     jwt:

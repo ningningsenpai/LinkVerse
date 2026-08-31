@@ -4,7 +4,6 @@ import io.micrometer.core.instrument.Gauge;
 import io.micrometer.core.instrument.MeterRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
@@ -21,13 +20,13 @@ public class PaymentReconciliationService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(PaymentReconciliationService.class);
 
-    private final JdbcTemplate jdbcTemplate;
+    private final PaymentReconciliationMapper mapper;
     private final AtomicLong expiredPending = new AtomicLong();
     private final AtomicLong uncertainRefund = new AtomicLong();
     private final AtomicLong openException = new AtomicLong();
 
-    public PaymentReconciliationService(JdbcTemplate jdbcTemplate, MeterRegistry meterRegistry) {
-        this.jdbcTemplate = jdbcTemplate;
+    public PaymentReconciliationService(PaymentReconciliationMapper mapper, MeterRegistry meterRegistry) {
+        this.mapper = mapper;
         register(meterRegistry, "expired_pending", expiredPending);
         register(meterRegistry, "uncertain_refund", uncertainRefund);
         register(meterRegistry, "open_exception", openException);
@@ -36,19 +35,9 @@ public class PaymentReconciliationService {
     @Scheduled(fixedDelayString = "${linkverse.payment.reconciliation-fixed-delay:30000}")
     public Snapshot reconcile() {
         Snapshot snapshot = new Snapshot(
-                count("""
-                        SELECT COUNT(*) FROM payment_intent
-                        WHERE status = 'PENDING' AND expire_at < CURRENT_TIMESTAMP(6)
-                        """),
-                count("""
-                        SELECT COUNT(*) FROM refund_attempt
-                        WHERE status IN ('PENDING', 'UNKNOWN')
-                          AND updated_at < CURRENT_TIMESTAMP(6) - INTERVAL 1 MINUTE
-                        """),
-                count("""
-                        SELECT COUNT(*) FROM payment_exception
-                        WHERE status <> 'RESOLVED'
-                        """)
+                mapper.countExpiredPending(),
+                mapper.countUncertainRefunds(),
+                mapper.countOpenExceptions()
         );
         expiredPending.set(snapshot.expiredPending());
         uncertainRefund.set(snapshot.uncertainRefund());
@@ -59,11 +48,6 @@ public class PaymentReconciliationService {
                     snapshot.expiredPending(), snapshot.uncertainRefund(), snapshot.openException());
         }
         return snapshot;
-    }
-
-    private long count(String sql) {
-        Long value = jdbcTemplate.queryForObject(sql, Long.class);
-        return value == null ? 0 : value;
     }
 
     private void register(MeterRegistry registry, String type, AtomicLong value) {

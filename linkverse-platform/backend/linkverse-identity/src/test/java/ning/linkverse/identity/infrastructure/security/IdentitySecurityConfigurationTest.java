@@ -1,6 +1,6 @@
 package ning.linkverse.identity.infrastructure.security;
 
-import ning.linkverse.identity.infrastructure.persistence.IdentityJdbcRegisteredClientRepository;
+import ning.linkverse.identity.infrastructure.persistence.MyBatisPlusRegisteredClientRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.core.AuthorizationGrantType;
@@ -52,7 +52,7 @@ class IdentitySecurityConfigurationTest {
                 .scope(IdentityTokenProfile.PAYMENT_INTERNAL_SCOPE)
                 .clientSettings(ClientSettings.builder()
                         .setting(
-                                IdentityJdbcRegisteredClientRepository.AUDIENCE_SETTING,
+                                MyBatisPlusRegisteredClientRepository.AUDIENCE_SETTING,
                                 IdentityTokenProfile.PAYMENT_AUDIENCE
                         )
                         .build())

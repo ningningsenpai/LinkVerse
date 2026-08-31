@@ -1,7 +1,7 @@
 package ning.linkverse.identity.infrastructure.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import ning.linkverse.identity.infrastructure.persistence.IdentityJdbcRegisteredClientRepository;
+import ning.linkverse.identity.infrastructure.persistence.MyBatisPlusRegisteredClientRepository;
 import ning.linkverse.security.web.LinkVerseAccessDeniedHandler;
 import ning.linkverse.security.web.LinkVerseAuthenticationEntryPoint;
 import org.springframework.context.annotation.Bean;
@@ -129,7 +129,7 @@ public class IdentitySecurityConfiguration {
             }
             String audience = context.getRegisteredClient()
                     .getClientSettings()
-                    .getSetting(IdentityJdbcRegisteredClientRepository.AUDIENCE_SETTING);
+                    .getSetting(MyBatisPlusRegisteredClientRepository.AUDIENCE_SETTING);
             String clientId = context.getRegisteredClient().getClientId();
             context.getJwsHeader()
                     .type("at+jwt")

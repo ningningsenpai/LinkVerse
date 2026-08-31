@@ -83,6 +83,11 @@ linkverse:
       relay-delay: ${TRADE_SECKILL_RELAY_DELAY:500ms}
       recovery-delay: ${TRADE_SECKILL_RECOVERY_DELAY:2s}
 
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    arg-name-based-constructor-auto-mapping: true
+
 management:
   endpoints:
     web:

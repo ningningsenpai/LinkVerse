@@ -1,6 +1,6 @@
 package ning.linkverse.identity.infrastructure.security;
 
-import ning.linkverse.identity.infrastructure.persistence.IdentityJdbcRegisteredClientRepository;
+import ning.linkverse.identity.infrastructure.persistence.MyBatisPlusRegisteredClientRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.DefaultApplicationArguments;
@@ -58,7 +58,7 @@ class TradeClientBootstrapTest {
                 .containsExactly(AuthorizationGrantType.CLIENT_CREDENTIALS);
         assertThat(client.getScopes()).containsExactly(IdentityTokenProfile.PAYMENT_INTERNAL_SCOPE);
         String audience = client.getClientSettings().getSetting(
-                IdentityJdbcRegisteredClientRepository.AUDIENCE_SETTING
+                MyBatisPlusRegisteredClientRepository.AUDIENCE_SETTING
         );
         assertThat(audience).isEqualTo(IdentityTokenProfile.PAYMENT_AUDIENCE);
         assertThat(client.getTokenSettings().getAccessTokenTimeToLive()).isEqualTo(Duration.ofMinutes(5));
