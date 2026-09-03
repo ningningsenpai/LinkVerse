@@ -1,8 +1,10 @@
 INSERT INTO book_listing (
-    id, seller_id, title, author, description, unit_price, currency, status, version
+    id, seller_id, category_id, title, author, description, unit_price, currency, status, published_at, version
 ) VALUES
-    (10001, 9000001, '领域驱动设计', 'Eric Evans', '普通交易演示商品', 68.0000, 'CNY', 'ON_SALE', 0),
-    (10002, 9000001, '高性能 MySQL', 'Baron Schwartz', '后续秒杀活动专用商品', 88.0000, 'CNY', 'ON_SALE', 0)
+    (10001, 9000001, (SELECT id FROM book_category WHERE code = 'UNCLASSIFIED'),
+     '领域驱动设计', 'Eric Evans', '普通交易演示商品', 68.0000, 'CNY', 'ON_SALE', CURRENT_TIMESTAMP(6), 0),
+    (10002, 9000001, (SELECT id FROM book_category WHERE code = 'UNCLASSIFIED'),
+     '高性能 MySQL', 'Baron Schwartz', '后续秒杀活动专用商品', 88.0000, 'CNY', 'ON_SALE', CURRENT_TIMESTAMP(6), 0)
 ON DUPLICATE KEY UPDATE id = book_listing.id;
 
 INSERT INTO sku_stock (listing_id, available, version)

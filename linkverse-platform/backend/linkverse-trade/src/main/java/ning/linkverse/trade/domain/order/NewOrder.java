@@ -15,10 +15,27 @@ public record NewOrder(
         long sellerId,
         String idempotencyKey,
         String requestFingerprint,
+        Long recommendationDeliveryId,
         BigDecimal totalAmount,
         String currency,
         Instant expireAt,
         Instant now,
         OrderItemSnapshot item
 ) {
+
+    public NewOrder(
+            String orderNo,
+            long buyerId,
+            long sellerId,
+            String idempotencyKey,
+            String requestFingerprint,
+            BigDecimal totalAmount,
+            String currency,
+            Instant expireAt,
+            Instant now,
+            OrderItemSnapshot item
+    ) {
+        this(orderNo, buyerId, sellerId, idempotencyKey, requestFingerprint, null,
+                totalAmount, currency, expireAt, now, item);
+    }
 }

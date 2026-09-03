@@ -1,0 +1,671 @@
+{
+  "model_version": "trade-20260903062128-20c8891e-4f63f5f4",
+  "session_count": 3,
+  "sessions": [
+    {
+      "session": 1,
+      "window_start": null,
+      "window_end": null,
+      "held_out_events": 0,
+      "recommendations": [
+        {
+          "position": 1,
+          "object_id": "22191",
+          "title": "秋园",
+          "score": 1.0,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 2,
+          "object_id": "21771",
+          "title": "梦里花落知多少",
+          "score": 0.5,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 3,
+          "object_id": "21569",
+          "title": "教育思想的演进: 教育社会学卷2：教育思想的演进",
+          "score": 0.3333333333333333,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 4,
+          "object_id": "21838",
+          "title": "永远不够好: 如何让孩子在高压下保持心理健康",
+          "score": 0.25,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 5,
+          "object_id": "24824",
+          "title": "最优化导论",
+          "score": 0.2,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 6,
+          "object_id": "24235",
+          "title": "如何开一家小而美的店",
+          "score": 0.16666666666666666,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 7,
+          "object_id": "21890",
+          "title": "洛丽塔",
+          "score": 0.14285714285714285,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 8,
+          "object_id": "25928",
+          "title": "这世界既残酷也温柔",
+          "score": 0.125,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 9,
+          "object_id": "21692",
+          "title": "最美的法布尔昆虫记: 杂技演员屎壳郎",
+          "score": 0.1111111111111111,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 10,
+          "object_id": "21419",
+          "title": "我在北京送快递",
+          "score": 0.1,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 11,
+          "object_id": "22152",
+          "title": "看见孩子: 洞察、共情与联结",
+          "score": 0.09090909090909091,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 12,
+          "object_id": "20834",
+          "title": "在轮下",
+          "score": 0.08333333333333333,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 13,
+          "object_id": "25496",
+          "title": "组织与管理",
+          "score": 0.07692307692307693,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 14,
+          "object_id": "20489",
+          "title": "克林索尔的最后夏天",
+          "score": 0.07142857142857142,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 15,
+          "object_id": "23891",
+          "title": "反脆弱",
+          "score": 0.06666666666666667,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 16,
+          "object_id": "21878",
+          "title": "法比安",
+          "score": 0.0625,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 17,
+          "object_id": "23523",
+          "title": "于是一片光明",
+          "score": 0.058823529411764705,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 18,
+          "object_id": "24837",
+          "title": "有序创业24步法",
+          "score": 0.05555555555555555,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 19,
+          "object_id": "23421",
+          "title": "三生万物",
+          "score": 0.05263157894736842,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 20,
+          "object_id": "20552",
+          "title": "凤凰台上",
+          "score": 0.05,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        }
+      ],
+      "metrics": {
+        "hit_rate_at_20": 0.0,
+        "ndcg_at_20": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_50": 0.0,
+        "category_affinity": 0.0,
+        "intra_list_diversity": 0.7368421052631579,
+        "novelty": 12.83650866205821,
+        "latency_ms": 0.0365999985660892
+      }
+    },
+    {
+      "session": 2,
+      "window_start": "2026-03-12T10:34:00+00:00",
+      "window_end": "2026-03-12T10:34:00+00:00",
+      "held_out_events": 1,
+      "recommendations": [
+        {
+          "position": 1,
+          "object_id": "22191",
+          "title": "秋园",
+          "score": 1.0,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 2,
+          "object_id": "21771",
+          "title": "梦里花落知多少",
+          "score": 0.5,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 3,
+          "object_id": "21569",
+          "title": "教育思想的演进: 教育社会学卷2：教育思想的演进",
+          "score": 0.3333333333333333,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 4,
+          "object_id": "21838",
+          "title": "永远不够好: 如何让孩子在高压下保持心理健康",
+          "score": 0.25,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 5,
+          "object_id": "24824",
+          "title": "最优化导论",
+          "score": 0.2,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 6,
+          "object_id": "24235",
+          "title": "如何开一家小而美的店",
+          "score": 0.16666666666666666,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 7,
+          "object_id": "21890",
+          "title": "洛丽塔",
+          "score": 0.14285714285714285,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 8,
+          "object_id": "25928",
+          "title": "这世界既残酷也温柔",
+          "score": 0.125,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 9,
+          "object_id": "21692",
+          "title": "最美的法布尔昆虫记: 杂技演员屎壳郎",
+          "score": 0.1111111111111111,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 10,
+          "object_id": "21419",
+          "title": "我在北京送快递",
+          "score": 0.1,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 11,
+          "object_id": "22152",
+          "title": "看见孩子: 洞察、共情与联结",
+          "score": 0.09090909090909091,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 12,
+          "object_id": "20834",
+          "title": "在轮下",
+          "score": 0.08333333333333333,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 13,
+          "object_id": "25496",
+          "title": "组织与管理",
+          "score": 0.07692307692307693,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 14,
+          "object_id": "20489",
+          "title": "克林索尔的最后夏天",
+          "score": 0.07142857142857142,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 15,
+          "object_id": "23891",
+          "title": "反脆弱",
+          "score": 0.06666666666666667,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 16,
+          "object_id": "21878",
+          "title": "法比安",
+          "score": 0.0625,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 17,
+          "object_id": "23523",
+          "title": "于是一片光明",
+          "score": 0.058823529411764705,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 18,
+          "object_id": "24837",
+          "title": "有序创业24步法",
+          "score": 0.05555555555555555,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 19,
+          "object_id": "23421",
+          "title": "三生万物",
+          "score": 0.05263157894736842,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 20,
+          "object_id": "20552",
+          "title": "凤凰台上",
+          "score": 0.05,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        }
+      ],
+      "metrics": {
+        "hit_rate_at_20": 0.0,
+        "ndcg_at_20": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_50": 0.0,
+        "category_affinity": 0.0,
+        "intra_list_diversity": 0.7368421052631579,
+        "novelty": 12.83650866205821,
+        "latency_ms": 0.03300000025774352
+      }
+    },
+    {
+      "session": 3,
+      "window_start": "2026-03-30T09:34:00+00:00",
+      "window_end": "2026-03-30T09:34:00+00:00",
+      "held_out_events": 1,
+      "recommendations": [
+        {
+          "position": 1,
+          "object_id": "22191",
+          "title": "秋园",
+          "score": 1.0,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 2,
+          "object_id": "21771",
+          "title": "梦里花落知多少",
+          "score": 0.5,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 3,
+          "object_id": "21569",
+          "title": "教育思想的演进: 教育社会学卷2：教育思想的演进",
+          "score": 0.3333333333333333,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 4,
+          "object_id": "21838",
+          "title": "永远不够好: 如何让孩子在高压下保持心理健康",
+          "score": 0.25,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 5,
+          "object_id": "24824",
+          "title": "最优化导论",
+          "score": 0.2,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 6,
+          "object_id": "24235",
+          "title": "如何开一家小而美的店",
+          "score": 0.16666666666666666,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 7,
+          "object_id": "21890",
+          "title": "洛丽塔",
+          "score": 0.14285714285714285,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 8,
+          "object_id": "25928",
+          "title": "这世界既残酷也温柔",
+          "score": 0.125,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 9,
+          "object_id": "21692",
+          "title": "最美的法布尔昆虫记: 杂技演员屎壳郎",
+          "score": 0.1111111111111111,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 10,
+          "object_id": "21419",
+          "title": "我在北京送快递",
+          "score": 0.1,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 11,
+          "object_id": "22152",
+          "title": "看见孩子: 洞察、共情与联结",
+          "score": 0.09090909090909091,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 12,
+          "object_id": "20834",
+          "title": "在轮下",
+          "score": 0.08333333333333333,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 13,
+          "object_id": "25496",
+          "title": "组织与管理",
+          "score": 0.07692307692307693,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 14,
+          "object_id": "20489",
+          "title": "克林索尔的最后夏天",
+          "score": 0.07142857142857142,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 15,
+          "object_id": "23891",
+          "title": "反脆弱",
+          "score": 0.06666666666666667,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 16,
+          "object_id": "21878",
+          "title": "法比安",
+          "score": 0.0625,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 17,
+          "object_id": "23523",
+          "title": "于是一片光明",
+          "score": 0.058823529411764705,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 18,
+          "object_id": "24837",
+          "title": "有序创业24步法",
+          "score": 0.05555555555555555,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 19,
+          "object_id": "23421",
+          "title": "三生万物",
+          "score": 0.05263157894736842,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 20,
+          "object_id": "20552",
+          "title": "凤凰台上",
+          "score": 0.05,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        }
+      ],
+      "metrics": {
+        "hit_rate_at_20": 0.0,
+        "ndcg_at_20": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_50": 0.0,
+        "category_affinity": 0.0,
+        "intra_list_diversity": 0.7368421052631579,
+        "novelty": 12.83650866205821,
+        "latency_ms": 0.03149999974993989
+      }
+    }
+  ],
+  "metrics": {
+    "hit_rate_at_20": 0.0,
+    "ndcg_at_20": 0.0,
+    "recall_at_20": 0.0,
+    "recall_at_50": 0.0,
+    "category_affinity": 0.0,
+    "intra_list_diversity": 0.7368421052631579,
+    "novelty": 12.83650866205821,
+    "latency_ms": 0.03369999952459087,
+    "latency_p95_ms": 0.03623999873525463
+  }
+}

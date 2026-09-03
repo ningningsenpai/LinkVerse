@@ -8,6 +8,9 @@
 - `backend/linkverse-identity`：注册、登录、OAuth2 用户/服务令牌；
 - `backend/linkverse-trade`：商品、MySQL 库存、订单、秒杀及交易侧对账；
 - `backend/linkverse-payment`：支付 Intent、Mock 回调、关单、退款补偿和支付侧对账；
+- `recommendation`：独立 Python 推荐服务、训练、调参、CPU Faiss 推断与领域适配器；
+- `contracts/recommendation/v1`：Trade 与 Recommendation 的版本化 JSON Schema；
+- `recommendation-experiments`：可提交的实验协议、指标、画像和模型卡；
 - `backend/platform-*`：统一依赖、错误、安全、可观测和可靠消息能力；
 - `infrastructure/`：MySQL、Redis、RabbitMQ、Nacos 的 Docker Compose 配置；
 - `scripts/`：本地环境准备、启停、种子数据、验收、故障注入、对账和重放；

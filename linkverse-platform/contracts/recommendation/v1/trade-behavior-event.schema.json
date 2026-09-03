@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://linkverse.local/contracts/recommendation/v1/trade-behavior-event.schema.json",
+  "title": "Trade 行为事件",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["event_id", "user_key", "object_id", "event_type", "event_time", "ingested_at", "schema_version", "data_source"],
+  "properties": {
+    "event_id": {"type": "string", "minLength": 16, "maxLength": 64},
+    "user_key": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "object_id": {"type": "string", "minLength": 1, "maxLength": 64},
+    "event_type": {"type": "string", "enum": ["IMPRESSION", "DETAIL_OPEN", "CART_ADD", "ORDER_CREATED", "PAYMENT_SUCCEEDED", "REFUNDED"]},
+    "event_time": {"type": "string", "format": "date-time"},
+    "ingested_at": {"type": "string", "format": "date-time"},
+    "request_id": {"type": ["string", "null"], "maxLength": 64},
+    "session_id": {"type": ["string", "null"], "maxLength": 64},
+    "position": {"type": ["integer", "null"], "minimum": 1},
+    "source": {"type": ["string", "null"], "maxLength": 64},
+    "model_version": {"type": ["string", "null"], "maxLength": 128},
+    "order_no": {"type": ["string", "null"], "maxLength": 32},
+    "refund_reason_code": {"type": ["string", "null"], "maxLength": 64},
+    "schema_version": {"const": 1},
+    "data_source": {"type": "string", "enum": ["REAL", "SYNTHETIC"]}
+  }
+}

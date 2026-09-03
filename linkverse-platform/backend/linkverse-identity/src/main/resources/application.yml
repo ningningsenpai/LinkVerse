@@ -53,6 +53,10 @@ linkverse:
       enabled: ${LINKVERSE_TRADE_CLIENT_BOOTSTRAP_ENABLED:false}
       client-id: ${LINKVERSE_TRADE_CLIENT_ID:linkverse-trade}
       client-secret: ${LINKVERSE_TRADE_CLIENT_SECRET:}
+    recommendation-client:
+      enabled: ${LINKVERSE_RECOMMENDATION_CLIENT_BOOTSTRAP_ENABLED:false}
+      client-id: ${LINKVERSE_RECOMMENDATION_CLIENT_ID:linkverse-trade-recommendation}
+      client-secret: ${LINKVERSE_RECOMMENDATION_CLIENT_SECRET:}
 
 ---
 spring:

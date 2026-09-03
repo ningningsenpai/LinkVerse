@@ -101,6 +101,22 @@ public class MyBatisPlusPaymentRepository implements PaymentRepository {
     }
 
     @Override
+    public void completeRequestedRefund(PaymentIntent intent, String reasonCode, Instant now) {
+        if (mapper.markRequestedRefundPending(intent.intentNo(), now) != 1) {
+            throw new IllegalStateException("支付单当前状态不可退款");
+        }
+        mapper.insertSuccessfulRefund(
+                "refund:" + intent.intentNo() + ":" + reasonCode,
+                intent,
+                intent.providerTxnNo(),
+                now
+        );
+        if (mapper.markRefunded(intent.intentNo(), now) != 1) {
+            throw new IllegalStateException("退款事实未能完成状态迁移");
+        }
+    }
+
+    @Override
     public void insertOutbox(
             String eventId,
             String aggregateId,

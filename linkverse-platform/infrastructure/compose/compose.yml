@@ -120,6 +120,36 @@ services:
     networks:
       - linkverse_mvp
 
+  recommendation:
+    profiles:
+      - recommendation
+    build:
+      context: ../../recommendation
+      dockerfile: Dockerfile
+    image: linkverse/recommendation:local
+    container_name: ${COMPOSE_PROJECT_NAME}-recommendation
+    restart: unless-stopped
+    read_only: true
+    tmpfs:
+      - /tmp:size=128m
+    environment:
+      TZ: UTC
+      LINKVERSE_MODEL_ROOT: /models
+      LINKVERSE_JWK_SET_URI: http://host.docker.internal:18081/oauth2/jwks
+      LINKVERSE_ISSUER_URI: http://localhost:18080
+    ports:
+      - "127.0.0.1:${RECOMMENDATION_HOST_PORT:-18084}:18084"
+    volumes:
+      - ${RECOMMENDATION_MODEL_ROOT:-../../recommendation/models}:/models:ro
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:18084/health/live', timeout=2)"]
+      interval: 10s
+      timeout: 3s
+      retries: 6
+      start_period: 10s
+    networks:
+      - linkverse_mvp
+
 networks:
   linkverse_mvp:
     name: ${COMPOSE_PROJECT_NAME}-network

@@ -20,6 +20,7 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.time.Clock;
 import java.util.HexFormat;
+import jakarta.validation.Valid;
 
 /**
  * MockPaymentController 仅在 local/test 提供可复现的模拟确认与回调入口。
@@ -91,6 +92,17 @@ public class MockPaymentController {
             @RequestBody byte[] rawBody
     ) {
         return PaymentIntentResponse.from(callbackService.accept(timestamp, signature, rawBody));
+    }
+
+    @PostMapping("/mock-provider/payment-intents/{intentNo}/refund")
+    public PaymentIntentResponse refund(
+            @AuthenticationPrincipal Jwt jwt,
+            @PathVariable String intentNo,
+            @Valid @RequestBody MockRefundRequest request
+    ) {
+        return PaymentIntentResponse.from(callbackService.refund(
+                Long.parseLong(jwt.getSubject()), intentNo, request.reasonCode()
+        ));
     }
 
     private String digest(String value) {

@@ -51,7 +51,7 @@ spring:
             - id: trade-route
               uri: lb://linkverse-trade
               predicates:
-                - Path=/api/v1/listings/**,/api/v1/seckill/**,/api/v1/orders/**
+                - Path=/api/v1/listings/**,/api/v1/seckill/**,/api/v1/orders/**,/api/v1/recommendations/**,/api/v1/recommendation-events,/api/v1/cart/**
             - id: payment-route
               uri: lb://linkverse-payment
               predicates:

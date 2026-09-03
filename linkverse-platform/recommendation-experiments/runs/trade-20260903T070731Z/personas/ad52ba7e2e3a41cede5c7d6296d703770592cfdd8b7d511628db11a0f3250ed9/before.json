@@ -1,0 +1,716 @@
+{
+  "model_version": "trade-20260903072306-20c8891e-4f63f5f4",
+  "session_count": 3,
+  "sessions": [
+    {
+      "session": 1,
+      "window_start": null,
+      "window_end": null,
+      "held_out_events": 0,
+      "recommendations": [
+        {
+          "position": 1,
+          "object_id": "24205",
+          "title": "奢侈品战略",
+          "score": 2.260858590812202,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 2,
+          "object_id": "25548",
+          "title": "绝不是靠运气",
+          "score": 2.2268883568260986,
+          "sources": [
+            "ITEM_CF",
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 3,
+          "object_id": "23572",
+          "title": "人才战略",
+          "score": 2.2190544580598695,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 4,
+          "object_id": "24487",
+          "title": "微观经济学（第九版）",
+          "score": 2.1877908069258174,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TFIDF",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 5,
+          "object_id": "23421",
+          "title": "三生万物",
+          "score": 2.1581333006637182,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 6,
+          "object_id": "23836",
+          "title": "区域经济学",
+          "score": 2.1151107559041282,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TFIDF",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 7,
+          "object_id": "25577",
+          "title": "罗小黑战记 01",
+          "score": 0.9644790887832642,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 8,
+          "object_id": "23068",
+          "title": "Dying for an iPhone",
+          "score": 0.9635940790176392,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 9,
+          "object_id": "23891",
+          "title": "反脆弱",
+          "score": 0.9573767185211182,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 10,
+          "object_id": "23477",
+          "title": "中国光伏突围战",
+          "score": 0.957161545753479,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 11,
+          "object_id": "26107",
+          "title": "零售的哲学",
+          "score": 0.9571345448493958,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 12,
+          "object_id": "26227",
+          "title": "麦肯锡晋升法则：47个小原则创造大改变",
+          "score": 0.9568922519683838,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 13,
+          "object_id": "25615",
+          "title": "股市进阶之道",
+          "score": 0.9564046859741211,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 14,
+          "object_id": "25254",
+          "title": "百万富翁快车道",
+          "score": 0.9551829099655151,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 15,
+          "object_id": "23928",
+          "title": "后工作时代",
+          "score": 0.9549219608306885,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 16,
+          "object_id": "24682",
+          "title": "操盘冠军教你赚",
+          "score": 0.9542333483695984,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 17,
+          "object_id": "23459",
+          "title": "世界尽头最后的谋杀案",
+          "score": 0.9540289640426636,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 18,
+          "object_id": "23879",
+          "title": "原则",
+          "score": 0.9526304006576538,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 19,
+          "object_id": "25122",
+          "title": "爆款",
+          "score": 0.9507719278335571,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 20,
+          "object_id": "24365",
+          "title": "小红书博主炼成记",
+          "score": 0.9505404233932495,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        }
+      ],
+      "metrics": {
+        "hit_rate_at_20": 0.0,
+        "ndcg_at_20": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_50": 0.0,
+        "category_affinity": 0.9,
+        "intra_list_diversity": 0.18947368421052632,
+        "novelty": 12.988581652266646,
+        "latency_ms": 0.22049999824957922
+      }
+    },
+    {
+      "session": 2,
+      "window_start": "2026-03-02T14:34:00+00:00",
+      "window_end": "2026-03-02T14:34:00+00:00",
+      "held_out_events": 1,
+      "recommendations": [
+        {
+          "position": 1,
+          "object_id": "24205",
+          "title": "奢侈品战略",
+          "score": 2.260858590812202,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 2,
+          "object_id": "25548",
+          "title": "绝不是靠运气",
+          "score": 2.2268883568260986,
+          "sources": [
+            "ITEM_CF",
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 3,
+          "object_id": "23572",
+          "title": "人才战略",
+          "score": 2.2190544580598695,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 4,
+          "object_id": "24487",
+          "title": "微观经济学（第九版）",
+          "score": 2.1877908069258174,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TFIDF",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 5,
+          "object_id": "23421",
+          "title": "三生万物",
+          "score": 2.1581333006637182,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 6,
+          "object_id": "23836",
+          "title": "区域经济学",
+          "score": 2.1151107559041282,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TFIDF",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 7,
+          "object_id": "25577",
+          "title": "罗小黑战记 01",
+          "score": 0.9644790887832642,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 8,
+          "object_id": "23068",
+          "title": "Dying for an iPhone",
+          "score": 0.9635940790176392,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 9,
+          "object_id": "23891",
+          "title": "反脆弱",
+          "score": 0.9573767185211182,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 10,
+          "object_id": "23477",
+          "title": "中国光伏突围战",
+          "score": 0.957161545753479,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 11,
+          "object_id": "26107",
+          "title": "零售的哲学",
+          "score": 0.9571345448493958,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 12,
+          "object_id": "26227",
+          "title": "麦肯锡晋升法则：47个小原则创造大改变",
+          "score": 0.9568922519683838,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 13,
+          "object_id": "25615",
+          "title": "股市进阶之道",
+          "score": 0.9564046859741211,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 14,
+          "object_id": "25254",
+          "title": "百万富翁快车道",
+          "score": 0.9551829099655151,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 15,
+          "object_id": "23928",
+          "title": "后工作时代",
+          "score": 0.9549219608306885,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 16,
+          "object_id": "24682",
+          "title": "操盘冠军教你赚",
+          "score": 0.9542333483695984,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 17,
+          "object_id": "23459",
+          "title": "世界尽头最后的谋杀案",
+          "score": 0.9540289640426636,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 18,
+          "object_id": "23879",
+          "title": "原则",
+          "score": 0.9526304006576538,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 19,
+          "object_id": "25122",
+          "title": "爆款",
+          "score": 0.9507719278335571,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 20,
+          "object_id": "24365",
+          "title": "小红书博主炼成记",
+          "score": 0.9505404233932495,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        }
+      ],
+      "metrics": {
+        "hit_rate_at_20": 0.0,
+        "ndcg_at_20": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_50": 0.0,
+        "category_affinity": 0.9,
+        "intra_list_diversity": 0.18947368421052632,
+        "novelty": 12.988581652266646,
+        "latency_ms": 0.12170000263722613
+      }
+    },
+    {
+      "session": 3,
+      "window_start": "2026-03-07T11:34:00+00:00",
+      "window_end": "2026-03-07T11:34:00+00:00",
+      "held_out_events": 1,
+      "recommendations": [
+        {
+          "position": 1,
+          "object_id": "24205",
+          "title": "奢侈品战略",
+          "score": 2.260858590812202,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 2,
+          "object_id": "25548",
+          "title": "绝不是靠运气",
+          "score": 2.2268883568260986,
+          "sources": [
+            "ITEM_CF",
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 3,
+          "object_id": "23572",
+          "title": "人才战略",
+          "score": 2.2190544580598695,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 4,
+          "object_id": "24487",
+          "title": "微观经济学（第九版）",
+          "score": 2.1877908069258174,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TFIDF",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 5,
+          "object_id": "23421",
+          "title": "三生万物",
+          "score": 2.1581333006637182,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 6,
+          "object_id": "23836",
+          "title": "区域经济学",
+          "score": 2.1151107559041282,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TFIDF",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 7,
+          "object_id": "25577",
+          "title": "罗小黑战记 01",
+          "score": 0.9644790887832642,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 8,
+          "object_id": "23068",
+          "title": "Dying for an iPhone",
+          "score": 0.9635940790176392,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 9,
+          "object_id": "23891",
+          "title": "反脆弱",
+          "score": 0.9573767185211182,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 10,
+          "object_id": "23477",
+          "title": "中国光伏突围战",
+          "score": 0.957161545753479,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 11,
+          "object_id": "26107",
+          "title": "零售的哲学",
+          "score": 0.9571345448493958,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 12,
+          "object_id": "26227",
+          "title": "麦肯锡晋升法则：47个小原则创造大改变",
+          "score": 0.9568922519683838,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 13,
+          "object_id": "25615",
+          "title": "股市进阶之道",
+          "score": 0.9564046859741211,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 14,
+          "object_id": "25254",
+          "title": "百万富翁快车道",
+          "score": 0.9551829099655151,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 15,
+          "object_id": "23928",
+          "title": "后工作时代",
+          "score": 0.9549219608306885,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 16,
+          "object_id": "24682",
+          "title": "操盘冠军教你赚",
+          "score": 0.9542333483695984,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 17,
+          "object_id": "23459",
+          "title": "世界尽头最后的谋杀案",
+          "score": 0.9540289640426636,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 18,
+          "object_id": "23879",
+          "title": "原则",
+          "score": 0.9526304006576538,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 19,
+          "object_id": "25122",
+          "title": "爆款",
+          "score": 0.9507719278335571,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 20,
+          "object_id": "24365",
+          "title": "小红书博主炼成记",
+          "score": 0.9505404233932495,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        }
+      ],
+      "metrics": {
+        "hit_rate_at_20": 0.0,
+        "ndcg_at_20": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_50": 0.0,
+        "category_affinity": 0.9,
+        "intra_list_diversity": 0.18947368421052632,
+        "novelty": 12.988581652266646,
+        "latency_ms": 0.10399999882793054
+      }
+    }
+  ],
+  "metrics": {
+    "hit_rate_at_20": 0.0,
+    "ndcg_at_20": 0.0,
+    "recall_at_20": 0.0,
+    "recall_at_50": 0.0,
+    "category_affinity": 0.9,
+    "intra_list_diversity": 0.18947368421052632,
+    "novelty": 12.988581652266646,
+    "latency_ms": 0.1487333332382453,
+    "latency_p95_ms": 0.2106199986883439
+  }
+}

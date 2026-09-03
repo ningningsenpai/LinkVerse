@@ -1,0 +1,704 @@
+{
+  "model_version": "trade-20260903072306-20c8891e-4f63f5f4",
+  "session_count": 3,
+  "sessions": [
+    {
+      "session": 1,
+      "window_start": "2026-03-04T04:13:00+00:00",
+      "window_end": "2026-03-04T04:13:00+00:00",
+      "held_out_events": 1,
+      "recommendations": [
+        {
+          "position": 1,
+          "object_id": "21878",
+          "title": "法比安",
+          "score": 2.360615136764319,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 2,
+          "object_id": "22061",
+          "title": "王朔文集: 千万别把我当人",
+          "score": 2.3576228436847737,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 3,
+          "object_id": "21417",
+          "title": "我在京都居酒屋",
+          "score": 2.3392207775036074,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 4,
+          "object_id": "22584",
+          "title": "负暄琐话",
+          "score": 2.3026671509358643,
+          "sources": [
+            "NEW",
+            "POPULARITY"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 5,
+          "object_id": "22580",
+          "title": "象棋的故事",
+          "score": 2.3093245931072794,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 6,
+          "object_id": "21831",
+          "title": "水印: 魂系威尼斯",
+          "score": 2.2543387150418432,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 7,
+          "object_id": "22931",
+          "title": "鹿川有许多粪",
+          "score": 0.9876855611801147,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 8,
+          "object_id": "20955",
+          "title": "天气好的话，我会去找你",
+          "score": 0.9876651167869568,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 9,
+          "object_id": "20206",
+          "title": "世界尽头最后的谋杀案",
+          "score": 0.9876218438148499,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 10,
+          "object_id": "20654",
+          "title": "历史中的大与小",
+          "score": 0.9873179793357849,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 11,
+          "object_id": "22457",
+          "title": "蛇结",
+          "score": 0.987241268157959,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 12,
+          "object_id": "20113",
+          "title": "一只特立独行的猪",
+          "score": 0.9869216680526733,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 13,
+          "object_id": "21968",
+          "title": "漂亮朋友",
+          "score": 0.986515462398529,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 14,
+          "object_id": "20780",
+          "title": "四世同堂",
+          "score": 0.9857704639434814,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 15,
+          "object_id": "22251",
+          "title": "精神与爱欲",
+          "score": 0.9856671094894409,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 16,
+          "object_id": "20372",
+          "title": "从从容容 游刃有余2: 宋朝人雅致的慢生活",
+          "score": 0.9856116771697998,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 17,
+          "object_id": "21890",
+          "title": "洛丽塔",
+          "score": 0.9856013059616089,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 18,
+          "object_id": "22122",
+          "title": "白夜",
+          "score": 0.9854624271392822,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 19,
+          "object_id": "21390",
+          "title": "我与地坛",
+          "score": 0.9854509830474854,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 20,
+          "object_id": "20311",
+          "title": "五只小猪: 阿加莎·克里斯蒂作品26",
+          "score": 0.9848881959915161,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        }
+      ],
+      "metrics": {
+        "hit_rate_at_20": 0.0,
+        "ndcg_at_20": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_50": 0.0,
+        "category_affinity": 1.0,
+        "intra_list_diversity": 0.0,
+        "novelty": 12.512982768535927,
+        "latency_ms": 0.2144999998563435
+      }
+    },
+    {
+      "session": 2,
+      "window_start": "2026-03-12T02:13:00+00:00",
+      "window_end": "2026-03-12T02:13:00+00:00",
+      "held_out_events": 1,
+      "recommendations": [
+        {
+          "position": 1,
+          "object_id": "21878",
+          "title": "法比安",
+          "score": 2.360615136764319,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 2,
+          "object_id": "22061",
+          "title": "王朔文集: 千万别把我当人",
+          "score": 2.3576228436847737,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 3,
+          "object_id": "21417",
+          "title": "我在京都居酒屋",
+          "score": 2.3392207775036074,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 4,
+          "object_id": "22584",
+          "title": "负暄琐话",
+          "score": 2.3026671509358643,
+          "sources": [
+            "NEW",
+            "POPULARITY"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 5,
+          "object_id": "22580",
+          "title": "象棋的故事",
+          "score": 2.3093245931072794,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 6,
+          "object_id": "21831",
+          "title": "水印: 魂系威尼斯",
+          "score": 2.2543387150418432,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 7,
+          "object_id": "22931",
+          "title": "鹿川有许多粪",
+          "score": 0.9876855611801147,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 8,
+          "object_id": "20955",
+          "title": "天气好的话，我会去找你",
+          "score": 0.9876651167869568,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 9,
+          "object_id": "20206",
+          "title": "世界尽头最后的谋杀案",
+          "score": 0.9876218438148499,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 10,
+          "object_id": "20654",
+          "title": "历史中的大与小",
+          "score": 0.9873179793357849,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 11,
+          "object_id": "22457",
+          "title": "蛇结",
+          "score": 0.987241268157959,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 12,
+          "object_id": "20113",
+          "title": "一只特立独行的猪",
+          "score": 0.9869216680526733,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 13,
+          "object_id": "21968",
+          "title": "漂亮朋友",
+          "score": 0.986515462398529,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 14,
+          "object_id": "20780",
+          "title": "四世同堂",
+          "score": 0.9857704639434814,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 15,
+          "object_id": "22251",
+          "title": "精神与爱欲",
+          "score": 0.9856671094894409,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 16,
+          "object_id": "20372",
+          "title": "从从容容 游刃有余2: 宋朝人雅致的慢生活",
+          "score": 0.9856116771697998,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 17,
+          "object_id": "21890",
+          "title": "洛丽塔",
+          "score": 0.9856013059616089,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 18,
+          "object_id": "22122",
+          "title": "白夜",
+          "score": 0.9854624271392822,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 19,
+          "object_id": "21390",
+          "title": "我与地坛",
+          "score": 0.9854509830474854,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 20,
+          "object_id": "20311",
+          "title": "五只小猪: 阿加莎·克里斯蒂作品26",
+          "score": 0.9848881959915161,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        }
+      ],
+      "metrics": {
+        "hit_rate_at_20": 0.0,
+        "ndcg_at_20": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_50": 0.0,
+        "category_affinity": 1.0,
+        "intra_list_diversity": 0.0,
+        "novelty": 12.512982768535927,
+        "latency_ms": 0.1283999990846496
+      }
+    },
+    {
+      "session": 3,
+      "window_start": "2026-03-16T23:13:00+00:00",
+      "window_end": "2026-03-16T23:13:00+00:00",
+      "held_out_events": 1,
+      "recommendations": [
+        {
+          "position": 1,
+          "object_id": "21878",
+          "title": "法比安",
+          "score": 2.360615136764319,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 2,
+          "object_id": "22061",
+          "title": "王朔文集: 千万别把我当人",
+          "score": 2.3576228436847737,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 3,
+          "object_id": "21417",
+          "title": "我在京都居酒屋",
+          "score": 2.3392207775036074,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 4,
+          "object_id": "22584",
+          "title": "负暄琐话",
+          "score": 2.3026671509358643,
+          "sources": [
+            "NEW",
+            "POPULARITY"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 5,
+          "object_id": "22580",
+          "title": "象棋的故事",
+          "score": 2.3093245931072794,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 6,
+          "object_id": "21831",
+          "title": "水印: 魂系威尼斯",
+          "score": 2.2543387150418432,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 7,
+          "object_id": "22931",
+          "title": "鹿川有许多粪",
+          "score": 0.9876855611801147,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 8,
+          "object_id": "20955",
+          "title": "天气好的话，我会去找你",
+          "score": 0.9876651167869568,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 9,
+          "object_id": "20206",
+          "title": "世界尽头最后的谋杀案",
+          "score": 0.9876218438148499,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 10,
+          "object_id": "20654",
+          "title": "历史中的大与小",
+          "score": 0.9873179793357849,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 11,
+          "object_id": "22457",
+          "title": "蛇结",
+          "score": 0.987241268157959,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 12,
+          "object_id": "20113",
+          "title": "一只特立独行的猪",
+          "score": 0.9869216680526733,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 13,
+          "object_id": "21968",
+          "title": "漂亮朋友",
+          "score": 0.986515462398529,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 14,
+          "object_id": "20780",
+          "title": "四世同堂",
+          "score": 0.9857704639434814,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 15,
+          "object_id": "22251",
+          "title": "精神与爱欲",
+          "score": 0.9856671094894409,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 16,
+          "object_id": "20372",
+          "title": "从从容容 游刃有余2: 宋朝人雅致的慢生活",
+          "score": 0.9856116771697998,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 17,
+          "object_id": "21890",
+          "title": "洛丽塔",
+          "score": 0.9856013059616089,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 18,
+          "object_id": "22122",
+          "title": "白夜",
+          "score": 0.9854624271392822,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 19,
+          "object_id": "21390",
+          "title": "我与地坛",
+          "score": 0.9854509830474854,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 20,
+          "object_id": "20311",
+          "title": "五只小猪: 阿加莎·克里斯蒂作品26",
+          "score": 0.9848881959915161,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        }
+      ],
+      "metrics": {
+        "hit_rate_at_20": 0.0,
+        "ndcg_at_20": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_50": 0.0,
+        "category_affinity": 1.0,
+        "intra_list_diversity": 0.0,
+        "novelty": 12.512982768535927,
+        "latency_ms": 0.14139999984763563
+      }
+    }
+  ],
+  "metrics": {
+    "hit_rate_at_20": 0.0,
+    "ndcg_at_20": 0.0,
+    "recall_at_20": 0.0,
+    "recall_at_50": 0.0,
+    "category_affinity": 1.0,
+    "intra_list_diversity": 0.0,
+    "novelty": 12.512982768535927,
+    "latency_ms": 0.1614333329295429,
+    "latency_p95_ms": 0.2071899998554727
+  }
+}

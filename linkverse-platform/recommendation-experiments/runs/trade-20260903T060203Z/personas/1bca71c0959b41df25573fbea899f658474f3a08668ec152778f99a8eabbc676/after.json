@@ -1,0 +1,686 @@
+{
+  "model_version": "trade-20260903062128-20c8891e-4f63f5f4",
+  "session_count": 3,
+  "sessions": [
+    {
+      "session": 1,
+      "window_start": "2026-03-04T04:13:00+00:00",
+      "window_end": "2026-03-04T04:13:00+00:00",
+      "held_out_events": 1,
+      "recommendations": [
+        {
+          "position": 1,
+          "object_id": "21771",
+          "title": "梦里花落知多少",
+          "score": 2.8334604877167795,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 2,
+          "object_id": "20675",
+          "title": "变形记",
+          "score": 2.478015346141313,
+          "sources": [
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 3,
+          "object_id": "21706",
+          "title": "有精神所向披靡，没精神一摊烂泥",
+          "score": 2.2980966897056443,
+          "sources": [
+            "ITEM_CF"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 4,
+          "object_id": "22600",
+          "title": "走出非洲",
+          "score": 2.2441580936231444,
+          "sources": [
+            "ITEM_CF",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 5,
+          "object_id": "20034",
+          "title": "Heated Rivalry: Game Changers #2",
+          "score": 2.2161112710466324,
+          "sources": [
+            "ITEM_CF"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 6,
+          "object_id": "22191",
+          "title": "秋园",
+          "score": 2.1528791691524916,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 7,
+          "object_id": "21569",
+          "title": "教育思想的演进: 教育社会学卷2：教育思想的演进",
+          "score": 1.6795630528452106,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 8,
+          "object_id": "21913",
+          "title": "浮萍男孩",
+          "score": 1.5072997745204793,
+          "sources": [
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 9,
+          "object_id": "21401",
+          "title": "我们做对了什么-北京十一学校家长的陪伴与反思",
+          "score": 1.4477641607842588,
+          "sources": [
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 10,
+          "object_id": "22149",
+          "title": "相约星期二",
+          "score": 1.3435530218472262,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 11,
+          "object_id": "20804",
+          "title": "圣多纳释放法: 持久幸福、成功、平静的秘诀",
+          "score": 1.2046559162139818,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 12,
+          "object_id": "21195",
+          "title": "岛",
+          "score": 0.7945941189414869,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 13,
+          "object_id": "24824",
+          "title": "最优化导论",
+          "score": -0.8283672348760976,
+          "sources": [
+            "NEW",
+            "POPULARITY"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 14,
+          "object_id": "25928",
+          "title": "这世界既残酷也温柔",
+          "score": -1.0511730672114892,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 15,
+          "object_id": "26168",
+          "title": "骄阳似我（下）",
+          "score": -1.6111057989353488,
+          "sources": [
+            "NEW"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 16,
+          "object_id": "24235",
+          "title": "如何开一家小而美的店",
+          "score": -1.5700273260921571,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 17,
+          "object_id": "22972",
+          "title": "19年间谋杀小叙",
+          "score": -2.298448997694577,
+          "sources": [
+            "TFIDF"
+          ],
+          "reason_code": "CATEGORY_AFFINITY"
+        },
+        {
+          "position": 18,
+          "object_id": "24372",
+          "title": "小说家与夜的分界线",
+          "score": -2.772916237085367,
+          "sources": [
+            "TFIDF"
+          ],
+          "reason_code": "CATEGORY_AFFINITY"
+        },
+        {
+          "position": 19,
+          "object_id": "21890",
+          "title": "洛丽塔",
+          "score": 0.9972367882728577,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 20,
+          "object_id": "20398",
+          "title": "伊豆的舞女",
+          "score": 0.9971822500228882,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        }
+      ],
+      "metrics": {
+        "hit_rate_at_20": 0.0,
+        "ndcg_at_20": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_50": 0.0,
+        "category_affinity": 0.7,
+        "intra_list_diversity": 0.7526315789473684,
+        "novelty": 12.105878430364045,
+        "latency_ms": 0.17769999976735562
+      }
+    },
+    {
+      "session": 2,
+      "window_start": "2026-03-12T02:13:00+00:00",
+      "window_end": "2026-03-12T02:13:00+00:00",
+      "held_out_events": 1,
+      "recommendations": [
+        {
+          "position": 1,
+          "object_id": "21771",
+          "title": "梦里花落知多少",
+          "score": 2.8334604877167795,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 2,
+          "object_id": "20675",
+          "title": "变形记",
+          "score": 2.478015346141313,
+          "sources": [
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 3,
+          "object_id": "21706",
+          "title": "有精神所向披靡，没精神一摊烂泥",
+          "score": 2.2980966897056443,
+          "sources": [
+            "ITEM_CF"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 4,
+          "object_id": "22600",
+          "title": "走出非洲",
+          "score": 2.2441580936231444,
+          "sources": [
+            "ITEM_CF",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 5,
+          "object_id": "20034",
+          "title": "Heated Rivalry: Game Changers #2",
+          "score": 2.2161112710466324,
+          "sources": [
+            "ITEM_CF"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 6,
+          "object_id": "22191",
+          "title": "秋园",
+          "score": 2.1528791691524916,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 7,
+          "object_id": "21569",
+          "title": "教育思想的演进: 教育社会学卷2：教育思想的演进",
+          "score": 1.6795630528452106,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 8,
+          "object_id": "21913",
+          "title": "浮萍男孩",
+          "score": 1.5072997745204793,
+          "sources": [
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 9,
+          "object_id": "21401",
+          "title": "我们做对了什么-北京十一学校家长的陪伴与反思",
+          "score": 1.4477641607842588,
+          "sources": [
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 10,
+          "object_id": "22149",
+          "title": "相约星期二",
+          "score": 1.3435530218472262,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 11,
+          "object_id": "20804",
+          "title": "圣多纳释放法: 持久幸福、成功、平静的秘诀",
+          "score": 1.2046559162139818,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 12,
+          "object_id": "21195",
+          "title": "岛",
+          "score": 0.7945941189414869,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 13,
+          "object_id": "24824",
+          "title": "最优化导论",
+          "score": -0.8283672348760976,
+          "sources": [
+            "NEW",
+            "POPULARITY"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 14,
+          "object_id": "25928",
+          "title": "这世界既残酷也温柔",
+          "score": -1.0511730672114892,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 15,
+          "object_id": "26168",
+          "title": "骄阳似我（下）",
+          "score": -1.6111057989353488,
+          "sources": [
+            "NEW"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 16,
+          "object_id": "24235",
+          "title": "如何开一家小而美的店",
+          "score": -1.5700273260921571,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 17,
+          "object_id": "22972",
+          "title": "19年间谋杀小叙",
+          "score": -2.298448997694577,
+          "sources": [
+            "TFIDF"
+          ],
+          "reason_code": "CATEGORY_AFFINITY"
+        },
+        {
+          "position": 18,
+          "object_id": "24372",
+          "title": "小说家与夜的分界线",
+          "score": -2.772916237085367,
+          "sources": [
+            "TFIDF"
+          ],
+          "reason_code": "CATEGORY_AFFINITY"
+        },
+        {
+          "position": 19,
+          "object_id": "21890",
+          "title": "洛丽塔",
+          "score": 0.9972367882728577,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 20,
+          "object_id": "20398",
+          "title": "伊豆的舞女",
+          "score": 0.9971822500228882,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        }
+      ],
+      "metrics": {
+        "hit_rate_at_20": 0.0,
+        "ndcg_at_20": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_50": 0.0,
+        "category_affinity": 0.7,
+        "intra_list_diversity": 0.7526315789473684,
+        "novelty": 12.105878430364045,
+        "latency_ms": 0.1171000003523659
+      }
+    },
+    {
+      "session": 3,
+      "window_start": "2026-03-16T23:13:00+00:00",
+      "window_end": "2026-03-16T23:13:00+00:00",
+      "held_out_events": 1,
+      "recommendations": [
+        {
+          "position": 1,
+          "object_id": "21771",
+          "title": "梦里花落知多少",
+          "score": 2.8334604877167795,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 2,
+          "object_id": "20675",
+          "title": "变形记",
+          "score": 2.478015346141313,
+          "sources": [
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 3,
+          "object_id": "21706",
+          "title": "有精神所向披靡，没精神一摊烂泥",
+          "score": 2.2980966897056443,
+          "sources": [
+            "ITEM_CF"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 4,
+          "object_id": "22600",
+          "title": "走出非洲",
+          "score": 2.2441580936231444,
+          "sources": [
+            "ITEM_CF",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 5,
+          "object_id": "20034",
+          "title": "Heated Rivalry: Game Changers #2",
+          "score": 2.2161112710466324,
+          "sources": [
+            "ITEM_CF"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 6,
+          "object_id": "22191",
+          "title": "秋园",
+          "score": 2.1528791691524916,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 7,
+          "object_id": "21569",
+          "title": "教育思想的演进: 教育社会学卷2：教育思想的演进",
+          "score": 1.6795630528452106,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 8,
+          "object_id": "21913",
+          "title": "浮萍男孩",
+          "score": 1.5072997745204793,
+          "sources": [
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 9,
+          "object_id": "21401",
+          "title": "我们做对了什么-北京十一学校家长的陪伴与反思",
+          "score": 1.4477641607842588,
+          "sources": [
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 10,
+          "object_id": "22149",
+          "title": "相约星期二",
+          "score": 1.3435530218472262,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 11,
+          "object_id": "20804",
+          "title": "圣多纳释放法: 持久幸福、成功、平静的秘诀",
+          "score": 1.2046559162139818,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 12,
+          "object_id": "21195",
+          "title": "岛",
+          "score": 0.7945941189414869,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 13,
+          "object_id": "24824",
+          "title": "最优化导论",
+          "score": -0.8283672348760976,
+          "sources": [
+            "NEW",
+            "POPULARITY"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 14,
+          "object_id": "25928",
+          "title": "这世界既残酷也温柔",
+          "score": -1.0511730672114892,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 15,
+          "object_id": "26168",
+          "title": "骄阳似我（下）",
+          "score": -1.6111057989353488,
+          "sources": [
+            "NEW"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 16,
+          "object_id": "24235",
+          "title": "如何开一家小而美的店",
+          "score": -1.5700273260921571,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 17,
+          "object_id": "22972",
+          "title": "19年间谋杀小叙",
+          "score": -2.298448997694577,
+          "sources": [
+            "TFIDF"
+          ],
+          "reason_code": "CATEGORY_AFFINITY"
+        },
+        {
+          "position": 18,
+          "object_id": "24372",
+          "title": "小说家与夜的分界线",
+          "score": -2.772916237085367,
+          "sources": [
+            "TFIDF"
+          ],
+          "reason_code": "CATEGORY_AFFINITY"
+        },
+        {
+          "position": 19,
+          "object_id": "21890",
+          "title": "洛丽塔",
+          "score": 0.9972367882728577,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 20,
+          "object_id": "20398",
+          "title": "伊豆的舞女",
+          "score": 0.9971822500228882,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        }
+      ],
+      "metrics": {
+        "hit_rate_at_20": 0.0,
+        "ndcg_at_20": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_50": 0.0,
+        "category_affinity": 0.7,
+        "intra_list_diversity": 0.7526315789473684,
+        "novelty": 12.105878430364045,
+        "latency_ms": 0.10200000178883784
+      }
+    }
+  ],
+  "metrics": {
+    "hit_rate_at_20": 0.0,
+    "ndcg_at_20": 0.0,
+    "recall_at_20": 0.0,
+    "recall_at_50": 0.0,
+    "category_affinity": 0.6999999999999998,
+    "intra_list_diversity": 0.7526315789473684,
+    "novelty": 12.105878430364045,
+    "latency_ms": 0.1322666673028531,
+    "latency_p95_ms": 0.17163999982585665
+  }
+}

@@ -168,6 +168,7 @@ function Initialize-LinkVerseEnvironmentFile {
 
     $middlewarePassword = '123456abc'
     $tradeClientSecret = New-LinkVerseSafeSecret
+    $recommendationClientSecret = New-LinkVerseSafeSecret
     [byte[]]$keyIdBytes = New-LinkVerseRandomBytes -Length 16
 
     $generatedValues = @{
@@ -197,6 +198,12 @@ function Initialize-LinkVerseEnvironmentFile {
         LINKVERSE_JWT_PUBLIC_KEY             = ([Uri]::new($KeyPaths.PublicKeyPath)).AbsoluteUri
         LINKVERSE_TRADE_CLIENT_SECRET        = $tradeClientSecret
         TRADE_OAUTH_CLIENT_SECRET            = $tradeClientSecret
+        LINKVERSE_RECOMMENDATION_CLIENT_SECRET = $recommendationClientSecret
+        RECOMMENDATION_OAUTH_CLIENT_SECRET   = $recommendationClientSecret
+        RECOMMENDATION_USER_HMAC_SECRET      = New-LinkVerseSafeSecret
+        RECOMMENDATION_MODEL_ROOT            = [IO.Path]::GetFullPath(
+            (Join-Path (Split-Path $ExamplePath -Parent) '..\recommendation\models')
+        )
     }
 
     $outputLines = foreach ($line in Get-Content -LiteralPath $ExamplePath) {
@@ -219,6 +226,63 @@ function Initialize-LinkVerseEnvironmentFile {
     return $true
 }
 
+function Update-LinkVerseRecommendationEnvironment {
+    param(
+        [Parameter(Mandatory = $true)]
+        [string]$EnvironmentPath,
+
+        [Parameter(Mandatory = $true)]
+        [string]$ExamplePath
+    )
+
+    $lines = @(Get-Content -LiteralPath $EnvironmentPath)
+    $existing = @{}
+    foreach ($line in $lines) {
+        if ($line -match '^([A-Z][A-Z0-9_]*)=(.*)$') {
+            $existing[$Matches[1]] = $Matches[2]
+        }
+    }
+
+    $clientSecret = if ($existing.ContainsKey('LINKVERSE_RECOMMENDATION_CLIENT_SECRET')) {
+        $existing['LINKVERSE_RECOMMENDATION_CLIENT_SECRET']
+    }
+    elseif ($existing.ContainsKey('RECOMMENDATION_OAUTH_CLIENT_SECRET')) {
+        $existing['RECOMMENDATION_OAUTH_CLIENT_SECRET']
+    }
+    else {
+        New-LinkVerseSafeSecret
+    }
+    $required = [ordered]@{
+        LINKVERSE_RECOMMENDATION_CLIENT_SECRET = $clientSecret
+        RECOMMENDATION_OAUTH_CLIENT_SECRET     = $clientSecret
+        RECOMMENDATION_USER_HMAC_SECRET        = New-LinkVerseSafeSecret
+        RECOMMENDATION_MODEL_ROOT              = [IO.Path]::GetFullPath(
+            (Join-Path (Split-Path $ExamplePath -Parent) '..\recommendation\models')
+        )
+    }
+    $missing = @($required.Keys | Where-Object { -not $existing.ContainsKey($_) })
+    if ($missing.Count -eq 0) {
+        return $false
+    }
+
+    $newLines = @($lines) + @('', '# Recommendation 本地配置')
+    foreach ($name in $missing) {
+        $newLines += "$name=$($required[$name])"
+    }
+    $content = ($newLines -join [Environment]::NewLine) + [Environment]::NewLine
+    $temporaryPath = "$EnvironmentPath.$([Guid]::NewGuid().ToString('N')).tmp"
+    try {
+        [IO.File]::WriteAllText($temporaryPath, $content, [Text.UTF8Encoding]::new($false))
+        Move-Item -LiteralPath $temporaryPath -Destination $EnvironmentPath -Force
+    }
+    finally {
+        if (Test-Path -LiteralPath $temporaryPath -PathType Leaf) {
+            Remove-Item -LiteralPath $temporaryPath -Force
+        }
+    }
+    return $true
+}
+
 $context = Get-LinkVerseInfrastructureContext
 $secretsDirectory = Join-Path $context.InfrastructureRoot 'secrets'
 $keyPaths = Initialize-LinkVerseIdentityKeys -SecretsDirectory $secretsDirectory
@@ -226,10 +290,21 @@ $environmentCreated = Initialize-LinkVerseEnvironmentFile `
     -ExamplePath $context.ExampleFile `
     -EnvironmentPath $context.EnvironmentFile `
     -KeyPaths $keyPaths
+$recommendationEnvironmentUpdated = $false
+if (-not $environmentCreated) {
+    $recommendationEnvironmentUpdated = Update-LinkVerseRecommendationEnvironment `
+        -EnvironmentPath $context.EnvironmentFile `
+        -ExamplePath $context.ExampleFile
+}
 
 if ($environmentCreated) {
     Write-Host '已创建忽略的本地 .env 与 RSA 2048 PEM；未输出任何秘密值。'
 }
 else {
-    Write-Host '本地 .env 已存在，未覆盖；Identity RSA 密钥对已完成一致性校验。'
+    if ($recommendationEnvironmentUpdated) {
+        Write-Host '本地 .env 已保留原值并补充缺失的 Recommendation 配置；未输出任何秘密值。'
+    }
+    else {
+        Write-Host '本地 .env 已存在，未覆盖；Identity RSA 密钥对已完成一致性校验。'
+    }
 }

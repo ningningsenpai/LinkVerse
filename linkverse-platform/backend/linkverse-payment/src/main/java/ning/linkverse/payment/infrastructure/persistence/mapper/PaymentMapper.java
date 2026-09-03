@@ -132,6 +132,13 @@ public interface PaymentMapper extends BaseMapper<PaymentIntentEntity> {
             """)
     int markRefunded(@Param("intentNo") String intentNo, @Param("now") Instant now);
 
+    @Update("""
+            UPDATE payment_intent
+            SET status = 'REFUND_PENDING', version = version + 1, updated_at = #{now}
+            WHERE intent_no = #{intentNo} AND status = 'SUCCEEDED'
+            """)
+    int markRequestedRefundPending(@Param("intentNo") String intentNo, @Param("now") Instant now);
+
     @Insert("""
             INSERT INTO outbox_event (
                 event_id, aggregate_id, event_type, exchange_name, routing_key,

@@ -54,6 +54,16 @@ public class OrderApplicationService {
     }
 
     public OrderCreationResult create(long buyerId, Long listingId, Integer quantity, String idempotencyKey) {
+        return create(buyerId, listingId, quantity, null, idempotencyKey);
+    }
+
+    public OrderCreationResult create(
+            long buyerId,
+            Long listingId,
+            Integer quantity,
+            Long recommendationDeliveryId,
+            String idempotencyKey
+    ) {
         validateRequest(listingId, quantity, idempotencyKey);
         String fingerprint = fingerprint(buyerId, listingId, quantity);
 
@@ -66,16 +76,14 @@ public class OrderApplicationService {
         DuplicateKeyException lastConflict = null;
         for (int attempt = 1; attempt <= MAX_ORDER_NUMBER_ATTEMPTS; attempt++) {
             try {
-                return new OrderCreationResult(
-                        transactionService.create(
-                                buyerId,
-                                listingId,
-                                idempotencyKey,
-                                fingerprint,
-                                orderNumberSupplier.get()
-                        ),
-                        true
-                );
+                String orderNo = orderNumberSupplier.get();
+                TradeOrder created = recommendationDeliveryId == null
+                        ? transactionService.create(buyerId, listingId, idempotencyKey, fingerprint, orderNo)
+                        : transactionService.create(
+                                buyerId, listingId, idempotencyKey, fingerprint, orderNo,
+                                recommendationDeliveryId
+                        );
+                return new OrderCreationResult(created, true);
             } catch (DuplicateKeyException exception) {
                 // 幂等唯一键冲突优先恢复已提交赢家；查不到时按订单号碰撞有限重试。
                 TradeOrder concurrent = tradeRepository.findByBuyerAndIdempotencyKey(buyerId, idempotencyKey)

@@ -1,0 +1,776 @@
+{
+  "model_version": "trade-20260903072831-20c8891e-4f63f5f4",
+  "session_count": 3,
+  "sessions": [
+    {
+      "session": 1,
+      "window_start": null,
+      "window_end": null,
+      "held_out_events": 0,
+      "recommendations": [
+        {
+          "position": 1,
+          "object_id": "23459",
+          "title": "世界尽头最后的谋杀案",
+          "score": 2.3234427552274073,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 2,
+          "object_id": "26081",
+          "title": "阿米迪奥旅行记",
+          "score": 2.1588652364109695,
+          "sources": [
+            "ITEM_CF",
+            "NEW",
+            "TFIDF"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 3,
+          "object_id": "24879",
+          "title": "杯雪（全二册）",
+          "score": 2.142248817800907,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 4,
+          "object_id": "25409",
+          "title": "笑傲江湖（新修版）",
+          "score": 2.1349348276500777,
+          "sources": [
+            "NEW",
+            "TFIDF",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 5,
+          "object_id": "25302",
+          "title": "碧血剑",
+          "score": 2.123526871368233,
+          "sources": [
+            "ITEM_CF",
+            "POPULARITY",
+            "TFIDF"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 6,
+          "object_id": "24973",
+          "title": "毕业",
+          "score": 1.9948885371954004,
+          "sources": [
+            "POPULARITY",
+            "TFIDF"
+          ],
+          "reason_code": "CATEGORY_AFFINITY"
+        },
+        {
+          "position": 7,
+          "object_id": "24824",
+          "title": "最优化导论",
+          "score": 1.6258096485027735,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 8,
+          "object_id": "23146",
+          "title": "Machine Learning Engineering in Action",
+          "score": 1.5697929350781046,
+          "sources": [
+            "NEW",
+            "POPULARITY"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 9,
+          "object_id": "23220",
+          "title": "Python编程快速上手",
+          "score": 1.5336504389908872,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 10,
+          "object_id": "23523",
+          "title": "于是一片光明",
+          "score": 1.4959690047428116,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 11,
+          "object_id": "24403",
+          "title": "巴芒演义",
+          "score": 1.4315555899945653,
+          "sources": [
+            "ITEM_CF",
+            "POPULARITY",
+            "TFIDF",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 12,
+          "object_id": "25436",
+          "title": "算法I～IV（C++实现）――基础、数据结构、排序和搜索（第三版）",
+          "score": 1.400152280656636,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 13,
+          "object_id": "26160",
+          "title": "首席组织官",
+          "score": 1.3302034697259686,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 14,
+          "object_id": "24152",
+          "title": "大模型应用开发 RAG实战课",
+          "score": 1.2997827423610295,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 15,
+          "object_id": "23421",
+          "title": "三生万物",
+          "score": 1.29267433327174,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 16,
+          "object_id": "25670",
+          "title": "英伟达之道",
+          "score": 1.1751381323057464,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 17,
+          "object_id": "25928",
+          "title": "这世界既残酷也温柔",
+          "score": 1.1359027024991377,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 18,
+          "object_id": "24013",
+          "title": "因果推断实用计量方法",
+          "score": 1.0952033798491807,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 19,
+          "object_id": "24034",
+          "title": "图解大模型",
+          "score": 0.9594315886497498,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 20,
+          "object_id": "24042",
+          "title": "圣母",
+          "score": 0.9547713398933411,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        }
+      ],
+      "metrics": {
+        "hit_rate_at_20": 0.0,
+        "ndcg_at_20": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_50": 0.0,
+        "category_affinity": 1.0,
+        "intra_list_diversity": 0.7,
+        "novelty": 13.264647576682007,
+        "latency_ms": 0.14679999731015414
+      }
+    },
+    {
+      "session": 2,
+      "window_start": "2026-03-07T09:34:00+00:00",
+      "window_end": "2026-03-07T09:34:00+00:00",
+      "held_out_events": 1,
+      "recommendations": [
+        {
+          "position": 1,
+          "object_id": "23459",
+          "title": "世界尽头最后的谋杀案",
+          "score": 2.3234427552274073,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 2,
+          "object_id": "26081",
+          "title": "阿米迪奥旅行记",
+          "score": 2.1588652364109695,
+          "sources": [
+            "ITEM_CF",
+            "NEW",
+            "TFIDF"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 3,
+          "object_id": "24879",
+          "title": "杯雪（全二册）",
+          "score": 2.142248817800907,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 4,
+          "object_id": "25409",
+          "title": "笑傲江湖（新修版）",
+          "score": 2.1349348276500777,
+          "sources": [
+            "NEW",
+            "TFIDF",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 5,
+          "object_id": "25302",
+          "title": "碧血剑",
+          "score": 2.123526871368233,
+          "sources": [
+            "ITEM_CF",
+            "POPULARITY",
+            "TFIDF"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 6,
+          "object_id": "24973",
+          "title": "毕业",
+          "score": 1.9948885371954004,
+          "sources": [
+            "POPULARITY",
+            "TFIDF"
+          ],
+          "reason_code": "CATEGORY_AFFINITY"
+        },
+        {
+          "position": 7,
+          "object_id": "24824",
+          "title": "最优化导论",
+          "score": 1.6258096485027735,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 8,
+          "object_id": "23146",
+          "title": "Machine Learning Engineering in Action",
+          "score": 1.5697929350781046,
+          "sources": [
+            "NEW",
+            "POPULARITY"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 9,
+          "object_id": "23220",
+          "title": "Python编程快速上手",
+          "score": 1.5336504389908872,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 10,
+          "object_id": "23523",
+          "title": "于是一片光明",
+          "score": 1.4959690047428116,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 11,
+          "object_id": "24403",
+          "title": "巴芒演义",
+          "score": 1.4315555899945653,
+          "sources": [
+            "ITEM_CF",
+            "POPULARITY",
+            "TFIDF",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 12,
+          "object_id": "25436",
+          "title": "算法I～IV（C++实现）――基础、数据结构、排序和搜索（第三版）",
+          "score": 1.400152280656636,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 13,
+          "object_id": "26160",
+          "title": "首席组织官",
+          "score": 1.3302034697259686,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 14,
+          "object_id": "24152",
+          "title": "大模型应用开发 RAG实战课",
+          "score": 1.2997827423610295,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 15,
+          "object_id": "23421",
+          "title": "三生万物",
+          "score": 1.29267433327174,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 16,
+          "object_id": "25670",
+          "title": "英伟达之道",
+          "score": 1.1751381323057464,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 17,
+          "object_id": "25928",
+          "title": "这世界既残酷也温柔",
+          "score": 1.1359027024991377,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 18,
+          "object_id": "24013",
+          "title": "因果推断实用计量方法",
+          "score": 1.0952033798491807,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 19,
+          "object_id": "24034",
+          "title": "图解大模型",
+          "score": 0.9594315886497498,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 20,
+          "object_id": "24042",
+          "title": "圣母",
+          "score": 0.9547713398933411,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        }
+      ],
+      "metrics": {
+        "hit_rate_at_20": 0.0,
+        "ndcg_at_20": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_50": 0.0,
+        "category_affinity": 1.0,
+        "intra_list_diversity": 0.7,
+        "novelty": 13.264647576682007,
+        "latency_ms": 0.11660000018309802
+      }
+    },
+    {
+      "session": 3,
+      "window_start": "2026-03-28T09:34:00+00:00",
+      "window_end": "2026-03-28T09:34:00+00:00",
+      "held_out_events": 1,
+      "recommendations": [
+        {
+          "position": 1,
+          "object_id": "23459",
+          "title": "世界尽头最后的谋杀案",
+          "score": 2.3234427552274073,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 2,
+          "object_id": "26081",
+          "title": "阿米迪奥旅行记",
+          "score": 2.1588652364109695,
+          "sources": [
+            "ITEM_CF",
+            "NEW",
+            "TFIDF"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 3,
+          "object_id": "24879",
+          "title": "杯雪（全二册）",
+          "score": 2.142248817800907,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 4,
+          "object_id": "25409",
+          "title": "笑傲江湖（新修版）",
+          "score": 2.1349348276500777,
+          "sources": [
+            "NEW",
+            "TFIDF",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 5,
+          "object_id": "25302",
+          "title": "碧血剑",
+          "score": 2.123526871368233,
+          "sources": [
+            "ITEM_CF",
+            "POPULARITY",
+            "TFIDF"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 6,
+          "object_id": "24973",
+          "title": "毕业",
+          "score": 1.9948885371954004,
+          "sources": [
+            "POPULARITY",
+            "TFIDF"
+          ],
+          "reason_code": "CATEGORY_AFFINITY"
+        },
+        {
+          "position": 7,
+          "object_id": "24824",
+          "title": "最优化导论",
+          "score": 1.6258096485027735,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 8,
+          "object_id": "23146",
+          "title": "Machine Learning Engineering in Action",
+          "score": 1.5697929350781046,
+          "sources": [
+            "NEW",
+            "POPULARITY"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 9,
+          "object_id": "23220",
+          "title": "Python编程快速上手",
+          "score": 1.5336504389908872,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 10,
+          "object_id": "23523",
+          "title": "于是一片光明",
+          "score": 1.4959690047428116,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 11,
+          "object_id": "24403",
+          "title": "巴芒演义",
+          "score": 1.4315555899945653,
+          "sources": [
+            "ITEM_CF",
+            "POPULARITY",
+            "TFIDF",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 12,
+          "object_id": "25436",
+          "title": "算法I～IV（C++实现）――基础、数据结构、排序和搜索（第三版）",
+          "score": 1.400152280656636,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 13,
+          "object_id": "26160",
+          "title": "首席组织官",
+          "score": 1.3302034697259686,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 14,
+          "object_id": "24152",
+          "title": "大模型应用开发 RAG实战课",
+          "score": 1.2997827423610295,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 15,
+          "object_id": "23421",
+          "title": "三生万物",
+          "score": 1.29267433327174,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 16,
+          "object_id": "25670",
+          "title": "英伟达之道",
+          "score": 1.1751381323057464,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 17,
+          "object_id": "25928",
+          "title": "这世界既残酷也温柔",
+          "score": 1.1359027024991377,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 18,
+          "object_id": "24013",
+          "title": "因果推断实用计量方法",
+          "score": 1.0952033798491807,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 19,
+          "object_id": "24034",
+          "title": "图解大模型",
+          "score": 0.9594315886497498,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 20,
+          "object_id": "24042",
+          "title": "圣母",
+          "score": 0.9547713398933411,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        }
+      ],
+      "metrics": {
+        "hit_rate_at_20": 0.0,
+        "ndcg_at_20": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_50": 0.0,
+        "category_affinity": 1.0,
+        "intra_list_diversity": 0.7,
+        "novelty": 13.264647576682007,
+        "latency_ms": 0.10019999899668619
+      }
+    }
+  ],
+  "metrics": {
+    "hit_rate_at_20": 0.0,
+    "ndcg_at_20": 0.0,
+    "recall_at_20": 0.0,
+    "recall_at_50": 0.0,
+    "category_affinity": 1.0,
+    "intra_list_diversity": 0.6999999999999998,
+    "novelty": 13.264647576682007,
+    "latency_ms": 0.12119999882997945,
+    "latency_p95_ms": 0.14377999759744853
+  }
+}

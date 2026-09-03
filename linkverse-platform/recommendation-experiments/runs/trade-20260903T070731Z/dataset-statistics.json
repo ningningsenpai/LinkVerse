@@ -1,0 +1,10 @@
+{
+  "users": 9999,
+  "personas": 10000,
+  "items": 6262,
+  "raw_events": 94934,
+  "training_samples": 94934,
+  "minimum_time": "2025-03-24T11:13:00+00:00",
+  "maximum_time": "2026-04-01T14:34:00+00:00",
+  "data_source": "SYNTHETIC"
+}

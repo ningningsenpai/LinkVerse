@@ -280,6 +280,31 @@ class PaymentConsistencyTest {
         )).isEqualTo("refund:" + intent.intentNo());
     }
 
+    @Test
+    void shouldWriteUserRefundFactWithReasonInSameTransaction() throws Exception {
+        PaymentIntent intent = paymentService.create(command(compactUuid()));
+        SignedCallback signed = signed(intent, "user-refund");
+        callbackService.accept(signed.timestamp(), signed.signature(), signed.rawBody());
+
+        PaymentIntent refunded = transactions.execute(status ->
+                callbackService.refund(intent.buyerId(), intent.intentNo(), "QUALITY_ISSUE")
+        );
+
+        assertThat(refunded).isNotNull();
+        assertThat(refunded.status()).isEqualTo("REFUNDED");
+        assertThat(jdbcTemplate.queryForObject(
+                "SELECT COUNT(*) FROM outbox_event WHERE aggregate_id = ? AND event_type = 'PaymentRefunded'",
+                Integer.class,
+                intent.orderNo()
+        )).isEqualTo(1);
+        assertThat(jdbcTemplate.queryForObject(
+                "SELECT JSON_UNQUOTE(JSON_EXTRACT(payload_json, '$.payload.reason_code')) " +
+                        "FROM outbox_event WHERE aggregate_id = ? AND event_type = 'PaymentRefunded'",
+                String.class,
+                intent.orderNo()
+        )).isEqualTo("QUALITY_ISSUE");
+    }
+
     private PaymentTransactionService transactionalWriteService(
             MyBatisPlusPaymentRepository repository,
             ObjectMapper mapper

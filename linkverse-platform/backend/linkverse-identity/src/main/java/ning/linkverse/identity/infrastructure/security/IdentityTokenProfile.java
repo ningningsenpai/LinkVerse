@@ -10,11 +10,13 @@ public final class IdentityTokenProfile {
 
     public static final String USER_AUDIENCE = "linkverse-api";
     public static final String PAYMENT_AUDIENCE = "linkverse-payment";
+    public static final String RECOMMENDATION_AUDIENCE = "linkverse-recommendation";
     public static final String TOKEN_USE_CLAIM = "token_use";
     public static final String USER_TOKEN_USE = "user";
     public static final String SERVICE_TOKEN_USE = "service";
     public static final String USER_SCOPE = "linkverse.user";
     public static final String PAYMENT_INTERNAL_SCOPE = "payment.internal";
+    public static final String RECOMMENDATION_INTERNAL_SCOPE = "recommendation.internal";
 
     private IdentityTokenProfile() {
     }

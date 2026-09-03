@@ -1,0 +1,683 @@
+{
+  "model_version": "trade-20260903061501-20c8891e-4f63f5f4",
+  "session_count": 3,
+  "sessions": [
+    {
+      "session": 1,
+      "window_start": null,
+      "window_end": null,
+      "held_out_events": 0,
+      "recommendations": [
+        {
+          "position": 1,
+          "object_id": "25842",
+          "title": "货币的起源与演化",
+          "score": 2.333906057894704,
+          "sources": [
+            "NEW"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 2,
+          "object_id": "24205",
+          "title": "奢侈品战略",
+          "score": 1.9862871941365248,
+          "sources": [
+            "NEW",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 3,
+          "object_id": "25853",
+          "title": "资本主义政治经济学",
+          "score": 1.8412486101854593,
+          "sources": [
+            "TFIDF"
+          ],
+          "reason_code": "CATEGORY_AFFINITY"
+        },
+        {
+          "position": 4,
+          "object_id": "24370",
+          "title": "小而美",
+          "score": 1.8369107520268393,
+          "sources": [
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 5,
+          "object_id": "26106",
+          "title": "雪球基金第一课",
+          "score": 1.7683387493271625,
+          "sources": [
+            "ITEM_CF",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 6,
+          "object_id": "24413",
+          "title": "市场与政府",
+          "score": 1.5673523525694115,
+          "sources": [
+            "TFIDF"
+          ],
+          "reason_code": "CATEGORY_AFFINITY"
+        },
+        {
+          "position": 7,
+          "object_id": "24857",
+          "title": "本草博物志",
+          "score": -0.724516704379218,
+          "sources": [
+            "TFIDF"
+          ],
+          "reason_code": "CATEGORY_AFFINITY"
+        },
+        {
+          "position": 8,
+          "object_id": "21417",
+          "title": "我在京都居酒屋",
+          "score": -1.2172534591306423,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 9,
+          "object_id": "26168",
+          "title": "骄阳似我（下）",
+          "score": -1.1145760686285902,
+          "sources": [
+            "NEW"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 10,
+          "object_id": "23459",
+          "title": "世界尽头最后的谋杀案",
+          "score": -1.1114795518662193,
+          "sources": [
+            "NEW",
+            "POPULARITY"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 11,
+          "object_id": "26051",
+          "title": "镖人：卷二",
+          "score": -1.3344779190858196,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 12,
+          "object_id": "21878",
+          "title": "法比安",
+          "score": -1.4565908880891894,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 13,
+          "object_id": "20206",
+          "title": "世界尽头最后的谋杀案",
+          "score": -1.4811633757740619,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 14,
+          "object_id": "23517",
+          "title": "了不起的甲骨文",
+          "score": -1.486495958166982,
+          "sources": [
+            "ITEM_CF"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 15,
+          "object_id": "25669",
+          "title": "英伟达之道",
+          "score": -1.6873422425826121,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 16,
+          "object_id": "21805",
+          "title": "死于威尼斯",
+          "score": -1.7277334808040625,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 17,
+          "object_id": "24278",
+          "title": "宇宙密码",
+          "score": -2.001625620275447,
+          "sources": [
+            "ITEM_CF"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 18,
+          "object_id": "25627",
+          "title": "脑科学讲义",
+          "score": -2.1852596124021013,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 19,
+          "object_id": "25371",
+          "title": "稀有地球",
+          "score": -2.258744787746017,
+          "sources": [
+            "ITEM_CF"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 20,
+          "object_id": "23347",
+          "title": "エレファントヘッド",
+          "score": -2.3484458826881864,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        }
+      ],
+      "metrics": {
+        "hit_rate_at_20": 0.0,
+        "ndcg_at_20": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_50": 0.0,
+        "category_affinity": 0.3,
+        "intra_list_diversity": 0.7789473684210526,
+        "novelty": 12.638454927036378,
+        "latency_ms": 0.20820000281673856
+      }
+    },
+    {
+      "session": 2,
+      "window_start": "2026-03-02T14:34:00+00:00",
+      "window_end": "2026-03-02T14:34:00+00:00",
+      "held_out_events": 1,
+      "recommendations": [
+        {
+          "position": 1,
+          "object_id": "25842",
+          "title": "货币的起源与演化",
+          "score": 2.333906057894704,
+          "sources": [
+            "NEW"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 2,
+          "object_id": "24205",
+          "title": "奢侈品战略",
+          "score": 1.9862871941365248,
+          "sources": [
+            "NEW",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 3,
+          "object_id": "25853",
+          "title": "资本主义政治经济学",
+          "score": 1.8412486101854593,
+          "sources": [
+            "TFIDF"
+          ],
+          "reason_code": "CATEGORY_AFFINITY"
+        },
+        {
+          "position": 4,
+          "object_id": "24370",
+          "title": "小而美",
+          "score": 1.8369107520268393,
+          "sources": [
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 5,
+          "object_id": "26106",
+          "title": "雪球基金第一课",
+          "score": 1.7683387493271625,
+          "sources": [
+            "ITEM_CF",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 6,
+          "object_id": "24413",
+          "title": "市场与政府",
+          "score": 1.5673523525694115,
+          "sources": [
+            "TFIDF"
+          ],
+          "reason_code": "CATEGORY_AFFINITY"
+        },
+        {
+          "position": 7,
+          "object_id": "24857",
+          "title": "本草博物志",
+          "score": -0.724516704379218,
+          "sources": [
+            "TFIDF"
+          ],
+          "reason_code": "CATEGORY_AFFINITY"
+        },
+        {
+          "position": 8,
+          "object_id": "21417",
+          "title": "我在京都居酒屋",
+          "score": -1.2172534591306423,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 9,
+          "object_id": "26168",
+          "title": "骄阳似我（下）",
+          "score": -1.1145760686285902,
+          "sources": [
+            "NEW"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 10,
+          "object_id": "23459",
+          "title": "世界尽头最后的谋杀案",
+          "score": -1.1114795518662193,
+          "sources": [
+            "NEW",
+            "POPULARITY"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 11,
+          "object_id": "26051",
+          "title": "镖人：卷二",
+          "score": -1.3344779190858196,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 12,
+          "object_id": "21878",
+          "title": "法比安",
+          "score": -1.4565908880891894,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 13,
+          "object_id": "20206",
+          "title": "世界尽头最后的谋杀案",
+          "score": -1.4811633757740619,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 14,
+          "object_id": "23517",
+          "title": "了不起的甲骨文",
+          "score": -1.486495958166982,
+          "sources": [
+            "ITEM_CF"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 15,
+          "object_id": "25669",
+          "title": "英伟达之道",
+          "score": -1.6873422425826121,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 16,
+          "object_id": "21805",
+          "title": "死于威尼斯",
+          "score": -1.7277334808040625,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 17,
+          "object_id": "24278",
+          "title": "宇宙密码",
+          "score": -2.001625620275447,
+          "sources": [
+            "ITEM_CF"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 18,
+          "object_id": "25627",
+          "title": "脑科学讲义",
+          "score": -2.1852596124021013,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 19,
+          "object_id": "25371",
+          "title": "稀有地球",
+          "score": -2.258744787746017,
+          "sources": [
+            "ITEM_CF"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 20,
+          "object_id": "23347",
+          "title": "エレファントヘッド",
+          "score": -2.3484458826881864,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        }
+      ],
+      "metrics": {
+        "hit_rate_at_20": 0.0,
+        "ndcg_at_20": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_50": 0.0,
+        "category_affinity": 0.3,
+        "intra_list_diversity": 0.7789473684210526,
+        "novelty": 12.638454927036378,
+        "latency_ms": 0.12910000077681616
+      }
+    },
+    {
+      "session": 3,
+      "window_start": "2026-03-07T11:34:00+00:00",
+      "window_end": "2026-03-07T11:34:00+00:00",
+      "held_out_events": 1,
+      "recommendations": [
+        {
+          "position": 1,
+          "object_id": "25842",
+          "title": "货币的起源与演化",
+          "score": 2.333906057894704,
+          "sources": [
+            "NEW"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 2,
+          "object_id": "24205",
+          "title": "奢侈品战略",
+          "score": 1.9862871941365248,
+          "sources": [
+            "NEW",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 3,
+          "object_id": "25853",
+          "title": "资本主义政治经济学",
+          "score": 1.8412486101854593,
+          "sources": [
+            "TFIDF"
+          ],
+          "reason_code": "CATEGORY_AFFINITY"
+        },
+        {
+          "position": 4,
+          "object_id": "24370",
+          "title": "小而美",
+          "score": 1.8369107520268393,
+          "sources": [
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 5,
+          "object_id": "26106",
+          "title": "雪球基金第一课",
+          "score": 1.7683387493271625,
+          "sources": [
+            "ITEM_CF",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 6,
+          "object_id": "24413",
+          "title": "市场与政府",
+          "score": 1.5673523525694115,
+          "sources": [
+            "TFIDF"
+          ],
+          "reason_code": "CATEGORY_AFFINITY"
+        },
+        {
+          "position": 7,
+          "object_id": "24857",
+          "title": "本草博物志",
+          "score": -0.724516704379218,
+          "sources": [
+            "TFIDF"
+          ],
+          "reason_code": "CATEGORY_AFFINITY"
+        },
+        {
+          "position": 8,
+          "object_id": "21417",
+          "title": "我在京都居酒屋",
+          "score": -1.2172534591306423,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 9,
+          "object_id": "26168",
+          "title": "骄阳似我（下）",
+          "score": -1.1145760686285902,
+          "sources": [
+            "NEW"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 10,
+          "object_id": "23459",
+          "title": "世界尽头最后的谋杀案",
+          "score": -1.1114795518662193,
+          "sources": [
+            "NEW",
+            "POPULARITY"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 11,
+          "object_id": "26051",
+          "title": "镖人：卷二",
+          "score": -1.3344779190858196,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 12,
+          "object_id": "21878",
+          "title": "法比安",
+          "score": -1.4565908880891894,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 13,
+          "object_id": "20206",
+          "title": "世界尽头最后的谋杀案",
+          "score": -1.4811633757740619,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 14,
+          "object_id": "23517",
+          "title": "了不起的甲骨文",
+          "score": -1.486495958166982,
+          "sources": [
+            "ITEM_CF"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 15,
+          "object_id": "25669",
+          "title": "英伟达之道",
+          "score": -1.6873422425826121,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 16,
+          "object_id": "21805",
+          "title": "死于威尼斯",
+          "score": -1.7277334808040625,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 17,
+          "object_id": "24278",
+          "title": "宇宙密码",
+          "score": -2.001625620275447,
+          "sources": [
+            "ITEM_CF"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 18,
+          "object_id": "25627",
+          "title": "脑科学讲义",
+          "score": -2.1852596124021013,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 19,
+          "object_id": "25371",
+          "title": "稀有地球",
+          "score": -2.258744787746017,
+          "sources": [
+            "ITEM_CF"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 20,
+          "object_id": "23347",
+          "title": "エレファントヘッド",
+          "score": -2.3484458826881864,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        }
+      ],
+      "metrics": {
+        "hit_rate_at_20": 0.0,
+        "ndcg_at_20": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_50": 0.0,
+        "category_affinity": 0.3,
+        "intra_list_diversity": 0.7789473684210526,
+        "novelty": 12.638454927036378,
+        "latency_ms": 0.11489999815239571
+      }
+    }
+  ],
+  "metrics": {
+    "hit_rate_at_20": 0.0,
+    "ndcg_at_20": 0.0,
+    "recall_at_20": 0.0,
+    "recall_at_50": 0.0,
+    "category_affinity": 0.3,
+    "intra_list_diversity": 0.7789473684210527,
+    "novelty": 12.638454927036378,
+    "latency_ms": 0.15073333391531682,
+    "latency_p95_ms": 0.20029000261274632
+  }
+}

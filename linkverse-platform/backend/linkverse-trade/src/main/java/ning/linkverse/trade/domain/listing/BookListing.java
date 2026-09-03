@@ -12,12 +12,15 @@ import java.time.Instant;
 public record BookListing(
         long id,
         long sellerId,
+        long categoryId,
+        String categoryCode,
         String title,
         String author,
         String description,
         BigDecimal unitPrice,
         String currency,
         String status,
+        Instant publishedAt,
         long version,
         int available,
         Instant updatedAt

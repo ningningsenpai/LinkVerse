@@ -1,0 +1,728 @@
+{
+  "model_version": "trade-20260903072306-20c8891e-4f63f5f4",
+  "session_count": 3,
+  "sessions": [
+    {
+      "session": 1,
+      "window_start": null,
+      "window_end": null,
+      "held_out_events": 0,
+      "recommendations": [
+        {
+          "position": 1,
+          "object_id": "23459",
+          "title": "世界尽头最后的谋杀案",
+          "score": 2.1130938543740734,
+          "sources": [
+            "NEW",
+            "POPULARITY"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 2,
+          "object_id": "24586",
+          "title": "我想慢慢慢慢变小",
+          "score": 2.070994646042249,
+          "sources": [
+            "ITEM_CF",
+            "NEW",
+            "POPULARITY"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 3,
+          "object_id": "25225",
+          "title": "田鼠阿佛",
+          "score": 1.9547343442493579,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 4,
+          "object_id": "23377",
+          "title": "一把扭曲的匕首",
+          "score": 1.8964722675846268,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 5,
+          "object_id": "25126",
+          "title": "爱花的牛",
+          "score": 1.879556114500572,
+          "sources": [
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 6,
+          "object_id": "23882",
+          "title": "去恰饭吧 上",
+          "score": 1.8758504867454875,
+          "sources": [
+            "ITEM_CF",
+            "POPULARITY"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 7,
+          "object_id": "23523",
+          "title": "于是一片光明",
+          "score": 1.547052300022569,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 8,
+          "object_id": "23212",
+          "title": "Python架构模式",
+          "score": 1.537764985166436,
+          "sources": [
+            "NEW",
+            "POPULARITY"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 9,
+          "object_id": "23101",
+          "title": "How To",
+          "score": 1.5284498626763736,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 10,
+          "object_id": "23302",
+          "title": "Understanding Deep Learning",
+          "score": 1.4755546065651273,
+          "sources": [
+            "NEW",
+            "POPULARITY"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 11,
+          "object_id": "24494",
+          "title": "心智社会",
+          "score": 1.4662746014340797,
+          "sources": [
+            "NEW",
+            "POPULARITY"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 12,
+          "object_id": "24089",
+          "title": "基于MATLAB与fuzzyTECH的模糊与神经网络设计",
+          "score": 1.4661460472827894,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 13,
+          "object_id": "23572",
+          "title": "人才战略",
+          "score": 1.4387461922706546,
+          "sources": [
+            "NEW",
+            "POPULARITY"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 14,
+          "object_id": "23421",
+          "title": "三生万物",
+          "score": 1.4072364884513953,
+          "sources": [
+            "NEW",
+            "POPULARITY"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 15,
+          "object_id": "24205",
+          "title": "奢侈品战略",
+          "score": 1.3947701943212696,
+          "sources": [
+            "NEW",
+            "POPULARITY"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 16,
+          "object_id": "25548",
+          "title": "绝不是靠运气",
+          "score": 1.3886447691360144,
+          "sources": [
+            "NEW",
+            "POPULARITY"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 17,
+          "object_id": "23928",
+          "title": "后工作时代",
+          "score": 1.103686955765933,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 18,
+          "object_id": "25382",
+          "title": "税的荒唐与智慧",
+          "score": 1.0588627534871329,
+          "sources": [
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 19,
+          "object_id": "24297",
+          "title": "定价制胜",
+          "score": 0.9410885572433472,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 20,
+          "object_id": "24519",
+          "title": "恐妻家",
+          "score": 0.9407163858413696,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        }
+      ],
+      "metrics": {
+        "hit_rate_at_20": 0.0,
+        "ndcg_at_20": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_50": 0.0,
+        "category_affinity": 1.0,
+        "intra_list_diversity": 0.7,
+        "novelty": 13.309703312713337,
+        "latency_ms": 0.20450000010896474
+      }
+    },
+    {
+      "session": 2,
+      "window_start": "2026-03-07T09:34:00+00:00",
+      "window_end": "2026-03-07T09:34:00+00:00",
+      "held_out_events": 1,
+      "recommendations": [
+        {
+          "position": 1,
+          "object_id": "23459",
+          "title": "世界尽头最后的谋杀案",
+          "score": 2.1130938543740734,
+          "sources": [
+            "NEW",
+            "POPULARITY"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 2,
+          "object_id": "24586",
+          "title": "我想慢慢慢慢变小",
+          "score": 2.070994646042249,
+          "sources": [
+            "ITEM_CF",
+            "NEW",
+            "POPULARITY"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 3,
+          "object_id": "25225",
+          "title": "田鼠阿佛",
+          "score": 1.9547343442493579,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 4,
+          "object_id": "23377",
+          "title": "一把扭曲的匕首",
+          "score": 1.8964722675846268,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 5,
+          "object_id": "25126",
+          "title": "爱花的牛",
+          "score": 1.879556114500572,
+          "sources": [
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 6,
+          "object_id": "23882",
+          "title": "去恰饭吧 上",
+          "score": 1.8758504867454875,
+          "sources": [
+            "ITEM_CF",
+            "POPULARITY"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 7,
+          "object_id": "23523",
+          "title": "于是一片光明",
+          "score": 1.547052300022569,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 8,
+          "object_id": "23212",
+          "title": "Python架构模式",
+          "score": 1.537764985166436,
+          "sources": [
+            "NEW",
+            "POPULARITY"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 9,
+          "object_id": "23101",
+          "title": "How To",
+          "score": 1.5284498626763736,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 10,
+          "object_id": "23302",
+          "title": "Understanding Deep Learning",
+          "score": 1.4755546065651273,
+          "sources": [
+            "NEW",
+            "POPULARITY"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 11,
+          "object_id": "24494",
+          "title": "心智社会",
+          "score": 1.4662746014340797,
+          "sources": [
+            "NEW",
+            "POPULARITY"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 12,
+          "object_id": "24089",
+          "title": "基于MATLAB与fuzzyTECH的模糊与神经网络设计",
+          "score": 1.4661460472827894,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 13,
+          "object_id": "23572",
+          "title": "人才战略",
+          "score": 1.4387461922706546,
+          "sources": [
+            "NEW",
+            "POPULARITY"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 14,
+          "object_id": "23421",
+          "title": "三生万物",
+          "score": 1.4072364884513953,
+          "sources": [
+            "NEW",
+            "POPULARITY"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 15,
+          "object_id": "24205",
+          "title": "奢侈品战略",
+          "score": 1.3947701943212696,
+          "sources": [
+            "NEW",
+            "POPULARITY"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 16,
+          "object_id": "25548",
+          "title": "绝不是靠运气",
+          "score": 1.3886447691360144,
+          "sources": [
+            "NEW",
+            "POPULARITY"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 17,
+          "object_id": "23928",
+          "title": "后工作时代",
+          "score": 1.103686955765933,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 18,
+          "object_id": "25382",
+          "title": "税的荒唐与智慧",
+          "score": 1.0588627534871329,
+          "sources": [
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 19,
+          "object_id": "24297",
+          "title": "定价制胜",
+          "score": 0.9410885572433472,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 20,
+          "object_id": "24519",
+          "title": "恐妻家",
+          "score": 0.9407163858413696,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        }
+      ],
+      "metrics": {
+        "hit_rate_at_20": 0.0,
+        "ndcg_at_20": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_50": 0.0,
+        "category_affinity": 1.0,
+        "intra_list_diversity": 0.7,
+        "novelty": 13.309703312713337,
+        "latency_ms": 0.12209999840706587
+      }
+    },
+    {
+      "session": 3,
+      "window_start": "2026-03-28T09:34:00+00:00",
+      "window_end": "2026-03-28T09:34:00+00:00",
+      "held_out_events": 1,
+      "recommendations": [
+        {
+          "position": 1,
+          "object_id": "23459",
+          "title": "世界尽头最后的谋杀案",
+          "score": 2.1130938543740734,
+          "sources": [
+            "NEW",
+            "POPULARITY"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 2,
+          "object_id": "24586",
+          "title": "我想慢慢慢慢变小",
+          "score": 2.070994646042249,
+          "sources": [
+            "ITEM_CF",
+            "NEW",
+            "POPULARITY"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 3,
+          "object_id": "25225",
+          "title": "田鼠阿佛",
+          "score": 1.9547343442493579,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 4,
+          "object_id": "23377",
+          "title": "一把扭曲的匕首",
+          "score": 1.8964722675846268,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 5,
+          "object_id": "25126",
+          "title": "爱花的牛",
+          "score": 1.879556114500572,
+          "sources": [
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 6,
+          "object_id": "23882",
+          "title": "去恰饭吧 上",
+          "score": 1.8758504867454875,
+          "sources": [
+            "ITEM_CF",
+            "POPULARITY"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 7,
+          "object_id": "23523",
+          "title": "于是一片光明",
+          "score": 1.547052300022569,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 8,
+          "object_id": "23212",
+          "title": "Python架构模式",
+          "score": 1.537764985166436,
+          "sources": [
+            "NEW",
+            "POPULARITY"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 9,
+          "object_id": "23101",
+          "title": "How To",
+          "score": 1.5284498626763736,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 10,
+          "object_id": "23302",
+          "title": "Understanding Deep Learning",
+          "score": 1.4755546065651273,
+          "sources": [
+            "NEW",
+            "POPULARITY"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 11,
+          "object_id": "24494",
+          "title": "心智社会",
+          "score": 1.4662746014340797,
+          "sources": [
+            "NEW",
+            "POPULARITY"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 12,
+          "object_id": "24089",
+          "title": "基于MATLAB与fuzzyTECH的模糊与神经网络设计",
+          "score": 1.4661460472827894,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 13,
+          "object_id": "23572",
+          "title": "人才战略",
+          "score": 1.4387461922706546,
+          "sources": [
+            "NEW",
+            "POPULARITY"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 14,
+          "object_id": "23421",
+          "title": "三生万物",
+          "score": 1.4072364884513953,
+          "sources": [
+            "NEW",
+            "POPULARITY"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 15,
+          "object_id": "24205",
+          "title": "奢侈品战略",
+          "score": 1.3947701943212696,
+          "sources": [
+            "NEW",
+            "POPULARITY"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 16,
+          "object_id": "25548",
+          "title": "绝不是靠运气",
+          "score": 1.3886447691360144,
+          "sources": [
+            "NEW",
+            "POPULARITY"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 17,
+          "object_id": "23928",
+          "title": "后工作时代",
+          "score": 1.103686955765933,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 18,
+          "object_id": "25382",
+          "title": "税的荒唐与智慧",
+          "score": 1.0588627534871329,
+          "sources": [
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 19,
+          "object_id": "24297",
+          "title": "定价制胜",
+          "score": 0.9410885572433472,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 20,
+          "object_id": "24519",
+          "title": "恐妻家",
+          "score": 0.9407163858413696,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        }
+      ],
+      "metrics": {
+        "hit_rate_at_20": 0.0,
+        "ndcg_at_20": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_50": 0.0,
+        "category_affinity": 1.0,
+        "intra_list_diversity": 0.7,
+        "novelty": 13.309703312713337,
+        "latency_ms": 0.10580000162008218
+      }
+    }
+  ],
+  "metrics": {
+    "hit_rate_at_20": 0.0,
+    "ndcg_at_20": 0.0,
+    "recall_at_20": 0.0,
+    "recall_at_50": 0.0,
+    "category_affinity": 1.0,
+    "intra_list_diversity": 0.6999999999999998,
+    "novelty": 13.309703312713337,
+    "latency_ms": 0.14413333337870426,
+    "latency_p95_ms": 0.19625999993877485
+  }
+}

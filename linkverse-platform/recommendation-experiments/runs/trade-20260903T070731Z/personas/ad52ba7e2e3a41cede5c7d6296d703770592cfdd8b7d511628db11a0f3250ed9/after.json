@@ -1,0 +1,707 @@
+{
+  "model_version": "trade-20260903072831-20c8891e-4f63f5f4",
+  "session_count": 3,
+  "sessions": [
+    {
+      "session": 1,
+      "window_start": null,
+      "window_end": null,
+      "held_out_events": 0,
+      "recommendations": [
+        {
+          "position": 1,
+          "object_id": "26160",
+          "title": "首席组织官",
+          "score": 2.2113133003100356,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 2,
+          "object_id": "25670",
+          "title": "英伟达之道",
+          "score": 2.170209429237211,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 3,
+          "object_id": "23642",
+          "title": "优秀的绵羊",
+          "score": 2.1636730609369126,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 4,
+          "object_id": "23421",
+          "title": "三生万物",
+          "score": 2.1146421953613044,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 5,
+          "object_id": "24013",
+          "title": "因果推断实用计量方法",
+          "score": 2.0967817380595863,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 6,
+          "object_id": "25974",
+          "title": "邓普顿教你逆向投资",
+          "score": 2.061850362322441,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 7,
+          "object_id": "24983",
+          "title": "永恒的活火",
+          "score": 0.9854851365089417,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 8,
+          "object_id": "23879",
+          "title": "原则",
+          "score": 0.9825164079666138,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 9,
+          "object_id": "24088",
+          "title": "基业长青",
+          "score": 0.981451153755188,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 10,
+          "object_id": "25194",
+          "title": "理想丰满",
+          "score": 0.9807934761047363,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 11,
+          "object_id": "22987",
+          "title": "500个目击者",
+          "score": 0.9802575707435608,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 12,
+          "object_id": "23836",
+          "title": "区域经济学",
+          "score": 0.9789131283760071,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 13,
+          "object_id": "24021",
+          "title": "国家为什么会破产",
+          "score": 0.9785165786743164,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 14,
+          "object_id": "25434",
+          "title": "简单致富",
+          "score": 0.9783180356025696,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 15,
+          "object_id": "24403",
+          "title": "巴芒演义",
+          "score": 0.9782760739326477,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 16,
+          "object_id": "26230",
+          "title": "黄仁勋：英伟达之芯",
+          "score": 0.977959394454956,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 17,
+          "object_id": "24370",
+          "title": "小而美",
+          "score": 0.9758684039115906,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 18,
+          "object_id": "24862",
+          "title": "机器学习",
+          "score": 0.975161612033844,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 19,
+          "object_id": "24450",
+          "title": "張忠謀自傳（下冊）",
+          "score": 0.9751536846160889,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 20,
+          "object_id": "24646",
+          "title": "把脉：全球巨变与中国经济",
+          "score": 0.9742182493209839,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        }
+      ],
+      "metrics": {
+        "hit_rate_at_20": 0.0,
+        "ndcg_at_20": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_50": 0.0,
+        "category_affinity": 0.9,
+        "intra_list_diversity": 0.19473684210526315,
+        "novelty": 13.102561596450233,
+        "latency_ms": 0.13169999874662608
+      }
+    },
+    {
+      "session": 2,
+      "window_start": "2026-03-02T14:34:00+00:00",
+      "window_end": "2026-03-02T14:34:00+00:00",
+      "held_out_events": 1,
+      "recommendations": [
+        {
+          "position": 1,
+          "object_id": "26160",
+          "title": "首席组织官",
+          "score": 2.2113133003100356,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 2,
+          "object_id": "25670",
+          "title": "英伟达之道",
+          "score": 2.170209429237211,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 3,
+          "object_id": "23642",
+          "title": "优秀的绵羊",
+          "score": 2.1636730609369126,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 4,
+          "object_id": "23421",
+          "title": "三生万物",
+          "score": 2.1146421953613044,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 5,
+          "object_id": "24013",
+          "title": "因果推断实用计量方法",
+          "score": 2.0967817380595863,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 6,
+          "object_id": "25974",
+          "title": "邓普顿教你逆向投资",
+          "score": 2.061850362322441,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 7,
+          "object_id": "24983",
+          "title": "永恒的活火",
+          "score": 0.9854851365089417,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 8,
+          "object_id": "23879",
+          "title": "原则",
+          "score": 0.9825164079666138,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 9,
+          "object_id": "24088",
+          "title": "基业长青",
+          "score": 0.981451153755188,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 10,
+          "object_id": "25194",
+          "title": "理想丰满",
+          "score": 0.9807934761047363,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 11,
+          "object_id": "22987",
+          "title": "500个目击者",
+          "score": 0.9802575707435608,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 12,
+          "object_id": "23836",
+          "title": "区域经济学",
+          "score": 0.9789131283760071,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 13,
+          "object_id": "24021",
+          "title": "国家为什么会破产",
+          "score": 0.9785165786743164,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 14,
+          "object_id": "25434",
+          "title": "简单致富",
+          "score": 0.9783180356025696,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 15,
+          "object_id": "24403",
+          "title": "巴芒演义",
+          "score": 0.9782760739326477,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 16,
+          "object_id": "26230",
+          "title": "黄仁勋：英伟达之芯",
+          "score": 0.977959394454956,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 17,
+          "object_id": "24370",
+          "title": "小而美",
+          "score": 0.9758684039115906,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 18,
+          "object_id": "24862",
+          "title": "机器学习",
+          "score": 0.975161612033844,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 19,
+          "object_id": "24450",
+          "title": "張忠謀自傳（下冊）",
+          "score": 0.9751536846160889,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 20,
+          "object_id": "24646",
+          "title": "把脉：全球巨变与中国经济",
+          "score": 0.9742182493209839,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        }
+      ],
+      "metrics": {
+        "hit_rate_at_20": 0.0,
+        "ndcg_at_20": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_50": 0.0,
+        "category_affinity": 0.9,
+        "intra_list_diversity": 0.19473684210526315,
+        "novelty": 13.102561596450233,
+        "latency_ms": 0.10859999747481197
+      }
+    },
+    {
+      "session": 3,
+      "window_start": "2026-03-07T11:34:00+00:00",
+      "window_end": "2026-03-07T11:34:00+00:00",
+      "held_out_events": 1,
+      "recommendations": [
+        {
+          "position": 1,
+          "object_id": "26160",
+          "title": "首席组织官",
+          "score": 2.2113133003100356,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 2,
+          "object_id": "25670",
+          "title": "英伟达之道",
+          "score": 2.170209429237211,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 3,
+          "object_id": "23642",
+          "title": "优秀的绵羊",
+          "score": 2.1636730609369126,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 4,
+          "object_id": "23421",
+          "title": "三生万物",
+          "score": 2.1146421953613044,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 5,
+          "object_id": "24013",
+          "title": "因果推断实用计量方法",
+          "score": 2.0967817380595863,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 6,
+          "object_id": "25974",
+          "title": "邓普顿教你逆向投资",
+          "score": 2.061850362322441,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 7,
+          "object_id": "24983",
+          "title": "永恒的活火",
+          "score": 0.9854851365089417,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 8,
+          "object_id": "23879",
+          "title": "原则",
+          "score": 0.9825164079666138,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 9,
+          "object_id": "24088",
+          "title": "基业长青",
+          "score": 0.981451153755188,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 10,
+          "object_id": "25194",
+          "title": "理想丰满",
+          "score": 0.9807934761047363,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 11,
+          "object_id": "22987",
+          "title": "500个目击者",
+          "score": 0.9802575707435608,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 12,
+          "object_id": "23836",
+          "title": "区域经济学",
+          "score": 0.9789131283760071,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 13,
+          "object_id": "24021",
+          "title": "国家为什么会破产",
+          "score": 0.9785165786743164,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 14,
+          "object_id": "25434",
+          "title": "简单致富",
+          "score": 0.9783180356025696,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 15,
+          "object_id": "24403",
+          "title": "巴芒演义",
+          "score": 0.9782760739326477,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 16,
+          "object_id": "26230",
+          "title": "黄仁勋：英伟达之芯",
+          "score": 0.977959394454956,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 17,
+          "object_id": "24370",
+          "title": "小而美",
+          "score": 0.9758684039115906,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 18,
+          "object_id": "24862",
+          "title": "机器学习",
+          "score": 0.975161612033844,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 19,
+          "object_id": "24450",
+          "title": "張忠謀自傳（下冊）",
+          "score": 0.9751536846160889,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 20,
+          "object_id": "24646",
+          "title": "把脉：全球巨变与中国经济",
+          "score": 0.9742182493209839,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        }
+      ],
+      "metrics": {
+        "hit_rate_at_20": 0.0,
+        "ndcg_at_20": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_50": 0.0,
+        "category_affinity": 0.9,
+        "intra_list_diversity": 0.19473684210526315,
+        "novelty": 13.102561596450233,
+        "latency_ms": 0.10380000094301067
+      }
+    }
+  ],
+  "metrics": {
+    "hit_rate_at_20": 0.0,
+    "ndcg_at_20": 0.0,
+    "recall_at_20": 0.0,
+    "recall_at_50": 0.0,
+    "category_affinity": 0.9,
+    "intra_list_diversity": 0.19473684210526318,
+    "novelty": 13.102561596450235,
+    "latency_ms": 0.11469999905481625,
+    "latency_p95_ms": 0.12938999861944467
+  }
+}

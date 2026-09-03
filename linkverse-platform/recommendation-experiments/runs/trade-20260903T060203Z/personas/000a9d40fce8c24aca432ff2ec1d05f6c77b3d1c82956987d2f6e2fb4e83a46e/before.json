@@ -1,0 +1,683 @@
+{
+  "model_version": "trade-20260903061501-20c8891e-4f63f5f4",
+  "session_count": 3,
+  "sessions": [
+    {
+      "session": 1,
+      "window_start": null,
+      "window_end": null,
+      "held_out_events": 0,
+      "recommendations": [
+        {
+          "position": 1,
+          "object_id": "22149",
+          "title": "相约星期二",
+          "score": 2.742993772372233,
+          "sources": [
+            "ITEM_CF"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 2,
+          "object_id": "21509",
+          "title": "抑郁的力量: 蛰伏、觉醒、破茧成蝶",
+          "score": 2.259220025963533,
+          "sources": [
+            "TFIDF",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 3,
+          "object_id": "22156",
+          "title": "真希望我父母读过这本书: 你的孩子也会庆幸你读过",
+          "score": 2.076186223525002,
+          "sources": [
+            "POPULARITY",
+            "TFIDF"
+          ],
+          "reason_code": "CATEGORY_AFFINITY"
+        },
+        {
+          "position": 4,
+          "object_id": "21894",
+          "title": "活出生命的意义",
+          "score": 2.0219155557919963,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 5,
+          "object_id": "21429",
+          "title": "我是落花生的女儿: 一本需要哭着看的个人百年史",
+          "score": 1.908942216881706,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 6,
+          "object_id": "21821",
+          "title": "毕生发展 (第7版)",
+          "score": 1.8977800054667542,
+          "sources": [
+            "TFIDF",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 7,
+          "object_id": "22685",
+          "title": "遥远的年代",
+          "score": 1.59676512153585,
+          "sources": [
+            "ITEM_CF",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 8,
+          "object_id": "20955",
+          "title": "天气好的话，我会去找你",
+          "score": 1.5063589436291698,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 9,
+          "object_id": "21878",
+          "title": "法比安",
+          "score": 1.4859653281845284,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 10,
+          "object_id": "21417",
+          "title": "我在京都居酒屋",
+          "score": 1.4276529003322371,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 11,
+          "object_id": "20436",
+          "title": "例外: 毛尖电影随笔",
+          "score": 1.205948301335408,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 12,
+          "object_id": "22707",
+          "title": "醉步男",
+          "score": 1.1844339619942261,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 13,
+          "object_id": "24606",
+          "title": "我的阿勒泰",
+          "score": -1.0406833893115472,
+          "sources": [
+            "TFIDF"
+          ],
+          "reason_code": "CATEGORY_AFFINITY"
+        },
+        {
+          "position": 14,
+          "object_id": "26051",
+          "title": "镖人：卷二",
+          "score": -1.3172171425696302,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 15,
+          "object_id": "26168",
+          "title": "骄阳似我（下）",
+          "score": -1.3949603906928738,
+          "sources": [
+            "NEW"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 16,
+          "object_id": "25627",
+          "title": "脑科学讲义",
+          "score": -1.7153308922105377,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 17,
+          "object_id": "22304",
+          "title": "给青年的十二封信",
+          "score": 0.9847596883773804,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 18,
+          "object_id": "20253",
+          "title": "中国画颜色的研究",
+          "score": 0.9845554828643799,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 19,
+          "object_id": "20862",
+          "title": "基督山伯爵（上、下）",
+          "score": 0.9834334254264832,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 20,
+          "object_id": "20888",
+          "title": "多出来的第六人",
+          "score": 0.9806578755378723,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        }
+      ],
+      "metrics": {
+        "hit_rate_at_20": 0.0,
+        "ndcg_at_20": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_50": 0.0,
+        "category_affinity": 0.8,
+        "intra_list_diversity": 0.6684210526315789,
+        "novelty": 12.60297204627517,
+        "latency_ms": 0.20980000044801272
+      }
+    },
+    {
+      "session": 2,
+      "window_start": null,
+      "window_end": null,
+      "held_out_events": 0,
+      "recommendations": [
+        {
+          "position": 1,
+          "object_id": "22149",
+          "title": "相约星期二",
+          "score": 2.742993772372233,
+          "sources": [
+            "ITEM_CF"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 2,
+          "object_id": "21509",
+          "title": "抑郁的力量: 蛰伏、觉醒、破茧成蝶",
+          "score": 2.259220025963533,
+          "sources": [
+            "TFIDF",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 3,
+          "object_id": "22156",
+          "title": "真希望我父母读过这本书: 你的孩子也会庆幸你读过",
+          "score": 2.076186223525002,
+          "sources": [
+            "POPULARITY",
+            "TFIDF"
+          ],
+          "reason_code": "CATEGORY_AFFINITY"
+        },
+        {
+          "position": 4,
+          "object_id": "21894",
+          "title": "活出生命的意义",
+          "score": 2.0219155557919963,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 5,
+          "object_id": "21429",
+          "title": "我是落花生的女儿: 一本需要哭着看的个人百年史",
+          "score": 1.908942216881706,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 6,
+          "object_id": "21821",
+          "title": "毕生发展 (第7版)",
+          "score": 1.8977800054667542,
+          "sources": [
+            "TFIDF",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 7,
+          "object_id": "22685",
+          "title": "遥远的年代",
+          "score": 1.59676512153585,
+          "sources": [
+            "ITEM_CF",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 8,
+          "object_id": "20955",
+          "title": "天气好的话，我会去找你",
+          "score": 1.5063589436291698,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 9,
+          "object_id": "21878",
+          "title": "法比安",
+          "score": 1.4859653281845284,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 10,
+          "object_id": "21417",
+          "title": "我在京都居酒屋",
+          "score": 1.4276529003322371,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 11,
+          "object_id": "20436",
+          "title": "例外: 毛尖电影随笔",
+          "score": 1.205948301335408,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 12,
+          "object_id": "22707",
+          "title": "醉步男",
+          "score": 1.1844339619942261,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 13,
+          "object_id": "24606",
+          "title": "我的阿勒泰",
+          "score": -1.0406833893115472,
+          "sources": [
+            "TFIDF"
+          ],
+          "reason_code": "CATEGORY_AFFINITY"
+        },
+        {
+          "position": 14,
+          "object_id": "26051",
+          "title": "镖人：卷二",
+          "score": -1.3172171425696302,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 15,
+          "object_id": "26168",
+          "title": "骄阳似我（下）",
+          "score": -1.3949603906928738,
+          "sources": [
+            "NEW"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 16,
+          "object_id": "25627",
+          "title": "脑科学讲义",
+          "score": -1.7153308922105377,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 17,
+          "object_id": "22304",
+          "title": "给青年的十二封信",
+          "score": 0.9847596883773804,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 18,
+          "object_id": "20253",
+          "title": "中国画颜色的研究",
+          "score": 0.9845554828643799,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 19,
+          "object_id": "20862",
+          "title": "基督山伯爵（上、下）",
+          "score": 0.9834334254264832,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 20,
+          "object_id": "20888",
+          "title": "多出来的第六人",
+          "score": 0.9806578755378723,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        }
+      ],
+      "metrics": {
+        "hit_rate_at_20": 0.0,
+        "ndcg_at_20": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_50": 0.0,
+        "category_affinity": 0.8,
+        "intra_list_diversity": 0.6684210526315789,
+        "novelty": 12.60297204627517,
+        "latency_ms": 0.13530000069295056
+      }
+    },
+    {
+      "session": 3,
+      "window_start": null,
+      "window_end": null,
+      "held_out_events": 0,
+      "recommendations": [
+        {
+          "position": 1,
+          "object_id": "22149",
+          "title": "相约星期二",
+          "score": 2.742993772372233,
+          "sources": [
+            "ITEM_CF"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 2,
+          "object_id": "21509",
+          "title": "抑郁的力量: 蛰伏、觉醒、破茧成蝶",
+          "score": 2.259220025963533,
+          "sources": [
+            "TFIDF",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 3,
+          "object_id": "22156",
+          "title": "真希望我父母读过这本书: 你的孩子也会庆幸你读过",
+          "score": 2.076186223525002,
+          "sources": [
+            "POPULARITY",
+            "TFIDF"
+          ],
+          "reason_code": "CATEGORY_AFFINITY"
+        },
+        {
+          "position": 4,
+          "object_id": "21894",
+          "title": "活出生命的意义",
+          "score": 2.0219155557919963,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 5,
+          "object_id": "21429",
+          "title": "我是落花生的女儿: 一本需要哭着看的个人百年史",
+          "score": 1.908942216881706,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 6,
+          "object_id": "21821",
+          "title": "毕生发展 (第7版)",
+          "score": 1.8977800054667542,
+          "sources": [
+            "TFIDF",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 7,
+          "object_id": "22685",
+          "title": "遥远的年代",
+          "score": 1.59676512153585,
+          "sources": [
+            "ITEM_CF",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 8,
+          "object_id": "20955",
+          "title": "天气好的话，我会去找你",
+          "score": 1.5063589436291698,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 9,
+          "object_id": "21878",
+          "title": "法比安",
+          "score": 1.4859653281845284,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 10,
+          "object_id": "21417",
+          "title": "我在京都居酒屋",
+          "score": 1.4276529003322371,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 11,
+          "object_id": "20436",
+          "title": "例外: 毛尖电影随笔",
+          "score": 1.205948301335408,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 12,
+          "object_id": "22707",
+          "title": "醉步男",
+          "score": 1.1844339619942261,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 13,
+          "object_id": "24606",
+          "title": "我的阿勒泰",
+          "score": -1.0406833893115472,
+          "sources": [
+            "TFIDF"
+          ],
+          "reason_code": "CATEGORY_AFFINITY"
+        },
+        {
+          "position": 14,
+          "object_id": "26051",
+          "title": "镖人：卷二",
+          "score": -1.3172171425696302,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 15,
+          "object_id": "26168",
+          "title": "骄阳似我（下）",
+          "score": -1.3949603906928738,
+          "sources": [
+            "NEW"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 16,
+          "object_id": "25627",
+          "title": "脑科学讲义",
+          "score": -1.7153308922105377,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 17,
+          "object_id": "22304",
+          "title": "给青年的十二封信",
+          "score": 0.9847596883773804,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 18,
+          "object_id": "20253",
+          "title": "中国画颜色的研究",
+          "score": 0.9845554828643799,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 19,
+          "object_id": "20862",
+          "title": "基督山伯爵（上、下）",
+          "score": 0.9834334254264832,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 20,
+          "object_id": "20888",
+          "title": "多出来的第六人",
+          "score": 0.9806578755378723,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        }
+      ],
+      "metrics": {
+        "hit_rate_at_20": 0.0,
+        "ndcg_at_20": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_50": 0.0,
+        "category_affinity": 0.8,
+        "intra_list_diversity": 0.6684210526315789,
+        "novelty": 12.60297204627517,
+        "latency_ms": 0.11369999992894009
+      }
+    }
+  ],
+  "metrics": {
+    "hit_rate_at_20": 0.0,
+    "ndcg_at_20": 0.0,
+    "recall_at_20": 0.0,
+    "recall_at_50": 0.0,
+    "category_affinity": 0.8000000000000002,
+    "intra_list_diversity": 0.6684210526315789,
+    "novelty": 12.60297204627517,
+    "latency_ms": 0.15293333368996778,
+    "latency_p95_ms": 0.2023500004725065
+  }
+}

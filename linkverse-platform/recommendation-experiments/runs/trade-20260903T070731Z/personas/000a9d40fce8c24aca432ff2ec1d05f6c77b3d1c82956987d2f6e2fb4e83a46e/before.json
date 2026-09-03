@@ -1,0 +1,704 @@
+{
+  "model_version": "trade-20260903072306-20c8891e-4f63f5f4",
+  "session_count": 3,
+  "sessions": [
+    {
+      "session": 1,
+      "window_start": null,
+      "window_end": null,
+      "held_out_events": 0,
+      "recommendations": [
+        {
+          "position": 1,
+          "object_id": "21461",
+          "title": "我的自闭症: 发现自己的隐形天赋",
+          "score": 2.3479044532619997,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 2,
+          "object_id": "20523",
+          "title": "养育男孩（典藏版）",
+          "score": 2.292828953048178,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 3,
+          "object_id": "22356",
+          "title": "耶稣的学生时代",
+          "score": 2.2911414152194554,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 4,
+          "object_id": "20327",
+          "title": "人人都在晒，凭什么你出彩？: 玩转社交网络的10堂创意自修课",
+          "score": 2.242046204948599,
+          "sources": [
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 5,
+          "object_id": "21569",
+          "title": "教育思想的演进: 教育社会学卷2：教育思想的演进",
+          "score": 2.130039359026163,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 6,
+          "object_id": "20945",
+          "title": "天使坠落在哪里: “追随”三部曲03",
+          "score": 2.1176571205176615,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 7,
+          "object_id": "21358",
+          "title": "情感依附: 为何家会影响我的一生",
+          "score": 0.9358975887298584,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 8,
+          "object_id": "21045",
+          "title": "威洛比家的孩子们: 美国当代金质童书",
+          "score": 0.9290899038314819,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 9,
+          "object_id": "21624",
+          "title": "无条件养育",
+          "score": 0.9279990196228027,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 10,
+          "object_id": "21797",
+          "title": "正面管教（修订版）: 如何不惩罚、不娇纵地有效管教孩子",
+          "score": 0.927379846572876,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 11,
+          "object_id": "22293",
+          "title": "终身成长（实践版）",
+          "score": 0.9271304607391357,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 12,
+          "object_id": "21573",
+          "title": "教育的目的",
+          "score": 0.925653338432312,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 13,
+          "object_id": "22076",
+          "title": "理想国",
+          "score": 0.9251527786254883,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 14,
+          "object_id": "20266",
+          "title": "为人文教育辩护",
+          "score": 0.9238076210021973,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 15,
+          "object_id": "22838",
+          "title": "雪国: 川端康成作品01",
+          "score": 0.9235122799873352,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 16,
+          "object_id": "21561",
+          "title": "教授们怎么想: 在神秘的学术评判体系内",
+          "score": 0.9225369691848755,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 17,
+          "object_id": "21401",
+          "title": "我们做对了什么-北京十一学校家长的陪伴与反思",
+          "score": 0.9221192002296448,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 18,
+          "object_id": "22598",
+          "title": "走出唯一真理观",
+          "score": 0.9216008186340332,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 19,
+          "object_id": "21913",
+          "title": "浮萍男孩",
+          "score": 0.9210836887359619,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 20,
+          "object_id": "20457",
+          "title": "做孩子最好的英语学习规划师: 中国儿童英语习得全路线图",
+          "score": 0.9201331734657288,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        }
+      ],
+      "metrics": {
+        "hit_rate_at_20": 0.0,
+        "ndcg_at_20": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_50": 0.0,
+        "category_affinity": 1.0,
+        "intra_list_diversity": 0.18947368421052632,
+        "novelty": 12.622976789133451,
+        "latency_ms": 0.16319999849656597
+      }
+    },
+    {
+      "session": 2,
+      "window_start": null,
+      "window_end": null,
+      "held_out_events": 0,
+      "recommendations": [
+        {
+          "position": 1,
+          "object_id": "21461",
+          "title": "我的自闭症: 发现自己的隐形天赋",
+          "score": 2.3479044532619997,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 2,
+          "object_id": "20523",
+          "title": "养育男孩（典藏版）",
+          "score": 2.292828953048178,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 3,
+          "object_id": "22356",
+          "title": "耶稣的学生时代",
+          "score": 2.2911414152194554,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 4,
+          "object_id": "20327",
+          "title": "人人都在晒，凭什么你出彩？: 玩转社交网络的10堂创意自修课",
+          "score": 2.242046204948599,
+          "sources": [
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 5,
+          "object_id": "21569",
+          "title": "教育思想的演进: 教育社会学卷2：教育思想的演进",
+          "score": 2.130039359026163,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 6,
+          "object_id": "20945",
+          "title": "天使坠落在哪里: “追随”三部曲03",
+          "score": 2.1176571205176615,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 7,
+          "object_id": "21358",
+          "title": "情感依附: 为何家会影响我的一生",
+          "score": 0.9358975887298584,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 8,
+          "object_id": "21045",
+          "title": "威洛比家的孩子们: 美国当代金质童书",
+          "score": 0.9290899038314819,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 9,
+          "object_id": "21624",
+          "title": "无条件养育",
+          "score": 0.9279990196228027,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 10,
+          "object_id": "21797",
+          "title": "正面管教（修订版）: 如何不惩罚、不娇纵地有效管教孩子",
+          "score": 0.927379846572876,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 11,
+          "object_id": "22293",
+          "title": "终身成长（实践版）",
+          "score": 0.9271304607391357,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 12,
+          "object_id": "21573",
+          "title": "教育的目的",
+          "score": 0.925653338432312,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 13,
+          "object_id": "22076",
+          "title": "理想国",
+          "score": 0.9251527786254883,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 14,
+          "object_id": "20266",
+          "title": "为人文教育辩护",
+          "score": 0.9238076210021973,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 15,
+          "object_id": "22838",
+          "title": "雪国: 川端康成作品01",
+          "score": 0.9235122799873352,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 16,
+          "object_id": "21561",
+          "title": "教授们怎么想: 在神秘的学术评判体系内",
+          "score": 0.9225369691848755,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 17,
+          "object_id": "21401",
+          "title": "我们做对了什么-北京十一学校家长的陪伴与反思",
+          "score": 0.9221192002296448,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 18,
+          "object_id": "22598",
+          "title": "走出唯一真理观",
+          "score": 0.9216008186340332,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 19,
+          "object_id": "21913",
+          "title": "浮萍男孩",
+          "score": 0.9210836887359619,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 20,
+          "object_id": "20457",
+          "title": "做孩子最好的英语学习规划师: 中国儿童英语习得全路线图",
+          "score": 0.9201331734657288,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        }
+      ],
+      "metrics": {
+        "hit_rate_at_20": 0.0,
+        "ndcg_at_20": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_50": 0.0,
+        "category_affinity": 1.0,
+        "intra_list_diversity": 0.18947368421052632,
+        "novelty": 12.622976789133451,
+        "latency_ms": 0.1007999999274034
+      }
+    },
+    {
+      "session": 3,
+      "window_start": null,
+      "window_end": null,
+      "held_out_events": 0,
+      "recommendations": [
+        {
+          "position": 1,
+          "object_id": "21461",
+          "title": "我的自闭症: 发现自己的隐形天赋",
+          "score": 2.3479044532619997,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 2,
+          "object_id": "20523",
+          "title": "养育男孩（典藏版）",
+          "score": 2.292828953048178,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 3,
+          "object_id": "22356",
+          "title": "耶稣的学生时代",
+          "score": 2.2911414152194554,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 4,
+          "object_id": "20327",
+          "title": "人人都在晒，凭什么你出彩？: 玩转社交网络的10堂创意自修课",
+          "score": 2.242046204948599,
+          "sources": [
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 5,
+          "object_id": "21569",
+          "title": "教育思想的演进: 教育社会学卷2：教育思想的演进",
+          "score": 2.130039359026163,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 6,
+          "object_id": "20945",
+          "title": "天使坠落在哪里: “追随”三部曲03",
+          "score": 2.1176571205176615,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 7,
+          "object_id": "21358",
+          "title": "情感依附: 为何家会影响我的一生",
+          "score": 0.9358975887298584,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 8,
+          "object_id": "21045",
+          "title": "威洛比家的孩子们: 美国当代金质童书",
+          "score": 0.9290899038314819,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 9,
+          "object_id": "21624",
+          "title": "无条件养育",
+          "score": 0.9279990196228027,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 10,
+          "object_id": "21797",
+          "title": "正面管教（修订版）: 如何不惩罚、不娇纵地有效管教孩子",
+          "score": 0.927379846572876,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 11,
+          "object_id": "22293",
+          "title": "终身成长（实践版）",
+          "score": 0.9271304607391357,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 12,
+          "object_id": "21573",
+          "title": "教育的目的",
+          "score": 0.925653338432312,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 13,
+          "object_id": "22076",
+          "title": "理想国",
+          "score": 0.9251527786254883,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 14,
+          "object_id": "20266",
+          "title": "为人文教育辩护",
+          "score": 0.9238076210021973,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 15,
+          "object_id": "22838",
+          "title": "雪国: 川端康成作品01",
+          "score": 0.9235122799873352,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 16,
+          "object_id": "21561",
+          "title": "教授们怎么想: 在神秘的学术评判体系内",
+          "score": 0.9225369691848755,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 17,
+          "object_id": "21401",
+          "title": "我们做对了什么-北京十一学校家长的陪伴与反思",
+          "score": 0.9221192002296448,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 18,
+          "object_id": "22598",
+          "title": "走出唯一真理观",
+          "score": 0.9216008186340332,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 19,
+          "object_id": "21913",
+          "title": "浮萍男孩",
+          "score": 0.9210836887359619,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 20,
+          "object_id": "20457",
+          "title": "做孩子最好的英语学习规划师: 中国儿童英语习得全路线图",
+          "score": 0.9201331734657288,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        }
+      ],
+      "metrics": {
+        "hit_rate_at_20": 0.0,
+        "ndcg_at_20": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_50": 0.0,
+        "category_affinity": 1.0,
+        "intra_list_diversity": 0.18947368421052632,
+        "novelty": 12.622976789133451,
+        "latency_ms": 0.08789999992586672
+      }
+    }
+  ],
+  "metrics": {
+    "hit_rate_at_20": 0.0,
+    "ndcg_at_20": 0.0,
+    "recall_at_20": 0.0,
+    "recall_at_50": 0.0,
+    "category_affinity": 1.0,
+    "intra_list_diversity": 0.18947368421052632,
+    "novelty": 12.622976789133451,
+    "latency_ms": 0.11729999944994536,
+    "latency_p95_ms": 0.1569599986396497
+  }
+}

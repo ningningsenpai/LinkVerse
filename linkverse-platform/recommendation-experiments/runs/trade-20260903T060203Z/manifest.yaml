@@ -1,0 +1,13 @@
+run_id: "trade-20260903T060203Z"
+data_source: "SYNTHETIC"
+before_dataset: "datasets\\trade-synthetic"
+after_dataset: "datasets\\trade-synthetic"
+before_model: "trade-20260903061501-20c8891e-4f63f5f4"
+after_model: "trade-20260903062128-20c8891e-4f63f5f4"
+split_rows: {"train": 56960, "validation": 14240, "feedback": 9493, "test": 14241}
+two_tower_trials: 30
+lambda_rank_trials: 50
+cuda_device: "NVIDIA GeForce RTX 4070 SUPER"
+cuda_runtime: "13.0"
+http_feedback_executed: false
+quality_claim_allowed: false

@@ -57,6 +57,13 @@ spring:
             client-authentication-method: client_secret_basic
             authorization-grant-type: client_credentials
             scope: payment.internal
+          linkverse-recommendation-client:
+            provider: linkverse-identity
+            client-id: ${RECOMMENDATION_OAUTH_CLIENT_ID:linkverse-trade-recommendation}
+            client-secret: ${RECOMMENDATION_OAUTH_CLIENT_SECRET:}
+            client-authentication-method: client_secret_basic
+            authorization-grant-type: client_credentials
+            scope: recommendation.internal
         provider:
           linkverse-identity:
             token-uri: ${IDENTITY_TOKEN_URI:http://linkverse-identity/oauth2/token}
@@ -78,6 +85,10 @@ linkverse:
   trade:
     order-payment-timeout: ${TRADE_ORDER_PAYMENT_TIMEOUT:15m}
     payment-base-url: ${PAYMENT_BASE_URL:http://linkverse-payment}
+    recommendation-base-url: ${RECOMMENDATION_BASE_URL:http://127.0.0.1:18084}
+    recommendation-timeout: ${RECOMMENDATION_TIMEOUT:800ms}
+    recommendation-max-concurrent: ${RECOMMENDATION_MAX_CONCURRENT:20}
+    recommendation-user-hmac-secret: ${RECOMMENDATION_USER_HMAC_SECRET:}
     seckill:
       redis-prefix: ${TRADE_SECKILL_REDIS_PREFIX:lv:mvp:trade:}
       relay-delay: ${TRADE_SECKILL_RELAY_DELAY:500ms}
@@ -87,6 +98,17 @@ mybatis-plus:
   configuration:
     map-underscore-to-camel-case: true
     arg-name-based-constructor-auto-mapping: true
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      recommendation:
+        sliding-window-type: count_based
+        sliding-window-size: 20
+        minimum-number-of-calls: 20
+        failure-rate-threshold: 50
+        wait-duration-in-open-state: 30s
+        permitted-number-of-calls-in-half-open-state: 3
 
 management:
   endpoints:
@@ -123,3 +145,30 @@ logging:
       max-file-size: 10MB
       max-history: 7
       total-size-cap: 200MB
+
+---
+spring:
+  config:
+    activate:
+      on-profile: snapshot-export
+  main:
+    web-application-type: none
+  flyway:
+    enabled: false
+  datasource:
+    username: ${RECOMMENDATION_EXPORT_DB_USER:${TRADE_DB_USER:}}
+    password: ${RECOMMENDATION_EXPORT_DB_PASSWORD:${TRADE_DB_PASSWORD:}}
+    hikari:
+      read-only: true
+      maximum-pool-size: 2
+  cloud:
+    discovery:
+      enabled: false
+    nacos:
+      discovery:
+        enabled: false
+
+linkverse:
+  trade:
+    payment-events-enabled: false
+    snapshot-output: ${RECOMMENDATION_SNAPSHOT_OUTPUT:}

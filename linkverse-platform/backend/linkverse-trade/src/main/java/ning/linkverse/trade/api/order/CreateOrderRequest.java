@@ -12,6 +12,7 @@ import jakarta.validation.constraints.NotNull;
  */
 public record CreateOrderRequest(
         @NotNull @Min(1) @JsonProperty("listing_id") Long listingId,
-        @NotNull @Min(1) Integer quantity
+        @NotNull @Min(1) Integer quantity,
+        @Min(1) @JsonProperty("recommendation_delivery_id") Long recommendationDeliveryId
 ) {
 }

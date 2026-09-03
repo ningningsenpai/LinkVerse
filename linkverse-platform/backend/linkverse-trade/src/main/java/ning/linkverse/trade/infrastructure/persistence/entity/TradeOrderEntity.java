@@ -24,6 +24,7 @@ public class TradeOrderEntity {
     private long sellerId;
     private String idempotencyKey;
     private String requestFingerprint;
+    private Long recommendationDeliveryId;
     private String status;
     private BigDecimal totalAmount;
     private String currency;
@@ -42,6 +43,7 @@ public class TradeOrderEntity {
         entity.sellerId = order.sellerId();
         entity.idempotencyKey = order.idempotencyKey();
         entity.requestFingerprint = order.requestFingerprint();
+        entity.recommendationDeliveryId = order.recommendationDeliveryId();
         entity.status = "PENDING_PAYMENT";
         entity.totalAmount = order.totalAmount();
         entity.currency = order.currency();

@@ -43,12 +43,14 @@ public interface TradeMapper extends BaseMapper<TradeOrderEntity> {
             """;
 
     @Select("""
-            SELECT l.id AS id, l.seller_id AS sellerId, l.title AS title,
+            SELECT l.id AS id, l.seller_id AS sellerId, l.category_id AS categoryId,
+                   c.code AS categoryCode, l.title AS title,
                    l.author AS author, l.description AS description,
                    l.unit_price AS unitPrice, l.currency AS currency,
-                   l.status AS status, l.version AS version,
+                   l.status AS status, l.published_at AS publishedAt, l.version AS version,
                    s.available AS available, l.updated_at AS updatedAt
             FROM book_listing l
+            JOIN book_category c ON c.id = l.category_id
             JOIN sku_stock s ON s.listing_id = l.id
             WHERE l.id = #{listingId}
             """)

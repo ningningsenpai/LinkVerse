@@ -1,0 +1,689 @@
+{
+  "model_version": "trade-20260903062128-20c8891e-4f63f5f4",
+  "session_count": 3,
+  "sessions": [
+    {
+      "session": 1,
+      "window_start": null,
+      "window_end": null,
+      "held_out_events": 0,
+      "recommendations": [
+        {
+          "position": 1,
+          "object_id": "26081",
+          "title": "阿米迪奥旅行记",
+          "score": 4.005770439073084,
+          "sources": [
+            "ITEM_CF",
+            "NEW",
+            "TFIDF"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 2,
+          "object_id": "24417",
+          "title": "希望之线",
+          "score": 2.9587866652306154,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 3,
+          "object_id": "26012",
+          "title": "金色紫丁香",
+          "score": 2.7834460444987217,
+          "sources": [
+            "ITEM_CF",
+            "NEW"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 4,
+          "object_id": "26168",
+          "title": "骄阳似我（下）",
+          "score": 2.492857816826055,
+          "sources": [
+            "NEW"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 5,
+          "object_id": "24824",
+          "title": "最优化导论",
+          "score": 2.4640483095552237,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 6,
+          "object_id": "23026",
+          "title": "Bear's Lost Glasses",
+          "score": 2.319488597764105,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 7,
+          "object_id": "25069",
+          "title": "满是空虚之物",
+          "score": 2.2987020085153396,
+          "sources": [
+            "TFIDF"
+          ],
+          "reason_code": "CATEGORY_AFFINITY"
+        },
+        {
+          "position": 8,
+          "object_id": "25928",
+          "title": "这世界既残酷也温柔",
+          "score": 2.0989565106361328,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 9,
+          "object_id": "25778",
+          "title": "认知世界的经济学",
+          "score": 1.9663597755073894,
+          "sources": [
+            "ITEM_CF",
+            "TFIDF"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 10,
+          "object_id": "25300",
+          "title": "碌碌有为",
+          "score": 1.5633920255975609,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 11,
+          "object_id": "24235",
+          "title": "如何开一家小而美的店",
+          "score": 1.3192261929037197,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 12,
+          "object_id": "25236",
+          "title": "疯传",
+          "score": 1.040544632755482,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 13,
+          "object_id": "25470",
+          "title": "精通Visual C++指纹模式识别系统算法及实现",
+          "score": 1.0399303048810473,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 14,
+          "object_id": "25966",
+          "title": "造神",
+          "score": 0.9323692800527021,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 15,
+          "object_id": "23606",
+          "title": "从算法到电路",
+          "score": 0.9271364533548866,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 16,
+          "object_id": "25933",
+          "title": "这就是搜索引擎",
+          "score": 0.7845510762761398,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 17,
+          "object_id": "24855",
+          "title": "未来简史",
+          "score": 0.7012665269791911,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 18,
+          "object_id": "24838",
+          "title": "有效的经营者",
+          "score": 0.5147054403053315,
+          "sources": [
+            "ITEM_CF"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 19,
+          "object_id": "20964",
+          "title": "天龙八部（新修版）",
+          "score": -1.1750597691173021,
+          "sources": [
+            "TFIDF"
+          ],
+          "reason_code": "CATEGORY_AFFINITY"
+        },
+        {
+          "position": 20,
+          "object_id": "21890",
+          "title": "洛丽塔",
+          "score": -1.2972517195200968,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        }
+      ],
+      "metrics": {
+        "hit_rate_at_20": 0.0,
+        "ndcg_at_20": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_50": 0.0,
+        "category_affinity": 0.9,
+        "intra_list_diversity": 0.7578947368421053,
+        "novelty": 12.48072883624998,
+        "latency_ms": 0.17730000035953708
+      }
+    },
+    {
+      "session": 2,
+      "window_start": "2026-03-07T09:34:00+00:00",
+      "window_end": "2026-03-07T09:34:00+00:00",
+      "held_out_events": 1,
+      "recommendations": [
+        {
+          "position": 1,
+          "object_id": "26081",
+          "title": "阿米迪奥旅行记",
+          "score": 4.005770439073084,
+          "sources": [
+            "ITEM_CF",
+            "NEW",
+            "TFIDF"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 2,
+          "object_id": "24417",
+          "title": "希望之线",
+          "score": 2.9587866652306154,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 3,
+          "object_id": "26012",
+          "title": "金色紫丁香",
+          "score": 2.7834460444987217,
+          "sources": [
+            "ITEM_CF",
+            "NEW"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 4,
+          "object_id": "26168",
+          "title": "骄阳似我（下）",
+          "score": 2.492857816826055,
+          "sources": [
+            "NEW"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 5,
+          "object_id": "24824",
+          "title": "最优化导论",
+          "score": 2.4640483095552237,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 6,
+          "object_id": "23026",
+          "title": "Bear's Lost Glasses",
+          "score": 2.319488597764105,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 7,
+          "object_id": "25069",
+          "title": "满是空虚之物",
+          "score": 2.2987020085153396,
+          "sources": [
+            "TFIDF"
+          ],
+          "reason_code": "CATEGORY_AFFINITY"
+        },
+        {
+          "position": 8,
+          "object_id": "25928",
+          "title": "这世界既残酷也温柔",
+          "score": 2.0989565106361328,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 9,
+          "object_id": "25778",
+          "title": "认知世界的经济学",
+          "score": 1.9663597755073894,
+          "sources": [
+            "ITEM_CF",
+            "TFIDF"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 10,
+          "object_id": "25300",
+          "title": "碌碌有为",
+          "score": 1.5633920255975609,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 11,
+          "object_id": "24235",
+          "title": "如何开一家小而美的店",
+          "score": 1.3192261929037197,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 12,
+          "object_id": "25236",
+          "title": "疯传",
+          "score": 1.040544632755482,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 13,
+          "object_id": "25470",
+          "title": "精通Visual C++指纹模式识别系统算法及实现",
+          "score": 1.0399303048810473,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 14,
+          "object_id": "25966",
+          "title": "造神",
+          "score": 0.9323692800527021,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 15,
+          "object_id": "23606",
+          "title": "从算法到电路",
+          "score": 0.9271364533548866,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 16,
+          "object_id": "25933",
+          "title": "这就是搜索引擎",
+          "score": 0.7845510762761398,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 17,
+          "object_id": "24855",
+          "title": "未来简史",
+          "score": 0.7012665269791911,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 18,
+          "object_id": "24838",
+          "title": "有效的经营者",
+          "score": 0.5147054403053315,
+          "sources": [
+            "ITEM_CF"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 19,
+          "object_id": "20964",
+          "title": "天龙八部（新修版）",
+          "score": -1.1750597691173021,
+          "sources": [
+            "TFIDF"
+          ],
+          "reason_code": "CATEGORY_AFFINITY"
+        },
+        {
+          "position": 20,
+          "object_id": "21890",
+          "title": "洛丽塔",
+          "score": -1.2972517195200968,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        }
+      ],
+      "metrics": {
+        "hit_rate_at_20": 0.0,
+        "ndcg_at_20": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_50": 0.0,
+        "category_affinity": 0.9,
+        "intra_list_diversity": 0.7578947368421053,
+        "novelty": 12.48072883624998,
+        "latency_ms": 0.11660000018309802
+      }
+    },
+    {
+      "session": 3,
+      "window_start": "2026-03-28T09:34:00+00:00",
+      "window_end": "2026-03-28T09:34:00+00:00",
+      "held_out_events": 1,
+      "recommendations": [
+        {
+          "position": 1,
+          "object_id": "26081",
+          "title": "阿米迪奥旅行记",
+          "score": 4.005770439073084,
+          "sources": [
+            "ITEM_CF",
+            "NEW",
+            "TFIDF"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 2,
+          "object_id": "24417",
+          "title": "希望之线",
+          "score": 2.9587866652306154,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 3,
+          "object_id": "26012",
+          "title": "金色紫丁香",
+          "score": 2.7834460444987217,
+          "sources": [
+            "ITEM_CF",
+            "NEW"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 4,
+          "object_id": "26168",
+          "title": "骄阳似我（下）",
+          "score": 2.492857816826055,
+          "sources": [
+            "NEW"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 5,
+          "object_id": "24824",
+          "title": "最优化导论",
+          "score": 2.4640483095552237,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 6,
+          "object_id": "23026",
+          "title": "Bear's Lost Glasses",
+          "score": 2.319488597764105,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 7,
+          "object_id": "25069",
+          "title": "满是空虚之物",
+          "score": 2.2987020085153396,
+          "sources": [
+            "TFIDF"
+          ],
+          "reason_code": "CATEGORY_AFFINITY"
+        },
+        {
+          "position": 8,
+          "object_id": "25928",
+          "title": "这世界既残酷也温柔",
+          "score": 2.0989565106361328,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 9,
+          "object_id": "25778",
+          "title": "认知世界的经济学",
+          "score": 1.9663597755073894,
+          "sources": [
+            "ITEM_CF",
+            "TFIDF"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 10,
+          "object_id": "25300",
+          "title": "碌碌有为",
+          "score": 1.5633920255975609,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 11,
+          "object_id": "24235",
+          "title": "如何开一家小而美的店",
+          "score": 1.3192261929037197,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 12,
+          "object_id": "25236",
+          "title": "疯传",
+          "score": 1.040544632755482,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 13,
+          "object_id": "25470",
+          "title": "精通Visual C++指纹模式识别系统算法及实现",
+          "score": 1.0399303048810473,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 14,
+          "object_id": "25966",
+          "title": "造神",
+          "score": 0.9323692800527021,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 15,
+          "object_id": "23606",
+          "title": "从算法到电路",
+          "score": 0.9271364533548866,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 16,
+          "object_id": "25933",
+          "title": "这就是搜索引擎",
+          "score": 0.7845510762761398,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 17,
+          "object_id": "24855",
+          "title": "未来简史",
+          "score": 0.7012665269791911,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 18,
+          "object_id": "24838",
+          "title": "有效的经营者",
+          "score": 0.5147054403053315,
+          "sources": [
+            "ITEM_CF"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 19,
+          "object_id": "20964",
+          "title": "天龙八部（新修版）",
+          "score": -1.1750597691173021,
+          "sources": [
+            "TFIDF"
+          ],
+          "reason_code": "CATEGORY_AFFINITY"
+        },
+        {
+          "position": 20,
+          "object_id": "21890",
+          "title": "洛丽塔",
+          "score": -1.2972517195200968,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        }
+      ],
+      "metrics": {
+        "hit_rate_at_20": 0.0,
+        "ndcg_at_20": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_50": 0.0,
+        "category_affinity": 0.9,
+        "intra_list_diversity": 0.7578947368421053,
+        "novelty": 12.48072883624998,
+        "latency_ms": 0.10880000263568945
+      }
+    }
+  ],
+  "metrics": {
+    "hit_rate_at_20": 0.0,
+    "ndcg_at_20": 0.0,
+    "recall_at_20": 0.0,
+    "recall_at_50": 0.0,
+    "category_affinity": 0.9,
+    "intra_list_diversity": 0.7578947368421053,
+    "novelty": 12.48072883624998,
+    "latency_ms": 0.13423333439277485,
+    "latency_p95_ms": 0.17123000034189317
+  }
+}

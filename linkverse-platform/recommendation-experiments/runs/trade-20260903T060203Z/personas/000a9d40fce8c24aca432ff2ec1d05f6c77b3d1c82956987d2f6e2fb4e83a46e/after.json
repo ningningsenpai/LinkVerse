@@ -1,0 +1,680 @@
+{
+  "model_version": "trade-20260903062128-20c8891e-4f63f5f4",
+  "session_count": 3,
+  "sessions": [
+    {
+      "session": 1,
+      "window_start": null,
+      "window_end": null,
+      "held_out_events": 0,
+      "recommendations": [
+        {
+          "position": 1,
+          "object_id": "21569",
+          "title": "教育思想的演进: 教育社会学卷2：教育思想的演进",
+          "score": 2.6904090985671374,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 2,
+          "object_id": "22156",
+          "title": "真希望我父母读过这本书: 你的孩子也会庆幸你读过",
+          "score": 2.4992532071911993,
+          "sources": [
+            "TFIDF"
+          ],
+          "reason_code": "CATEGORY_AFFINITY"
+        },
+        {
+          "position": 3,
+          "object_id": "22007",
+          "title": "爱弥儿: 论教育",
+          "score": 2.4208683071933463,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 4,
+          "object_id": "22149",
+          "title": "相约星期二",
+          "score": 2.3571066003664045,
+          "sources": [
+            "ITEM_CF"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 5,
+          "object_id": "22004",
+          "title": "爱丽丝梦游奇境记：草间弥生插绘版",
+          "score": 2.1983874083967523,
+          "sources": [
+            "ITEM_CF"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 6,
+          "object_id": "20407",
+          "title": "伯恩斯情绪疗法",
+          "score": 2.2822410924733894,
+          "sources": [
+            "TFIDF",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 7,
+          "object_id": "21771",
+          "title": "梦里花落知多少",
+          "score": 1.628335979983592,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 8,
+          "object_id": "22419",
+          "title": "草民",
+          "score": 1.5193407257829743,
+          "sources": [
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 9,
+          "object_id": "21890",
+          "title": "洛丽塔",
+          "score": 1.4739504726803814,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 10,
+          "object_id": "22191",
+          "title": "秋园",
+          "score": 1.4472699372660036,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 11,
+          "object_id": "21465",
+          "title": "我的阿勒泰",
+          "score": 1.3154159603464126,
+          "sources": [
+            "TFIDF"
+          ],
+          "reason_code": "CATEGORY_AFFINITY"
+        },
+        {
+          "position": 12,
+          "object_id": "21692",
+          "title": "最美的法布尔昆虫记: 杂技演员屎壳郎",
+          "score": 1.2689422979079437,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 13,
+          "object_id": "24824",
+          "title": "最优化导论",
+          "score": -0.8733728374567359,
+          "sources": [
+            "NEW",
+            "POPULARITY"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 14,
+          "object_id": "25928",
+          "title": "这世界既残酷也温柔",
+          "score": -1.0469340187473817,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 15,
+          "object_id": "24606",
+          "title": "我的阿勒泰",
+          "score": -1.114522812148138,
+          "sources": [
+            "TFIDF"
+          ],
+          "reason_code": "CATEGORY_AFFINITY"
+        },
+        {
+          "position": 16,
+          "object_id": "26168",
+          "title": "骄阳似我（下）",
+          "score": -1.5195183870105264,
+          "sources": [
+            "NEW"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 17,
+          "object_id": "24235",
+          "title": "如何开一家小而美的店",
+          "score": -1.6429040123572032,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 18,
+          "object_id": "22617",
+          "title": "越过内心那座山: 12个普遍心理问题的自我疗愈",
+          "score": 0.9973864555358887,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 19,
+          "object_id": "22740",
+          "title": "金阁寺",
+          "score": 0.9973734021186829,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 20,
+          "object_id": "22731",
+          "title": "金瓶梅: 平装版",
+          "score": 0.9973668456077576,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        }
+      ],
+      "metrics": {
+        "hit_rate_at_20": 0.0,
+        "ndcg_at_20": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_50": 0.0,
+        "category_affinity": 0.75,
+        "intra_list_diversity": 0.7315789473684211,
+        "novelty": 12.168823663260705,
+        "latency_ms": 0.1661000023887027
+      }
+    },
+    {
+      "session": 2,
+      "window_start": null,
+      "window_end": null,
+      "held_out_events": 0,
+      "recommendations": [
+        {
+          "position": 1,
+          "object_id": "21569",
+          "title": "教育思想的演进: 教育社会学卷2：教育思想的演进",
+          "score": 2.6904090985671374,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 2,
+          "object_id": "22156",
+          "title": "真希望我父母读过这本书: 你的孩子也会庆幸你读过",
+          "score": 2.4992532071911993,
+          "sources": [
+            "TFIDF"
+          ],
+          "reason_code": "CATEGORY_AFFINITY"
+        },
+        {
+          "position": 3,
+          "object_id": "22007",
+          "title": "爱弥儿: 论教育",
+          "score": 2.4208683071933463,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 4,
+          "object_id": "22149",
+          "title": "相约星期二",
+          "score": 2.3571066003664045,
+          "sources": [
+            "ITEM_CF"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 5,
+          "object_id": "22004",
+          "title": "爱丽丝梦游奇境记：草间弥生插绘版",
+          "score": 2.1983874083967523,
+          "sources": [
+            "ITEM_CF"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 6,
+          "object_id": "20407",
+          "title": "伯恩斯情绪疗法",
+          "score": 2.2822410924733894,
+          "sources": [
+            "TFIDF",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 7,
+          "object_id": "21771",
+          "title": "梦里花落知多少",
+          "score": 1.628335979983592,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 8,
+          "object_id": "22419",
+          "title": "草民",
+          "score": 1.5193407257829743,
+          "sources": [
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 9,
+          "object_id": "21890",
+          "title": "洛丽塔",
+          "score": 1.4739504726803814,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 10,
+          "object_id": "22191",
+          "title": "秋园",
+          "score": 1.4472699372660036,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 11,
+          "object_id": "21465",
+          "title": "我的阿勒泰",
+          "score": 1.3154159603464126,
+          "sources": [
+            "TFIDF"
+          ],
+          "reason_code": "CATEGORY_AFFINITY"
+        },
+        {
+          "position": 12,
+          "object_id": "21692",
+          "title": "最美的法布尔昆虫记: 杂技演员屎壳郎",
+          "score": 1.2689422979079437,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 13,
+          "object_id": "24824",
+          "title": "最优化导论",
+          "score": -0.8733728374567359,
+          "sources": [
+            "NEW",
+            "POPULARITY"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 14,
+          "object_id": "25928",
+          "title": "这世界既残酷也温柔",
+          "score": -1.0469340187473817,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 15,
+          "object_id": "24606",
+          "title": "我的阿勒泰",
+          "score": -1.114522812148138,
+          "sources": [
+            "TFIDF"
+          ],
+          "reason_code": "CATEGORY_AFFINITY"
+        },
+        {
+          "position": 16,
+          "object_id": "26168",
+          "title": "骄阳似我（下）",
+          "score": -1.5195183870105264,
+          "sources": [
+            "NEW"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 17,
+          "object_id": "24235",
+          "title": "如何开一家小而美的店",
+          "score": -1.6429040123572032,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 18,
+          "object_id": "22617",
+          "title": "越过内心那座山: 12个普遍心理问题的自我疗愈",
+          "score": 0.9973864555358887,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 19,
+          "object_id": "22740",
+          "title": "金阁寺",
+          "score": 0.9973734021186829,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 20,
+          "object_id": "22731",
+          "title": "金瓶梅: 平装版",
+          "score": 0.9973668456077576,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        }
+      ],
+      "metrics": {
+        "hit_rate_at_20": 0.0,
+        "ndcg_at_20": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_50": 0.0,
+        "category_affinity": 0.75,
+        "intra_list_diversity": 0.7315789473684211,
+        "novelty": 12.168823663260705,
+        "latency_ms": 0.11510000331327319
+      }
+    },
+    {
+      "session": 3,
+      "window_start": null,
+      "window_end": null,
+      "held_out_events": 0,
+      "recommendations": [
+        {
+          "position": 1,
+          "object_id": "21569",
+          "title": "教育思想的演进: 教育社会学卷2：教育思想的演进",
+          "score": 2.6904090985671374,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 2,
+          "object_id": "22156",
+          "title": "真希望我父母读过这本书: 你的孩子也会庆幸你读过",
+          "score": 2.4992532071911993,
+          "sources": [
+            "TFIDF"
+          ],
+          "reason_code": "CATEGORY_AFFINITY"
+        },
+        {
+          "position": 3,
+          "object_id": "22007",
+          "title": "爱弥儿: 论教育",
+          "score": 2.4208683071933463,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 4,
+          "object_id": "22149",
+          "title": "相约星期二",
+          "score": 2.3571066003664045,
+          "sources": [
+            "ITEM_CF"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 5,
+          "object_id": "22004",
+          "title": "爱丽丝梦游奇境记：草间弥生插绘版",
+          "score": 2.1983874083967523,
+          "sources": [
+            "ITEM_CF"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 6,
+          "object_id": "20407",
+          "title": "伯恩斯情绪疗法",
+          "score": 2.2822410924733894,
+          "sources": [
+            "TFIDF",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 7,
+          "object_id": "21771",
+          "title": "梦里花落知多少",
+          "score": 1.628335979983592,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 8,
+          "object_id": "22419",
+          "title": "草民",
+          "score": 1.5193407257829743,
+          "sources": [
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 9,
+          "object_id": "21890",
+          "title": "洛丽塔",
+          "score": 1.4739504726803814,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 10,
+          "object_id": "22191",
+          "title": "秋园",
+          "score": 1.4472699372660036,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 11,
+          "object_id": "21465",
+          "title": "我的阿勒泰",
+          "score": 1.3154159603464126,
+          "sources": [
+            "TFIDF"
+          ],
+          "reason_code": "CATEGORY_AFFINITY"
+        },
+        {
+          "position": 12,
+          "object_id": "21692",
+          "title": "最美的法布尔昆虫记: 杂技演员屎壳郎",
+          "score": 1.2689422979079437,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 13,
+          "object_id": "24824",
+          "title": "最优化导论",
+          "score": -0.8733728374567359,
+          "sources": [
+            "NEW",
+            "POPULARITY"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 14,
+          "object_id": "25928",
+          "title": "这世界既残酷也温柔",
+          "score": -1.0469340187473817,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 15,
+          "object_id": "24606",
+          "title": "我的阿勒泰",
+          "score": -1.114522812148138,
+          "sources": [
+            "TFIDF"
+          ],
+          "reason_code": "CATEGORY_AFFINITY"
+        },
+        {
+          "position": 16,
+          "object_id": "26168",
+          "title": "骄阳似我（下）",
+          "score": -1.5195183870105264,
+          "sources": [
+            "NEW"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 17,
+          "object_id": "24235",
+          "title": "如何开一家小而美的店",
+          "score": -1.6429040123572032,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 18,
+          "object_id": "22617",
+          "title": "越过内心那座山: 12个普遍心理问题的自我疗愈",
+          "score": 0.9973864555358887,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 19,
+          "object_id": "22740",
+          "title": "金阁寺",
+          "score": 0.9973734021186829,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 20,
+          "object_id": "22731",
+          "title": "金瓶梅: 平装版",
+          "score": 0.9973668456077576,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        }
+      ],
+      "metrics": {
+        "hit_rate_at_20": 0.0,
+        "ndcg_at_20": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_50": 0.0,
+        "category_affinity": 0.75,
+        "intra_list_diversity": 0.7315789473684211,
+        "novelty": 12.168823663260705,
+        "latency_ms": 0.10069999916595407
+      }
+    }
+  ],
+  "metrics": {
+    "hit_rate_at_20": 0.0,
+    "ndcg_at_20": 0.0,
+    "recall_at_20": 0.0,
+    "recall_at_50": 0.0,
+    "category_affinity": 0.75,
+    "intra_list_diversity": 0.7315789473684212,
+    "novelty": 12.168823663260705,
+    "latency_ms": 0.12730000162264332,
+    "latency_p95_ms": 0.16100000248115975
+  }
+}

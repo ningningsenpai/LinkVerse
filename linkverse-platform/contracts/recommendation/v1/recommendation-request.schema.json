@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://linkverse.local/contracts/recommendation/v1/recommendation-request.schema.json",
+  "title": "推荐内部请求",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["request_id", "user_key", "domain", "scene", "occurred_at", "candidate_count"],
+  "properties": {
+    "request_id": {"type": "string", "minLength": 16, "maxLength": 64},
+    "user_key": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "domain": {"const": "trade"},
+    "scene": {"type": "string", "enum": ["HOME", "DETAIL", "CART"]},
+    "occurred_at": {"type": "string", "format": "date-time"},
+    "candidate_count": {"type": "integer", "minimum": 1, "maximum": 500},
+    "context": {"type": "object", "additionalProperties": {"type": "string"}}
+  }
+}

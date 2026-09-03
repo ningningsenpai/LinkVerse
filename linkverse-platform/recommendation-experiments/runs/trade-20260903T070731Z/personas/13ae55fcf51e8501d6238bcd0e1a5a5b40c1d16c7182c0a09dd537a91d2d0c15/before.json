@@ -1,0 +1,671 @@
+{
+  "model_version": "trade-20260903072306-20c8891e-4f63f5f4",
+  "session_count": 3,
+  "sessions": [
+    {
+      "session": 1,
+      "window_start": null,
+      "window_end": null,
+      "held_out_events": 0,
+      "recommendations": [
+        {
+          "position": 1,
+          "object_id": "22240",
+          "title": "简单生活",
+          "score": 1.0,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 2,
+          "object_id": "21358",
+          "title": "情感依附: 为何家会影响我的一生",
+          "score": 0.5,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 3,
+          "object_id": "25627",
+          "title": "脑科学讲义",
+          "score": 0.3333333333333333,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 4,
+          "object_id": "24089",
+          "title": "基于MATLAB与fuzzyTECH的模糊与神经网络设计",
+          "score": 0.25,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 5,
+          "object_id": "21797",
+          "title": "正面管教（修订版）: 如何不惩罚、不娇纵地有效管教孩子",
+          "score": 0.2,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 6,
+          "object_id": "24786",
+          "title": "明夜，谁将留存于这具身体",
+          "score": 0.16666666666666666,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 7,
+          "object_id": "20796",
+          "title": "国家、社会阶层与教育: 教育获得的社会学研究",
+          "score": 0.14285714285714285,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 8,
+          "object_id": "20507",
+          "title": "八十天环游地球",
+          "score": 0.125,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 9,
+          "object_id": "22317",
+          "title": "罐头厂街",
+          "score": 0.1111111111111111,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 10,
+          "object_id": "20094",
+          "title": "一个女孩的记忆",
+          "score": 0.1,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 11,
+          "object_id": "23572",
+          "title": "人才战略",
+          "score": 0.09090909090909091,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 12,
+          "object_id": "21878",
+          "title": "法比安",
+          "score": 0.08333333333333333,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 13,
+          "object_id": "21805",
+          "title": "死于威尼斯",
+          "score": 0.07692307692307693,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 14,
+          "object_id": "20339",
+          "title": "人生海海",
+          "score": 0.07142857142857142,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 15,
+          "object_id": "25054",
+          "title": "深度管理",
+          "score": 0.06666666666666667,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 16,
+          "object_id": "21461",
+          "title": "我的自闭症: 发现自己的隐形天赋",
+          "score": 0.0625,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 17,
+          "object_id": "20861",
+          "title": "基督山伯爵: 插图珍藏版（全3册）",
+          "score": 0.058823529411764705,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 18,
+          "object_id": "25177",
+          "title": "玫瑰的名字",
+          "score": 0.05555555555555555,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 19,
+          "object_id": "23070",
+          "title": "Effective C++",
+          "score": 0.05263157894736842,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 20,
+          "object_id": "22866",
+          "title": "顺着水走",
+          "score": 0.05,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        }
+      ],
+      "metrics": {
+        "hit_rate_at_20": 0.0,
+        "ndcg_at_20": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_50": 0.0,
+        "category_affinity": 0.0,
+        "intra_list_diversity": 0.7526315789473684,
+        "novelty": 13.14937108650322,
+        "latency_ms": 0.0608000009378884
+      }
+    },
+    {
+      "session": 2,
+      "window_start": "2026-03-12T10:34:00+00:00",
+      "window_end": "2026-03-12T10:34:00+00:00",
+      "held_out_events": 1,
+      "recommendations": [
+        {
+          "position": 1,
+          "object_id": "22240",
+          "title": "简单生活",
+          "score": 1.0,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 2,
+          "object_id": "21358",
+          "title": "情感依附: 为何家会影响我的一生",
+          "score": 0.5,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 3,
+          "object_id": "25627",
+          "title": "脑科学讲义",
+          "score": 0.3333333333333333,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 4,
+          "object_id": "24089",
+          "title": "基于MATLAB与fuzzyTECH的模糊与神经网络设计",
+          "score": 0.25,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 5,
+          "object_id": "21797",
+          "title": "正面管教（修订版）: 如何不惩罚、不娇纵地有效管教孩子",
+          "score": 0.2,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 6,
+          "object_id": "24786",
+          "title": "明夜，谁将留存于这具身体",
+          "score": 0.16666666666666666,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 7,
+          "object_id": "20796",
+          "title": "国家、社会阶层与教育: 教育获得的社会学研究",
+          "score": 0.14285714285714285,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 8,
+          "object_id": "20507",
+          "title": "八十天环游地球",
+          "score": 0.125,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 9,
+          "object_id": "22317",
+          "title": "罐头厂街",
+          "score": 0.1111111111111111,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 10,
+          "object_id": "20094",
+          "title": "一个女孩的记忆",
+          "score": 0.1,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 11,
+          "object_id": "23572",
+          "title": "人才战略",
+          "score": 0.09090909090909091,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 12,
+          "object_id": "21878",
+          "title": "法比安",
+          "score": 0.08333333333333333,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 13,
+          "object_id": "21805",
+          "title": "死于威尼斯",
+          "score": 0.07692307692307693,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 14,
+          "object_id": "20339",
+          "title": "人生海海",
+          "score": 0.07142857142857142,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 15,
+          "object_id": "25054",
+          "title": "深度管理",
+          "score": 0.06666666666666667,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 16,
+          "object_id": "21461",
+          "title": "我的自闭症: 发现自己的隐形天赋",
+          "score": 0.0625,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 17,
+          "object_id": "20861",
+          "title": "基督山伯爵: 插图珍藏版（全3册）",
+          "score": 0.058823529411764705,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 18,
+          "object_id": "25177",
+          "title": "玫瑰的名字",
+          "score": 0.05555555555555555,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 19,
+          "object_id": "23070",
+          "title": "Effective C++",
+          "score": 0.05263157894736842,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 20,
+          "object_id": "22866",
+          "title": "顺着水走",
+          "score": 0.05,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        }
+      ],
+      "metrics": {
+        "hit_rate_at_20": 0.0,
+        "ndcg_at_20": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_50": 0.0,
+        "category_affinity": 0.0,
+        "intra_list_diversity": 0.7526315789473684,
+        "novelty": 13.14937108650322,
+        "latency_ms": 0.04320000152802095
+      }
+    },
+    {
+      "session": 3,
+      "window_start": "2026-03-30T09:34:00+00:00",
+      "window_end": "2026-03-30T09:34:00+00:00",
+      "held_out_events": 1,
+      "recommendations": [
+        {
+          "position": 1,
+          "object_id": "22240",
+          "title": "简单生活",
+          "score": 1.0,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 2,
+          "object_id": "21358",
+          "title": "情感依附: 为何家会影响我的一生",
+          "score": 0.5,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 3,
+          "object_id": "25627",
+          "title": "脑科学讲义",
+          "score": 0.3333333333333333,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 4,
+          "object_id": "24089",
+          "title": "基于MATLAB与fuzzyTECH的模糊与神经网络设计",
+          "score": 0.25,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 5,
+          "object_id": "21797",
+          "title": "正面管教（修订版）: 如何不惩罚、不娇纵地有效管教孩子",
+          "score": 0.2,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 6,
+          "object_id": "24786",
+          "title": "明夜，谁将留存于这具身体",
+          "score": 0.16666666666666666,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 7,
+          "object_id": "20796",
+          "title": "国家、社会阶层与教育: 教育获得的社会学研究",
+          "score": 0.14285714285714285,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 8,
+          "object_id": "20507",
+          "title": "八十天环游地球",
+          "score": 0.125,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 9,
+          "object_id": "22317",
+          "title": "罐头厂街",
+          "score": 0.1111111111111111,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 10,
+          "object_id": "20094",
+          "title": "一个女孩的记忆",
+          "score": 0.1,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 11,
+          "object_id": "23572",
+          "title": "人才战略",
+          "score": 0.09090909090909091,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 12,
+          "object_id": "21878",
+          "title": "法比安",
+          "score": 0.08333333333333333,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 13,
+          "object_id": "21805",
+          "title": "死于威尼斯",
+          "score": 0.07692307692307693,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 14,
+          "object_id": "20339",
+          "title": "人生海海",
+          "score": 0.07142857142857142,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 15,
+          "object_id": "25054",
+          "title": "深度管理",
+          "score": 0.06666666666666667,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 16,
+          "object_id": "21461",
+          "title": "我的自闭症: 发现自己的隐形天赋",
+          "score": 0.0625,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 17,
+          "object_id": "20861",
+          "title": "基督山伯爵: 插图珍藏版（全3册）",
+          "score": 0.058823529411764705,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 18,
+          "object_id": "25177",
+          "title": "玫瑰的名字",
+          "score": 0.05555555555555555,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 19,
+          "object_id": "23070",
+          "title": "Effective C++",
+          "score": 0.05263157894736842,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 20,
+          "object_id": "22866",
+          "title": "顺着水走",
+          "score": 0.05,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        }
+      ],
+      "metrics": {
+        "hit_rate_at_20": 0.0,
+        "ndcg_at_20": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_50": 0.0,
+        "category_affinity": 0.0,
+        "intra_list_diversity": 0.7526315789473684,
+        "novelty": 13.14937108650322,
+        "latency_ms": 0.039299997297348455
+      }
+    }
+  ],
+  "metrics": {
+    "hit_rate_at_20": 0.0,
+    "ndcg_at_20": 0.0,
+    "recall_at_20": 0.0,
+    "recall_at_50": 0.0,
+    "category_affinity": 0.0,
+    "intra_list_diversity": 0.7526315789473684,
+    "novelty": 13.149371086503217,
+    "latency_ms": 0.0477666665877526,
+    "latency_p95_ms": 0.059040000996901654
+  }
+}

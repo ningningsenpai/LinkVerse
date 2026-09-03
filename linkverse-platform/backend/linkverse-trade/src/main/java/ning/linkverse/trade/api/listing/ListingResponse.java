@@ -14,12 +14,14 @@ import java.time.Instant;
 public record ListingResponse(
         @JsonProperty("listing_id") long listingId,
         @JsonProperty("seller_id") long sellerId,
+        @JsonProperty("category_code") String categoryCode,
         String title,
         String author,
         String description,
         @JsonProperty("unit_price") String unitPrice,
         String currency,
         String status,
+        @JsonProperty("published_at") Instant publishedAt,
         int available,
         @JsonProperty("updated_at") Instant updatedAt
 ) {
@@ -28,12 +30,14 @@ public record ListingResponse(
         return new ListingResponse(
                 listing.id(),
                 listing.sellerId(),
+                listing.categoryCode(),
                 listing.title(),
                 listing.author(),
                 listing.description(),
                 listing.unitPrice().setScale(4).toPlainString(),
                 listing.currency(),
                 listing.status(),
+                listing.publishedAt(),
                 listing.available(),
                 listing.updatedAt()
         );

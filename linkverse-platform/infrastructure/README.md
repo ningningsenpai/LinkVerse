@@ -1,6 +1,6 @@
 # LinkVerse MVP 本地基础设施
 
-本目录只提供阶段 1～2 的隔离本地环境，不代表生产高可用部署。默认启动 MySQL、Redis、RabbitMQ 和 Nacos；论坛、推荐、Elasticsearch、Kafka、Seata 与 Sentinel 不在本期范围。
+本目录提供隔离本地环境，不代表生产高可用部署。默认启动 MySQL、Redis、RabbitMQ 和 Nacos；Recommendation 使用可选 `recommendation` profile，论坛、Elasticsearch、Kafka、Seata 与 Sentinel 仍不在本期范围。
 
 ## 版本与供应链状态
 
@@ -54,6 +54,15 @@ $tokenBytes = New-Object byte[] 48
 `bootstrap.ps1` 可重复执行：它不会删除业务数据，会收敛三个 Schema、受限来源的 MySQL `root`、RabbitMQ `rabbitmq` 账号以及 Nacos `nacos` 账号。若已有数据卷使用不同密码，脚本会失败并要求显式处理，不会猜测或重置凭据。
 
 ## 验证与停止
+
+启动 CPU Recommendation 在线服务前，必须在 `.env` 中把 `RECOMMENDATION_MODEL_ROOT` 设为包含 `active-model.json` 的绝对目录，然后执行：
+
+```powershell
+docker compose --env-file infrastructure/.env --env-file infrastructure/versions.env `
+  -f infrastructure/compose/compose.yml --profile recommendation up -d recommendation
+```
+
+该服务不加入 Gateway 路由，模型卷以只读方式挂载。Windows 宿主机负责 CUDA 训练，容器仅执行 CPU Faiss 推断。
 
 执行静态配置与供应链门禁检查：
 

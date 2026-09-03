@@ -1,0 +1,698 @@
+{
+  "model_version": "trade-20260903072831-20c8891e-4f63f5f4",
+  "session_count": 3,
+  "sessions": [
+    {
+      "session": 1,
+      "window_start": "2026-03-04T04:13:00+00:00",
+      "window_end": "2026-03-04T04:13:00+00:00",
+      "held_out_events": 1,
+      "recommendations": [
+        {
+          "position": 1,
+          "object_id": "22303",
+          "title": "给阅读一点时间: 我们时代的阅读迷思",
+          "score": 2.1467628042720515,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 2,
+          "object_id": "21890",
+          "title": "洛丽塔",
+          "score": 2.0802894554816342,
+          "sources": [
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 3,
+          "object_id": "21692",
+          "title": "最美的法布尔昆虫记: 杂技演员屎壳郎",
+          "score": 2.0269419728371285,
+          "sources": [
+            "ITEM_CF",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 4,
+          "object_id": "21417",
+          "title": "我在京都居酒屋",
+          "score": 2.0126903309388307,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 5,
+          "object_id": "22251",
+          "title": "精神与爱欲",
+          "score": 2.0065046703653984,
+          "sources": [
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 6,
+          "object_id": "22191",
+          "title": "秋园",
+          "score": 2.002405509351822,
+          "sources": [
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 7,
+          "object_id": "21968",
+          "title": "漂亮朋友",
+          "score": 0.9127305746078491,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 8,
+          "object_id": "22257",
+          "title": "紫颜色",
+          "score": 0.9034450650215149,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 9,
+          "object_id": "20780",
+          "title": "四世同堂",
+          "score": 0.9027173519134521,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 10,
+          "object_id": "22226",
+          "title": "第一炉香",
+          "score": 0.900285542011261,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 11,
+          "object_id": "22420",
+          "title": "荒原狼",
+          "score": 0.896927535533905,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 12,
+          "object_id": "21390",
+          "title": "我与地坛",
+          "score": 0.8966898918151855,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 13,
+          "object_id": "21878",
+          "title": "法比安",
+          "score": 0.8957335948944092,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 14,
+          "object_id": "22580",
+          "title": "象棋的故事",
+          "score": 0.8922836780548096,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 15,
+          "object_id": "22175",
+          "title": "神们自己: 关于平行宇宙的一切",
+          "score": 0.8897428512573242,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 16,
+          "object_id": "22122",
+          "title": "白夜",
+          "score": 0.8889335989952087,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 17,
+          "object_id": "20206",
+          "title": "世界尽头最后的谋杀案",
+          "score": 0.8870303630828857,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 18,
+          "object_id": "22263",
+          "title": "红尘万丈",
+          "score": 0.8851008415222168,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 19,
+          "object_id": "21461",
+          "title": "我的自闭症: 发现自己的隐形天赋",
+          "score": 0.8838099837303162,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 20,
+          "object_id": "20938",
+          "title": "大道: 段永平投资问答录",
+          "score": 0.8817342519760132,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        }
+      ],
+      "metrics": {
+        "hit_rate_at_20": 0.0,
+        "ndcg_at_20": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_50": 0.0,
+        "category_affinity": 1.0,
+        "intra_list_diversity": 0.1,
+        "novelty": 12.552622861058556,
+        "latency_ms": 0.1190999973914586
+      }
+    },
+    {
+      "session": 2,
+      "window_start": "2026-03-12T02:13:00+00:00",
+      "window_end": "2026-03-12T02:13:00+00:00",
+      "held_out_events": 1,
+      "recommendations": [
+        {
+          "position": 1,
+          "object_id": "22303",
+          "title": "给阅读一点时间: 我们时代的阅读迷思",
+          "score": 2.1467628042720515,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 2,
+          "object_id": "21890",
+          "title": "洛丽塔",
+          "score": 2.0802894554816342,
+          "sources": [
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 3,
+          "object_id": "21692",
+          "title": "最美的法布尔昆虫记: 杂技演员屎壳郎",
+          "score": 2.0269419728371285,
+          "sources": [
+            "ITEM_CF",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 4,
+          "object_id": "21417",
+          "title": "我在京都居酒屋",
+          "score": 2.0126903309388307,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 5,
+          "object_id": "22251",
+          "title": "精神与爱欲",
+          "score": 2.0065046703653984,
+          "sources": [
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 6,
+          "object_id": "22191",
+          "title": "秋园",
+          "score": 2.002405509351822,
+          "sources": [
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 7,
+          "object_id": "21968",
+          "title": "漂亮朋友",
+          "score": 0.9127305746078491,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 8,
+          "object_id": "22257",
+          "title": "紫颜色",
+          "score": 0.9034450650215149,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 9,
+          "object_id": "20780",
+          "title": "四世同堂",
+          "score": 0.9027173519134521,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 10,
+          "object_id": "22226",
+          "title": "第一炉香",
+          "score": 0.900285542011261,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 11,
+          "object_id": "22420",
+          "title": "荒原狼",
+          "score": 0.896927535533905,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 12,
+          "object_id": "21390",
+          "title": "我与地坛",
+          "score": 0.8966898918151855,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 13,
+          "object_id": "21878",
+          "title": "法比安",
+          "score": 0.8957335948944092,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 14,
+          "object_id": "22580",
+          "title": "象棋的故事",
+          "score": 0.8922836780548096,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 15,
+          "object_id": "22175",
+          "title": "神们自己: 关于平行宇宙的一切",
+          "score": 0.8897428512573242,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 16,
+          "object_id": "22122",
+          "title": "白夜",
+          "score": 0.8889335989952087,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 17,
+          "object_id": "20206",
+          "title": "世界尽头最后的谋杀案",
+          "score": 0.8870303630828857,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 18,
+          "object_id": "22263",
+          "title": "红尘万丈",
+          "score": 0.8851008415222168,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 19,
+          "object_id": "21461",
+          "title": "我的自闭症: 发现自己的隐形天赋",
+          "score": 0.8838099837303162,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 20,
+          "object_id": "20938",
+          "title": "大道: 段永平投资问答录",
+          "score": 0.8817342519760132,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        }
+      ],
+      "metrics": {
+        "hit_rate_at_20": 0.0,
+        "ndcg_at_20": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_50": 0.0,
+        "category_affinity": 1.0,
+        "intra_list_diversity": 0.1,
+        "novelty": 12.552622861058556,
+        "latency_ms": 0.09480000153416768
+      }
+    },
+    {
+      "session": 3,
+      "window_start": "2026-03-16T23:13:00+00:00",
+      "window_end": "2026-03-16T23:13:00+00:00",
+      "held_out_events": 1,
+      "recommendations": [
+        {
+          "position": 1,
+          "object_id": "22303",
+          "title": "给阅读一点时间: 我们时代的阅读迷思",
+          "score": 2.1467628042720515,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 2,
+          "object_id": "21890",
+          "title": "洛丽塔",
+          "score": 2.0802894554816342,
+          "sources": [
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 3,
+          "object_id": "21692",
+          "title": "最美的法布尔昆虫记: 杂技演员屎壳郎",
+          "score": 2.0269419728371285,
+          "sources": [
+            "ITEM_CF",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 4,
+          "object_id": "21417",
+          "title": "我在京都居酒屋",
+          "score": 2.0126903309388307,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 5,
+          "object_id": "22251",
+          "title": "精神与爱欲",
+          "score": 2.0065046703653984,
+          "sources": [
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 6,
+          "object_id": "22191",
+          "title": "秋园",
+          "score": 2.002405509351822,
+          "sources": [
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 7,
+          "object_id": "21968",
+          "title": "漂亮朋友",
+          "score": 0.9127305746078491,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 8,
+          "object_id": "22257",
+          "title": "紫颜色",
+          "score": 0.9034450650215149,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 9,
+          "object_id": "20780",
+          "title": "四世同堂",
+          "score": 0.9027173519134521,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 10,
+          "object_id": "22226",
+          "title": "第一炉香",
+          "score": 0.900285542011261,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 11,
+          "object_id": "22420",
+          "title": "荒原狼",
+          "score": 0.896927535533905,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 12,
+          "object_id": "21390",
+          "title": "我与地坛",
+          "score": 0.8966898918151855,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 13,
+          "object_id": "21878",
+          "title": "法比安",
+          "score": 0.8957335948944092,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 14,
+          "object_id": "22580",
+          "title": "象棋的故事",
+          "score": 0.8922836780548096,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 15,
+          "object_id": "22175",
+          "title": "神们自己: 关于平行宇宙的一切",
+          "score": 0.8897428512573242,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 16,
+          "object_id": "22122",
+          "title": "白夜",
+          "score": 0.8889335989952087,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 17,
+          "object_id": "20206",
+          "title": "世界尽头最后的谋杀案",
+          "score": 0.8870303630828857,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 18,
+          "object_id": "22263",
+          "title": "红尘万丈",
+          "score": 0.8851008415222168,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 19,
+          "object_id": "21461",
+          "title": "我的自闭症: 发现自己的隐形天赋",
+          "score": 0.8838099837303162,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 20,
+          "object_id": "20938",
+          "title": "大道: 段永平投资问答录",
+          "score": 0.8817342519760132,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        }
+      ],
+      "metrics": {
+        "hit_rate_at_20": 0.0,
+        "ndcg_at_20": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_50": 0.0,
+        "category_affinity": 1.0,
+        "intra_list_diversity": 0.1,
+        "novelty": 12.552622861058556,
+        "latency_ms": 0.08450000314041972
+      }
+    }
+  ],
+  "metrics": {
+    "hit_rate_at_20": 0.0,
+    "ndcg_at_20": 0.0,
+    "recall_at_20": 0.0,
+    "recall_at_50": 0.0,
+    "category_affinity": 1.0,
+    "intra_list_diversity": 0.10000000000000002,
+    "novelty": 12.552622861058557,
+    "latency_ms": 0.09946666735534866,
+    "latency_p95_ms": 0.11666999780572951
+  }
+}

@@ -1,0 +1,680 @@
+{
+  "model_version": "trade-20260903061501-20c8891e-4f63f5f4",
+  "session_count": 3,
+  "sessions": [
+    {
+      "session": 1,
+      "window_start": null,
+      "window_end": null,
+      "held_out_events": 0,
+      "recommendations": [
+        {
+          "position": 1,
+          "object_id": "26081",
+          "title": "阿米迪奥旅行记",
+          "score": 2.7100033289864327,
+          "sources": [
+            "NEW",
+            "TFIDF"
+          ],
+          "reason_code": "CATEGORY_AFFINITY"
+        },
+        {
+          "position": 2,
+          "object_id": "23961",
+          "title": "咒術迴戰 30",
+          "score": 2.55163723062963,
+          "sources": [
+            "ITEM_CF"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 3,
+          "object_id": "26012",
+          "title": "金色紫丁香",
+          "score": 2.233821300737621,
+          "sources": [
+            "ITEM_CF",
+            "NEW"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 4,
+          "object_id": "26051",
+          "title": "镖人：卷二",
+          "score": 2.157480751728871,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 5,
+          "object_id": "23235",
+          "title": "Rust实战",
+          "score": 1.947451860772034,
+          "sources": [
+            "NEW",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 6,
+          "object_id": "25069",
+          "title": "满是空虚之物",
+          "score": 1.9399960854691642,
+          "sources": [
+            "TFIDF"
+          ],
+          "reason_code": "CATEGORY_AFFINITY"
+        },
+        {
+          "position": 7,
+          "object_id": "26168",
+          "title": "骄阳似我（下）",
+          "score": 1.9214636492077406,
+          "sources": [
+            "NEW"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 8,
+          "object_id": "25627",
+          "title": "脑科学讲义",
+          "score": 1.171107952856214,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 9,
+          "object_id": "25842",
+          "title": "货币的起源与演化",
+          "score": 1.1327085847116076,
+          "sources": [
+            "NEW"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 10,
+          "object_id": "25383",
+          "title": "稳健投资",
+          "score": 0.9883872017976139,
+          "sources": [
+            "TFIDF"
+          ],
+          "reason_code": "CATEGORY_AFFINITY"
+        },
+        {
+          "position": 11,
+          "object_id": "25867",
+          "title": "走向无限",
+          "score": 1.0188522391136734,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 12,
+          "object_id": "23453",
+          "title": "世界上最简单的会计书",
+          "score": 0.9517258481240559,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 13,
+          "object_id": "22977",
+          "title": "2049",
+          "score": 0.8737660780147057,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 14,
+          "object_id": "25472",
+          "title": "系统论--系统科学哲学",
+          "score": 0.8517760269656156,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 15,
+          "object_id": "25212",
+          "title": "生活中的经济学",
+          "score": 0.8096394663380889,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 16,
+          "object_id": "23919",
+          "title": "吃货的生物学修养",
+          "score": 0.5827503319284674,
+          "sources": [
+            "ITEM_CF"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 17,
+          "object_id": "25333",
+          "title": "神经网络算法与实现",
+          "score": 0.12483325623801275,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 18,
+          "object_id": "21878",
+          "title": "法比安",
+          "score": -1.131897869722578,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 19,
+          "object_id": "21805",
+          "title": "死于威尼斯",
+          "score": -1.7028836105812786,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 20,
+          "object_id": "26106",
+          "title": "雪球基金第一课",
+          "score": 0.9877246618270874,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        }
+      ],
+      "metrics": {
+        "hit_rate_at_20": 0.0,
+        "ndcg_at_20": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_50": 0.0,
+        "category_affinity": 0.9,
+        "intra_list_diversity": 0.7526315789473684,
+        "novelty": 12.500425670379792,
+        "latency_ms": 0.2406999992672354
+      }
+    },
+    {
+      "session": 2,
+      "window_start": "2026-03-07T09:34:00+00:00",
+      "window_end": "2026-03-07T09:34:00+00:00",
+      "held_out_events": 1,
+      "recommendations": [
+        {
+          "position": 1,
+          "object_id": "26081",
+          "title": "阿米迪奥旅行记",
+          "score": 2.7100033289864327,
+          "sources": [
+            "NEW",
+            "TFIDF"
+          ],
+          "reason_code": "CATEGORY_AFFINITY"
+        },
+        {
+          "position": 2,
+          "object_id": "23961",
+          "title": "咒術迴戰 30",
+          "score": 2.55163723062963,
+          "sources": [
+            "ITEM_CF"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 3,
+          "object_id": "26012",
+          "title": "金色紫丁香",
+          "score": 2.233821300737621,
+          "sources": [
+            "ITEM_CF",
+            "NEW"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 4,
+          "object_id": "26051",
+          "title": "镖人：卷二",
+          "score": 2.157480751728871,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 5,
+          "object_id": "23235",
+          "title": "Rust实战",
+          "score": 1.947451860772034,
+          "sources": [
+            "NEW",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 6,
+          "object_id": "25069",
+          "title": "满是空虚之物",
+          "score": 1.9399960854691642,
+          "sources": [
+            "TFIDF"
+          ],
+          "reason_code": "CATEGORY_AFFINITY"
+        },
+        {
+          "position": 7,
+          "object_id": "26168",
+          "title": "骄阳似我（下）",
+          "score": 1.9214636492077406,
+          "sources": [
+            "NEW"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 8,
+          "object_id": "25627",
+          "title": "脑科学讲义",
+          "score": 1.171107952856214,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 9,
+          "object_id": "25842",
+          "title": "货币的起源与演化",
+          "score": 1.1327085847116076,
+          "sources": [
+            "NEW"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 10,
+          "object_id": "25383",
+          "title": "稳健投资",
+          "score": 0.9883872017976139,
+          "sources": [
+            "TFIDF"
+          ],
+          "reason_code": "CATEGORY_AFFINITY"
+        },
+        {
+          "position": 11,
+          "object_id": "25867",
+          "title": "走向无限",
+          "score": 1.0188522391136734,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 12,
+          "object_id": "23453",
+          "title": "世界上最简单的会计书",
+          "score": 0.9517258481240559,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 13,
+          "object_id": "22977",
+          "title": "2049",
+          "score": 0.8737660780147057,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 14,
+          "object_id": "25472",
+          "title": "系统论--系统科学哲学",
+          "score": 0.8517760269656156,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 15,
+          "object_id": "25212",
+          "title": "生活中的经济学",
+          "score": 0.8096394663380889,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 16,
+          "object_id": "23919",
+          "title": "吃货的生物学修养",
+          "score": 0.5827503319284674,
+          "sources": [
+            "ITEM_CF"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 17,
+          "object_id": "25333",
+          "title": "神经网络算法与实现",
+          "score": 0.12483325623801275,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 18,
+          "object_id": "21878",
+          "title": "法比安",
+          "score": -1.131897869722578,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 19,
+          "object_id": "21805",
+          "title": "死于威尼斯",
+          "score": -1.7028836105812786,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 20,
+          "object_id": "26106",
+          "title": "雪球基金第一课",
+          "score": 0.9877246618270874,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        }
+      ],
+      "metrics": {
+        "hit_rate_at_20": 0.0,
+        "ndcg_at_20": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_50": 0.0,
+        "category_affinity": 0.9,
+        "intra_list_diversity": 0.7526315789473684,
+        "novelty": 12.500425670379792,
+        "latency_ms": 0.1201999984914437
+      }
+    },
+    {
+      "session": 3,
+      "window_start": "2026-03-28T09:34:00+00:00",
+      "window_end": "2026-03-28T09:34:00+00:00",
+      "held_out_events": 1,
+      "recommendations": [
+        {
+          "position": 1,
+          "object_id": "26081",
+          "title": "阿米迪奥旅行记",
+          "score": 2.7100033289864327,
+          "sources": [
+            "NEW",
+            "TFIDF"
+          ],
+          "reason_code": "CATEGORY_AFFINITY"
+        },
+        {
+          "position": 2,
+          "object_id": "23961",
+          "title": "咒術迴戰 30",
+          "score": 2.55163723062963,
+          "sources": [
+            "ITEM_CF"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 3,
+          "object_id": "26012",
+          "title": "金色紫丁香",
+          "score": 2.233821300737621,
+          "sources": [
+            "ITEM_CF",
+            "NEW"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 4,
+          "object_id": "26051",
+          "title": "镖人：卷二",
+          "score": 2.157480751728871,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 5,
+          "object_id": "23235",
+          "title": "Rust实战",
+          "score": 1.947451860772034,
+          "sources": [
+            "NEW",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 6,
+          "object_id": "25069",
+          "title": "满是空虚之物",
+          "score": 1.9399960854691642,
+          "sources": [
+            "TFIDF"
+          ],
+          "reason_code": "CATEGORY_AFFINITY"
+        },
+        {
+          "position": 7,
+          "object_id": "26168",
+          "title": "骄阳似我（下）",
+          "score": 1.9214636492077406,
+          "sources": [
+            "NEW"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 8,
+          "object_id": "25627",
+          "title": "脑科学讲义",
+          "score": 1.171107952856214,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 9,
+          "object_id": "25842",
+          "title": "货币的起源与演化",
+          "score": 1.1327085847116076,
+          "sources": [
+            "NEW"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 10,
+          "object_id": "25383",
+          "title": "稳健投资",
+          "score": 0.9883872017976139,
+          "sources": [
+            "TFIDF"
+          ],
+          "reason_code": "CATEGORY_AFFINITY"
+        },
+        {
+          "position": 11,
+          "object_id": "25867",
+          "title": "走向无限",
+          "score": 1.0188522391136734,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 12,
+          "object_id": "23453",
+          "title": "世界上最简单的会计书",
+          "score": 0.9517258481240559,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 13,
+          "object_id": "22977",
+          "title": "2049",
+          "score": 0.8737660780147057,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 14,
+          "object_id": "25472",
+          "title": "系统论--系统科学哲学",
+          "score": 0.8517760269656156,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 15,
+          "object_id": "25212",
+          "title": "生活中的经济学",
+          "score": 0.8096394663380889,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 16,
+          "object_id": "23919",
+          "title": "吃货的生物学修养",
+          "score": 0.5827503319284674,
+          "sources": [
+            "ITEM_CF"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 17,
+          "object_id": "25333",
+          "title": "神经网络算法与实现",
+          "score": 0.12483325623801275,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 18,
+          "object_id": "21878",
+          "title": "法比安",
+          "score": -1.131897869722578,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 19,
+          "object_id": "21805",
+          "title": "死于威尼斯",
+          "score": -1.7028836105812786,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 20,
+          "object_id": "26106",
+          "title": "雪球基金第一课",
+          "score": 0.9877246618270874,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        }
+      ],
+      "metrics": {
+        "hit_rate_at_20": 0.0,
+        "ndcg_at_20": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_50": 0.0,
+        "category_affinity": 0.9,
+        "intra_list_diversity": 0.7526315789473684,
+        "novelty": 12.500425670379792,
+        "latency_ms": 0.10900000052060932
+      }
+    }
+  ],
+  "metrics": {
+    "hit_rate_at_20": 0.0,
+    "ndcg_at_20": 0.0,
+    "recall_at_20": 0.0,
+    "recall_at_50": 0.0,
+    "category_affinity": 0.9,
+    "intra_list_diversity": 0.7526315789473684,
+    "novelty": 12.500425670379792,
+    "latency_ms": 0.1566333327597628,
+    "latency_p95_ms": 0.22864999918965623
+  }
+}

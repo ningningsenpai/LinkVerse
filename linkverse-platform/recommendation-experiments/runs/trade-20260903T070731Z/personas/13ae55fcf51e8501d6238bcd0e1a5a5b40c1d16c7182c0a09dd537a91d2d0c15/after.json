@@ -1,0 +1,671 @@
+{
+  "model_version": "trade-20260903072831-20c8891e-4f63f5f4",
+  "session_count": 3,
+  "sessions": [
+    {
+      "session": 1,
+      "window_start": null,
+      "window_end": null,
+      "held_out_events": 0,
+      "recommendations": [
+        {
+          "position": 1,
+          "object_id": "21029",
+          "title": "如何说孩子才会听 怎么听孩子才肯说（中文18周年纪念版）",
+          "score": 1.0,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 2,
+          "object_id": "22251",
+          "title": "精神与爱欲",
+          "score": 0.5,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 3,
+          "object_id": "23891",
+          "title": "反脆弱",
+          "score": 0.3333333333333333,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 4,
+          "object_id": "23459",
+          "title": "世界尽头最后的谋杀案",
+          "score": 0.25,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 5,
+          "object_id": "24235",
+          "title": "如何开一家小而美的店",
+          "score": 0.2,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 6,
+          "object_id": "22191",
+          "title": "秋园",
+          "score": 0.16666666666666666,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 7,
+          "object_id": "20987",
+          "title": "契诃夫短篇小说选",
+          "score": 0.14285714285714285,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 8,
+          "object_id": "22894",
+          "title": "骆驼祥子",
+          "score": 0.125,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 9,
+          "object_id": "25974",
+          "title": "邓普顿教你逆向投资",
+          "score": 0.1111111111111111,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 10,
+          "object_id": "21580",
+          "title": "数据库系统概念 (原书第7版)",
+          "score": 0.1,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 11,
+          "object_id": "21771",
+          "title": "梦里花落知多少",
+          "score": 0.09090909090909091,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 12,
+          "object_id": "21692",
+          "title": "最美的法布尔昆虫记: 杂技演员屎壳郎",
+          "score": 0.08333333333333333,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 13,
+          "object_id": "21011",
+          "title": "好孩子画报",
+          "score": 0.07692307692307693,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 14,
+          "object_id": "20860",
+          "title": "基督山伯爵: 全3册",
+          "score": 0.07142857142857142,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 15,
+          "object_id": "21709",
+          "title": "有限管教: 如何培养独立、自信、上进的孩子",
+          "score": 0.06666666666666667,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 16,
+          "object_id": "24824",
+          "title": "最优化导论",
+          "score": 0.0625,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 17,
+          "object_id": "24973",
+          "title": "毕业",
+          "score": 0.058823529411764705,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 18,
+          "object_id": "21569",
+          "title": "教育思想的演进: 教育社会学卷2：教育思想的演进",
+          "score": 0.05555555555555555,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 19,
+          "object_id": "24837",
+          "title": "有序创业24步法",
+          "score": 0.05263157894736842,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 20,
+          "object_id": "21890",
+          "title": "洛丽塔",
+          "score": 0.05,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        }
+      ],
+      "metrics": {
+        "hit_rate_at_20": 0.0,
+        "ndcg_at_20": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_50": 0.0,
+        "category_affinity": 0.0,
+        "intra_list_diversity": 0.7421052631578947,
+        "novelty": 12.80953980913921,
+        "latency_ms": 0.043700001697288826
+      }
+    },
+    {
+      "session": 2,
+      "window_start": "2026-03-12T10:34:00+00:00",
+      "window_end": "2026-03-12T10:34:00+00:00",
+      "held_out_events": 1,
+      "recommendations": [
+        {
+          "position": 1,
+          "object_id": "21029",
+          "title": "如何说孩子才会听 怎么听孩子才肯说（中文18周年纪念版）",
+          "score": 1.0,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 2,
+          "object_id": "22251",
+          "title": "精神与爱欲",
+          "score": 0.5,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 3,
+          "object_id": "23891",
+          "title": "反脆弱",
+          "score": 0.3333333333333333,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 4,
+          "object_id": "23459",
+          "title": "世界尽头最后的谋杀案",
+          "score": 0.25,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 5,
+          "object_id": "24235",
+          "title": "如何开一家小而美的店",
+          "score": 0.2,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 6,
+          "object_id": "22191",
+          "title": "秋园",
+          "score": 0.16666666666666666,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 7,
+          "object_id": "20987",
+          "title": "契诃夫短篇小说选",
+          "score": 0.14285714285714285,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 8,
+          "object_id": "22894",
+          "title": "骆驼祥子",
+          "score": 0.125,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 9,
+          "object_id": "25974",
+          "title": "邓普顿教你逆向投资",
+          "score": 0.1111111111111111,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 10,
+          "object_id": "21580",
+          "title": "数据库系统概念 (原书第7版)",
+          "score": 0.1,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 11,
+          "object_id": "21771",
+          "title": "梦里花落知多少",
+          "score": 0.09090909090909091,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 12,
+          "object_id": "21692",
+          "title": "最美的法布尔昆虫记: 杂技演员屎壳郎",
+          "score": 0.08333333333333333,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 13,
+          "object_id": "21011",
+          "title": "好孩子画报",
+          "score": 0.07692307692307693,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 14,
+          "object_id": "20860",
+          "title": "基督山伯爵: 全3册",
+          "score": 0.07142857142857142,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 15,
+          "object_id": "21709",
+          "title": "有限管教: 如何培养独立、自信、上进的孩子",
+          "score": 0.06666666666666667,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 16,
+          "object_id": "24824",
+          "title": "最优化导论",
+          "score": 0.0625,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 17,
+          "object_id": "24973",
+          "title": "毕业",
+          "score": 0.058823529411764705,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 18,
+          "object_id": "21569",
+          "title": "教育思想的演进: 教育社会学卷2：教育思想的演进",
+          "score": 0.05555555555555555,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 19,
+          "object_id": "24837",
+          "title": "有序创业24步法",
+          "score": 0.05263157894736842,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 20,
+          "object_id": "21890",
+          "title": "洛丽塔",
+          "score": 0.05,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        }
+      ],
+      "metrics": {
+        "hit_rate_at_20": 0.0,
+        "ndcg_at_20": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_50": 0.0,
+        "category_affinity": 0.0,
+        "intra_list_diversity": 0.7421052631578947,
+        "novelty": 12.80953980913921,
+        "latency_ms": 0.035000000934815034
+      }
+    },
+    {
+      "session": 3,
+      "window_start": "2026-03-30T09:34:00+00:00",
+      "window_end": "2026-03-30T09:34:00+00:00",
+      "held_out_events": 1,
+      "recommendations": [
+        {
+          "position": 1,
+          "object_id": "21029",
+          "title": "如何说孩子才会听 怎么听孩子才肯说（中文18周年纪念版）",
+          "score": 1.0,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 2,
+          "object_id": "22251",
+          "title": "精神与爱欲",
+          "score": 0.5,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 3,
+          "object_id": "23891",
+          "title": "反脆弱",
+          "score": 0.3333333333333333,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 4,
+          "object_id": "23459",
+          "title": "世界尽头最后的谋杀案",
+          "score": 0.25,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 5,
+          "object_id": "24235",
+          "title": "如何开一家小而美的店",
+          "score": 0.2,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 6,
+          "object_id": "22191",
+          "title": "秋园",
+          "score": 0.16666666666666666,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 7,
+          "object_id": "20987",
+          "title": "契诃夫短篇小说选",
+          "score": 0.14285714285714285,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 8,
+          "object_id": "22894",
+          "title": "骆驼祥子",
+          "score": 0.125,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 9,
+          "object_id": "25974",
+          "title": "邓普顿教你逆向投资",
+          "score": 0.1111111111111111,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 10,
+          "object_id": "21580",
+          "title": "数据库系统概念 (原书第7版)",
+          "score": 0.1,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 11,
+          "object_id": "21771",
+          "title": "梦里花落知多少",
+          "score": 0.09090909090909091,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 12,
+          "object_id": "21692",
+          "title": "最美的法布尔昆虫记: 杂技演员屎壳郎",
+          "score": 0.08333333333333333,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 13,
+          "object_id": "21011",
+          "title": "好孩子画报",
+          "score": 0.07692307692307693,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 14,
+          "object_id": "20860",
+          "title": "基督山伯爵: 全3册",
+          "score": 0.07142857142857142,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 15,
+          "object_id": "21709",
+          "title": "有限管教: 如何培养独立、自信、上进的孩子",
+          "score": 0.06666666666666667,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 16,
+          "object_id": "24824",
+          "title": "最优化导论",
+          "score": 0.0625,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 17,
+          "object_id": "24973",
+          "title": "毕业",
+          "score": 0.058823529411764705,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 18,
+          "object_id": "21569",
+          "title": "教育思想的演进: 教育社会学卷2：教育思想的演进",
+          "score": 0.05555555555555555,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 19,
+          "object_id": "24837",
+          "title": "有序创业24步法",
+          "score": 0.05263157894736842,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 20,
+          "object_id": "21890",
+          "title": "洛丽塔",
+          "score": 0.05,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        }
+      ],
+      "metrics": {
+        "hit_rate_at_20": 0.0,
+        "ndcg_at_20": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_50": 0.0,
+        "category_affinity": 0.0,
+        "intra_list_diversity": 0.7421052631578947,
+        "novelty": 12.80953980913921,
+        "latency_ms": 0.03429999924264848
+      }
+    }
+  ],
+  "metrics": {
+    "hit_rate_at_20": 0.0,
+    "ndcg_at_20": 0.0,
+    "recall_at_20": 0.0,
+    "recall_at_50": 0.0,
+    "category_affinity": 0.0,
+    "intra_list_diversity": 0.7421052631578947,
+    "novelty": 12.80953980913921,
+    "latency_ms": 0.03766666729158411,
+    "latency_p95_ms": 0.04283000162104145
+  }
+}

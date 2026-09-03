@@ -120,6 +120,13 @@ public class TradePaymentMessaging {
                                 required(payload, "currency"),
                                 Instant.parse(required(root, "occurred_at"))
                         );
+                    } else if ("PaymentRefunded".equals(eventType)) {
+                        eventService.acceptRefunded(
+                                eventId,
+                                orderNo,
+                                required(payload, "reason_code"),
+                                Instant.parse(required(root, "occurred_at"))
+                        );
                     } else if ("PaymentClosed".equals(eventType)) {
                         if (!closingService.reconcile(orderNo)) {
                             throw new IllegalStateException("支付关闭事件尚未完成订单收敛");
@@ -143,6 +150,7 @@ public class TradePaymentMessaging {
                 String stream = switch (eventType) {
                     case "PaymentSucceeded" -> "payment_succeeded";
                     case "PaymentClosed" -> "payment_closed";
+                    case "PaymentRefunded" -> "payment_refunded";
                     default -> "payment_unknown";
                 };
                 metrics.consume(stream, result, System.nanoTime() - started);

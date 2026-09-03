@@ -1,0 +1,689 @@
+{
+  "model_version": "trade-20260903062128-20c8891e-4f63f5f4",
+  "session_count": 3,
+  "sessions": [
+    {
+      "session": 1,
+      "window_start": null,
+      "window_end": null,
+      "held_out_events": 0,
+      "recommendations": [
+        {
+          "position": 1,
+          "object_id": "25928",
+          "title": "这世界既残酷也温柔",
+          "score": 2.141486943346309,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 2,
+          "object_id": "24235",
+          "title": "如何开一家小而美的店",
+          "score": 1.8623638984563438,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 3,
+          "object_id": "24660",
+          "title": "持续性债务关系",
+          "score": 1.573368737522397,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 4,
+          "object_id": "23493",
+          "title": "中国黄金",
+          "score": 1.2911415078150954,
+          "sources": [
+            "TFIDF",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 5,
+          "object_id": "25671",
+          "title": "英国工业革命",
+          "score": 1.2640385370899037,
+          "sources": [
+            "ITEM_CF",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 6,
+          "object_id": "25752",
+          "title": "解读中国经济",
+          "score": 1.067844606471699,
+          "sources": [
+            "TFIDF"
+          ],
+          "reason_code": "CATEGORY_AFFINITY"
+        },
+        {
+          "position": 7,
+          "object_id": "21569",
+          "title": "教育思想的演进: 教育社会学卷2：教育思想的演进",
+          "score": -1.1338447655537387,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 8,
+          "object_id": "23205",
+          "title": "PyTorch生成对抗网络编程",
+          "score": -1.130556469386165,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 9,
+          "object_id": "24824",
+          "title": "最优化导论",
+          "score": -1.1535698396800078,
+          "sources": [
+            "NEW",
+            "POPULARITY"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 10,
+          "object_id": "21890",
+          "title": "洛丽塔",
+          "score": -1.2068474196253538,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 11,
+          "object_id": "24857",
+          "title": "本草博物志",
+          "score": -1.2545763493414959,
+          "sources": [
+            "TFIDF"
+          ],
+          "reason_code": "CATEGORY_AFFINITY"
+        },
+        {
+          "position": 12,
+          "object_id": "24034",
+          "title": "图解大模型",
+          "score": -1.453197534431845,
+          "sources": [
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 13,
+          "object_id": "23459",
+          "title": "世界尽头最后的谋杀案",
+          "score": -1.5913808418944244,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 14,
+          "object_id": "21771",
+          "title": "梦里花落知多少",
+          "score": -1.6715802168314255,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 15,
+          "object_id": "26143",
+          "title": "预测算法",
+          "score": -1.7034464871497415,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 16,
+          "object_id": "24353",
+          "title": "小熊宝宝绘本（全15册）",
+          "score": -1.823729369829475,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 17,
+          "object_id": "21692",
+          "title": "最美的法布尔昆虫记: 杂技演员屎壳郎",
+          "score": -1.8293790457650336,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 18,
+          "object_id": "25136",
+          "title": "牧羊少年奇幻之旅",
+          "score": -1.826911735851928,
+          "sources": [
+            "ITEM_CF"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 19,
+          "object_id": "21838",
+          "title": "永远不够好: 如何让孩子在高压下保持心理健康",
+          "score": -1.9264192493844876,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 20,
+          "object_id": "23260",
+          "title": "Tensorflow：实战Google深度学习框架",
+          "score": -2.0551891398342406,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        }
+      ],
+      "metrics": {
+        "hit_rate_at_20": 0.0,
+        "ndcg_at_20": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_50": 0.0,
+        "category_affinity": 0.3,
+        "intra_list_diversity": 0.8052631578947368,
+        "novelty": 12.342019840285557,
+        "latency_ms": 0.16730000061215833
+      }
+    },
+    {
+      "session": 2,
+      "window_start": "2026-03-02T14:34:00+00:00",
+      "window_end": "2026-03-02T14:34:00+00:00",
+      "held_out_events": 1,
+      "recommendations": [
+        {
+          "position": 1,
+          "object_id": "25928",
+          "title": "这世界既残酷也温柔",
+          "score": 2.141486943346309,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 2,
+          "object_id": "24235",
+          "title": "如何开一家小而美的店",
+          "score": 1.8623638984563438,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 3,
+          "object_id": "24660",
+          "title": "持续性债务关系",
+          "score": 1.573368737522397,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 4,
+          "object_id": "23493",
+          "title": "中国黄金",
+          "score": 1.2911415078150954,
+          "sources": [
+            "TFIDF",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 5,
+          "object_id": "25671",
+          "title": "英国工业革命",
+          "score": 1.2640385370899037,
+          "sources": [
+            "ITEM_CF",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 6,
+          "object_id": "25752",
+          "title": "解读中国经济",
+          "score": 1.067844606471699,
+          "sources": [
+            "TFIDF"
+          ],
+          "reason_code": "CATEGORY_AFFINITY"
+        },
+        {
+          "position": 7,
+          "object_id": "21569",
+          "title": "教育思想的演进: 教育社会学卷2：教育思想的演进",
+          "score": -1.1338447655537387,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 8,
+          "object_id": "23205",
+          "title": "PyTorch生成对抗网络编程",
+          "score": -1.130556469386165,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 9,
+          "object_id": "24824",
+          "title": "最优化导论",
+          "score": -1.1535698396800078,
+          "sources": [
+            "NEW",
+            "POPULARITY"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 10,
+          "object_id": "21890",
+          "title": "洛丽塔",
+          "score": -1.2068474196253538,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 11,
+          "object_id": "24857",
+          "title": "本草博物志",
+          "score": -1.2545763493414959,
+          "sources": [
+            "TFIDF"
+          ],
+          "reason_code": "CATEGORY_AFFINITY"
+        },
+        {
+          "position": 12,
+          "object_id": "24034",
+          "title": "图解大模型",
+          "score": -1.453197534431845,
+          "sources": [
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 13,
+          "object_id": "23459",
+          "title": "世界尽头最后的谋杀案",
+          "score": -1.5913808418944244,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 14,
+          "object_id": "21771",
+          "title": "梦里花落知多少",
+          "score": -1.6715802168314255,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 15,
+          "object_id": "26143",
+          "title": "预测算法",
+          "score": -1.7034464871497415,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 16,
+          "object_id": "24353",
+          "title": "小熊宝宝绘本（全15册）",
+          "score": -1.823729369829475,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 17,
+          "object_id": "21692",
+          "title": "最美的法布尔昆虫记: 杂技演员屎壳郎",
+          "score": -1.8293790457650336,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 18,
+          "object_id": "25136",
+          "title": "牧羊少年奇幻之旅",
+          "score": -1.826911735851928,
+          "sources": [
+            "ITEM_CF"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 19,
+          "object_id": "21838",
+          "title": "永远不够好: 如何让孩子在高压下保持心理健康",
+          "score": -1.9264192493844876,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 20,
+          "object_id": "23260",
+          "title": "Tensorflow：实战Google深度学习框架",
+          "score": -2.0551891398342406,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        }
+      ],
+      "metrics": {
+        "hit_rate_at_20": 0.0,
+        "ndcg_at_20": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_50": 0.0,
+        "category_affinity": 0.3,
+        "intra_list_diversity": 0.8052631578947368,
+        "novelty": 12.342019840285557,
+        "latency_ms": 0.10879999899771065
+      }
+    },
+    {
+      "session": 3,
+      "window_start": "2026-03-07T11:34:00+00:00",
+      "window_end": "2026-03-07T11:34:00+00:00",
+      "held_out_events": 1,
+      "recommendations": [
+        {
+          "position": 1,
+          "object_id": "25928",
+          "title": "这世界既残酷也温柔",
+          "score": 2.141486943346309,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 2,
+          "object_id": "24235",
+          "title": "如何开一家小而美的店",
+          "score": 1.8623638984563438,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 3,
+          "object_id": "24660",
+          "title": "持续性债务关系",
+          "score": 1.573368737522397,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 4,
+          "object_id": "23493",
+          "title": "中国黄金",
+          "score": 1.2911415078150954,
+          "sources": [
+            "TFIDF",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 5,
+          "object_id": "25671",
+          "title": "英国工业革命",
+          "score": 1.2640385370899037,
+          "sources": [
+            "ITEM_CF",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 6,
+          "object_id": "25752",
+          "title": "解读中国经济",
+          "score": 1.067844606471699,
+          "sources": [
+            "TFIDF"
+          ],
+          "reason_code": "CATEGORY_AFFINITY"
+        },
+        {
+          "position": 7,
+          "object_id": "21569",
+          "title": "教育思想的演进: 教育社会学卷2：教育思想的演进",
+          "score": -1.1338447655537387,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 8,
+          "object_id": "23205",
+          "title": "PyTorch生成对抗网络编程",
+          "score": -1.130556469386165,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 9,
+          "object_id": "24824",
+          "title": "最优化导论",
+          "score": -1.1535698396800078,
+          "sources": [
+            "NEW",
+            "POPULARITY"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 10,
+          "object_id": "21890",
+          "title": "洛丽塔",
+          "score": -1.2068474196253538,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 11,
+          "object_id": "24857",
+          "title": "本草博物志",
+          "score": -1.2545763493414959,
+          "sources": [
+            "TFIDF"
+          ],
+          "reason_code": "CATEGORY_AFFINITY"
+        },
+        {
+          "position": 12,
+          "object_id": "24034",
+          "title": "图解大模型",
+          "score": -1.453197534431845,
+          "sources": [
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 13,
+          "object_id": "23459",
+          "title": "世界尽头最后的谋杀案",
+          "score": -1.5913808418944244,
+          "sources": [
+            "NEW",
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 14,
+          "object_id": "21771",
+          "title": "梦里花落知多少",
+          "score": -1.6715802168314255,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 15,
+          "object_id": "26143",
+          "title": "预测算法",
+          "score": -1.7034464871497415,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 16,
+          "object_id": "24353",
+          "title": "小熊宝宝绘本（全15册）",
+          "score": -1.823729369829475,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 17,
+          "object_id": "21692",
+          "title": "最美的法布尔昆虫记: 杂技演员屎壳郎",
+          "score": -1.8293790457650336,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 18,
+          "object_id": "25136",
+          "title": "牧羊少年奇幻之旅",
+          "score": -1.826911735851928,
+          "sources": [
+            "ITEM_CF"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 19,
+          "object_id": "21838",
+          "title": "永远不够好: 如何让孩子在高压下保持心理健康",
+          "score": -1.9264192493844876,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 20,
+          "object_id": "23260",
+          "title": "Tensorflow：实战Google深度学习框架",
+          "score": -2.0551891398342406,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        }
+      ],
+      "metrics": {
+        "hit_rate_at_20": 0.0,
+        "ndcg_at_20": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_50": 0.0,
+        "category_affinity": 0.3,
+        "intra_list_diversity": 0.8052631578947368,
+        "novelty": 12.342019840285557,
+        "latency_ms": 0.10440000187372789
+      }
+    }
+  ],
+  "metrics": {
+    "hit_rate_at_20": 0.0,
+    "ndcg_at_20": 0.0,
+    "recall_at_20": 0.0,
+    "recall_at_50": 0.0,
+    "category_affinity": 0.3,
+    "intra_list_diversity": 0.8052631578947368,
+    "novelty": 12.342019840285557,
+    "latency_ms": 0.12683333382786563,
+    "latency_p95_ms": 0.16145000045071356
+  }
+}

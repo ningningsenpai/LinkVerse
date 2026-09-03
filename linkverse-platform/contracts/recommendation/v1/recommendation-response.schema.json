@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://linkverse.local/contracts/recommendation/v1/recommendation-response.schema.json",
+  "title": "推荐内部响应",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["request_id", "domain", "model_version", "candidates"],
+  "properties": {
+    "request_id": {"type": "string", "minLength": 16, "maxLength": 64},
+    "domain": {"const": "trade"},
+    "model_version": {"type": "string", "minLength": 1, "maxLength": 128},
+    "candidates": {
+      "type": "array",
+      "maxItems": 500,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["object_id", "score", "sources", "reason_code"],
+        "properties": {
+          "object_id": {"type": "string", "minLength": 1, "maxLength": 64},
+          "score": {"type": "number"},
+          "sources": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "maxLength": 32}},
+          "reason_code": {"type": "string", "maxLength": 64}
+        }
+      }
+    }
+  }
+}

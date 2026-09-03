@@ -49,6 +49,7 @@ public class OrderController {
                 userId(jwt),
                 request.listingId(),
                 request.quantity(),
+                request.recommendationDeliveryId(),
                 idempotencyKey
         );
         return ResponseEntity.status(result.created() ? HttpStatus.CREATED : HttpStatus.OK)

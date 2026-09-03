@@ -1,0 +1,55 @@
+[build-system]
+requires = ["hatchling==1.27.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "linkverse-recommendation"
+version = "0.1.0"
+description = "LinkVerse 跨领域可复用的推荐训练与在线服务"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "fastapi==0.116.1",
+  "numpy==2.2.6",
+  "pydantic==2.11.7",
+  "PyJWT[crypto]==2.10.1",
+  "uvicorn[standard]==0.35.0",
+]
+
+[project.optional-dependencies]
+data = [
+  "pandas==2.3.2",
+  "pyarrow==21.0.0",
+  "scikit-learn==1.7.1",
+]
+training = [
+  "lightgbm==4.6.0",
+  "matplotlib==3.10.6",
+  "optuna==4.5.0",
+  "torch==2.9.0",
+]
+test = [
+  "httpx==0.28.1",
+  "pytest==8.4.1",
+  "pytest-cov==6.2.1",
+]
+
+[project.scripts]
+linkverse-recommendation = "linkverse_recommendation.api.app:run"
+linkverse-recommendation-train = "linkverse_recommendation.training.cli:main"
+linkverse-recommendation-experiment = "linkverse_recommendation.training.experiment:main"
+linkverse-recommendation-benchmark = "linkverse_recommendation.training.serving_benchmark:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/linkverse_recommendation"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]

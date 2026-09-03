@@ -36,5 +36,7 @@ public interface PaymentRepository extends OutboxStore {
 
     void completeMockRefund(PaymentIntent intent, String providerTxnNo, String detailDigest, Instant now);
 
+    void completeRequestedRefund(PaymentIntent intent, String reasonCode, Instant now);
+
     void insertOutbox(String eventId, String aggregateId, String eventType, String payloadJson, Instant now);
 }

@@ -22,6 +22,7 @@ import java.time.Instant;
 import java.util.HexFormat;
 import java.util.Map;
 import java.util.UUID;
+import java.util.Set;
 
 /**
  * MockPaymentCallbackService 在验签后幂等收敛支付成功或迟到退款。
@@ -32,6 +33,8 @@ import java.util.UUID;
 @Service
 @Profile({"local", "test"})
 public class MockPaymentCallbackService {
+
+    private static final Set<String> USER_REFUND_REASONS = Set.of("USER_RETURN", "QUALITY_ISSUE");
 
     private final PaymentRepository repository;
     private final MockHmacVerifier verifier;
@@ -98,6 +101,7 @@ public class MockPaymentCallbackService {
             PaymentIntent refundPending = requireIntent(intent.intentNo());
             try {
                 repository.completeMockRefund(refundPending, callback.providerTxnNo(), digest, now);
+                writeRefundedEvent(requireIntent(intent.intentNo()), "LATE_SUCCESS", now);
                 recordRefund("success");
             } catch (RuntimeException exception) {
                 recordRefund("failure");
@@ -166,6 +170,56 @@ public class MockPaymentCallbackService {
             );
         } catch (Exception exception) {
             throw new IllegalStateException("序列化支付成功事件失败", exception);
+        }
+    }
+
+    @Transactional
+    public PaymentIntent refund(long buyerId, String intentNo, String reasonCode) {
+        if (!USER_REFUND_REASONS.contains(reasonCode)) {
+            throw new IllegalArgumentException("不支持的用户退款原因");
+        }
+        PaymentIntent intent = repository.findOwned(intentNo, buyerId)
+                .orElseThrow(() -> new PlatformException(PaymentErrorCode.INTENT_NOT_FOUND));
+        if ("REFUNDED".equals(intent.status())) {
+            return intent;
+        }
+        if (!"SUCCEEDED".equals(intent.status())) {
+            throw new PlatformException(PaymentErrorCode.INTENT_NOT_PAYABLE);
+        }
+        Instant now = clock.instant();
+        repository.completeRequestedRefund(intent, reasonCode, now);
+        PaymentIntent refunded = requireIntent(intentNo);
+        writeRefundedEvent(refunded, reasonCode, now);
+        return refunded;
+    }
+
+    private void writeRefundedEvent(PaymentIntent intent, String reasonCode, Instant now) {
+        try {
+            String eventId = compactUuid();
+            MessageEnvelope<Map<String, Object>> envelope = new MessageEnvelope<>(
+                    eventId,
+                    "PaymentRefunded",
+                    1,
+                    intent.orderNo(),
+                    now,
+                    traceId(),
+                    Map.of(
+                            "intent_no", intent.intentNo(),
+                            "order_no", intent.orderNo(),
+                            "amount", intent.amount().toPlainString(),
+                            "currency", intent.currency(),
+                            "reason_code", reasonCode
+                    )
+            );
+            repository.insertOutbox(
+                    eventId,
+                    intent.orderNo(),
+                    "PaymentRefunded",
+                    objectMapper.writeValueAsString(envelope),
+                    now
+            );
+        } catch (Exception exception) {
+            throw new IllegalStateException("序列化支付退款事件失败", exception);
         }
     }
 

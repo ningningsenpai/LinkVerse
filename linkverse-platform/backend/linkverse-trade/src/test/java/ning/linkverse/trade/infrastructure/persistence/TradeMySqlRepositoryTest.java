@@ -10,6 +10,8 @@ import ning.linkverse.trade.domain.order.OrderItemSnapshot;
 import ning.linkverse.trade.domain.order.TradeOrder;
 import ning.linkverse.trade.infrastructure.persistence.mapper.SeckillMapper;
 import ning.linkverse.trade.infrastructure.persistence.mapper.TradeMapper;
+import ning.linkverse.trade.infrastructure.persistence.mapper.RecommendationMapper;
+import ning.linkverse.trade.domain.recommendation.RecommendationDelivery;
 import ning.linkverse.trade.support.MyBatisPlusTestSupport;
 import org.flywaydb.core.Flyway;
 import org.junit.jupiter.api.BeforeAll;
@@ -88,17 +90,21 @@ class TradeMySqlRepositoryTest {
         sqlSessionTemplate = MyBatisPlusTestSupport.create(
                 dataSource,
                 TradeMapper.class,
-                SeckillMapper.class
+                SeckillMapper.class,
+                RecommendationMapper.class
         );
         transactionTemplate = new TransactionTemplate(new DataSourceTransactionManager(dataSource));
     }
 
     @BeforeEach
     void setUp() {
+        jdbcTemplate.update("DELETE FROM trade_behavior_event");
+        jdbcTemplate.update("DELETE FROM cart_item");
         jdbcTemplate.update("DELETE FROM trade_outbox_event");
         jdbcTemplate.update("DELETE FROM consumed_event");
         jdbcTemplate.update("DELETE FROM order_item");
         jdbcTemplate.update("DELETE FROM trade_order");
+        jdbcTemplate.update("DELETE FROM recommendation_delivery");
         jdbcTemplate.update("DELETE FROM seckill_reservation");
         jdbcTemplate.update("DELETE FROM seckill_campaign");
         jdbcTemplate.update("DELETE FROM sku_stock");
@@ -133,6 +139,56 @@ class TradeMySqlRepositoryTest {
         } finally {
             executor.shutdownNow();
         }
+    }
+
+    @Test
+    void shouldPersistRecommendationAttributionAndOrderBehaviorInSameTransaction() {
+        MyBatisPlusRecommendationRepository recommendationRepository =
+                new MyBatisPlusRecommendationRepository(
+                        sqlSessionTemplate.getMapper(RecommendationMapper.class),
+                        new ObjectMapper().findAndRegisterModules()
+                );
+        RecommendationDelivery delivery = recommendationRepository.insertDelivery(new RecommendationDelivery(
+                null,
+                "a".repeat(32),
+                BUYER_ID,
+                LISTING_ID,
+                1,
+                "trade-test-model",
+                new BigDecimal("0.9000000000"),
+                List.of("TWO_TOWER", "ITEM_CF"),
+                "SIMILAR_ITEM",
+                "HOME",
+                "REAL",
+                NOW
+        ));
+        OrderTransactionService service = new OrderTransactionService(
+                repository,
+                recommendationRepository,
+                Clock.fixed(NOW, ZoneOffset.UTC),
+                Duration.ofMinutes(15)
+        );
+
+        TradeOrder order = transactionTemplate.execute(status -> service.create(
+                BUYER_ID,
+                LISTING_ID,
+                "recommendation-order-0001",
+                "f".repeat(64),
+                "8".repeat(32),
+                delivery.id()
+        ));
+
+        assertThat(order).isNotNull();
+        assertThat(jdbcTemplate.queryForObject(
+                "SELECT recommendation_delivery_id FROM trade_order WHERE order_no = ?",
+                Long.class,
+                "8".repeat(32)
+        )).isEqualTo(delivery.id());
+        assertThat(jdbcTemplate.queryForObject(
+                "SELECT COUNT(*) FROM trade_behavior_event WHERE order_no = ? AND action = 'ORDER_CREATED'",
+                Integer.class,
+                "8".repeat(32)
+        )).isEqualTo(1);
     }
 
     @Test
@@ -412,14 +468,16 @@ class TradeMySqlRepositoryTest {
     private void insertListing(int stock, BigDecimal price, String title, long version) {
         jdbcTemplate.update("""
                         INSERT INTO book_listing (
-                            id, seller_id, title, author, description, unit_price,
-                            currency, status, version, created_at, updated_at
-                        ) VALUES (?, ?, ?, '测试作者', '测试描述', ?, 'CNY', 'ON_SALE', ?, ?, ?)
+                            id, seller_id, category_id, title, author, description, unit_price,
+                            currency, status, published_at, version, created_at, updated_at
+                        ) VALUES (?, ?, (SELECT id FROM book_category WHERE code = 'UNCLASSIFIED'),
+                                  ?, '测试作者', '测试描述', ?, 'CNY', 'ON_SALE', ?, ?, ?, ?)
                         """,
                 LISTING_ID,
                 SELLER_ID,
                 title,
                 price,
+                NOW,
                 version,
                 NOW,
                 NOW

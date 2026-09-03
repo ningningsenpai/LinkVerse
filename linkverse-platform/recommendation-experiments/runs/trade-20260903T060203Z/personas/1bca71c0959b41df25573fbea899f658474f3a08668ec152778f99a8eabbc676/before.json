@@ -1,0 +1,689 @@
+{
+  "model_version": "trade-20260903061501-20c8891e-4f63f5f4",
+  "session_count": 3,
+  "sessions": [
+    {
+      "session": 1,
+      "window_start": "2026-03-04T04:13:00+00:00",
+      "window_end": "2026-03-04T04:13:00+00:00",
+      "held_out_events": 1,
+      "recommendations": [
+        {
+          "position": 1,
+          "object_id": "21407",
+          "title": "我们生活在巨大的差距里（增订版）",
+          "score": 2.796633108811687,
+          "sources": [
+            "ITEM_CF",
+            "TFIDF"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 2,
+          "object_id": "20780",
+          "title": "四世同堂",
+          "score": 2.735573899069476,
+          "sources": [
+            "ITEM_CF",
+            "POPULARITY"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 3,
+          "object_id": "21415",
+          "title": "我在上东区做家教: 一位心理学博士视角下纽约富豪阶层的育儿战争",
+          "score": 2.685028431592241,
+          "sources": [
+            "ITEM_CF"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 4,
+          "object_id": "21417",
+          "title": "我在京都居酒屋",
+          "score": 2.645653686245088,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 5,
+          "object_id": "21878",
+          "title": "法比安",
+          "score": 2.567353382123124,
+          "sources": [
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 6,
+          "object_id": "21095",
+          "title": "实用主义社会学导论",
+          "score": 2.3033013028988116,
+          "sources": [
+            "ITEM_CF"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 7,
+          "object_id": "20067",
+          "title": "“上流”儿童",
+          "score": 1.254767061282205,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 8,
+          "object_id": "20387",
+          "title": "以文学为业: 一部体制史",
+          "score": 1.1771345189459272,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 9,
+          "object_id": "21353",
+          "title": "悲伤复原力",
+          "score": 1.1658101025478877,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 10,
+          "object_id": "21106",
+          "title": "家庭的觉醒",
+          "score": 1.1551726244438723,
+          "sources": [
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 11,
+          "object_id": "21797",
+          "title": "正面管教（修订版）: 如何不惩罚、不娇纵地有效管教孩子",
+          "score": 1.1478064856056018,
+          "sources": [
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 12,
+          "object_id": "21172",
+          "title": "少有人走的路2: 勇敢地面对谎言",
+          "score": 1.145532703062815,
+          "sources": [
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 13,
+          "object_id": "26168",
+          "title": "骄阳似我（下）",
+          "score": -1.2665274174095744,
+          "sources": [
+            "NEW"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 14,
+          "object_id": "25627",
+          "title": "脑科学讲义",
+          "score": -1.85463339886858,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 15,
+          "object_id": "22972",
+          "title": "19年间谋杀小叙",
+          "score": -2.0019677217074294,
+          "sources": [
+            "TFIDF"
+          ],
+          "reason_code": "CATEGORY_AFFINITY"
+        },
+        {
+          "position": 16,
+          "object_id": "24372",
+          "title": "小说家与夜的分界线",
+          "score": -3.044641259148648,
+          "sources": [
+            "TFIDF"
+          ],
+          "reason_code": "CATEGORY_AFFINITY"
+        },
+        {
+          "position": 17,
+          "object_id": "20232",
+          "title": "中产阶级的孩子们: 六十年代与文化领导权",
+          "score": 0.995521068572998,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 18,
+          "object_id": "20052",
+          "title": "The Case against Education: Why the Education System Is a Waste of Time and Money",
+          "score": 0.9952989816665649,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 19,
+          "object_id": "20794",
+          "title": "围城",
+          "score": 0.9951596856117249,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 20,
+          "object_id": "20362",
+          "title": "人间草木",
+          "score": 0.9950878024101257,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        }
+      ],
+      "metrics": {
+        "hit_rate_at_20": 0.0,
+        "ndcg_at_20": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_50": 0.0,
+        "category_affinity": 0.8,
+        "intra_list_diversity": 0.6894736842105263,
+        "novelty": 11.996569907234727,
+        "latency_ms": 6.742400000803173
+      }
+    },
+    {
+      "session": 2,
+      "window_start": "2026-03-12T02:13:00+00:00",
+      "window_end": "2026-03-12T02:13:00+00:00",
+      "held_out_events": 1,
+      "recommendations": [
+        {
+          "position": 1,
+          "object_id": "21407",
+          "title": "我们生活在巨大的差距里（增订版）",
+          "score": 2.796633108811687,
+          "sources": [
+            "ITEM_CF",
+            "TFIDF"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 2,
+          "object_id": "20780",
+          "title": "四世同堂",
+          "score": 2.735573899069476,
+          "sources": [
+            "ITEM_CF",
+            "POPULARITY"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 3,
+          "object_id": "21415",
+          "title": "我在上东区做家教: 一位心理学博士视角下纽约富豪阶层的育儿战争",
+          "score": 2.685028431592241,
+          "sources": [
+            "ITEM_CF"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 4,
+          "object_id": "21417",
+          "title": "我在京都居酒屋",
+          "score": 2.645653686245088,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 5,
+          "object_id": "21878",
+          "title": "法比安",
+          "score": 2.567353382123124,
+          "sources": [
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 6,
+          "object_id": "21095",
+          "title": "实用主义社会学导论",
+          "score": 2.3033013028988116,
+          "sources": [
+            "ITEM_CF"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 7,
+          "object_id": "20067",
+          "title": "“上流”儿童",
+          "score": 1.254767061282205,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 8,
+          "object_id": "20387",
+          "title": "以文学为业: 一部体制史",
+          "score": 1.1771345189459272,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 9,
+          "object_id": "21353",
+          "title": "悲伤复原力",
+          "score": 1.1658101025478877,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 10,
+          "object_id": "21106",
+          "title": "家庭的觉醒",
+          "score": 1.1551726244438723,
+          "sources": [
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 11,
+          "object_id": "21797",
+          "title": "正面管教（修订版）: 如何不惩罚、不娇纵地有效管教孩子",
+          "score": 1.1478064856056018,
+          "sources": [
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 12,
+          "object_id": "21172",
+          "title": "少有人走的路2: 勇敢地面对谎言",
+          "score": 1.145532703062815,
+          "sources": [
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 13,
+          "object_id": "26168",
+          "title": "骄阳似我（下）",
+          "score": -1.2665274174095744,
+          "sources": [
+            "NEW"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 14,
+          "object_id": "25627",
+          "title": "脑科学讲义",
+          "score": -1.85463339886858,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 15,
+          "object_id": "22972",
+          "title": "19年间谋杀小叙",
+          "score": -2.0019677217074294,
+          "sources": [
+            "TFIDF"
+          ],
+          "reason_code": "CATEGORY_AFFINITY"
+        },
+        {
+          "position": 16,
+          "object_id": "24372",
+          "title": "小说家与夜的分界线",
+          "score": -3.044641259148648,
+          "sources": [
+            "TFIDF"
+          ],
+          "reason_code": "CATEGORY_AFFINITY"
+        },
+        {
+          "position": 17,
+          "object_id": "20232",
+          "title": "中产阶级的孩子们: 六十年代与文化领导权",
+          "score": 0.995521068572998,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 18,
+          "object_id": "20052",
+          "title": "The Case against Education: Why the Education System Is a Waste of Time and Money",
+          "score": 0.9952989816665649,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 19,
+          "object_id": "20794",
+          "title": "围城",
+          "score": 0.9951596856117249,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 20,
+          "object_id": "20362",
+          "title": "人间草木",
+          "score": 0.9950878024101257,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        }
+      ],
+      "metrics": {
+        "hit_rate_at_20": 1.0,
+        "ndcg_at_20": 0.2890648263178879,
+        "recall_at_20": 1.0,
+        "recall_at_50": 1.0,
+        "category_affinity": 0.8,
+        "intra_list_diversity": 0.6894736842105263,
+        "novelty": 11.996569907234727,
+        "latency_ms": 0.1652000028116163
+      }
+    },
+    {
+      "session": 3,
+      "window_start": "2026-03-16T23:13:00+00:00",
+      "window_end": "2026-03-16T23:13:00+00:00",
+      "held_out_events": 1,
+      "recommendations": [
+        {
+          "position": 1,
+          "object_id": "21407",
+          "title": "我们生活在巨大的差距里（增订版）",
+          "score": 2.796633108811687,
+          "sources": [
+            "ITEM_CF",
+            "TFIDF"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 2,
+          "object_id": "20780",
+          "title": "四世同堂",
+          "score": 2.735573899069476,
+          "sources": [
+            "ITEM_CF",
+            "POPULARITY"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 3,
+          "object_id": "21415",
+          "title": "我在上东区做家教: 一位心理学博士视角下纽约富豪阶层的育儿战争",
+          "score": 2.685028431592241,
+          "sources": [
+            "ITEM_CF"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 4,
+          "object_id": "21417",
+          "title": "我在京都居酒屋",
+          "score": 2.645653686245088,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 5,
+          "object_id": "21878",
+          "title": "法比安",
+          "score": 2.567353382123124,
+          "sources": [
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 6,
+          "object_id": "21095",
+          "title": "实用主义社会学导论",
+          "score": 2.3033013028988116,
+          "sources": [
+            "ITEM_CF"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 7,
+          "object_id": "20067",
+          "title": "“上流”儿童",
+          "score": 1.254767061282205,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 8,
+          "object_id": "20387",
+          "title": "以文学为业: 一部体制史",
+          "score": 1.1771345189459272,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 9,
+          "object_id": "21353",
+          "title": "悲伤复原力",
+          "score": 1.1658101025478877,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 10,
+          "object_id": "21106",
+          "title": "家庭的觉醒",
+          "score": 1.1551726244438723,
+          "sources": [
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 11,
+          "object_id": "21797",
+          "title": "正面管教（修订版）: 如何不惩罚、不娇纵地有效管教孩子",
+          "score": 1.1478064856056018,
+          "sources": [
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 12,
+          "object_id": "21172",
+          "title": "少有人走的路2: 勇敢地面对谎言",
+          "score": 1.145532703062815,
+          "sources": [
+            "POPULARITY",
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 13,
+          "object_id": "26168",
+          "title": "骄阳似我（下）",
+          "score": -1.2665274174095744,
+          "sources": [
+            "NEW"
+          ],
+          "reason_code": "NEW_EXPLORATION"
+        },
+        {
+          "position": 14,
+          "object_id": "25627",
+          "title": "脑科学讲义",
+          "score": -1.85463339886858,
+          "sources": [
+            "POPULARITY"
+          ],
+          "reason_code": "POPULAR_OR_NEW"
+        },
+        {
+          "position": 15,
+          "object_id": "22972",
+          "title": "19年间谋杀小叙",
+          "score": -2.0019677217074294,
+          "sources": [
+            "TFIDF"
+          ],
+          "reason_code": "CATEGORY_AFFINITY"
+        },
+        {
+          "position": 16,
+          "object_id": "24372",
+          "title": "小说家与夜的分界线",
+          "score": -3.044641259148648,
+          "sources": [
+            "TFIDF"
+          ],
+          "reason_code": "CATEGORY_AFFINITY"
+        },
+        {
+          "position": 17,
+          "object_id": "20232",
+          "title": "中产阶级的孩子们: 六十年代与文化领导权",
+          "score": 0.995521068572998,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 18,
+          "object_id": "20052",
+          "title": "The Case against Education: Why the Education System Is a Waste of Time and Money",
+          "score": 0.9952989816665649,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 19,
+          "object_id": "20794",
+          "title": "围城",
+          "score": 0.9951596856117249,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        },
+        {
+          "position": 20,
+          "object_id": "20362",
+          "title": "人间草木",
+          "score": 0.9950878024101257,
+          "sources": [
+            "TWO_TOWER"
+          ],
+          "reason_code": "SIMILAR_ITEM"
+        }
+      ],
+      "metrics": {
+        "hit_rate_at_20": 0.0,
+        "ndcg_at_20": 0.0,
+        "recall_at_20": 0.0,
+        "recall_at_50": 0.0,
+        "category_affinity": 0.8,
+        "intra_list_diversity": 0.6894736842105263,
+        "novelty": 11.996569907234727,
+        "latency_ms": 0.16390000018873252
+      }
+    }
+  ],
+  "metrics": {
+    "hit_rate_at_20": 0.3333333333333333,
+    "ndcg_at_20": 0.09635494210596263,
+    "recall_at_20": 0.3333333333333333,
+    "recall_at_50": 0.3333333333333333,
+    "category_affinity": 0.8000000000000002,
+    "intra_list_diversity": 0.6894736842105263,
+    "novelty": 11.996569907234727,
+    "latency_ms": 2.357166667934507,
+    "latency_p95_ms": 6.084680001004016
+  }
+}

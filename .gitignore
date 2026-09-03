@@ -22,6 +22,8 @@ Thumbs.db
 __pycache__/
 *.py[cod]
 .pytest_cache/
+.pytest-tmp*/
+pytest-cache-files-*/
 .mypy_cache/
 .ruff_cache/
 .coverage
@@ -67,6 +69,8 @@ models/
 *.pt
 *.onnx
 *.faiss
+**/recommendation-experiments/runs/*/raw/
+**/recommendation-experiments/runs/*/trials/
 
 # 技能评估临时工作区
 .agents/skills/*-workspace/
