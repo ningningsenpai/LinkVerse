@@ -36,6 +36,7 @@ def write_manifest(
     model_version: str,
     data_hash: str,
     dependencies_lock_hash: str,
+    provenance: dict | None = None,
 ) -> dict[str, object]:
     """对模型包每个组成文件写入哈希，manifest 自身不参与递归哈希。"""
 
@@ -43,15 +44,17 @@ def write_manifest(
     if missing:
         raise ValueError(f"模型包缺少文件：{missing}")
     feature_schema_hash = sha256_file(bundle / "feature-schema.json")
+    required_files = REQUIRED_FILES | ({"serving-state.json"} if (bundle / "serving-state.json").is_file() else set())
     manifest = {
-        "schema_version": 1,
+        "schema_version": 2 if "serving-state.json" in required_files else 1,
         "domain": "trade",
         "model_version": model_version,
         "oov_index": 0,
         "data_hash": data_hash,
         "feature_schema_hash": feature_schema_hash,
         "dependencies_lock_hash": dependencies_lock_hash,
-        "files": {name: sha256_file(bundle / name) for name in sorted(REQUIRED_FILES)},
+        "provenance": provenance or {},
+        "files": {name: sha256_file(bundle / name) for name in sorted(required_files)},
     }
     (bundle / "manifest.json").write_text(
         json.dumps(manifest, ensure_ascii=False, indent=2, sort_keys=True), encoding="utf-8"
@@ -66,12 +69,13 @@ def validate_bundle(bundle: Path) -> dict[str, object]:
     if not manifest_path.is_file():
         raise ValueError("模型包缺少 manifest.json")
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-    if manifest.get("schema_version") != 1 or manifest.get("domain") != "trade":
+    if manifest.get("schema_version") not in {1, 2} or manifest.get("domain") != "trade":
         raise ValueError("模型包 Schema 或领域不匹配")
     if manifest.get("oov_index") != 0:
         raise ValueError("模型包 OOV 索引必须为 0")
     files = manifest.get("files")
-    if not isinstance(files, dict) or set(files) != REQUIRED_FILES:
+    required_files = REQUIRED_FILES | ({"serving-state.json"} if manifest["schema_version"] == 2 else set())
+    if not isinstance(files, dict) or set(files) != required_files:
         raise ValueError("模型包文件清单不完整")
     for name, expected_hash in files.items():
         path = bundle / name

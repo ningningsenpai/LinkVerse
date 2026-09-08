@@ -5,6 +5,7 @@ from __future__ import annotations
 import os
 import time
 from pathlib import Path
+from contextlib import asynccontextmanager
 
 import uvicorn
 from fastapi import Depends, FastAPI, HTTPException, Response
@@ -17,9 +18,18 @@ from linkverse_recommendation.observability.metrics import RecommendationMetrics
 from linkverse_recommendation.serving.registry import ModelRegistry
 
 
-app = FastAPI(title="LinkVerse Recommendation", docs_url=None, redoc_url=None, openapi_url=None)
 registry = ModelRegistry(Path(os.environ.get("LINKVERSE_MODEL_ROOT", "models")))
 metrics = RecommendationMetrics()
+
+
+@asynccontextmanager
+async def lifespan(application):
+    registry.start(metrics.record_model_load_failure)
+    yield
+    registry.close()
+
+
+app = FastAPI(title="LinkVerse Recommendation", docs_url=None, redoc_url=None, openapi_url=None, lifespan=lifespan)
 
 
 @app.get("/health/live")
@@ -29,11 +39,6 @@ def live() -> dict[str, str]:
 
 @app.get("/health/ready")
 def ready() -> dict[str, str | None]:
-    try:
-        registry.refresh()
-    except Exception as exception:
-        metrics.record_model_load_failure()
-        raise HTTPException(status_code=503, detail="模型包校验失败") from exception
     if not registry.ready:
         raise HTTPException(status_code=503, detail="尚未加载活动模型")
     return {"status": "UP", "model_version": registry.model_version}
@@ -54,7 +59,7 @@ def recommend(
     try:
         require_service_token(credentials)
         get_adapter(request.domain)
-        model_version, candidates = registry.recommend(request.user_key, request.candidate_count)
+        model_version, candidates = registry.recommend(request.user_key, request.candidate_count, scene=request.scene, context=request.context, occurred_at=request.occurred_at)
     except HTTPException as exception:
         outcome = "invalid" if exception.status_code < 500 else "unavailable"
         raise

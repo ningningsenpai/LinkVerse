@@ -105,3 +105,20 @@ def test_reranking_calculates_each_selected_pair_only_once():
 
     assert calls
     assert max(calls.values()) == 1
+
+
+def test_matrix_reranking_preserves_quota_exploration_and_tie_order():
+    import numpy as np
+    from linkverse_recommendation.pipeline.reranking.mmr import rerank_with_matrix
+
+    generator = np.random.default_rng(20260906)
+    for size in (1, 15, 100, 500):
+        for tied in (False, True):
+            vectors = generator.normal(size=(size, 8)).astype("float32")
+            vectors /= np.maximum(np.linalg.norm(vectors, axis=1, keepdims=True), 1e-8)
+            similarities = vectors @ vectors.T
+            candidates = [RankedObject(str(index), 1.0 if tied else float(generator.normal()),
+                                      f"c{index % 6}", f"s{index % 9}", index % 4 == 0, (index,)) for index in range(size)]
+            expected = rerank(candidates, 20, lambda left, right: float(similarities[left[0], right[0]]))
+            actual = rerank_with_matrix(candidates, 20, similarities)
+            assert [item.object_id for item in actual] == [item.object_id for item in expected]

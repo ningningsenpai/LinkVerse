@@ -7,11 +7,13 @@ import json
 import math
 import threading
 import time
+from contextvars import copy_context
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 from pathlib import Path
 
 from linkverse_recommendation.serving.registry import LoadedTradeModel
+from linkverse_recommendation.training.recording import record
 
 
 def benchmark_loaded_model(
@@ -37,24 +39,33 @@ def benchmark_loaded_model(
 
     first_wave = threading.Barrier(concurrency)
 
-    def invoke(index: int) -> float:
+    def invoke(index: int) -> tuple[int, float, int]:
         if index < concurrency:
             first_wave.wait(timeout=10)
         started = time.perf_counter()
         candidates = model.recommend(user_keys[index % len(user_keys)], candidate_count)
         if not candidates:
             raise RuntimeError("推荐结果为空")
-        return (time.perf_counter() - started) * 1_000
+        elapsed = (time.perf_counter() - started) * 1_000
+        return index, elapsed, len(candidates)
 
     latencies: list[float] = []
     failures = 0
+    observations = []
+    batch_started = time.perf_counter()
     with ThreadPoolExecutor(max_workers=concurrency) as executor:
-        futures = [executor.submit(invoke, index) for index in range(calls)]
+        futures = [executor.submit(copy_context().run, invoke, index) for index in range(calls)]
         for future in as_completed(futures):
             try:
-                latencies.append(future.result())
+                observation = future.result()
+                observations.append(observation)
+                latencies.append(observation[1])
             except Exception:
                 failures += 1
+    batch_elapsed = time.perf_counter() - batch_started
+    # 批次结束后写原始结果，避免逐请求磁盘锁成为推断工作线程的隐藏思考时间。
+    for index, elapsed, returned in observations:
+        record("inprocess-requests", request_index=index, latency_ms=elapsed, returned=returned, model_version=model.model_version)
 
     success_count = len(latencies)
     success_rate = success_count / calls
@@ -73,6 +84,9 @@ def benchmark_loaded_model(
         "concurrency": concurrency,
         "calls": calls,
         "candidate_count": candidate_count,
+        "batch_elapsed_seconds": batch_elapsed,
+        "throughput_rps": success_count / batch_elapsed,
+        "mean_measured_concurrency": sum(latencies) / 1000 / batch_elapsed,
         "success_count": success_count,
         "failure_count": failures,
         "success_rate": success_rate,

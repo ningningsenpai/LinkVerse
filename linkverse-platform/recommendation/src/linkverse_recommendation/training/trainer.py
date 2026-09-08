@@ -18,11 +18,12 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-from linkverse_recommendation.core.metrics import ndcg_at_k, recall_at_k
+from linkverse_recommendation.core.metrics import ndcg_at_k, recall_at_k, grouped_tie_aware_ndcg
 from linkverse_recommendation.core.model_bundle import sha256_file, write_manifest
 from linkverse_recommendation.data.labels import build_trade_training_samples
-from linkverse_recommendation.data.split import temporal_split
+from linkverse_recommendation.data.split import temporal_split, fixed_temporal_split
 from linkverse_recommendation.pipeline.fusion import fuse_channels
+from linkverse_recommendation.pipeline.ranking.features import catalog_from_frame, empty_state, observe, profile, rank_features
 from linkverse_recommendation.pipeline.ranking.lambda_rank import LambdaRankConfig, LambdaRanker
 from linkverse_recommendation.pipeline.reranking.mmr import RankedObject, rerank
 from linkverse_recommendation.pipeline.recall.content import TfidfContentRecall
@@ -33,6 +34,7 @@ from linkverse_recommendation.training.cuda_check import require_cuda
 from linkverse_recommendation.training.tuning import tune_lambda_rank, tune_two_tower
 from linkverse_recommendation.training.two_tower import TwoTowerConfig, create_model, save_checkpoint, train_epoch
 from linkverse_recommendation.training.vocabulary import build_vocabulary, save_vocabulary
+from linkverse_recommendation.training.recording import record, metric_scope, run_identity
 
 
 FIXED_SEEDS = (20260903, 20260917, 20261001)
@@ -46,6 +48,7 @@ def train_trade_model(
     include_feedback: bool = False,
     tower_parameters: dict[str, object] | None = None,
     ranker_parameters: dict[str, object] | None = None,
+    split_manifest_path: Path | None = None,
 ) -> dict[str, object]:
     """严格保留最终 15% 测试窗口，调参后以三个固定种子重训并生成候选模型包。"""
 
@@ -55,14 +58,16 @@ def train_trade_model(
     _validate_data_source(raw_items, raw_interactions)
     data_source = str(raw_interactions["data_source"].iloc[0])
     items = _normalize_items(raw_items)
-    interactions = _normalize_interactions(raw_interactions)
-    split = temporal_split(interactions.to_dict("records"), key=lambda row: row["event_time"])
+    dataset_manifest = json.loads((dataset / "manifest.json").read_text(encoding="utf-8"))
+    interactions = _normalize_interactions(raw_interactions, as_of=dataset_manifest.get("exported_at"))
+    interaction_rows = interactions.to_dict("records")
+    split = fixed_temporal_split(interaction_rows, split_manifest_path) if split_manifest_path else temporal_split(interaction_rows, key=lambda row: row["event_time"])
     train_rows = list(split.train)
     validation_rows = list(split.validation)
     feedback_rows = list(split.feedback)
     test_rows = list(split.test)
     fit_rows = train_rows + validation_rows + (feedback_rows if include_feedback else [])
-    fit_cutoff = max(row["event_time"] for row in fit_rows)
+    fit_cutoff = max(row.get("label_available_at", row["event_time"]) for row in fit_rows)
     _validate_item_event_times(items, fit_rows)
     training_items = items[items["published_at"].le(fit_cutoff)].copy()
     published_at_by_object = {
@@ -131,6 +136,13 @@ def train_trade_model(
             _evaluate_tower(model, test_rows, user_vocabulary, object_vocabulary)
         )
     champion = seed_models[0]
+    repeated, _, _ = _fit_two_tower(fit_rows, [], user_vocabulary, object_vocabulary, published_at_by_object, fixed_parameters, FIXED_SEEDS[0])
+    import torch
+    repeat_difference = max(float(torch.max(torch.abs(value - repeated.state_dict()[name]))) for name, value in champion.state_dict().items())
+    record("reproducibility", seed=FIXED_SEEDS[0], maximum_weight_difference=repeat_difference, passed=repeat_difference == 0.0)
+    del repeated
+    if repeat_difference != 0.0:
+        raise RuntimeError("相同种子重复训练的权重不一致")
 
     rank_train = _rank_dataset(train_rows, training_items, positives, seed=FIXED_SEEDS[0])
     rank_valid = _rank_dataset(
@@ -152,8 +164,11 @@ def train_trade_model(
         rank_study = tune_lambda_rank(rank_objective, trials=ranker_trials)
         best_ranker = dict(rank_study.best_params)
         ranker_validation_score = float(rank_study.best_value)
+        tuning_ranker = LambdaRanker(LambdaRankConfig(**best_ranker)).fit(rank_train[0], rank_train[1], rank_train[2], validation=rank_valid[:3])
+        selected_rounds = tuning_ranker.booster.best_iteration or 1000
     else:
         best_ranker = dict(ranker_parameters)
+        selected_rounds = int(best_ranker.pop("selected_rounds", 1000))
         tuning_ranker = LambdaRanker(LambdaRankConfig(**best_ranker)).fit(
             rank_train[0], rank_train[1], rank_train[2], validation=rank_valid[:3]
         )
@@ -162,8 +177,9 @@ def train_trade_model(
         )
     rank_fit = _rank_dataset(fit_rows, training_items, positives, seed=FIXED_SEEDS[0])
     ranker = LambdaRanker(LambdaRankConfig(**best_ranker)).fit(
-        rank_fit[0], rank_fit[1], rank_fit[2]
+        rank_fit[0], rank_fit[1], rank_fit[2], rounds=selected_rounds
     )
+    best_ranker["selected_rounds"] = selected_rounds
 
     data_hash = _dataset_hash(dataset)
     model_version = _model_version(data_hash)
@@ -183,6 +199,10 @@ def train_trade_model(
         data_hash,
         cuda,
         data_source,
+        {**run_identity(), "split_sha256": sha256_file(split_manifest_path) if split_manifest_path else None,
+         "traffic_origin": dataset_manifest.get("traffic_origin", "SYNTHETIC" if data_source == "SYNTHETIC" else "UNKNOWN"),
+         "label_version": 2, "feature_version": 2, "evaluation_version": 4, "ranker_metric_version": 2,
+         "ranker_group_version": 2, "seeds": FIXED_SEEDS},
     )
     return {
         "model_version": model_version,
@@ -198,6 +218,7 @@ def train_trade_model(
         },
         "two_tower_best_params": best_tower,
         "two_tower_seed_ndcg_at_20": seed_metrics,
+        "repeat_maximum_weight_difference": repeat_difference,
         "two_tower_ndcg_at_20_mean": statistics.fmean(seed_metrics),
         "two_tower_ndcg_at_20_std": statistics.pstdev(seed_metrics),
         "lambda_rank_best_params": best_ranker,
@@ -205,11 +226,11 @@ def train_trade_model(
         "two_tower_trial_count": two_tower_trials if tower_parameters is None else 0,
         "lambda_rank_trial_count": ranker_trials if ranker_parameters is None else 0,
         "elapsed_seconds": time.perf_counter() - started_at,
-        "limitations": "合成工程验证，不代表线上推荐质量",
+        "limitations": "历史合成回归，不构成自然用户收益证据" if data_source == "SYNTHETIC" else "本地脚本回归，不构成自然用户收益证据",
     }
 
 
-def _normalize_interactions(frame: pd.DataFrame) -> pd.DataFrame:
+def _normalize_interactions(frame: pd.DataFrame, as_of=None) -> pd.DataFrame:
     result = frame.copy()
     if "object_id" not in result:
         result["object_id"] = result["listing_id"].astype(str)
@@ -227,7 +248,7 @@ def _normalize_interactions(frame: pd.DataFrame) -> pd.DataFrame:
         )
         result["preference_negative"] = False
     else:
-        result = build_trade_training_samples(result)
+        result = build_trade_training_samples(result, as_of=as_of)
     result["gain"] = result["gain"].astype("int8")
     result["preference_negative"] = result["preference_negative"].astype(bool)
     return result
@@ -291,6 +312,8 @@ def _fit_two_tower(
     from torch.utils.data import DataLoader, TensorDataset
 
     _seed_everything(seed)
+    torch.cuda.set_per_process_memory_fraction(min(1.0, 8 * 1024**3 / torch.cuda.get_device_properties(0).total_memory))
+    torch.cuda.reset_peak_memory_stats()
     hidden_dims = tuple(int(value) for value in str(parameters["hidden_dims"]).split("-"))
     config = TwoTowerConfig(
         user_count=len(user_vocabulary),
@@ -327,11 +350,17 @@ def _fit_two_tower(
     best_epoch = 0
     stale_epochs = 0
     for epoch in range(1, int(parameters.get("max_epochs", 40)) + 1):
-        train_epoch(model, loader, optimizer, scaler, "cuda")
+        epoch_started = time.perf_counter()
+        loss = train_epoch(model, loader, optimizer, scaler, "cuda")
+        score = _evaluate_tower(model, evaluation_rows, user_vocabulary, object_vocabulary) if evaluation_rows else None
+        elapsed = time.perf_counter() - epoch_started
+        record("epoch-metrics", component="two_tower", seed=seed, epoch=epoch, train_loss=loss,
+               validation_ndcg_at_20=score, elapsed_seconds=elapsed,
+               samples_per_second=len(users) / max(elapsed, 1e-9), learning_rate=parameters["learning_rate"],
+               cuda_peak_allocated_bytes=torch.cuda.max_memory_allocated(), amp_scale=scaler.get_scale())
         if not evaluation_rows:
             best_epoch = epoch
             continue
-        score = _evaluate_tower(model, evaluation_rows, user_vocabulary, object_vocabulary)
         if score > best_score + 1e-6:
             best_score = score
             best_state = {name: value.detach().cpu().clone() for name, value in model.state_dict().items()}
@@ -356,17 +385,14 @@ def _training_tensors(
 ):
     import torch
 
-    preference_negative_by_user: dict[int, set[int]] = defaultdict(set)
-    explicit_negative_by_user: dict[int, set[int]] = defaultdict(set)
-    for row in rows:
+    known_events = []
+    for sequence, row in enumerate(rows):
         user = user_vocabulary.get(str(row["user_key"]))
         item = object_vocabulary.get(str(row["object_id"]))
         if user is None or item is None:
             continue
-        if bool(row.get("preference_negative", False)):
-            preference_negative_by_user[user].add(item)
-        if row.get("negative_source") in {"REAL_EXPOSURE", "REAL_REFUND"}:
-            explicit_negative_by_user[user].add(item)
+        known_at = pd.to_datetime(row.get("label_available_at", row.get("event_time", pd.Timestamp.min.tz_localize("UTC"))), utc=True)
+        known_events.append((known_at, sequence, user, item, row))
     pairs = [
         (
             user_vocabulary[str(row["user_key"])],
@@ -375,12 +401,10 @@ def _training_tensors(
         )
         for row in rows
         if row["gain"] > 0 and str(row["user_key"]) in user_vocabulary
-        and object_vocabulary[str(row["object_id"])]
-        not in preference_negative_by_user[user_vocabulary[str(row["user_key"])]]
+        and str(row["object_id"]) in object_vocabulary
     ]
     positive_by_user: dict[int, set[int]] = defaultdict(set)
-    for user, item, _ in pairs:
-        positive_by_user[user].add(item)
+    pairs.sort(key=lambda pair: pd.to_datetime(pair[2], utc=True) if pair[2] is not None else pd.Timestamp.max.tz_localize("UTC"))
     universe_size = len(object_vocabulary)
     if published_at_by_object is None:
         publication_order = [(pd.Timestamp.min.tz_localize("UTC"), index) for index in range(1, universe_size + 1)]
@@ -392,10 +416,12 @@ def _training_tensors(
     publication_times = [entry[0] for entry in publication_order]
     published_at_by_index = {index: published_at for published_at, index in publication_order}
     generator = random.Random(seed)
+    known_events.sort(key=lambda event: (event[0], event[1]))
+    cursor = 0
+    negative_history: dict[int, set[int]] = defaultdict(set)
     negatives = []
     usable_pairs = []
     for user, positive, event_time in pairs:
-        positive_ids = positive_by_user[user]
         cutoff = (
             len(publication_order)
             if event_time is None
@@ -406,6 +432,17 @@ def _training_tensors(
             if event_time is None
             else pd.to_datetime(event_time, utc=True)
         )
+        while cursor < len(known_events) and known_events[cursor][0] <= event_timestamp:
+            _, _, observed_user, observed_item, observed = known_events[cursor]
+            if observed["gain"] > 0:
+                positive_by_user[observed_user].add(observed_item)
+                negative_history[observed_user].discard(observed_item)
+            if observed.get("negative_source") in {"REAL_EXPOSURE", "REAL_REFUND"}:
+                negative_history[observed_user].add(observed_item)
+            if observed.get("preference_negative"):
+                positive_by_user[observed_user].discard(observed_item)
+            cursor += 1
+        positive_ids = positive_by_user[user] | {positive}
         available_positive_count = sum(
             published_at_by_index[index] <= event_timestamp for index in positive_ids
         )
@@ -413,7 +450,7 @@ def _training_tensors(
             continue
         hard_negatives = sorted(
             index
-            for index in explicit_negative_by_user[user] - positive_ids
+            for index in negative_history[user] - positive_ids
             if published_at_by_index[index] <= event_timestamp
         )
         generator.shuffle(hard_negatives)
@@ -435,6 +472,16 @@ def _training_tensors(
 
 
 def _evaluate_tower(model, rows, user_vocabulary, object_vocabulary) -> float:
+    """评估不会继续应用 Dropout，也不改变调用方的后续训练模式。"""
+    training = model.training
+    model.eval()
+    try:
+        return _evaluate_tower_in_mode(model, rows, user_vocabulary, object_vocabulary)
+    finally:
+        model.train(training)
+
+
+def _evaluate_tower_in_mode(model, rows, user_vocabulary, object_vocabulary) -> float:
     import torch
 
     relevant: dict[str, dict[str, float]] = defaultdict(dict)
@@ -444,9 +491,10 @@ def _evaluate_tower(model, rows, user_vocabulary, object_vocabulary) -> float:
     if not relevant:
         return 0.0
     object_ids = [item for item, _ in sorted(object_vocabulary.items(), key=lambda pair: pair[1])]
+    device = next(model.parameters()).device
     with torch.no_grad():
         encoded_objects = model.encode_objects(
-            torch.arange(1, len(object_ids) + 1, device="cuda")
+            torch.arange(1, len(object_ids) + 1, device=device)
         )
         scores = []
         user_keys = sorted(relevant)
@@ -454,7 +502,7 @@ def _evaluate_tower(model, rows, user_vocabulary, object_vocabulary) -> float:
             batch_keys = user_keys[start : start + 512]
             user_ids = torch.tensor(
                 [user_vocabulary[user_key] for user_key in batch_keys],
-                device="cuda",
+                device=device,
             )
             users = model.encode_users(user_ids)
             orders = torch.topk(
@@ -474,111 +522,46 @@ def _evaluate_tower(model, rows, user_vocabulary, object_vocabulary) -> float:
 
 
 def _rank_dataset(rows, items, positives_by_user, seed, history_rows=()):
-    object_rows = {str(row["listing_id"]): row for row in items.to_dict("records")}
-    prices = items["unit_price"].astype(float)
-    price_mean = float(prices.mean())
-    price_std = float(prices.std()) or 1.0
+    state = empty_state(catalog_from_frame(items))
     generator = random.Random(seed)
-    features: list[list[float]] = []
-    labels: list[int] = []
-    groups: list[int] = []
-    publication_order = sorted(
-        (pd.to_datetime(row["published_at"], utc=True), str(row["listing_id"]))
-        for row in items.to_dict("records")
-    )
-    publication_times = [entry[0] for entry in publication_order]
-    publication_ids = [entry[1] for entry in publication_order]
-    published_at_by_object = {object_id: published_at for published_at, object_id in publication_order}
-    popularity: Counter[str] = Counter()
-    category_history: dict[str, Counter[str]] = defaultdict(Counter)
-    author_history: dict[str, Counter[str]] = defaultdict(Counter)
-    price_history: dict[str, list[float]] = defaultdict(list)
-    explicit_negative_history: dict[str, set[str]] = defaultdict(set)
-    for historical in sorted(history_rows, key=lambda row: row["event_time"]):
-        if historical.get("negative_source") in {"REAL_EXPOSURE", "REAL_REFUND"}:
-            explicit_negative_history[str(historical["user_key"])].add(
-                str(historical["object_id"])
-            )
-        if historical["gain"] <= 0:
-            continue
-        user_key = str(historical["user_key"])
-        object_id = str(historical["object_id"])
-        if object_id not in positives_by_user.get(user_key, set()):
-            continue
-        item = object_rows[object_id]
-        popularity[object_id] += 1
-        category_history[user_key][str(item["category_code"])] += 1
-        author_history[user_key][str(item["author"])] += 1
-        price_history[user_key].append(float(item["unit_price"]))
-    ordered_rows = sorted(rows, key=lambda row: row["event_time"])
-    for row in ordered_rows:
+    features, labels, groups = [], [], []
+    publication_order = sorted((pd.to_datetime(item["published_at"], utc=True), key) for key, item in state["items"].items())
+    publication_times = [pair[0] for pair in publication_order]
+    known_rows = sorted([*history_rows, *rows], key=lambda row: row.get("label_available_at", row["event_time"]))
+    cursor = 0
+    for row in sorted(rows, key=lambda row: row["event_time"]):
+        now = row["event_time"]
+        while cursor < len(known_rows) and known_rows[cursor].get("label_available_at", known_rows[cursor]["event_time"]) < now:
+            observe(state, known_rows[cursor])
+            cursor += 1
         if row["gain"] <= 0:
-            if row.get("negative_source") in {"REAL_EXPOSURE", "REAL_REFUND"}:
-                explicit_negative_history[str(row["user_key"])].add(str(row["object_id"]))
             continue
-        user_key = str(row["user_key"])
-        positive_id = str(row["object_id"])
-        if positive_id not in positives_by_user.get(user_key, set()):
+        user_key, positive_id = str(row["user_key"]), str(row["object_id"])
+        user = state["users"].get(user_key, {})
+        seen = set(user.get("positive", {})) | {positive_id}
+        available = bisect_right(publication_times, now)
+        available_ids = {key for _, key in publication_order[:available]}
+        negative_pool = available_ids - seen
+        hard = sorted(set(user.get("negative", [])) & negative_pool)
+        generator.shuffle(hard)
+        negative_ids = hard[:4]
+        remaining = sorted(negative_pool - set(negative_ids))
+        negative_ids.extend(generator.sample(remaining, min(4 - len(negative_ids), len(remaining))))
+        if not negative_ids:
             continue
-        available_count = bisect_right(
-            publication_times, pd.to_datetime(row["event_time"], utc=True)
-        )
-        user_positives = positives_by_user.get(user_key, set())
-        available_positive_count = sum(
-            published_at_by_object[item] <= row["event_time"] for item in user_positives
-        )
-        available_negative_count = available_count - available_positive_count
-        hard_negatives = sorted(
-            item
-            for item in explicit_negative_history[user_key] - user_positives
-            if published_at_by_object[item] <= row["event_time"]
-        )
-        generator.shuffle(hard_negatives)
-        negative_ids = hard_negatives[:4]
-        while len(negative_ids) < min(4, available_negative_count):
-            candidate = publication_ids[generator.randrange(available_count)]
-            if candidate not in user_positives and candidate not in negative_ids:
-                negative_ids.append(candidate)
-        candidate_ids = [positive_id, *negative_ids]
-        maximum_popularity = max(popularity.values(), default=1)
-        for object_id in candidate_ids:
-            item = object_rows[object_id]
-            prior_count = sum(category_history[user_key].values())
-            category_affinity = category_history[user_key][str(item["category_code"])] / max(1, prior_count)
-            author_affinity = author_history[user_key][str(item["author"])] / max(1, prior_count)
-            preferred_price = statistics.fmean(price_history[user_key]) if price_history[user_key] else price_mean
-            published = pd.Timestamp(item["published_at"], tz="UTC") if pd.Timestamp(item["published_at"]).tz is None else pd.Timestamp(item["published_at"])
-            age_days = max(0.0, (row["event_time"] - published).total_seconds() / 86_400)
-            features.append(
-                [
-                    popularity[object_id] / maximum_popularity,
-                    category_affinity,
-                    author_affinity,
-                    abs(float(item["unit_price"]) - preferred_price) / price_std,
-                    math.exp(-age_days / 30.0),
-                ]
-            )
-            labels.append(int(row["gain"]) if object_id == positive_id else 0)
-        groups.append(len(candidate_ids))
-        item = object_rows[positive_id]
-        popularity[positive_id] += 1
-        category_history[user_key][str(item["category_code"])] += 1
-        author_history[user_key][str(item["author"])] += 1
-        price_history[user_key].append(float(item["unit_price"]))
+        candidates = [positive_id, *negative_ids]
+        generator.shuffle(candidates)
+        user_profile = profile(state, user_key)
+        features.extend(rank_features(state, user_profile, item, now) for item in candidates)
+        labels.extend(int(row["gain"]) if item == positive_id else 0 for item in candidates)
+        groups.append(len(candidates))
+    if not groups:
+        raise ValueError("精排窗口没有可比较的正负样本组")
     return np.asarray(features, dtype="float32"), np.asarray(labels, dtype="int32"), groups, []
 
 
 def _grouped_ndcg(predictions, labels, groups, k):
-    offset = 0
-    scores = []
-    for size in groups:
-        indexes = sorted(range(size), key=lambda index: -float(predictions[offset + index]))
-        ideal = sorted((int(labels[offset + index]) for index in range(size)), reverse=True)
-        dcg = sum((2 ** int(labels[offset + index]) - 1) / math.log2(rank + 2) for rank, index in enumerate(indexes[:k]))
-        ideal_dcg = sum((2**gain - 1) / math.log2(rank + 2) for rank, gain in enumerate(ideal[:k]))
-        scores.append(dcg / ideal_dcg if ideal_dcg else 0.0)
-        offset += size
-    return statistics.fmean(scores) if scores else 0.0
+    return grouped_tie_aware_ndcg(predictions, labels, groups, k)
 
 
 def _write_bundle(
@@ -595,6 +578,7 @@ def _write_bundle(
     data_hash,
     cuda,
     data_source,
+    provenance,
 ):
     import faiss
     import torch
@@ -628,7 +612,7 @@ def _write_bundle(
     faiss.write_index(index, str(bundle / "index.faiss"))
     ranker.save(bundle / "lambda-rank.txt")
 
-    now = max(row["event_time"] for row in fit_rows).to_pydatetime()
+    now = max(row.get("label_available_at", row["event_time"]) for row in fit_rows).to_pydatetime()
     events = [
         {"object_id": row["object_id"], "event_type": row["event_type"], "event_time": row["event_time"].to_pydatetime()}
         for row in fit_rows
@@ -636,6 +620,11 @@ def _write_bundle(
     popular_hits = time_decay_popularity(events, now, limit=len(object_ids))
     popular = [hit.object_id for hit in popular_hits]
     (bundle / "popular.json").write_text(json.dumps(popular), encoding="utf-8")
+    serving_state = empty_state(catalog_from_frame(items))
+    for row in sorted(fit_rows, key=lambda row: row.get("label_available_at", row["event_time"])):
+        observe(serving_state, row)
+    serving_state["fit_cutoff"] = now.isoformat()
+    (bundle / "serving-state.json").write_text(json.dumps(serving_state, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     hybrid = _hybrid_candidates(
         items, fit_rows, positives, model, ranker, user_vocabulary,
         object_ids, object_embeddings, now
@@ -644,9 +633,9 @@ def _write_bundle(
         json.dumps(hybrid, ensure_ascii=False, separators=(",", ":")), encoding="utf-8"
     )
     feature_schema = {
-        "version": 1,
+        "version": 2,
         "ranker_features": [
-            "popularity_recall_score",
+            "prior_popularity_count_ratio",
             "category_affinity",
             "author_affinity",
             "price_distance",
@@ -658,7 +647,7 @@ def _write_bundle(
         json.dumps(feature_schema, ensure_ascii=False, indent=2), encoding="utf-8"
     )
     (bundle / "scaler.json").write_text(
-        json.dumps({"type": "standard", "price": "fit-window-only"}, ensure_ascii=False), encoding="utf-8"
+        json.dumps({"type": "fixed_log1p", "cold_price": 50, "price_scale": 1}, ensure_ascii=False), encoding="utf-8"
     )
     metrics = {
         "ndcg_at_20_by_seed": seed_metrics,
@@ -670,12 +659,15 @@ def _write_bundle(
     }
     (bundle / "metrics.json").write_text(json.dumps(metrics, ensure_ascii=False, indent=2), encoding="utf-8")
     dependency_hash = _dependency_hash(Path(__file__).resolve().parents[3])
-    write_manifest(bundle, bundle.name, data_hash, dependency_hash)
+    write_manifest(bundle, bundle.name, data_hash, dependency_hash, provenance=provenance)
 
 
 def _hybrid_candidates(
     items, rows, positives, model, ranker, user_vocabulary, object_ids, object_embeddings, now
 ):
+    serving_state = empty_state(catalog_from_frame(items))
+    for row in sorted(rows, key=lambda row: row.get("label_available_at", row["event_time"])):
+        observe(serving_state, row)
     item_rows = []
     for row in items.to_dict("records"):
         item_rows.append(
@@ -732,62 +724,19 @@ def _hybrid_candidates(
             fused = fuse_channels(channels, limit=300)
             seen = positives.get(user_key, set())
             available = [candidate for candidate in fused if candidate.object_id not in seen]
-            maximum_popularity_score = max(
-                (candidate.channel_scores.get("POPULARITY", 0.0) for candidate in available),
-                default=1.0,
-            )
-            category_counts = Counter(
-                item_by_id[item]["category_code"] for item, weight in history if item in item_by_id and weight > 0
-            )
-            author_counts = Counter(
-                item_by_id[item]["author"] for item, weight in history if item in item_by_id and weight > 0
-            )
-            price_values = [
-                item_by_id[item]["unit_price"] for item, weight in history if item in item_by_id and weight > 0
-            ]
-            total = max(1, sum(category_counts.values()))
-            preferred_price = statistics.fmean(price_values) if price_values else float(items["unit_price"].mean())
-            price_std = float(items["unit_price"].astype(float).std()) or 1.0
-            rank_features = []
-            for candidate in available:
-                item = item_by_id[candidate.object_id]
-                age_days = max(0.0, (now - item["published_at"]).total_seconds() / 86_400)
-                rank_features.append(
-                    [
-                        candidate.channel_scores.get("POPULARITY", 0.0)
-                        / max(maximum_popularity_score, 1e-12),
-                        category_counts[item["category_code"]] / total,
-                        author_counts[item["author"]] / total,
-                        abs(item["unit_price"] - preferred_price) / price_std,
-                        math.exp(-age_days / 30.0),
-                    ]
-                )
-            ranking_scores = ranker.predict(np.asarray(rank_features, dtype="float32")) if rank_features else []
+            user_profile = profile(serving_state, user_key)
+            ranking_features = [rank_features(serving_state, user_profile, candidate.object_id, now) for candidate in available]
+            ranking_scores = ranker.predict(np.asarray(ranking_features, dtype="float32")) if ranking_features else []
             source_by_id = {candidate.object_id: candidate.sources for candidate in available}
             ranked_candidates = sorted(
                 zip(available, ranking_scores, strict=True),
                 key=lambda pair: (-float(pair[1]), pair[0].object_id),
-            )[:50]
-            ranked_objects = [
-                RankedObject(
-                    candidate.object_id,
-                    float(ranking_score),
-                    str(item_by_id[candidate.object_id]["category_code"]),
-                    str(item_by_id[candidate.object_id]["seller_key"]),
-                    (now - item_by_id[candidate.object_id]["published_at"]).days <= 30,
-                    embedding_by_id[candidate.object_id],
-                )
-                for candidate, ranking_score in ranked_candidates
-            ]
-            selected = rerank(ranked_objects, 50, _cosine_similarity)
+            )[:300]
             result[user_key] = [
-                {
-                    "object_id": candidate.object_id,
-                    "score": candidate.score,
-                    "sources": list(source_by_id[candidate.object_id]),
-                    "reason_code": _reason_code(source_by_id[candidate.object_id]),
-                }
-                for candidate in selected
+                {"object_id": candidate.object_id, "score": float(score), "recall_score": candidate.score,
+                 "sources": list(source_by_id[candidate.object_id]),
+                 "reason_code": _reason_code(source_by_id[candidate.object_id])}
+                for candidate, score in ranked_candidates
             ]
     return result
 
@@ -841,7 +790,7 @@ def _dependency_hash(project_root):
 
 
 def _model_version(data_hash):
-    timestamp = datetime.now(timezone.utc).strftime("%Y%m%d%H%M%S")
+    timestamp = datetime.now(timezone.utc).strftime("%Y%m%d%H%M%S%f")
     try:
         git_hash = subprocess.run(
             ["git", "rev-parse", "--short=8", "HEAD"], check=True, capture_output=True, text=True

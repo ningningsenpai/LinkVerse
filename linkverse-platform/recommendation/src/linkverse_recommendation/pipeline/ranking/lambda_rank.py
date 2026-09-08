@@ -4,6 +4,8 @@ from __future__ import annotations
 
 from dataclasses import asdict, dataclass
 from pathlib import Path
+from linkverse_recommendation.training.recording import record
+from linkverse_recommendation.core.metrics import grouped_tie_aware_ndcg
 
 
 @dataclass(frozen=True, slots=True)
@@ -26,31 +28,38 @@ class LambdaRanker:
         self.config = config
         self.booster = None
 
-    def fit(self, features, labels, groups, validation=None) -> "LambdaRanker":
+    def fit(self, features, labels, groups, validation=None, rounds=1000, seed=20260903) -> "LambdaRanker":
         import lightgbm as lgb
 
         parameters = {
             "objective": "lambdarank",
-            "metric": "ndcg",
-            "ndcg_eval_at": [20],
+            "metric": "None",
             "verbosity": -1,
-            "num_threads": -1,
+            "num_threads": 8,
+            "deterministic": True,
+            "force_col_wise": True,
+            "seed": seed,
             **asdict(self.config),
         }
         train = lgb.Dataset(features, label=labels, group=groups)
         valid_sets = [train]
-        callbacks = []
+        def capture(environment):
+            record("ranker_epochs", epoch=environment.iteration + 1,
+                   metrics={f"{entry[0]}/{entry[1]}": entry[2] for entry in environment.evaluation_result_list})
+        callbacks = [capture]
+        def evaluate(predictions, dataset):
+            return "tie_aware_ndcg@20", grouped_tie_aware_ndcg(predictions, dataset.get_label(), dataset.get_group(), 20), True
         if validation is not None:
             valid_features, valid_labels, valid_groups = validation
             valid_sets.append(lgb.Dataset(valid_features, label=valid_labels, group=valid_groups, reference=train))
             callbacks.append(lgb.early_stopping(50, verbose=False))
-        self.booster = lgb.train(parameters, train, num_boost_round=1000, valid_sets=valid_sets, callbacks=callbacks)
+        self.booster = lgb.train(parameters, train, num_boost_round=rounds, valid_sets=valid_sets, callbacks=callbacks, feval=evaluate)
         return self
 
     def predict(self, features):
         if self.booster is None:
             raise RuntimeError("LambdaRank 模型尚未训练")
-        return self.booster.predict(features)
+        return self.booster.predict(features, num_threads=1)
 
     def save(self, path: Path) -> None:
         if self.booster is None:

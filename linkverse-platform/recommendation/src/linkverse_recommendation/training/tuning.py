@@ -3,6 +3,13 @@
 from __future__ import annotations
 
 from collections.abc import Callable
+from linkverse_recommendation.training.recording import record, metric_scope
+
+
+def _record_trial(study, trial):
+    record("trials", study=study.study_name, trial=trial.number, status=trial.state.name,
+           value=trial.value, parameters=trial.params,
+           elapsed_seconds=trial.duration.total_seconds() if trial.duration else None)
 
 
 def tune_two_tower(objective: Callable[[dict[str, object]], float], trials: int = 30, seed: int = 20260903):
@@ -23,11 +30,12 @@ def tune_two_tower(objective: Callable[[dict[str, object]], float], trials: int 
             "max_epochs": 40,
             "patience": 5,
         }
-        return objective(parameters)
+        with metric_scope(component="two_tower", stage="tuning", trial=trial.number):
+            return objective(parameters)
 
     sampler = optuna.samplers.TPESampler(seed=seed)
     study = optuna.create_study(direction="maximize", sampler=sampler)
-    study.optimize(wrapped, n_trials=trials)
+    study.optimize(wrapped, n_trials=trials, callbacks=[_record_trial])
     return study
 
 
@@ -46,9 +54,10 @@ def tune_lambda_rank(objective: Callable[[dict[str, object]], float], trials: in
             "lambda_l1": trial.suggest_float("lambda_l1", 1e-8, 10.0, log=True),
             "lambda_l2": trial.suggest_float("lambda_l2", 1e-8, 10.0, log=True),
         }
-        return objective(parameters)
+        with metric_scope(component="lambda_rank", stage="tuning", trial=trial.number):
+            return objective(parameters)
 
     sampler = optuna.samplers.TPESampler(seed=seed)
     study = optuna.create_study(direction="maximize", sampler=sampler)
-    study.optimize(wrapped, n_trials=trials)
+    study.optimize(wrapped, n_trials=trials, callbacks=[_record_trial])
     return study

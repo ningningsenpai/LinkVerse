@@ -154,3 +154,25 @@ def _real_event(event_id, user, item, event_type, occurred_at, delivery_id, reas
         "refund_reason_code": reason,
         "data_source": "REAL",
     }
+
+
+def test_future_refund_does_not_change_past_training_pairs_or_negative_sampling():
+    now = datetime(2026, 9, 1, tzinfo=timezone.utc)
+    initial = [{"user_key": "u", "object_id": "a", "gain": 3, "event_time": now}]
+    future = {"user_key": "u", "object_id": "a", "gain": 0, "negative_source": "REAL_REFUND", "preference_negative": True, "event_time": now + timedelta(days=1)}
+    first = _training_tensors(initial, {"u": 1}, {"a": 1, "b": 2, "c": 3}, 1, 7)
+    second = _training_tensors([*initial, future], {"u": 1}, {"a": 1, "b": 2, "c": 3}, 1, 7)
+    assert [value.tolist() for value in first] == [value.tolist() for value in second]
+
+
+def test_as_of_does_not_see_late_ingested_refund_and_records_label_availability():
+    now = datetime(2026, 9, 1, tzinfo=timezone.utc)
+    paid = _real_event("p", "u", "a", "PAYMENT_SUCCEEDED", now, 1)
+    refund = _real_event("r", "u", "a", "REFUNDED", now + timedelta(minutes=1), 1, "USER_RETURN")
+    refund["ingested_at"] = now + timedelta(days=1)
+    samples = build_trade_training_samples(pd.DataFrame([paid, refund]), as_of=now + timedelta(hours=1))
+    assert samples.iloc[0]["gain"] == 15
+    assert samples.iloc[0]["attribution_key"] == "delivery:1"
+    mature = build_trade_training_samples(pd.DataFrame([paid, refund]), as_of=now + timedelta(days=2))
+    assert mature.iloc[0]["preference_negative"]
+    assert mature.iloc[0]["label_available_at"] == refund["ingested_at"]

@@ -17,7 +17,7 @@ GAINS = {
 NON_PREFERENCE_REFUNDS = {"LATE_SUCCESS", "PAYMENT_TIMEOUT", "SYSTEM_COMPENSATION"}
 
 
-def build_trade_training_samples(events: pd.DataFrame) -> pd.DataFrame:
+def build_trade_training_samples(events: pd.DataFrame, as_of=None) -> pd.DataFrame:
     """按归因链合并事件；未成熟曝光不入样本，主动退款覆盖同链正反馈。"""
 
     if events.empty:
@@ -33,14 +33,17 @@ def build_trade_training_samples(events: pd.DataFrame) -> pd.DataFrame:
     normalized = events.copy()
     normalized["event_time"] = pd.to_datetime(normalized["event_time"], utc=True)
     normalized["ingested_at"] = pd.to_datetime(normalized["ingested_at"], utc=True)
+    observed_at = pd.to_datetime(as_of, utc=True) if as_of is not None else normalized["ingested_at"].max()
+    normalized = normalized[normalized["ingested_at"].le(observed_at) & normalized["event_time"].le(observed_at)]
     if "refund_reason_code" not in normalized:
         normalized["refund_reason_code"] = None
     normalized["_attribution_key"] = normalized.apply(_attribution_key, axis=1)
-    maturity_cutoff = normalized["ingested_at"].max() - timedelta(minutes=30)
+    maturity_cutoff = observed_at - timedelta(minutes=30)
     samples = []
     group_fields = ["user_key", "object_id", "_attribution_key"]
     for _, group in normalized.groupby(group_fields, sort=False, dropna=False):
         ordered = group.sort_values(["event_time", "ingested_at", "event_id"])
+        ordered = ordered.assign(attribution_start_time=ordered["event_time"].min())
         preference_refunds = ordered[
             ordered["event_type"].eq("REFUNDED")
             & ~ordered["refund_reason_code"].isin(NON_PREFERENCE_REFUNDS)
@@ -83,6 +86,10 @@ def _attribution_key(row: pd.Series) -> str:
 
 def _sample(row: pd.Series, gain: int, preference_negative: bool, negative_source: str | None):
     result = row.drop(labels=["_attribution_key", "_gain"], errors="ignore").to_dict()
+    result["attribution_key"] = row["_attribution_key"]
+    result["label_available_at"] = max(row["event_time"], row["ingested_at"])
+    if negative_source == "REAL_EXPOSURE":
+        result["label_available_at"] = max(result["label_available_at"], row["event_time"] + timedelta(minutes=30))
     result["gain"] = gain
     result["preference_negative"] = preference_negative
     result["negative_source"] = negative_source

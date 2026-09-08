@@ -28,9 +28,9 @@ def rerank(
     seller_quota: int = 3,
     exploration_ratio: float = 0.10,
 ) -> list[RankedObject]:
-    """只处理前 50 个候选，在配额内平衡相关性、多样性与新品探索。"""
+    """在完整的有界候选池内平衡相关性、多样性与新品探索，配额不足时返回短列表。"""
 
-    pool = list(candidates[:50])
+    pool = list(candidates[:500])
     selected: list[RankedObject] = []
     categories: Counter[str] = Counter()
     sellers: Counter[str] = Counter()
@@ -65,4 +65,47 @@ def rerank(
             )
         categories[best.category] += 1
         sellers[best.seller] += 1
+    return selected
+
+
+def rerank_with_matrix(candidates: Sequence[RankedObject], limit: int, similarities) -> list[RankedObject]:
+    """复用已计算的相似度矩阵，以相同默认策略和并列规则减少逐候选 Python 循环。"""
+    import numpy as np
+
+    pool = list(candidates[:500])
+    if not pool or limit <= 0:
+        return []
+    if similarities.shape != (len(pool), len(pool)):
+        raise ValueError("相似度矩阵与候选数量不一致")
+    categories = {name: index for index, name in enumerate(sorted({item.category for item in pool}))}
+    sellers = {name: index for index, name in enumerate(sorted({item.seller for item in pool}))}
+    category_ids = np.asarray([categories[item.category] for item in pool])
+    seller_ids = np.asarray([sellers[item.seller] for item in pool])
+    category_counts = np.zeros(len(categories), dtype=np.int64)
+    seller_counts = np.zeros(len(sellers), dtype=np.int64)
+    available = np.ones(len(pool), dtype=bool)
+    new_items = np.asarray([item.is_new for item in pool], dtype=bool)
+    scores = np.asarray([item.score for item in pool], dtype=np.float64)
+    ranks = {name: index for index, name in enumerate(sorted(item.object_id for item in pool))}
+    tie_ranks = np.asarray([ranks[item.object_id] for item in pool])
+    maximum_similarity = np.zeros(len(pool), dtype=np.float64)
+    exploration_target = max(1, round(limit * .10))
+    selected, new_count = [], 0
+    while len(selected) < limit:
+        eligible = available & (category_counts[category_ids] < 6) & (seller_counts[seller_ids] < 3)
+        exploration = eligible & new_items
+        if new_count < exploration_target and exploration.any():
+            eligible = exploration
+        indexes = np.flatnonzero(eligible)
+        if not len(indexes):
+            break
+        values = .8 * scores[indexes] - (1 - .8) * maximum_similarity[indexes]
+        tied = indexes[values == values.max()]
+        best = int(tied[np.argmax(tie_ranks[tied])])
+        selected.append(pool[best])
+        available[best] = False
+        new_count += int(new_items[best])
+        category_counts[category_ids[best]] += 1
+        seller_counts[seller_ids[best]] += 1
+        np.maximum(maximum_similarity, similarities[:, best], out=maximum_similarity)
     return selected

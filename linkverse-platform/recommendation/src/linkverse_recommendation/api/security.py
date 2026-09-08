@@ -32,7 +32,13 @@ class ServiceTokenVerifier:
             )
         except Exception as exception:
             raise HTTPException(status_code=401, detail="推荐服务令牌无效") from exception
-        scope = set(str(claims.get("scope", "")).split())
+        raw_scope = claims.get("scope", "")
+        if isinstance(raw_scope, str):
+            scope = set(raw_scope.split())
+        elif isinstance(raw_scope, list) and all(isinstance(value, str) for value in raw_scope):
+            scope = set(raw_scope)
+        else:
+            scope = set()
         subject = claims.get("sub")
         client_id = claims.get("client_id", subject)
         if (
