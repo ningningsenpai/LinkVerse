@@ -69,8 +69,10 @@ models/
 *.pt
 *.onnx
 *.faiss
-**/recommendation-experiments/runs/*/raw/
-**/recommendation-experiments/runs/*/trials/
+**/recommendation-experiments/runs/**/raw/
+**/recommendation-experiments/runs/**/trials/
+**/recommendation-experiments/runs/**/*-lambda-rank.txt
+**/recommendation-experiments/runs/**/feedback-result.json
 
 # 技能评估临时工作区
 .agents/skills/*-workspace/

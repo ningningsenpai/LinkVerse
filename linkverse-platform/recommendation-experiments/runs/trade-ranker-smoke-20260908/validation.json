@@ -1,0 +1,42 @@
+{
+  "legacy": {
+    "users": 200,
+    "ndcg_at_20": 0.00824399105059531,
+    "recall_at_50": 0.0325,
+    "coverage_at_20": 0.19115298626636856,
+    "short_lists": 0,
+    "quota_violations": 0
+  },
+  "history_raw": {
+    "users": 200,
+    "ndcg_at_20": 0.005,
+    "recall_at_50": 0.045,
+    "coverage_at_20": 0.1518684126477164,
+    "short_lists": 0,
+    "quota_violations": 0
+  },
+  "history_percentile": {
+    "users": 200,
+    "ndcg_at_20": 0.005,
+    "recall_at_50": 0.045,
+    "coverage_at_20": 0.13366336633663367,
+    "short_lists": 0,
+    "quota_violations": 0
+  },
+  "recall_raw": {
+    "users": 200,
+    "ndcg_at_20": 0.010654648767857289,
+    "recall_at_50": 0.0575,
+    "coverage_at_20": 0.15729798786330246,
+    "short_lists": 0,
+    "quota_violations": 0
+  },
+  "recall_percentile": {
+    "users": 200,
+    "ndcg_at_20": 0.010654648767857289,
+    "recall_at_50": 0.0575,
+    "coverage_at_20": 0.1558607473650591,
+    "short_lists": 0,
+    "quota_violations": 0
+  }
+}

@@ -1,0 +1,4 @@
+{
+  "reason": "逐请求磁盘记录位于推断计时之外，可能引入隐式思考时间；以批量写日志复跑为准。",
+  "status": "NOT_USED_FOR_ACCEPTANCE"
+}

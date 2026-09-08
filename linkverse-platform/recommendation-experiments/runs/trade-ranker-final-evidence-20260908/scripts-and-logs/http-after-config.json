@@ -1,0 +1,122 @@
+{
+  "bundle": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation\\artifacts\\ranker-20260908\\trade-20260908070431966489-6f240414-4f63f5f4",
+  "fixture": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\.runtime\\recommendation-fixture.json",
+  "java_processes": [
+    {
+      "pid": 34912,
+      "jar": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\.runtime\\linkverse-identity\\1f0cfe2bcb4f491d90bb4f5e20bb0282\\linkverse-identity.jar",
+      "name": "linkverse-identity",
+      "purpose": "本轮隔离 HTTP 验证鉴权"
+    }
+  ],
+  "output": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation-experiments\\runs\\trade-ranker-http-after-20260908",
+  "purpose": "SAME_CONTAINER_PAIRED_DIRECT_HTTP",
+  "container_metrics": true,
+  "python_known_user_count": 10,
+  "stages": [
+    {
+      "duration_seconds": 60,
+      "think_seconds": 0,
+      "candidate_count": 100,
+      "port": 18085,
+      "warmup_seconds": 15,
+      "name": "after-100-vu20",
+      "concurrency": 20,
+      "context_ids": [
+        "20001",
+        "20002",
+        "20003",
+        "20004",
+        "20005",
+        "20006",
+        "20007",
+        "20008",
+        "20009",
+        "20010",
+        "20011",
+        "20012",
+        "20013",
+        "20014",
+        "20015",
+        "20016",
+        "20017",
+        "20018",
+        "20019",
+        "20020"
+      ],
+      "target": "python",
+      "stop_on_failure": false
+    },
+    {
+      "duration_seconds": 60,
+      "think_seconds": 0,
+      "candidate_count": 300,
+      "port": 18085,
+      "warmup_seconds": 15,
+      "name": "after-300-vu20",
+      "concurrency": 20,
+      "context_ids": [
+        "20001",
+        "20002",
+        "20003",
+        "20004",
+        "20005",
+        "20006",
+        "20007",
+        "20008",
+        "20009",
+        "20010",
+        "20011",
+        "20012",
+        "20013",
+        "20014",
+        "20015",
+        "20016",
+        "20017",
+        "20018",
+        "20019",
+        "20020"
+      ],
+      "target": "python",
+      "stop_on_failure": false
+    },
+    {
+      "duration_seconds": 120,
+      "think_seconds": 1,
+      "candidate_count": 300,
+      "port": 18085,
+      "warmup_seconds": 15,
+      "name": "after-sustained-vu20",
+      "concurrency": 20,
+      "context_ids": [
+        "20001",
+        "20002",
+        "20003",
+        "20004",
+        "20005",
+        "20006",
+        "20007",
+        "20008",
+        "20009",
+        "20010",
+        "20011",
+        "20012",
+        "20013",
+        "20014",
+        "20015",
+        "20016",
+        "20017",
+        "20018",
+        "20019",
+        "20020"
+      ],
+      "target": "python",
+      "stop_on_failure": false
+    }
+  ],
+  "container_cpu_limit": 4,
+  "metric_containers": [
+    "linkverse-mvp-recommendation-ranker-20260908"
+  ],
+  "container_memory_gib": 6
+}

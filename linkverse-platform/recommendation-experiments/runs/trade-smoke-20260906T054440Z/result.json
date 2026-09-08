@@ -1,0 +1,50 @@
+{
+  "scope": "HISTORICAL_SYNTHETIC_REGRESSION",
+  "quality_claim_allowed": false,
+  "users": 7581,
+  "test_rows": 14255,
+  "catalog": 6262,
+  "models": {
+    "before": {
+      "users": 7581,
+      "eligible_users": 7541,
+      "no_positive_users": 0,
+      "raw_ndcg_at_20": 0.0060382833114710046,
+      "raw_recall_at_50": 0.04716207812764995,
+      "ndcg_at_20": 0.0061175538148015894,
+      "recall_at_50": 0.04789405219719502,
+      "hit_rate_at_20": 0.02294125447553375,
+      "category_violations": 31,
+      "short_lists": 0,
+      "latency_p95_ms": 16.81269999971846,
+      "model_version": "trade-20260906055031-6f240414-4f63f5f4",
+      "coverage_at_20": 0.23027786649632706
+    },
+    "after": {
+      "users": 7581,
+      "eligible_users": 7541,
+      "no_positive_users": 0,
+      "raw_ndcg_at_20": 0.0059423502500433895,
+      "raw_recall_at_50": 0.05292177812953436,
+      "ndcg_at_20": 0.006019365965211703,
+      "recall_at_50": 0.05355611545772002,
+      "hit_rate_at_20": 0.02493038058612916,
+      "category_violations": 0,
+      "short_lists": 0,
+      "latency_p95_ms": 18.729800000073737,
+      "model_version": "trade-20260906055623-6f240414-4f63f5f4",
+      "coverage_at_20": 0.20839987224528905
+    }
+  },
+  "paired_comparison": {
+    "before": "before",
+    "after": "after",
+    "users": 7541,
+    "ndcg_delta": -9.818784958988679e-05,
+    "bootstrap_95": [
+      -0.0014407493612332899,
+      0.0011872664804889344
+    ],
+    "confirmatory": false
+  }
+}

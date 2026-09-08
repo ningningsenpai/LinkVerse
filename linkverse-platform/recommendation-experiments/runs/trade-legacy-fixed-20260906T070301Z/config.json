@@ -1,0 +1,11 @@
+{
+  "split_manifest": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation-experiments\\runs\\trade-formal-20260906T060941Z\\split-manifest.json",
+  "dataset": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation\\datasets\\trade-synthetic",
+  "bundles": {
+    "before": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation\\artifacts\\formal-final\\before\\trade-20260903072306-20c8891e-4f63f5f4",
+    "after": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation\\artifacts\\formal-final\\after\\trade-20260903072831-20c8891e-4f63f5f4"
+  },
+  "operation": "baseline",
+  "purpose": "LEGACY_FIXED_SPLIT_COMPARISON",
+  "output": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation-experiments\\runs\\trade-legacy-fixed-20260906T070301Z"
+}

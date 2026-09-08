@@ -1,0 +1,52 @@
+{
+  "cohort_reference": "before 模型的用户词表和公共历史计数",
+  "source": [
+    "raw/users-before.jsonl",
+    "raw/users-after.jsonl"
+  ],
+  "quality_claim_allowed": false,
+  "groups": {
+    "cold": {
+      "before": {
+        "users": 10,
+        "eligible_users": 10,
+        "ndcg_at_20": 0.0,
+        "recall_at_50": 0.0
+      },
+      "after": {
+        "users": 10,
+        "eligible_users": 10,
+        "ndcg_at_20": 0.0,
+        "recall_at_50": 0.05
+      }
+    },
+    "sparse": {
+      "before": {
+        "users": 765,
+        "eligible_users": 763,
+        "ndcg_at_20": 0.002646398060807261,
+        "recall_at_50": 0.028964613368283095
+      },
+      "after": {
+        "users": 765,
+        "eligible_users": 763,
+        "ndcg_at_20": 0.005154202104262562,
+        "recall_at_50": 0.042485801660113585
+      }
+    },
+    "warm": {
+      "before": {
+        "users": 6806,
+        "eligible_users": 6768,
+        "ndcg_at_20": 0.003313944829610789,
+        "recall_at_50": 0.03478624901497242
+      },
+      "after": {
+        "users": 6806,
+        "eligible_users": 6768,
+        "ndcg_at_20": 0.0030951113689585245,
+        "recall_at_50": 0.03777827029156816
+      }
+    }
+  }
+}

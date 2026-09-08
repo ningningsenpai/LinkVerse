@@ -1,0 +1,117 @@
+{
+  "python_known_user_count": 10,
+  "output": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation-experiments\\runs\\trade-python-two-workers-20260906T082558Z",
+  "fixture": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\.runtime\\recommendation-fixture.json",
+  "container_metrics": true,
+  "stages": [
+    {
+      "port": 18087,
+      "stop_on_failure": false,
+      "name": "python-full-300-vu20",
+      "think_seconds": 0,
+      "target": "python",
+      "context_ids": [
+        "20001",
+        "20002",
+        "20003",
+        "20004",
+        "20005",
+        "20006",
+        "20007",
+        "20008",
+        "20009",
+        "20010",
+        "20011",
+        "20012",
+        "20013",
+        "20014",
+        "20015",
+        "20016",
+        "20017",
+        "20018",
+        "20019",
+        "20020"
+      ],
+      "duration_seconds": 120,
+      "candidate_count": 300,
+      "concurrency": 20,
+      "warmup_seconds": 30
+    },
+    {
+      "port": 18087,
+      "stop_on_failure": false,
+      "name": "python-full-daily100-vu20",
+      "think_seconds": 0,
+      "target": "python",
+      "context_ids": [
+        "20001",
+        "20002",
+        "20003",
+        "20004",
+        "20005",
+        "20006",
+        "20007",
+        "20008",
+        "20009",
+        "20010",
+        "20011",
+        "20012",
+        "20013",
+        "20014",
+        "20015",
+        "20016",
+        "20017",
+        "20018",
+        "20019",
+        "20020"
+      ],
+      "duration_seconds": 120,
+      "candidate_count": 100,
+      "concurrency": 20,
+      "warmup_seconds": 30
+    }
+  ],
+  "java_processes": [
+    {
+      "name": "linkverse-identity",
+      "pid": 5352,
+      "port": 18081,
+      "jar": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\.runtime\\linkverse-identity\\1f0cfe2bcb4f491d90bb4f5e20bb0282\\linkverse-identity.jar"
+    },
+    {
+      "name": "linkverse-payment",
+      "pid": 49596,
+      "port": 18083,
+      "jar": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\backend\\linkverse-payment\\target\\linkverse-payment-0.1.0-SNAPSHOT.jar"
+    },
+    {
+      "name": "linkverse-trade",
+      "pid": 51020,
+      "port": 18082,
+      "jar": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\.runtime\\linkverse-trade\\abebacc942e14fb4abbe99130c7905a6\\linkverse-trade.jar"
+    },
+    {
+      "name": "linkverse-gateway",
+      "pid": 48740,
+      "port": 18080,
+      "jar": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\backend\\linkverse-gateway\\target\\linkverse-gateway-0.1.0-SNAPSHOT.jar"
+    }
+  ],
+  "metric_containers": [
+    "linkverse-mvp-mysql",
+    "linkverse-mvp-redis",
+    "linkverse-mvp-rabbitmq",
+    "linkverse-mvp-recommendation",
+    "linkverse-mvp-recommendation-benchmark",
+    "linkverse-mvp-recommendation-optimized",
+    "linkverse-mvp-recommendation-workers"
+  ],
+  "bundle": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation\\artifacts\\formal-20260906T060941Z\\after\\trade-20260906065816234951-6f240414-4f63f5f4",
+  "purpose": "SEPARATE_TWO_WORKER_CPU_CAPACITY_ENVELOPE",
+  "runtime_workers": 2,
+  "service_metrics_scope": "服务端 /metrics 为各进程独立计数，验收使用外部逐请求记录和容器总资源。",
+  "transport": {
+    "route": "DIRECT_LOOPBACK",
+    "trust_env": false
+  }
+}

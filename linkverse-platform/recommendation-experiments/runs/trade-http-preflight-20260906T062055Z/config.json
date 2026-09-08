@@ -1,0 +1,27 @@
+{
+  "bundle": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation\\artifacts\\local-20260906T060941Z\\before\\trade-20260906060950032588-6f240414-556f5a03",
+  "container_metrics": true,
+  "stages": [
+    {
+      "stop_on_failure": false,
+      "duration_seconds": 3,
+      "target": "python",
+      "warmup_seconds": 0,
+      "concurrency": 1,
+      "think_seconds": 0.2,
+      "name": "python-functional"
+    },
+    {
+      "stop_on_failure": false,
+      "duration_seconds": 3,
+      "target": "gateway",
+      "warmup_seconds": 0,
+      "concurrency": 1,
+      "think_seconds": 0.2,
+      "name": "gateway-functional"
+    }
+  ],
+  "fixture": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\.runtime\\recommendation-fixture.json",
+  "purpose": "FUNCTIONAL_PREFLIGHT_WITH_CONCURRENT_TRAINING",
+  "output": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation-experiments\\runs\\trade-http-preflight-20260906T062055Z"
+}

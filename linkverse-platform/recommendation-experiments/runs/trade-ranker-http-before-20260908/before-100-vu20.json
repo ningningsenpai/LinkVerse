@@ -1,0 +1,165 @@
+{
+  "configuration": {
+    "duration_seconds": 60,
+    "think_seconds": 0,
+    "candidate_count": 100,
+    "port": 18085,
+    "warmup_seconds": 15,
+    "name": "before-100-vu20",
+    "concurrency": 20,
+    "context_ids": [
+      "20001",
+      "20002",
+      "20003",
+      "20004",
+      "20005",
+      "20006",
+      "20007",
+      "20008",
+      "20009",
+      "20010",
+      "20011",
+      "20012",
+      "20013",
+      "20014",
+      "20015",
+      "20016",
+      "20017",
+      "20018",
+      "20019",
+      "20020"
+    ],
+    "target": "python",
+    "stop_on_failure": false
+  },
+  "elapsed_seconds": 75.0619999999999,
+  "throughput_rps": 120.51666666666667,
+  "all": {
+    "requests": 7231,
+    "successful": 7231,
+    "valid_model": 7231,
+    "fallback": 0,
+    "success_rate": 1.0,
+    "valid_model_rate": 1.0,
+    "fallback_rate": 0.0,
+    "latency_ms": {
+      "p50": 132.56779999937862,
+      "p95": 254.28680000004533,
+      "p99": 1569.880060000287
+    },
+    "model_latency_p95_ms": 254.28680000004533,
+    "statuses": {
+      "200": 7231
+    },
+    "validation_errors": {},
+    "passed": true
+  },
+  "cohorts": {
+    "known": {
+      "requests": 3576,
+      "successful": 3576,
+      "valid_model": 3576,
+      "fallback": 0,
+      "success_rate": 1.0,
+      "valid_model_rate": 1.0,
+      "fallback_rate": 0.0,
+      "latency_ms": {
+        "p50": 133.66140000016458,
+        "p95": 260.05959999929473,
+        "p99": 1589.4830999995975
+      },
+      "model_latency_p95_ms": 260.05959999929473,
+      "statuses": {
+        "200": 3576
+      },
+      "validation_errors": {},
+      "passed": true
+    },
+    "cold": {
+      "requests": 3655,
+      "successful": 3655,
+      "valid_model": 3655,
+      "fallback": 0,
+      "success_rate": 1.0,
+      "valid_model_rate": 1.0,
+      "fallback_rate": 0.0,
+      "latency_ms": {
+        "p50": 131.82529999903636,
+        "p95": 250.57237999899368,
+        "p99": 1551.372964000475
+      },
+      "model_latency_p95_ms": 250.57237999899368,
+      "statuses": {
+        "200": 3655
+      },
+      "validation_errors": {},
+      "passed": true
+    }
+  },
+  "windows": [
+    {
+      "window": 0,
+      "requests": 3496,
+      "successful": 3496,
+      "valid_model": 3496,
+      "fallback": 0,
+      "success_rate": 1.0,
+      "valid_model_rate": 1.0,
+      "fallback_rate": 0.0,
+      "latency_ms": {
+        "p50": 137.17494999946211,
+        "p95": 265.125624999655,
+        "p99": 1604.5984900009903
+      },
+      "model_latency_p95_ms": 265.125624999655,
+      "statuses": {
+        "200": 3496
+      },
+      "validation_errors": {},
+      "passed": true
+    },
+    {
+      "window": 1,
+      "requests": 3715,
+      "successful": 3715,
+      "valid_model": 3715,
+      "fallback": 0,
+      "success_rate": 1.0,
+      "valid_model_rate": 1.0,
+      "fallback_rate": 0.0,
+      "latency_ms": {
+        "p50": 129.25970000105735,
+        "p95": 244.95693000062602,
+        "p99": 1557.5809859999574
+      },
+      "model_latency_p95_ms": 244.95693000062602,
+      "statuses": {
+        "200": 3715
+      },
+      "validation_errors": {},
+      "passed": true
+    },
+    {
+      "window": 2,
+      "requests": 20,
+      "successful": 20,
+      "valid_model": 20,
+      "fallback": 0,
+      "success_rate": 1.0,
+      "valid_model_rate": 1.0,
+      "fallback_rate": 0.0,
+      "latency_ms": {
+        "p50": 184.46994999976596,
+        "p95": 220.82933000001503,
+        "p99": 227.84914599924377
+      },
+      "model_latency_p95_ms": 220.82933000001503,
+      "statuses": {
+        "200": 20
+      },
+      "validation_errors": {},
+      "passed": true
+    }
+  ],
+  "passed": true
+}

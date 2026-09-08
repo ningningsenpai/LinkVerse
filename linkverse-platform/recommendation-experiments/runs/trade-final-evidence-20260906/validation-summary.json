@@ -1,0 +1,2047 @@
+{
+  "runs": {
+    "全量直连基线单进程": {
+      "path": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation-experiments\\runs\\trade-python-direct-baseline-20260906T081014Z",
+      "status": {
+        "status": "COMPLETED",
+        "elapsed_seconds": 150.3929074000007,
+        "error_type": null
+      },
+      "resources": {
+        "samples": 30,
+        "series": {
+          "linkverse-identity": {
+            "samples": 30,
+            "first_five_min_median_gib": 0.21854019165039062,
+            "last_five_min_median_gib": 0.21854019165039062,
+            "peak_gib": 0.2446746826171875,
+            "late_slope_mib_per_minute": 9.02171279546388
+          },
+          "linkverse-payment": {
+            "samples": 30,
+            "first_five_min_median_gib": 0.3378143310546875,
+            "last_five_min_median_gib": 0.3378143310546875,
+            "peak_gib": 0.3420219421386719,
+            "late_slope_mib_per_minute": 3.6404114709770696
+          },
+          "linkverse-trade": {
+            "samples": 30,
+            "first_five_min_median_gib": 0.6340885162353516,
+            "last_five_min_median_gib": 0.6340885162353516,
+            "peak_gib": 0.6343345642089844,
+            "late_slope_mib_per_minute": 0.1889848104227075
+          },
+          "linkverse-gateway": {
+            "samples": 30,
+            "first_five_min_median_gib": 0.2616920471191406,
+            "last_five_min_median_gib": 0.2616920471191406,
+            "peak_gib": 0.2626609802246094,
+            "late_slope_mib_per_minute": 0.858364982349777
+          },
+          "linkverse-mvp-mysql": {
+            "samples": 30,
+            "first_five_min_median_gib": 0.66220703125,
+            "last_five_min_median_gib": 0.66220703125,
+            "peak_gib": 0.6626953125,
+            "late_slope_mib_per_minute": 0.05316600915890952
+          },
+          "linkverse-mvp-redis": {
+            "samples": 30,
+            "first_five_min_median_gib": 0.017177734375,
+            "last_five_min_median_gib": 0.017177734375,
+            "peak_gib": 0.017431640625,
+            "late_slope_mib_per_minute": -0.09529138707209417
+          },
+          "linkverse-mvp-rabbitmq": {
+            "samples": 30,
+            "first_five_min_median_gib": 0.17138671875,
+            "last_five_min_median_gib": 0.17138671875,
+            "peak_gib": 0.259375,
+            "late_slope_mib_per_minute": 0.13525980736983997
+          },
+          "linkverse-mvp-recommendation": {
+            "samples": 30,
+            "first_five_min_median_gib": 0.14833984375,
+            "last_five_min_median_gib": 0.14833984375,
+            "peak_gib": 0.148828125,
+            "late_slope_mib_per_minute": 0.07302828426159147
+          },
+          "linkverse-mvp-recommendation-benchmark": {
+            "samples": 30,
+            "first_five_min_median_gib": 1.795,
+            "last_five_min_median_gib": 1.795,
+            "peak_gib": 1.796,
+            "late_slope_mib_per_minute": 0.4798713206728341
+          }
+        },
+        "sampling_error_count": 0,
+        "container_samples": 30,
+        "utilization": {
+          "process_cpu_percent": {
+            "samples": 30,
+            "median": 34.448872841115275,
+            "p95": 45.010471423685416,
+            "min": 0.0,
+            "max": 47.76673660031997
+          },
+          "system_cpu_percent": {
+            "samples": 29,
+            "median": 27.382812499999996,
+            "p95": 38.91927083333333,
+            "min": 16.614583333333332,
+            "max": 43.02959501557633
+          },
+          "gpu_utilization_percent": {
+            "samples": 30,
+            "median": 17.0,
+            "p95": 48.84999999999998,
+            "min": 3.0,
+            "max": 52.0
+          },
+          "system_available_bytes": {
+            "samples": 30,
+            "median": 31270008832.0,
+            "p95": 33286835609.6,
+            "min": 30598389760,
+            "max": 34014388224
+          }
+        }
+      },
+      "queues": {
+        "samples": 0,
+        "unavailable_samples": 0,
+        "peak_counts": {}
+      },
+      "authentication_refreshes": 1
+    },
+    "全量直连优化单进程": {
+      "path": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation-experiments\\runs\\trade-python-direct-optimized-20260906T081014Z",
+      "status": {
+        "status": "COMPLETED",
+        "elapsed_seconds": 302.929024699999,
+        "error_type": null
+      },
+      "resources": {
+        "samples": 61,
+        "series": {
+          "linkverse-identity": {
+            "samples": 61,
+            "first_five_min_median_gib": 0.20278358459472656,
+            "last_five_min_median_gib": 0.20278358459472656,
+            "peak_gib": 0.2225799560546875,
+            "late_slope_mib_per_minute": 1.909418271842594
+          },
+          "linkverse-payment": {
+            "samples": 61,
+            "first_five_min_median_gib": 0.32961082458496094,
+            "last_five_min_median_gib": 0.32961082458496094,
+            "peak_gib": 0.34629058837890625,
+            "late_slope_mib_per_minute": 3.2030161992473594
+          },
+          "linkverse-trade": {
+            "samples": 61,
+            "first_five_min_median_gib": 0.6251201629638672,
+            "last_five_min_median_gib": 0.6251201629638672,
+            "peak_gib": 0.6343612670898438,
+            "late_slope_mib_per_minute": 0.11423623230010803
+          },
+          "linkverse-gateway": {
+            "samples": 61,
+            "first_five_min_median_gib": 0.2602958679199219,
+            "last_five_min_median_gib": 0.2602958679199219,
+            "peak_gib": 0.26512908935546875,
+            "late_slope_mib_per_minute": 0.31797941300638666
+          },
+          "linkverse-mvp-mysql": {
+            "samples": 61,
+            "first_five_min_median_gib": 0.66220703125,
+            "last_five_min_median_gib": 0.66220703125,
+            "peak_gib": 0.6625,
+            "late_slope_mib_per_minute": -0.012593409453016234
+          },
+          "linkverse-mvp-redis": {
+            "samples": 61,
+            "first_five_min_median_gib": 0.016943359375,
+            "last_five_min_median_gib": 0.016943359375,
+            "peak_gib": 0.017421875,
+            "late_slope_mib_per_minute": 0.01662364299278604
+          },
+          "linkverse-mvp-rabbitmq": {
+            "samples": 61,
+            "first_five_min_median_gib": 0.171435546875,
+            "last_five_min_median_gib": 0.17138671875,
+            "peak_gib": 0.263671875,
+            "late_slope_mib_per_minute": -0.7513920023720491
+          },
+          "linkverse-mvp-recommendation": {
+            "samples": 61,
+            "first_five_min_median_gib": 0.14833984375,
+            "last_five_min_median_gib": 0.14833984375,
+            "peak_gib": 0.1607421875,
+            "late_slope_mib_per_minute": -0.2143324460650058
+          },
+          "linkverse-mvp-recommendation-benchmark": {
+            "samples": 61,
+            "first_five_min_median_gib": 1.795,
+            "last_five_min_median_gib": 1.795,
+            "peak_gib": 1.796,
+            "late_slope_mib_per_minute": -0.41884061119330046
+          },
+          "linkverse-mvp-recommendation-optimized": {
+            "samples": 61,
+            "first_five_min_median_gib": 1.819,
+            "last_five_min_median_gib": 1.819,
+            "peak_gib": 1.821,
+            "late_slope_mib_per_minute": 0.3405723657729643
+          }
+        },
+        "sampling_error_count": 0,
+        "container_samples": 61,
+        "utilization": {
+          "process_cpu_percent": {
+            "samples": 61,
+            "median": 73.06182344125293,
+            "p95": 90.4897467852589,
+            "min": 0.0,
+            "max": 95.37540827905752
+          },
+          "system_cpu_percent": {
+            "samples": 60,
+            "median": 30.4296875,
+            "p95": 46.256510416666664,
+            "min": 18.763020833333332,
+            "max": 48.059895833333336
+          },
+          "gpu_utilization_percent": {
+            "samples": 61,
+            "median": 14.0,
+            "p95": 33.0,
+            "min": 0.0,
+            "max": 40.0
+          },
+          "system_available_bytes": {
+            "samples": 61,
+            "median": 30697762816.0,
+            "p95": 30797275136.0,
+            "min": 29561184256,
+            "max": 30875172864
+          }
+        }
+      },
+      "queues": {
+        "samples": 0,
+        "unavailable_samples": 0,
+        "peak_counts": {}
+      },
+      "authentication_refreshes": 2
+    },
+    "全量直连双进程未采用": {
+      "path": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation-experiments\\runs\\trade-python-two-workers-20260906T082558Z",
+      "status": {
+        "status": "COMPLETED",
+        "elapsed_seconds": 302.93453640000007,
+        "error_type": null
+      },
+      "resources": {
+        "samples": 61,
+        "series": {
+          "linkverse-identity": {
+            "samples": 61,
+            "first_five_min_median_gib": 0.20690536499023438,
+            "last_five_min_median_gib": 0.20690536499023438,
+            "peak_gib": 0.2090301513671875,
+            "late_slope_mib_per_minute": -7.241286145801445
+          },
+          "linkverse-payment": {
+            "samples": 61,
+            "first_five_min_median_gib": 0.3319091796875,
+            "last_five_min_median_gib": 0.33194541931152344,
+            "peak_gib": 0.3449363708496094,
+            "late_slope_mib_per_minute": -5.015826209488424
+          },
+          "linkverse-trade": {
+            "samples": 61,
+            "first_five_min_median_gib": 0.5811061859130859,
+            "last_five_min_median_gib": 0.5811061859130859,
+            "peak_gib": 0.5853652954101562,
+            "late_slope_mib_per_minute": -20.067532336947963
+          },
+          "linkverse-gateway": {
+            "samples": 61,
+            "first_five_min_median_gib": 0.1230621337890625,
+            "last_five_min_median_gib": 0.1230621337890625,
+            "peak_gib": 0.1322021484375,
+            "late_slope_mib_per_minute": -0.6781083492416526
+          },
+          "linkverse-mvp-mysql": {
+            "samples": 61,
+            "first_five_min_median_gib": 0.66220703125,
+            "last_five_min_median_gib": 0.6622558593750001,
+            "peak_gib": 0.66279296875,
+            "late_slope_mib_per_minute": 0.06493501844664436
+          },
+          "linkverse-mvp-redis": {
+            "samples": 61,
+            "first_five_min_median_gib": 0.017177734375,
+            "last_five_min_median_gib": 0.017177734375,
+            "peak_gib": 0.017421875,
+            "late_slope_mib_per_minute": -0.0013265951709117963
+          },
+          "linkverse-mvp-rabbitmq": {
+            "samples": 61,
+            "first_five_min_median_gib": 0.1716796875,
+            "last_five_min_median_gib": 0.1716796875,
+            "peak_gib": 0.26318359375,
+            "late_slope_mib_per_minute": -0.5854246531821345
+          },
+          "linkverse-mvp-recommendation": {
+            "samples": 61,
+            "first_five_min_median_gib": 0.14833984375,
+            "last_five_min_median_gib": 0.14833984375,
+            "peak_gib": 0.148828125,
+            "late_slope_mib_per_minute": 0.03246488837127644
+          },
+          "linkverse-mvp-recommendation-benchmark": {
+            "samples": 61,
+            "first_five_min_median_gib": 1.794,
+            "last_five_min_median_gib": 1.794,
+            "peak_gib": 1.794,
+            "late_slope_mib_per_minute": -4.2076994750094615e-14
+          },
+          "linkverse-mvp-recommendation-optimized": {
+            "samples": 61,
+            "first_five_min_median_gib": 1.819,
+            "last_five_min_median_gib": 1.819,
+            "peak_gib": 1.82,
+            "late_slope_mib_per_minute": 0.03911575694607548
+          },
+          "linkverse-mvp-recommendation-workers": {
+            "samples": 61,
+            "first_five_min_median_gib": 3.614,
+            "last_five_min_median_gib": 3.622,
+            "peak_gib": 3.624,
+            "late_slope_mib_per_minute": 5.545503512743685
+          }
+        },
+        "sampling_error_count": 0,
+        "container_samples": 61,
+        "utilization": {
+          "process_cpu_percent": {
+            "samples": 61,
+            "median": 97.98283083179749,
+            "p95": 99.92105437333103,
+            "min": 0.0,
+            "max": 100.5240336605674
+          },
+          "system_cpu_percent": {
+            "samples": 60,
+            "median": 33.84057794652129,
+            "p95": 50.648162721247324,
+            "min": 19.947916666666664,
+            "max": 62.98026998961579
+          },
+          "gpu_utilization_percent": {
+            "samples": 61,
+            "median": 24.0,
+            "p95": 40.0,
+            "min": 1.0,
+            "max": 66.0
+          },
+          "system_available_bytes": {
+            "samples": 61,
+            "median": 27547938816.0,
+            "p95": 28591177728.0,
+            "min": 25068961792,
+            "max": 28642635776
+          }
+        }
+      },
+      "queues": {
+        "samples": 0,
+        "unavailable_samples": 0,
+        "peak_counts": {}
+      },
+      "authentication_refreshes": 2
+    },
+    "容量扩展未执行": {
+      "path": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation-experiments\\runs\\trade-python-two-workers-capacity-20260906T082558Z",
+      "status": {
+        "reason": "20 并发全量性能未通过；停止 30/50 并发扩容测试。",
+        "status": "NOT_RUN"
+      },
+      "resources": {
+        "samples": 0,
+        "series": {}
+      },
+      "queues": {
+        "samples": 0,
+        "unavailable_samples": 0,
+        "peak_counts": {}
+      },
+      "authentication_refreshes": 0
+    },
+    "最终业务夹具直连": {
+      "path": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation-experiments\\runs\\trade-business-optimized-20260906T084509Z",
+      "status": {
+        "status": "COMPLETED",
+        "elapsed_seconds": 750.9577905000006,
+        "error_type": null
+      },
+      "resources": {
+        "samples": 150,
+        "series": {
+          "linkverse-identity": {
+            "samples": 150,
+            "first_five_min_median_gib": 0.23729324340820312,
+            "last_five_min_median_gib": 0.28052330017089844,
+            "peak_gib": 0.2847709655761719,
+            "late_slope_mib_per_minute": 6.139492274742252
+          },
+          "linkverse-payment": {
+            "samples": 150,
+            "first_five_min_median_gib": 0.3524951934814453,
+            "last_five_min_median_gib": 0.3506927490234375,
+            "peak_gib": 0.3616218566894531,
+            "late_slope_mib_per_minute": -1.9162093828198565
+          },
+          "linkverse-trade": {
+            "samples": 150,
+            "first_five_min_median_gib": 0.686248779296875,
+            "last_five_min_median_gib": 0.6958522796630859,
+            "peak_gib": 0.6996917724609375,
+            "late_slope_mib_per_minute": 1.794252902426998
+          },
+          "linkverse-gateway": {
+            "samples": 150,
+            "first_five_min_median_gib": 0.21979713439941406,
+            "last_five_min_median_gib": 0.6213455200195312,
+            "peak_gib": 0.6239013671875,
+            "late_slope_mib_per_minute": 33.613166877583076
+          }
+        },
+        "sampling_error_count": 0,
+        "container_samples": 0,
+        "utilization": {
+          "process_cpu_percent": {
+            "samples": 150,
+            "median": 63.2288844036474,
+            "p95": 97.5700916008463,
+            "min": 0.0,
+            "max": 99.18042783668541
+          },
+          "system_cpu_percent": {
+            "samples": 149,
+            "median": 52.063862928348904,
+            "p95": 67.31762701665365,
+            "min": 17.951713395638624,
+            "max": 75.35046728971963
+          },
+          "gpu_utilization_percent": {
+            "samples": 150,
+            "median": 30.0,
+            "p95": 50.54999999999998,
+            "min": 12.0,
+            "max": 63.0
+          },
+          "system_available_bytes": {
+            "samples": 150,
+            "median": 31201615872.0,
+            "p95": 32176032153.6,
+            "min": 30507757568,
+            "max": 32541474816
+          }
+        }
+      },
+      "queues": {
+        "samples": 0,
+        "unavailable_samples": 0,
+        "peak_counts": {}
+      },
+      "authentication_refreshes": 20
+    },
+    "最终三十分钟长稳": {
+      "path": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation-experiments\\runs\\trade-soak-optimized-20260906T084509Z",
+      "status": {
+        "status": "COMPLETED",
+        "elapsed_seconds": 1831.8258982999978,
+        "error_type": null
+      },
+      "resources": {
+        "samples": 366,
+        "series": {
+          "linkverse-identity": {
+            "samples": 366,
+            "first_five_min_median_gib": 0.2973060607910156,
+            "last_five_min_median_gib": 0.2233448028564453,
+            "peak_gib": 0.3196258544921875,
+            "late_slope_mib_per_minute": -5.60575995620856
+          },
+          "linkverse-payment": {
+            "samples": 366,
+            "first_five_min_median_gib": 0.33396148681640625,
+            "last_five_min_median_gib": 0.3410930633544922,
+            "peak_gib": 0.3522491455078125,
+            "late_slope_mib_per_minute": 0.12467908844063239
+          },
+          "linkverse-trade": {
+            "samples": 366,
+            "first_five_min_median_gib": 0.6995487213134766,
+            "last_five_min_median_gib": 0.47821617126464844,
+            "peak_gib": 0.7022476196289062,
+            "late_slope_mib_per_minute": -16.212382313890696
+          },
+          "linkverse-gateway": {
+            "samples": 366,
+            "first_five_min_median_gib": 0.6222724914550781,
+            "last_five_min_median_gib": 0.537628173828125,
+            "peak_gib": 0.6329612731933594,
+            "late_slope_mib_per_minute": -6.27251118367033
+          },
+          "linkverse-mvp-mysql": {
+            "samples": 366,
+            "first_five_min_median_gib": 0.69423828125,
+            "last_five_min_median_gib": 0.7060546875,
+            "peak_gib": 0.70791015625,
+            "late_slope_mib_per_minute": 0.4946532440298016
+          },
+          "linkverse-mvp-redis": {
+            "samples": 366,
+            "first_five_min_median_gib": 0.016962890624999998,
+            "last_five_min_median_gib": 0.0170556640625,
+            "peak_gib": 0.018408203125,
+            "late_slope_mib_per_minute": -0.0007140451863115198
+          },
+          "linkverse-mvp-rabbitmq": {
+            "samples": 366,
+            "first_five_min_median_gib": 0.1740234375,
+            "last_five_min_median_gib": 0.17421875,
+            "peak_gib": 0.266796875,
+            "late_slope_mib_per_minute": -0.15066536966857225
+          },
+          "linkverse-mvp-recommendation": {
+            "samples": 366,
+            "first_five_min_median_gib": 0.15341796875,
+            "last_five_min_median_gib": 0.15341796875,
+            "peak_gib": 0.16640625,
+            "late_slope_mib_per_minute": 0.002281568845482174
+          }
+        },
+        "sampling_error_count": 0,
+        "container_samples": 366,
+        "utilization": {
+          "process_cpu_percent": {
+            "samples": 366,
+            "median": 9.034181404058222,
+            "p95": 11.536213197299332,
+            "min": 0.0,
+            "max": 13.746821185069251
+          },
+          "system_cpu_percent": {
+            "samples": 365,
+            "median": 24.496949240555633,
+            "p95": 33.85134345794393,
+            "min": 14.200415368639662,
+            "max": 40.160955347871244
+          },
+          "gpu_utilization_percent": {
+            "samples": 366,
+            "median": 29.0,
+            "p95": 49.75,
+            "min": 4.0,
+            "max": 65.0
+          },
+          "system_available_bytes": {
+            "samples": 366,
+            "median": 33080586240.0,
+            "p95": 34019287040.0,
+            "min": 30712426496,
+            "max": 34111148032
+          }
+        }
+      },
+      "queues": {
+        "samples": 62,
+        "unavailable_samples": 0,
+        "peak_counts": {
+          "linkverse.payment.parking": {
+            "messages": 0,
+            "messages_ready": 0,
+            "messages_unacknowledged": 0
+          },
+          "linkverse.trade.parking": {
+            "messages": 0,
+            "messages_ready": 0,
+            "messages_unacknowledged": 0
+          },
+          "linkverse.trade.payment": {
+            "messages": 0,
+            "messages_ready": 0,
+            "messages_unacknowledged": 0
+          },
+          "linkverse.trade.seckill.request": {
+            "messages": 0,
+            "messages_ready": 0,
+            "messages_unacknowledged": 0
+          },
+          "linkverse.trade.seckill.result": {
+            "messages": 0,
+            "messages_ready": 0,
+            "messages_unacknowledged": 0
+          }
+        }
+      },
+      "authentication_refreshes": 60
+    },
+    "最终独立五分钟复跑": {
+      "path": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation-experiments\\runs\\trade-repeat-optimized-20260906T084509Z",
+      "status": {
+        "status": "COMPLETED",
+        "elapsed_seconds": 332.88419839999915,
+        "error_type": null
+      },
+      "resources": {
+        "samples": 67,
+        "series": {
+          "linkverse-identity": {
+            "samples": 67,
+            "first_five_min_median_gib": 0.24238014221191406,
+            "last_five_min_median_gib": 0.2424144744873047,
+            "peak_gib": 0.2508697509765625,
+            "late_slope_mib_per_minute": -1.4508867652929462
+          },
+          "linkverse-payment": {
+            "samples": 67,
+            "first_five_min_median_gib": 0.3417510986328125,
+            "last_five_min_median_gib": 0.3421611785888672,
+            "peak_gib": 0.3481483459472656,
+            "late_slope_mib_per_minute": -2.5153451971739456
+          },
+          "linkverse-trade": {
+            "samples": 67,
+            "first_five_min_median_gib": 0.4520549774169922,
+            "last_five_min_median_gib": 0.4520549774169922,
+            "peak_gib": 0.45306396484375,
+            "late_slope_mib_per_minute": -3.309598577587429
+          },
+          "linkverse-gateway": {
+            "samples": 67,
+            "first_five_min_median_gib": 0.49732208251953125,
+            "last_five_min_median_gib": 0.49732208251953125,
+            "peak_gib": 0.49857330322265625,
+            "late_slope_mib_per_minute": -3.283179020118556
+          },
+          "linkverse-mvp-mysql": {
+            "samples": 67,
+            "first_five_min_median_gib": 0.7078125,
+            "last_five_min_median_gib": 0.707958984375,
+            "peak_gib": 0.7095703125,
+            "late_slope_mib_per_minute": 0.17943372208343802
+          },
+          "linkverse-mvp-redis": {
+            "samples": 67,
+            "first_five_min_median_gib": 0.0171875,
+            "last_five_min_median_gib": 0.0171875,
+            "peak_gib": 0.01841796875,
+            "late_slope_mib_per_minute": -0.03245530529457132
+          },
+          "linkverse-mvp-rabbitmq": {
+            "samples": 67,
+            "first_five_min_median_gib": 0.17412109375,
+            "last_five_min_median_gib": 0.17412109375,
+            "peak_gib": 0.26162109375,
+            "late_slope_mib_per_minute": 1.9371364953504708
+          },
+          "linkverse-mvp-recommendation": {
+            "samples": 67,
+            "first_five_min_median_gib": 0.153515625,
+            "last_five_min_median_gib": 0.153515625,
+            "peak_gib": 0.16376953125,
+            "late_slope_mib_per_minute": 0.3557716365243636
+          }
+        },
+        "sampling_error_count": 0,
+        "container_samples": 67,
+        "utilization": {
+          "process_cpu_percent": {
+            "samples": 67,
+            "median": 8.743913886177053,
+            "p95": 11.766869634460654,
+            "min": 0.0,
+            "max": 13.413598576968909
+          },
+          "system_cpu_percent": {
+            "samples": 67,
+            "median": 24.61059190031153,
+            "p95": 32.90603802687751,
+            "min": 0.0,
+            "max": 36.24091381100727
+          },
+          "gpu_utilization_percent": {
+            "samples": 67,
+            "median": 32.0,
+            "p95": 47.699999999999996,
+            "min": 6.0,
+            "max": 50.0
+          },
+          "system_available_bytes": {
+            "samples": 67,
+            "median": 33914974208.0,
+            "p95": 34337768243.2,
+            "min": 33781112832,
+            "max": 34418528256
+          }
+        }
+      },
+      "queues": {
+        "samples": 13,
+        "unavailable_samples": 0,
+        "peak_counts": {
+          "linkverse.payment.parking": {
+            "messages": 0,
+            "messages_ready": 0,
+            "messages_unacknowledged": 0
+          },
+          "linkverse.trade.parking": {
+            "messages": 0,
+            "messages_ready": 0,
+            "messages_unacknowledged": 0
+          },
+          "linkverse.trade.payment": {
+            "messages": 0,
+            "messages_ready": 0,
+            "messages_unacknowledged": 0
+          },
+          "linkverse.trade.seckill.request": {
+            "messages": 0,
+            "messages_ready": 0,
+            "messages_unacknowledged": 0
+          },
+          "linkverse.trade.seckill.result": {
+            "messages": 0,
+            "messages_ready": 0,
+            "messages_unacknowledged": 0
+          }
+        }
+      },
+      "authentication_refreshes": 20
+    },
+    "最终故障验证": {
+      "path": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation-experiments\\runs\\trade-fault-optimized-20260906T084509Z",
+      "status": {
+        "status": "COMPLETED",
+        "elapsed_seconds": 107.53573909999977,
+        "error_type": null
+      },
+      "resources": {
+        "samples": 22,
+        "series": {
+          "linkverse-identity": {
+            "samples": 22,
+            "first_five_min_median_gib": 0.21886253356933594,
+            "last_five_min_median_gib": 0.21886253356933594,
+            "peak_gib": 0.2226409912109375,
+            "late_slope_mib_per_minute": 5.131801993993353
+          },
+          "linkverse-payment": {
+            "samples": 22,
+            "first_five_min_median_gib": 0.3544921875,
+            "last_five_min_median_gib": 0.3544921875,
+            "peak_gib": 0.3572120666503906,
+            "late_slope_mib_per_minute": 2.828058664646534
+          },
+          "linkverse-trade": {
+            "samples": 22,
+            "first_five_min_median_gib": 0.5698947906494141,
+            "last_five_min_median_gib": 0.5698947906494141,
+            "peak_gib": 0.5848884582519531,
+            "late_slope_mib_per_minute": 14.548907688676971
+          },
+          "linkverse-gateway": {
+            "samples": 22,
+            "first_five_min_median_gib": 0.19289779663085938,
+            "last_five_min_median_gib": 0.19289779663085938,
+            "peak_gib": 0.20933914184570312,
+            "late_slope_mib_per_minute": 21.356550336105407
+          },
+          "linkverse-mvp-mysql": {
+            "samples": 22,
+            "first_five_min_median_gib": 0.6668457031249999,
+            "last_five_min_median_gib": 0.6668457031249999,
+            "peak_gib": 0.66767578125,
+            "late_slope_mib_per_minute": -0.0925718771151238
+          },
+          "linkverse-mvp-redis": {
+            "samples": 22,
+            "first_five_min_median_gib": 0.0171875,
+            "last_five_min_median_gib": 0.0171875,
+            "peak_gib": 0.01767578125,
+            "late_slope_mib_per_minute": -0.08645858388079632
+          },
+          "linkverse-mvp-rabbitmq": {
+            "samples": 22,
+            "first_five_min_median_gib": 0.171826171875,
+            "last_five_min_median_gib": 0.171826171875,
+            "peak_gib": 0.22861328125,
+            "late_slope_mib_per_minute": 0.5323766968590432
+          },
+          "linkverse-mvp-recommendation": {
+            "samples": 22,
+            "first_five_min_median_gib": 0.1291015625,
+            "last_five_min_median_gib": 0.1291015625,
+            "peak_gib": 0.148046875,
+            "late_slope_mib_per_minute": 40.69223313770259
+          }
+        },
+        "sampling_error_count": 0,
+        "container_samples": 22,
+        "utilization": {
+          "process_cpu_percent": {
+            "samples": 22,
+            "median": 0.7799441720980138,
+            "p95": 8.461801595649222,
+            "min": 0.0,
+            "max": 29.925299270951136
+          },
+          "system_cpu_percent": {
+            "samples": 21,
+            "median": 22.981770833333336,
+            "p95": 27.890625000000004,
+            "min": 11.059190031152644,
+            "max": 38.62928348909658
+          },
+          "gpu_utilization_percent": {
+            "samples": 22,
+            "median": 26.0,
+            "p95": 47.95,
+            "min": 13.0,
+            "max": 51.0
+          },
+          "system_available_bytes": {
+            "samples": 22,
+            "median": 31942772736.0,
+            "p95": 32673954406.4,
+            "min": 29977460736,
+            "max": 32677904384
+          }
+        }
+      },
+      "queues": {
+        "samples": 0,
+        "unavailable_samples": 0,
+        "peak_counts": {}
+      },
+      "authentication_refreshes": 2,
+      "summary": {
+        "passed": true,
+        "checks": [
+          {
+            "name": "initial_model",
+            "passed": true,
+            "recovery_seconds": 0.2959999999984575
+          },
+          {
+            "name": "user_token",
+            "passed": true,
+            "status": 401
+          },
+          {
+            "name": "wrong_service_audience",
+            "passed": true,
+            "status": 401
+          },
+          {
+            "name": "malformed_token",
+            "passed": true,
+            "status": 401
+          },
+          {
+            "name": "invalid_signature",
+            "passed": true,
+            "status": 401
+          },
+          {
+            "name": "atomic_switch_0",
+            "passed": true,
+            "requests": 18,
+            "recovery_seconds": 0.5149999999994179
+          },
+          {
+            "name": "atomic_switch_1",
+            "passed": true,
+            "requests": 34,
+            "recovery_seconds": 1.0310000000026776
+          },
+          {
+            "name": "bad_bundle_keeps_old",
+            "passed": true,
+            "requests": 100
+          },
+          {
+            "name": "outside_pointer_keeps_old",
+            "passed": true,
+            "requests": 20
+          },
+          {
+            "name": "paused_concurrency_30_fallback",
+            "passed": true,
+            "requests": 30
+          },
+          {
+            "name": "pause_business_fallback",
+            "passed": true,
+            "requests": 10,
+            "max_latency_ms": 78.2240999978967
+          },
+          {
+            "name": "pause_recovery",
+            "passed": true,
+            "recovery_seconds": 29.81300000000192
+          },
+          {
+            "name": "stop_business_fallback",
+            "passed": true,
+            "requests": 10,
+            "max_latency_ms": 44.00030000033439
+          },
+          {
+            "name": "stop_recovery",
+            "passed": true,
+            "recovery_seconds": 29.4220000000023
+          },
+          {
+            "name": "no_active_model",
+            "passed": true
+          },
+          {
+            "name": "no_model_recovery",
+            "passed": true,
+            "recovery_seconds": 30.5
+          },
+          {
+            "name": "finally_restored",
+            "passed": true,
+            "recovery_seconds": 0.046999999998661224
+          }
+        ]
+      }
+    },
+    "完整HTTP响应等价": {
+      "path": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation-experiments\\runs\\trade-http-equivalence-20260906T084509Z",
+      "status": {
+        "status": "COMPLETED",
+        "elapsed_seconds": 1.9660039999980654,
+        "error_type": null
+      },
+      "resources": {
+        "samples": 1,
+        "series": {},
+        "sampling_error_count": 0,
+        "container_samples": 0,
+        "utilization": {
+          "process_cpu_percent": {
+            "samples": 1,
+            "median": 0.0,
+            "p95": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "system_cpu_percent": null,
+          "gpu_utilization_percent": {
+            "samples": 1,
+            "median": 49.0,
+            "p95": 49.0,
+            "min": 49.0,
+            "max": 49.0
+          },
+          "system_available_bytes": {
+            "samples": 1,
+            "median": 30582628352.0,
+            "p95": 30582628352.0,
+            "min": 30582628352,
+            "max": 30582628352
+          }
+        }
+      },
+      "queues": {
+        "samples": 0,
+        "unavailable_samples": 0,
+        "peak_counts": {}
+      },
+      "authentication_refreshes": 0,
+      "summary": {
+        "passed": true,
+        "cases": 45,
+        "failures": 0,
+        "model_version": "trade-20260906065816234951-6f240414-4f63f5f4",
+        "scope": "对相同请求逐项比较基线与优化容器的完整 HTTP JSON 响应。"
+      }
+    }
+  },
+  "http": [
+    {
+      "run": "全量直连基线单进程",
+      "stage": "python-full-300-vu20",
+      "configuration": {
+        "port": 18085,
+        "stop_on_failure": false,
+        "name": "python-full-300-vu20",
+        "think_seconds": 0,
+        "target": "python",
+        "context_ids": [
+          "20001",
+          "20002",
+          "20003",
+          "20004",
+          "20005",
+          "20006",
+          "20007",
+          "20008",
+          "20009",
+          "20010",
+          "20011",
+          "20012",
+          "20013",
+          "20014",
+          "20015",
+          "20016",
+          "20017",
+          "20018",
+          "20019",
+          "20020"
+        ],
+        "duration_seconds": 120,
+        "candidate_count": 300,
+        "concurrency": 20,
+        "warmup_seconds": 30
+      },
+      "metrics": {
+        "requests": 7679,
+        "successful": 7679,
+        "valid_model": 7679,
+        "fallback": 0,
+        "success_rate": 1.0,
+        "valid_model_rate": 1.0,
+        "fallback_rate": 0.0,
+        "latency_ms": {
+          "p50": 269.97779999874183,
+          "p95": 442.541039999196,
+          "p99": 1854.563898000416
+        },
+        "model_latency_p95_ms": 442.541039999196,
+        "statuses": {
+          "200": 7679
+        },
+        "validation_errors": {},
+        "passed": false
+      },
+      "cohorts": {
+        "known": {
+          "requests": 3791,
+          "successful": 3791,
+          "valid_model": 3791,
+          "fallback": 0,
+          "success_rate": 1.0,
+          "valid_model_rate": 1.0,
+          "fallback_rate": 0.0,
+          "latency_ms": {
+            "p50": 272.70539999881294,
+            "p95": 447.7803000008862,
+            "p99": 1864.4614099990572
+          },
+          "model_latency_p95_ms": 447.7803000008862,
+          "statuses": {
+            "200": 3791
+          },
+          "validation_errors": {},
+          "passed": false
+        },
+        "cold": {
+          "requests": 3888,
+          "successful": 3888,
+          "valid_model": 3888,
+          "fallback": 0,
+          "success_rate": 1.0,
+          "valid_model_rate": 1.0,
+          "fallback_rate": 0.0,
+          "latency_ms": {
+            "p50": 267.5891499984573,
+            "p95": 434.09031500013947,
+            "p99": 1831.5311070000826
+          },
+          "model_latency_p95_ms": 434.09031500013947,
+          "statuses": {
+            "200": 3888
+          },
+          "validation_errors": {},
+          "passed": false
+        }
+      },
+      "passed": false,
+      "throughput_rps": 63.99166666666667
+    },
+    {
+      "run": "全量直连优化单进程",
+      "stage": "python-full-300-vu20",
+      "configuration": {
+        "port": 18086,
+        "stop_on_failure": false,
+        "name": "python-full-300-vu20",
+        "think_seconds": 0,
+        "target": "python",
+        "context_ids": [
+          "20001",
+          "20002",
+          "20003",
+          "20004",
+          "20005",
+          "20006",
+          "20007",
+          "20008",
+          "20009",
+          "20010",
+          "20011",
+          "20012",
+          "20013",
+          "20014",
+          "20015",
+          "20016",
+          "20017",
+          "20018",
+          "20019",
+          "20020"
+        ],
+        "duration_seconds": 120,
+        "candidate_count": 300,
+        "concurrency": 20,
+        "warmup_seconds": 30
+      },
+      "metrics": {
+        "requests": 11753,
+        "successful": 11753,
+        "valid_model": 11753,
+        "fallback": 0,
+        "success_rate": 1.0,
+        "valid_model_rate": 1.0,
+        "fallback_rate": 0.0,
+        "latency_ms": {
+          "p50": 153.4890999973868,
+          "p95": 386.8879400004516,
+          "p99": 1647.9987800004883
+        },
+        "model_latency_p95_ms": 386.8879400004516,
+        "statuses": {
+          "200": 11753
+        },
+        "validation_errors": {},
+        "passed": false
+      },
+      "cohorts": {
+        "known": {
+          "requests": 5822,
+          "successful": 5822,
+          "valid_model": 5822,
+          "fallback": 0,
+          "success_rate": 1.0,
+          "valid_model_rate": 1.0,
+          "fallback_rate": 0.0,
+          "latency_ms": {
+            "p50": 154.31125000031898,
+            "p95": 393.53280500072276,
+            "p99": 1642.1002080009566
+          },
+          "model_latency_p95_ms": 393.53280500072276,
+          "statuses": {
+            "200": 5822
+          },
+          "validation_errors": {},
+          "passed": false
+        },
+        "cold": {
+          "requests": 5931,
+          "successful": 5931,
+          "valid_model": 5931,
+          "fallback": 0,
+          "success_rate": 1.0,
+          "valid_model_rate": 1.0,
+          "fallback_rate": 0.0,
+          "latency_ms": {
+            "p50": 152.55809999871417,
+            "p95": 382.6208999998926,
+            "p99": 1650.610489999598
+          },
+          "model_latency_p95_ms": 382.6208999998926,
+          "statuses": {
+            "200": 5931
+          },
+          "validation_errors": {},
+          "passed": false
+        }
+      },
+      "passed": false,
+      "throughput_rps": 97.94166666666666
+    },
+    {
+      "run": "全量直连优化单进程",
+      "stage": "python-full-daily100-vu20",
+      "configuration": {
+        "port": 18086,
+        "stop_on_failure": false,
+        "name": "python-full-daily100-vu20",
+        "think_seconds": 0,
+        "target": "python",
+        "context_ids": [
+          "20001",
+          "20002",
+          "20003",
+          "20004",
+          "20005",
+          "20006",
+          "20007",
+          "20008",
+          "20009",
+          "20010",
+          "20011",
+          "20012",
+          "20013",
+          "20014",
+          "20015",
+          "20016",
+          "20017",
+          "20018",
+          "20019",
+          "20020"
+        ],
+        "duration_seconds": 120,
+        "candidate_count": 100,
+        "concurrency": 20,
+        "warmup_seconds": 30
+      },
+      "metrics": {
+        "requests": 14866,
+        "successful": 14866,
+        "valid_model": 14866,
+        "fallback": 0,
+        "success_rate": 1.0,
+        "valid_model_rate": 1.0,
+        "fallback_rate": 0.0,
+        "latency_ms": {
+          "p50": 128.23505000051227,
+          "p95": 318.8918250007191,
+          "p99": 612.0226200018813
+        },
+        "model_latency_p95_ms": 318.8918250007191,
+        "statuses": {
+          "200": 14866
+        },
+        "validation_errors": {},
+        "passed": false
+      },
+      "cohorts": {
+        "known": {
+          "requests": 7406,
+          "successful": 7406,
+          "valid_model": 7406,
+          "fallback": 0,
+          "success_rate": 1.0,
+          "valid_model_rate": 1.0,
+          "fallback_rate": 0.0,
+          "latency_ms": {
+            "p50": 128.59095000021625,
+            "p95": 319.62639999983367,
+            "p99": 592.251054999722
+          },
+          "model_latency_p95_ms": 319.62639999983367,
+          "statuses": {
+            "200": 7406
+          },
+          "validation_errors": {},
+          "passed": false
+        },
+        "cold": {
+          "requests": 7460,
+          "successful": 7460,
+          "valid_model": 7460,
+          "fallback": 0,
+          "success_rate": 1.0,
+          "valid_model_rate": 1.0,
+          "fallback_rate": 0.0,
+          "latency_ms": {
+            "p50": 127.7368499977456,
+            "p95": 318.50144500185695,
+            "p99": 636.5399029993926
+          },
+          "model_latency_p95_ms": 318.50144500185695,
+          "statuses": {
+            "200": 7460
+          },
+          "validation_errors": {},
+          "passed": false
+        }
+      },
+      "passed": false,
+      "throughput_rps": 123.88333333333334
+    },
+    {
+      "run": "全量直连双进程未采用",
+      "stage": "python-full-300-vu20",
+      "configuration": {
+        "port": 18087,
+        "stop_on_failure": false,
+        "name": "python-full-300-vu20",
+        "think_seconds": 0,
+        "target": "python",
+        "context_ids": [
+          "20001",
+          "20002",
+          "20003",
+          "20004",
+          "20005",
+          "20006",
+          "20007",
+          "20008",
+          "20009",
+          "20010",
+          "20011",
+          "20012",
+          "20013",
+          "20014",
+          "20015",
+          "20016",
+          "20017",
+          "20018",
+          "20019",
+          "20020"
+        ],
+        "duration_seconds": 120,
+        "candidate_count": 300,
+        "concurrency": 20,
+        "warmup_seconds": 30
+      },
+      "metrics": {
+        "requests": 15424,
+        "successful": 15419,
+        "valid_model": 15419,
+        "fallback": 0,
+        "success_rate": 0.9996758298755186,
+        "valid_model_rate": 0.9996758298755186,
+        "fallback_rate": 0.0,
+        "latency_ms": {
+          "p50": 115.57009999887669,
+          "p95": 341.4092699993488,
+          "p99": 563.4115860005851
+        },
+        "model_latency_p95_ms": 340.5086200004001,
+        "statuses": {
+          "200": 15419,
+          "0": 5
+        },
+        "validation_errors": {
+          "RemoteProtocolError": 5,
+          "unexpected_model_version": 5,
+          "incomplete_or_duplicate_items": 5
+        },
+        "passed": false
+      },
+      "cohorts": {
+        "known": {
+          "requests": 7702,
+          "successful": 7698,
+          "valid_model": 7698,
+          "fallback": 0,
+          "success_rate": 0.9994806543754868,
+          "valid_model_rate": 0.9994806543754868,
+          "fallback_rate": 0.0,
+          "latency_ms": {
+            "p50": 116.198350000559,
+            "p95": 339.4378950008104,
+            "p99": 558.0109940007604
+          },
+          "model_latency_p95_ms": 337.6199449990961,
+          "statuses": {
+            "200": 7698,
+            "0": 4
+          },
+          "validation_errors": {
+            "RemoteProtocolError": 4,
+            "unexpected_model_version": 4,
+            "incomplete_or_duplicate_items": 4
+          },
+          "passed": false
+        },
+        "cold": {
+          "requests": 7722,
+          "successful": 7721,
+          "valid_model": 7721,
+          "fallback": 0,
+          "success_rate": 0.9998704998704999,
+          "valid_model_rate": 0.9998704998704999,
+          "fallback_rate": 0.0,
+          "latency_ms": {
+            "p50": 114.85910000010335,
+            "p95": 345.5118349991607,
+            "p99": 570.6044929988275
+          },
+          "model_latency_p95_ms": 345.34720000010566,
+          "statuses": {
+            "200": 7721,
+            "0": 1
+          },
+          "validation_errors": {
+            "RemoteProtocolError": 1,
+            "unexpected_model_version": 1,
+            "incomplete_or_duplicate_items": 1
+          },
+          "passed": false
+        }
+      },
+      "passed": false,
+      "throughput_rps": 128.53333333333333
+    },
+    {
+      "run": "全量直连双进程未采用",
+      "stage": "python-full-daily100-vu20",
+      "configuration": {
+        "port": 18087,
+        "stop_on_failure": false,
+        "name": "python-full-daily100-vu20",
+        "think_seconds": 0,
+        "target": "python",
+        "context_ids": [
+          "20001",
+          "20002",
+          "20003",
+          "20004",
+          "20005",
+          "20006",
+          "20007",
+          "20008",
+          "20009",
+          "20010",
+          "20011",
+          "20012",
+          "20013",
+          "20014",
+          "20015",
+          "20016",
+          "20017",
+          "20018",
+          "20019",
+          "20020"
+        ],
+        "duration_seconds": 120,
+        "candidate_count": 100,
+        "concurrency": 20,
+        "warmup_seconds": 30
+      },
+      "metrics": {
+        "requests": 15815,
+        "successful": 15813,
+        "valid_model": 15813,
+        "fallback": 0,
+        "success_rate": 0.9998735377805881,
+        "valid_model_rate": 0.9998735377805881,
+        "fallback_rate": 0.0,
+        "latency_ms": {
+          "p50": 113.56690000320668,
+          "p95": 338.8428599999314,
+          "p99": 531.8016499978694
+        },
+        "model_latency_p95_ms": 338.8579799997387,
+        "statuses": {
+          "200": 15813,
+          "0": 2
+        },
+        "validation_errors": {
+          "RemoteProtocolError": 2,
+          "unexpected_model_version": 2,
+          "incomplete_or_duplicate_items": 2
+        },
+        "passed": false
+      },
+      "cohorts": {
+        "known": {
+          "requests": 7750,
+          "successful": 7750,
+          "valid_model": 7750,
+          "fallback": 0,
+          "success_rate": 1.0,
+          "valid_model_rate": 1.0,
+          "fallback_rate": 0.0,
+          "latency_ms": {
+            "p50": 114.86684999727004,
+            "p95": 349.73201500033554,
+            "p99": 554.4771319998838
+          },
+          "model_latency_p95_ms": 349.73201500033554,
+          "statuses": {
+            "200": 7750
+          },
+          "validation_errors": {},
+          "passed": false
+        },
+        "cold": {
+          "requests": 8065,
+          "successful": 8063,
+          "valid_model": 8063,
+          "fallback": 0,
+          "success_rate": 0.9997520148791073,
+          "valid_model_rate": 0.9997520148791073,
+          "fallback_rate": 0.0,
+          "latency_ms": {
+            "p50": 112.020600001415,
+            "p95": 328.38245999882923,
+            "p99": 511.08768400110347
+          },
+          "model_latency_p95_ms": 328.3873799984576,
+          "statuses": {
+            "200": 8063,
+            "0": 2
+          },
+          "validation_errors": {
+            "RemoteProtocolError": 2,
+            "unexpected_model_version": 2,
+            "incomplete_or_duplicate_items": 2
+          },
+          "passed": false
+        }
+      },
+      "passed": false,
+      "throughput_rps": 131.79166666666666
+    },
+    {
+      "run": "最终业务夹具直连",
+      "stage": "trade-vu20",
+      "configuration": {
+        "warmup_seconds": 30,
+        "think_seconds": 0,
+        "concurrency": 20,
+        "stop_on_failure": false,
+        "duration_seconds": 120,
+        "name": "trade-vu20",
+        "target": "trade"
+      },
+      "metrics": {
+        "requests": 14725,
+        "successful": 14725,
+        "valid_model": 14725,
+        "fallback": 0,
+        "success_rate": 1.0,
+        "valid_model_rate": 1.0,
+        "fallback_rate": 0.0,
+        "latency_ms": {
+          "p50": 131.96790000074543,
+          "p95": 337.9051000003528,
+          "p99": 505.4251520014078
+        },
+        "model_latency_p95_ms": 337.9051000003528,
+        "statuses": {
+          "200": 14725
+        },
+        "validation_errors": {},
+        "passed": true
+      },
+      "cohorts": {
+        "known": {
+          "requests": 3674,
+          "successful": 3674,
+          "valid_model": 3674,
+          "fallback": 0,
+          "success_rate": 1.0,
+          "valid_model_rate": 1.0,
+          "fallback_rate": 0.0,
+          "latency_ms": {
+            "p50": 133.44634999884875,
+            "p95": 336.479785001211,
+            "p99": 506.66724800033984
+          },
+          "model_latency_p95_ms": 336.479785001211,
+          "statuses": {
+            "200": 3674
+          },
+          "validation_errors": {},
+          "passed": true
+        },
+        "cold": {
+          "requests": 11051,
+          "successful": 11051,
+          "valid_model": 11051,
+          "fallback": 0,
+          "success_rate": 1.0,
+          "valid_model_rate": 1.0,
+          "fallback_rate": 0.0,
+          "latency_ms": {
+            "p50": 131.72320000012405,
+            "p95": 338.12975000000733,
+            "p99": 504.1919500017684
+          },
+          "model_latency_p95_ms": 338.12975000000733,
+          "statuses": {
+            "200": 11051
+          },
+          "validation_errors": {},
+          "passed": true
+        }
+      },
+      "passed": true,
+      "throughput_rps": 122.70833333333333
+    },
+    {
+      "run": "最终业务夹具直连",
+      "stage": "gateway-vu1",
+      "configuration": {
+        "warmup_seconds": 30,
+        "think_seconds": 0,
+        "concurrency": 1,
+        "stop_on_failure": false,
+        "duration_seconds": 120,
+        "name": "gateway-vu1",
+        "target": "gateway"
+      },
+      "metrics": {
+        "requests": 3427,
+        "successful": 3427,
+        "valid_model": 3427,
+        "fallback": 0,
+        "success_rate": 1.0,
+        "valid_model_rate": 1.0,
+        "fallback_rate": 0.0,
+        "latency_ms": {
+          "p50": 33.941499998036306,
+          "p95": 39.86319999967236,
+          "p99": 42.50166999983773
+        },
+        "model_latency_p95_ms": 39.86319999967236,
+        "statuses": {
+          "200": 3427
+        },
+        "validation_errors": {},
+        "passed": true
+      },
+      "cohorts": {
+        "known": {
+          "requests": 3427,
+          "successful": 3427,
+          "valid_model": 3427,
+          "fallback": 0,
+          "success_rate": 1.0,
+          "valid_model_rate": 1.0,
+          "fallback_rate": 0.0,
+          "latency_ms": {
+            "p50": 33.941499998036306,
+            "p95": 39.86319999967236,
+            "p99": 42.50166999983773
+          },
+          "model_latency_p95_ms": 39.86319999967236,
+          "statuses": {
+            "200": 3427
+          },
+          "validation_errors": {},
+          "passed": true
+        },
+        "cold": {
+          "requests": 0,
+          "successful": 0,
+          "valid_model": 0,
+          "fallback": 0,
+          "success_rate": null,
+          "valid_model_rate": null,
+          "fallback_rate": null,
+          "latency_ms": {
+            "p50": null,
+            "p95": null,
+            "p99": null
+          },
+          "model_latency_p95_ms": null,
+          "statuses": {},
+          "validation_errors": {},
+          "passed": false
+        }
+      },
+      "passed": true,
+      "throughput_rps": 28.558333333333334
+    },
+    {
+      "run": "最终业务夹具直连",
+      "stage": "gateway-vu5",
+      "configuration": {
+        "warmup_seconds": 30,
+        "think_seconds": 0,
+        "concurrency": 5,
+        "stop_on_failure": false,
+        "duration_seconds": 120,
+        "name": "gateway-vu5",
+        "target": "gateway"
+      },
+      "metrics": {
+        "requests": 13975,
+        "successful": 13975,
+        "valid_model": 13975,
+        "fallback": 0,
+        "success_rate": 1.0,
+        "valid_model_rate": 1.0,
+        "fallback_rate": 0.0,
+        "latency_ms": {
+          "p50": 41.23329999856651,
+          "p95": 52.409630000693134,
+          "p99": 59.2458219989203
+        },
+        "model_latency_p95_ms": 52.409630000693134,
+        "statuses": {
+          "200": 13975
+        },
+        "validation_errors": {},
+        "passed": true
+      },
+      "cohorts": {
+        "known": {
+          "requests": 13975,
+          "successful": 13975,
+          "valid_model": 13975,
+          "fallback": 0,
+          "success_rate": 1.0,
+          "valid_model_rate": 1.0,
+          "fallback_rate": 0.0,
+          "latency_ms": {
+            "p50": 41.23329999856651,
+            "p95": 52.409630000693134,
+            "p99": 59.2458219989203
+          },
+          "model_latency_p95_ms": 52.409630000693134,
+          "statuses": {
+            "200": 13975
+          },
+          "validation_errors": {},
+          "passed": true
+        },
+        "cold": {
+          "requests": 0,
+          "successful": 0,
+          "valid_model": 0,
+          "fallback": 0,
+          "success_rate": null,
+          "valid_model_rate": null,
+          "fallback_rate": null,
+          "latency_ms": {
+            "p50": null,
+            "p95": null,
+            "p99": null
+          },
+          "model_latency_p95_ms": null,
+          "statuses": {},
+          "validation_errors": {},
+          "passed": false
+        }
+      },
+      "passed": true,
+      "throughput_rps": 116.45833333333333
+    },
+    {
+      "run": "最终业务夹具直连",
+      "stage": "gateway-vu10",
+      "configuration": {
+        "warmup_seconds": 30,
+        "think_seconds": 0,
+        "concurrency": 10,
+        "stop_on_failure": false,
+        "duration_seconds": 120,
+        "name": "gateway-vu10",
+        "target": "gateway"
+      },
+      "metrics": {
+        "requests": 19622,
+        "successful": 19622,
+        "valid_model": 19622,
+        "fallback": 0,
+        "success_rate": 1.0,
+        "valid_model_rate": 1.0,
+        "fallback_rate": 0.0,
+        "latency_ms": {
+          "p50": 57.74164999820641,
+          "p95": 86.04441499992392,
+          "p99": 115.50999799808783
+        },
+        "model_latency_p95_ms": 86.04441499992392,
+        "statuses": {
+          "200": 19622
+        },
+        "validation_errors": {},
+        "passed": true
+      },
+      "cohorts": {
+        "known": {
+          "requests": 9769,
+          "successful": 9769,
+          "valid_model": 9769,
+          "fallback": 0,
+          "success_rate": 1.0,
+          "valid_model_rate": 1.0,
+          "fallback_rate": 0.0,
+          "latency_ms": {
+            "p50": 58.030100000905804,
+            "p95": 86.37526000020443,
+            "p99": 115.65182799851743
+          },
+          "model_latency_p95_ms": 86.37526000020443,
+          "statuses": {
+            "200": 9769
+          },
+          "validation_errors": {},
+          "passed": true
+        },
+        "cold": {
+          "requests": 9853,
+          "successful": 9853,
+          "valid_model": 9853,
+          "fallback": 0,
+          "success_rate": 1.0,
+          "valid_model_rate": 1.0,
+          "fallback_rate": 0.0,
+          "latency_ms": {
+            "p50": 57.492600000841776,
+            "p95": 85.5126400012523,
+            "p99": 115.24982400005683
+          },
+          "model_latency_p95_ms": 85.5126400012523,
+          "statuses": {
+            "200": 9853
+          },
+          "validation_errors": {},
+          "passed": true
+        }
+      },
+      "passed": true,
+      "throughput_rps": 163.51666666666668
+    },
+    {
+      "run": "最终业务夹具直连",
+      "stage": "gateway-vu20",
+      "configuration": {
+        "warmup_seconds": 30,
+        "think_seconds": 0,
+        "concurrency": 20,
+        "stop_on_failure": false,
+        "duration_seconds": 120,
+        "name": "gateway-vu20",
+        "target": "gateway"
+      },
+      "metrics": {
+        "requests": 14693,
+        "successful": 14693,
+        "valid_model": 14693,
+        "fallback": 0,
+        "success_rate": 1.0,
+        "valid_model_rate": 1.0,
+        "fallback_rate": 0.0,
+        "latency_ms": {
+          "p50": 133.71320000078413,
+          "p95": 334.49351999806817,
+          "p99": 481.12987600106857
+        },
+        "model_latency_p95_ms": 334.49351999806817,
+        "statuses": {
+          "200": 14693
+        },
+        "validation_errors": {},
+        "passed": true
+      },
+      "cohorts": {
+        "known": {
+          "requests": 3678,
+          "successful": 3678,
+          "valid_model": 3678,
+          "fallback": 0,
+          "success_rate": 1.0,
+          "valid_model_rate": 1.0,
+          "fallback_rate": 0.0,
+          "latency_ms": {
+            "p50": 133.2440999995015,
+            "p95": 334.2694799986923,
+            "p99": 481.79892299980565
+          },
+          "model_latency_p95_ms": 334.2694799986923,
+          "statuses": {
+            "200": 3678
+          },
+          "validation_errors": {},
+          "passed": true
+        },
+        "cold": {
+          "requests": 11015,
+          "successful": 11015,
+          "valid_model": 11015,
+          "fallback": 0,
+          "success_rate": 1.0,
+          "valid_model_rate": 1.0,
+          "fallback_rate": 0.0,
+          "latency_ms": {
+            "p50": 133.8517000003776,
+            "p95": 334.4804899981681,
+            "p99": 480.3368879995844
+          },
+          "model_latency_p95_ms": 334.4804899981681,
+          "statuses": {
+            "200": 11015
+          },
+          "validation_errors": {},
+          "passed": true
+        }
+      },
+      "passed": true,
+      "throughput_rps": 122.44166666666666
+    },
+    {
+      "run": "最终三十分钟长稳",
+      "stage": "gateway-20-vu-30-min",
+      "configuration": {
+        "warmup_seconds": 30,
+        "think_seconds": 1,
+        "concurrency": 20,
+        "stop_on_failure": true,
+        "duration_seconds": 1800,
+        "name": "gateway-20-vu-30-min",
+        "target": "gateway"
+      },
+      "metrics": {
+        "requests": 33998,
+        "successful": 33998,
+        "valid_model": 33998,
+        "fallback": 0,
+        "success_rate": 1.0,
+        "valid_model_rate": 1.0,
+        "fallback_rate": 0.0,
+        "latency_ms": {
+          "p50": 52.90349999995669,
+          "p95": 85.12264000000869,
+          "p99": 114.10330099970449
+        },
+        "model_latency_p95_ms": 85.12264000000869,
+        "statuses": {
+          "200": 33998
+        },
+        "validation_errors": {},
+        "passed": true
+      },
+      "cohorts": {
+        "known": {
+          "requests": 8497,
+          "successful": 8497,
+          "valid_model": 8497,
+          "fallback": 0,
+          "success_rate": 1.0,
+          "valid_model_rate": 1.0,
+          "fallback_rate": 0.0,
+          "latency_ms": {
+            "p50": 53.42199999722652,
+            "p95": 85.76575999977649,
+            "p99": 116.17710399790647
+          },
+          "model_latency_p95_ms": 85.76575999977649,
+          "statuses": {
+            "200": 8497
+          },
+          "validation_errors": {},
+          "passed": true
+        },
+        "cold": {
+          "requests": 25501,
+          "successful": 25501,
+          "valid_model": 25501,
+          "fallback": 0,
+          "success_rate": 1.0,
+          "valid_model_rate": 1.0,
+          "fallback_rate": 0.0,
+          "latency_ms": {
+            "p50": 52.7062000001024,
+            "p95": 84.83420000266051,
+            "p99": 113.47600000226521
+          },
+          "model_latency_p95_ms": 84.83420000266051,
+          "statuses": {
+            "200": 25501
+          },
+          "validation_errors": {},
+          "passed": true
+        }
+      },
+      "passed": true,
+      "throughput_rps": 18.887777777777778
+    },
+    {
+      "run": "最终独立五分钟复跑",
+      "stage": "gateway-20-vu-repeat",
+      "configuration": {
+        "warmup_seconds": 30,
+        "think_seconds": 1,
+        "concurrency": 20,
+        "stop_on_failure": true,
+        "duration_seconds": 300,
+        "name": "gateway-20-vu-repeat",
+        "target": "gateway"
+      },
+      "metrics": {
+        "requests": 5674,
+        "successful": 5674,
+        "valid_model": 5674,
+        "fallback": 0,
+        "success_rate": 1.0,
+        "valid_model_rate": 1.0,
+        "fallback_rate": 0.0,
+        "latency_ms": {
+          "p50": 54.11199999980454,
+          "p95": 88.87238499810331,
+          "p99": 115.4159730018726
+        },
+        "model_latency_p95_ms": 88.87238499810331,
+        "statuses": {
+          "200": 5674
+        },
+        "validation_errors": {},
+        "passed": true
+      },
+      "cohorts": {
+        "known": {
+          "requests": 1419,
+          "successful": 1419,
+          "valid_model": 1419,
+          "fallback": 0,
+          "success_rate": 1.0,
+          "valid_model_rate": 1.0,
+          "fallback_rate": 0.0,
+          "latency_ms": {
+            "p50": 53.51880000307574,
+            "p95": 87.48442999822144,
+            "p99": 112.94539600166897
+          },
+          "model_latency_p95_ms": 87.48442999822144,
+          "statuses": {
+            "200": 1419
+          },
+          "validation_errors": {},
+          "passed": true
+        },
+        "cold": {
+          "requests": 4255,
+          "successful": 4255,
+          "valid_model": 4255,
+          "fallback": 0,
+          "success_rate": 1.0,
+          "valid_model_rate": 1.0,
+          "fallback_rate": 0.0,
+          "latency_ms": {
+            "p50": 54.33249999987311,
+            "p95": 89.68521000024339,
+            "p99": 116.7625439996482
+          },
+          "model_latency_p95_ms": 89.68521000024339,
+          "statuses": {
+            "200": 4255
+          },
+          "validation_errors": {},
+          "passed": true
+        }
+      },
+      "passed": true,
+      "throughput_rps": 18.913333333333334
+    }
+  ]
+}

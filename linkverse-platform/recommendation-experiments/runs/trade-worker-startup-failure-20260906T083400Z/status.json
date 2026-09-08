@@ -1,0 +1,7 @@
+{
+  "reason": "当前镜像的 Uvicorn 不支持 --timeout-worker-healthcheck 参数；未进入性能采样。",
+  "status": "FAILED",
+  "phase": "STARTUP",
+  "time_note": "目录时间为该尝试的近似起始时刻，准确失败响应见控制会话记录。",
+  "metrics_available": false
+}

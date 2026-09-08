@@ -1,0 +1,119 @@
+{
+  "trade-ranker-smoke-20260908": {
+    "status": {
+      "status": "COMPLETED",
+      "elapsed_seconds": 24.97660900000119,
+      "error_type": null
+    },
+    "resource_samples": 5,
+    "peak_process_rss_gib": 3.4514007568359375,
+    "container_available": 3,
+    "container_unavailable": 0,
+    "container_status_missing": 2,
+    "container_peak_gib": 0.44052734375
+  },
+  "trade-ranker-formal-20260908": {
+    "status": {
+      "status": "COMPLETED",
+      "elapsed_seconds": 469.8048104999998,
+      "error_type": null
+    },
+    "resource_samples": 93,
+    "peak_process_rss_gib": 6.8388671875,
+    "container_available": 87,
+    "container_unavailable": 0,
+    "container_status_missing": 6,
+    "container_peak_gib": 0.45419921875
+  },
+  "trade-ranker-calibration-20260908": {
+    "status": {
+      "status": "COMPLETED",
+      "elapsed_seconds": 98.74823540000034,
+      "error_type": null
+    },
+    "resource_samples": 19,
+    "peak_process_rss_gib": 3.4392242431640625,
+    "container_available": 17,
+    "container_unavailable": 0,
+    "container_status_missing": 2,
+    "container_peak_gib": 1.724
+  },
+  "trade-ranker-request-time-20260908": {
+    "status": {
+      "status": "COMPLETED",
+      "elapsed_seconds": 360.96639140000116,
+      "error_type": null
+    },
+    "resource_samples": 71,
+    "peak_process_rss_gib": 5.113422393798828,
+    "container_available": 0,
+    "container_unavailable": 0,
+    "container_status_missing": null,
+    "container_peak_gib": null
+  },
+  "trade-ranker-runtime-20260908": {
+    "status": {
+      "status": "FAILED",
+      "elapsed_seconds": 49.29642430000058,
+      "error_type": "ReadTimeout"
+    },
+    "resource_samples": 9,
+    "peak_process_rss_gib": 4.955936431884766,
+    "container_available": 7,
+    "container_unavailable": 0,
+    "container_status_missing": 2,
+    "container_peak_gib": 2.0
+  },
+  "trade-ranker-runtime-v2-20260908": {
+    "status": {
+      "status": "COMPLETED",
+      "elapsed_seconds": 120.86738220000007,
+      "error_type": null
+    },
+    "resource_samples": 20,
+    "peak_process_rss_gib": 4.995830535888672,
+    "container_available": 17,
+    "container_unavailable": 0,
+    "container_status_missing": 3,
+    "container_peak_gib": 3.764
+  },
+  "trade-ranker-http-before-20260908": {
+    "status": {
+      "status": "COMPLETED",
+      "elapsed_seconds": 152.46308750000026,
+      "error_type": null
+    },
+    "resource_samples": 31,
+    "peak_process_rss_gib": 0.07938766479492188,
+    "container_available": 31,
+    "container_unavailable": 0,
+    "container_status_missing": 0,
+    "container_peak_gib": 1.876
+  },
+  "trade-ranker-http-after-20260908": {
+    "status": {
+      "status": "COMPLETED",
+      "elapsed_seconds": 287.77448729999924,
+      "error_type": null
+    },
+    "resource_samples": 58,
+    "peak_process_rss_gib": 0.07907485961914062,
+    "container_available": 58,
+    "container_unavailable": 0,
+    "container_status_missing": 0,
+    "container_peak_gib": 1.884
+  },
+  "trade-ranker-inprocess-20260908": {
+    "status": {
+      "status": "COMPLETED",
+      "elapsed_seconds": 70.18729709999934,
+      "error_type": null
+    },
+    "resource_samples": 12,
+    "peak_process_rss_gib": 1.8003196716308594,
+    "container_available": 0,
+    "container_unavailable": 0,
+    "container_status_missing": null,
+    "container_peak_gib": null
+  }
+}

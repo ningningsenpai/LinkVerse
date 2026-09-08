@@ -1,0 +1,8 @@
+{
+  "bundle": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation\\artifacts\\ranker-20260908\\trade-20260908070431966489-6f240414-4f63f5f4",
+  "selected_manifest_sha256": "5de0c519409309db7a59edc64fdff2127979204cf837e2a052adaed738542a93",
+  "request_time": "2026-02-26T15:13:00+00:00",
+  "model_selection_frozen": true,
+  "resource_monitor": true,
+  "purpose": "HISTORICAL_REGRESSION_COMMON_REQUEST_TIME"
+}

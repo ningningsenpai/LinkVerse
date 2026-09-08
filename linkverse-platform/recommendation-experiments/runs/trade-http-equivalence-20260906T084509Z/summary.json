@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "cases": 45,
+  "failures": 0,
+  "model_version": "trade-20260906065816234951-6f240414-4f63f5f4",
+  "scope": "对相同请求逐项比较基线与优化容器的完整 HTTP JSON 响应。"
+}

@@ -1,0 +1,11 @@
+{
+  "run_id": "trade-local-corrected-20260906T084509Z",
+  "tower_trials": 5,
+  "ranker_trials": 5,
+  "epoch_records": 46,
+  "resource_samples": 2,
+  "peak_process_rss_gib": 1.4948883056640625,
+  "peak_device_memory_mib": 6210.0,
+  "peak_pytorch_allocated_mib": 72.98828125,
+  "resource_scope": "设备显存包含桌面等其他进程；PyTorch 已分配峰值单独记录，不能把二者差值直接解释为模型内存泄漏。"
+}

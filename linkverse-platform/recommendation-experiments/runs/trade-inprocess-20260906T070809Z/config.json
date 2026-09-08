@@ -1,0 +1,39 @@
+{
+  "purpose": "CPU_IN_PROCESS_PERFORMANCE",
+  "container_metrics": true,
+  "output": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation-experiments\\runs\\trade-inprocess-20260906T070809Z",
+  "metric_containers": [
+    "linkverse-mvp-mysql",
+    "linkverse-mvp-redis",
+    "linkverse-mvp-rabbitmq",
+    "linkverse-mvp-recommendation",
+    "linkverse-mvp-recommendation-benchmark"
+  ],
+  "java_processes": [
+    {
+      "name": "linkverse-identity",
+      "pid": 5352,
+      "port": 18081,
+      "jar": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\.runtime\\linkverse-identity\\1f0cfe2bcb4f491d90bb4f5e20bb0282\\linkverse-identity.jar"
+    },
+    {
+      "name": "linkverse-payment",
+      "pid": 49596,
+      "port": 18083,
+      "jar": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\backend\\linkverse-payment\\target\\linkverse-payment-0.1.0-SNAPSHOT.jar"
+    },
+    {
+      "name": "linkverse-trade",
+      "pid": 51020,
+      "port": 18082,
+      "jar": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\.runtime\\linkverse-trade\\abebacc942e14fb4abbe99130c7905a6\\linkverse-trade.jar"
+    },
+    {
+      "name": "linkverse-gateway",
+      "pid": 48740,
+      "port": 18080,
+      "jar": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\backend\\linkverse-gateway\\target\\linkverse-gateway-0.1.0-SNAPSHOT.jar"
+    }
+  ],
+  "bundle": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation\\artifacts\\formal-20260906T060941Z\\after\\trade-20260906065816234951-6f240414-4f63f5f4"
+}

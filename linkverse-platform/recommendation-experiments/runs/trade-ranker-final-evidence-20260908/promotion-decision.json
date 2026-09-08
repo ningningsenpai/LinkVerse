@@ -1,0 +1,19 @@
+{
+  "status": "NOT_PROMOTED",
+  "purpose": "ENGINEERING",
+  "manifest_sha256": "5de0c519409309db7a59edc64fdff2127979204cf837e2a052adaed738542a93",
+  "natural_traffic_evidence": false,
+  "checks": {
+    "offline_quality": true,
+    "data_isolation": true,
+    "tests": true,
+    "http_validity": true,
+    "latency": false,
+    "rollback": true
+  },
+  "business_active_model_unchanged": "trade-20260906084521028172-6f240414-670bd78a",
+  "limitations": [
+    "数据为合成历史，测试窗口已查看，不构成自然用户收益。",
+    "新模型只在隔离 18085 端口测试。"
+  ]
+}

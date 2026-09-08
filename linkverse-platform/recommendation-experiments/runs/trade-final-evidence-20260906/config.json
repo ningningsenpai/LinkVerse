@@ -1,0 +1,18 @@
+{
+  "output": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation-experiments\\runs\\trade-final-evidence-20260906",
+  "runs": {
+    "全量直连基线单进程": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation-experiments\\runs\\trade-python-direct-baseline-20260906T081014Z",
+    "全量直连优化单进程": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation-experiments\\runs\\trade-python-direct-optimized-20260906T081014Z",
+    "全量直连双进程未采用": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation-experiments\\runs\\trade-python-two-workers-20260906T082558Z",
+    "容量扩展未执行": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation-experiments\\runs\\trade-python-two-workers-capacity-20260906T082558Z",
+    "最终业务夹具直连": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation-experiments\\runs\\trade-business-optimized-20260906T084509Z",
+    "最终三十分钟长稳": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation-experiments\\runs\\trade-soak-optimized-20260906T084509Z",
+    "最终独立五分钟复跑": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation-experiments\\runs\\trade-repeat-optimized-20260906T084509Z",
+    "最终故障验证": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation-experiments\\runs\\trade-fault-optimized-20260906T084509Z",
+    "完整HTTP响应等价": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation-experiments\\runs\\trade-http-equivalence-20260906T084509Z"
+  },
+  "soak_runs": {
+    "soak": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation-experiments\\runs\\trade-soak-optimized-20260906T084509Z",
+    "repeat": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation-experiments\\runs\\trade-repeat-optimized-20260906T084509Z"
+  }
+}

@@ -1,0 +1,527 @@
+[
+  {
+    "run": "trade-ablation-20260906T070150Z",
+    "status": {
+      "status": "COMPLETED",
+      "elapsed_seconds": 361.9936856000004,
+      "error_type": null
+    },
+    "evidence_files": {
+      "manifest.json": "00af39e73f48b2ae2ad7b0d35379f3494b5932b053baeffb9c0b940b803f563f",
+      "config.json": "834bd889c93664f1202c22edfa1a07690d5c0bf761bc440521051c92773a5714",
+      "status.json": "e3546d2ba037f0f9eb5121ea194afd9b1b14ef0e5b9b3329d19dfe497978d00f",
+      "evaluation.json": "08473d39eeb31a90c95ff8d8432d7e9b79829d7aca350c25a0606f31775bfadf"
+    }
+  },
+  {
+    "run": "trade-business-http-20260906T070943Z",
+    "status": {
+      "status": "COMPLETED",
+      "elapsed_seconds": 750.9539418000004,
+      "error_type": null
+    },
+    "evidence_files": {
+      "manifest.json": "f704027f2fd6067cf331a7444a039173d50272afbe94e0ba4ee5e52bdcbacc5b",
+      "config.json": "a35f183a55154379512c79a647479352bf37479bd26325b0a02c26713214b0b2",
+      "status.json": "78e23ae8098e6abecc34095528350e39b6cee7a7a7be9907f7be78fec429e014",
+      "summary.json": "50d8246200a036b77fd4f58055c50dbec08e961ed54e1718610f47282f7640f9",
+      "transport-review.json": "d35d641e6874ab99cc4c82dcb6dc54f11d1329e59961dc5e73fbe34ac5406d87"
+    }
+  },
+  {
+    "run": "trade-business-optimized-20260906T084509Z",
+    "status": {
+      "status": "COMPLETED",
+      "elapsed_seconds": 750.9577905000006,
+      "error_type": null
+    },
+    "evidence_files": {
+      "manifest.json": "2a6b0c173a414ac37fe42e9dd240189438a510fbf5e5126735cff59f01b3913c",
+      "config.json": "6f15cc9b3cc0f880b51de6bfd6f2541370e518da26bfff34b3e68ed6103abe61",
+      "status.json": "9d2b555503fc004143182afb385b7986c5d96baff6a85316d05b45feb8414157",
+      "summary.json": "142aae2460c80698650c9938caf8f9612a779435936b266b1b7852b56541d8f2"
+    }
+  },
+  {
+    "run": "trade-business-repeat-20260906T070943Z",
+    "status": {
+      "status": "NOT_RUN",
+      "reason": "基线长稳被优化版本的完整验收取代。"
+    },
+    "evidence_files": {
+      "config.json": "6b8bbabde414a3b9c720f6dc0d2232625092e6094981212de1eb9e0a682db84a",
+      "status.json": "96c0093df92e8f783fd18ea8edb8ea20c183c555833c818bdf22ad151360aa2e"
+    }
+  },
+  {
+    "run": "trade-business-soak-20260906T070943Z",
+    "status": {
+      "utc": "2026-09-06T07:48:00.0094501+00:00",
+      "status": "CANCELLED",
+      "reason": "全量模型 20 并发暴露尾延迟问题，正式长稳改在优化后最终代码版本上完整执行。本次已采样数据保留且不用于长稳验收。",
+      "pid": 14940,
+      "complete_protocol": false
+    },
+    "evidence_files": {
+      "manifest.json": "cc4f9e91673f04abcf8996f1d96aa37349cab6966a825fb068cf58ffb5f5753b",
+      "config.json": "c278c88bad187859e261d9505864afe99a86156dfded4e2f26e7784b1a4edbb3",
+      "cancellation.json": "5d5f0663a2f04a6b30eeda01e53e71ca08d313a028ce674b0538cdad16be4ee4"
+    }
+  },
+  {
+    "run": "trade-fault-final-20260906T070535Z",
+    "status": {
+      "status": "COMPLETED",
+      "elapsed_seconds": 85.42264769999929,
+      "error_type": null
+    },
+    "evidence_files": {
+      "manifest.json": "bf35483e64b0c9aa7036473a1ea2039fab8419eca2d0b5a13392ab7d0b97af68",
+      "config.json": "c4a4a5b4aaa02409b0a1667eef9bdd2376e1ed24707f88b2cea9546a59bc1f01",
+      "status.json": "e783f8674a5f254b589a6ab2d85dea0c850b82700a82175389d2a0be9014a150",
+      "summary.json": "644bafc634670ddd0c8c2a173815c5b60c030477c161b05320a390a2e4f771bd"
+    }
+  },
+  {
+    "run": "trade-fault-functional-20260906T065933Z",
+    "status": {
+      "status": "COMPLETED",
+      "elapsed_seconds": 117.64612500000112,
+      "error_type": null
+    },
+    "evidence_files": {
+      "manifest.json": "a63a4396d96970cf2522006c86b8cd62584a9c335aeb35736380f4cb3ef9d76b",
+      "config.json": "09ba85cd65beac2acb4537831c74e144f247d2f6ea38ee4e4886d69132e58be2",
+      "status.json": "f772e3247efe4c24085a79660a323281303e31a0ee105b0ef1bc8c5617d3101c",
+      "summary.json": "632b1a49826e8a5be8d9ec2284ee77dead57dcdaa384880db7aaae81e0bb7c03"
+    }
+  },
+  {
+    "run": "trade-fault-optimized-20260906T084509Z",
+    "status": {
+      "status": "COMPLETED",
+      "elapsed_seconds": 107.53573909999977,
+      "error_type": null
+    },
+    "evidence_files": {
+      "manifest.json": "14552f21531374e7682c4f5c2989ef6436b1dec10204bd06e70ffda9ba04cadd",
+      "config.json": "4b6b7267e6071b7fac2586b313a9cc1dc87c4117305847905ba0ae55cb3abd0b",
+      "status.json": "7eaba43e24c3909cf7632bded1280c4ee3a6be37cbe5df569ab3673d6e420286",
+      "summary.json": "a6efa9e91c2979509c1b533e6ecb2f00e796caeb822fd35a9647c7e2a0ae76f9"
+    }
+  },
+  {
+    "run": "trade-formal-20260906T060941Z",
+    "status": {
+      "status": "COMPLETED",
+      "elapsed_seconds": 3227.6146941999996,
+      "error_type": null
+    },
+    "evidence_files": {
+      "manifest.json": "0c04fc4bc101f611f22f1b165be691e4575363947a1befdf4eea5030207b0993",
+      "config.json": "b339b75efd4cd2b746d27e36ee2add316deb691dcc872d5b3c490d16b7fc5f82",
+      "status.json": "ce624c410238337828c4a4606e4e60f633b64122409aa08b6c4c1cc316fd4517",
+      "evaluation.json": "fc540310f548edc06d0c2eaee442cfc0eabf40fef072e5d74d61cf4ac1df6552"
+    }
+  },
+  {
+    "run": "trade-http-bootstrap-20260906T055344Z",
+    "status": {
+      "status": "FAILED",
+      "elapsed_seconds": 2.0180563000012626,
+      "error_type": "AttributeError"
+    },
+    "evidence_files": {
+      "manifest.json": "280b94889c5eb8ad1ad9a8d797c5d7e49eeba3e67626569b835a407081ece084",
+      "config.json": "58b4b04bc757434dbfde4dba70da0f631a02c0981a39fcc59fe62c58466108bd",
+      "status.json": "fdf55d5c74c032633c1fca0cb9dbfce947352824bc928f2113303cc5b5a56f63"
+    }
+  },
+  {
+    "run": "trade-http-bootstrap-20260906T055413Z",
+    "status": {
+      "status": "FAILED",
+      "elapsed_seconds": 32.44342669999969,
+      "error_type": "RuntimeError"
+    },
+    "evidence_files": {
+      "manifest.json": "b19f67a57ffc06cbb7047816f2fc073fb08cdf18709a1c18289a56b73785ec37",
+      "config.json": "58b4b04bc757434dbfde4dba70da0f631a02c0981a39fcc59fe62c58466108bd",
+      "status.json": "96df4b8ed56eb185a8e72acbd0c7b5eafdc8acb13fcd33edd669ee54656903bd"
+    }
+  },
+  {
+    "run": "trade-http-bootstrap-20260906T055838Z",
+    "status": {
+      "status": "COMPLETED",
+      "elapsed_seconds": 20.58247239999946,
+      "error_type": null
+    },
+    "evidence_files": {
+      "manifest.json": "4a80f7c2e44cfbaddb911a28f51908c506ea2295707376b6cb650f94ddcdd3ce",
+      "config.json": "58b4b04bc757434dbfde4dba70da0f631a02c0981a39fcc59fe62c58466108bd",
+      "status.json": "e46e92422e6ea8fb0e575ef338fed2e7faef47eefe32135c02706bd6fa964ec0"
+    }
+  },
+  {
+    "run": "trade-http-equivalence-20260906T084509Z",
+    "status": {
+      "status": "COMPLETED",
+      "elapsed_seconds": 1.9660039999980654,
+      "error_type": null
+    },
+    "evidence_files": {
+      "manifest.json": "d648702dd496073808ac6af80be281e48817b778bc6f6bb84c702abf40637084",
+      "config.json": "8d68d38a86ca75b696596f559e2d7b1e4aab2e88928a3acc4b0e0a9442296819",
+      "status.json": "ec6b31ca1e95b1859c30aa4e5154c4293aef081a7f4321c7a7c181533a951968",
+      "summary.json": "65a3f9ac67f69369b8b5dd405b3ac61bb6d1a998afea64152c772d02102ac60e"
+    }
+  },
+  {
+    "run": "trade-http-model-feedback-20260906T063355Z",
+    "status": {
+      "status": "COMPLETED",
+      "elapsed_seconds": 24.14549850000003,
+      "error_type": null
+    },
+    "evidence_files": {
+      "manifest.json": "9b9f69b2a6b4c8ffbf2d80756d4153ce232c4db7a4562174ab2b9130fa65404e",
+      "config.json": "5c72f9d23cfbfc0bf1b8da9666017bad333b44d0f8dd191d3b7f60c29dffa7f0",
+      "status.json": "b55d1f7e314376fa7eb0f200a835e0b7cc954d4cb475dc7289d1b98a70f9257b"
+    }
+  },
+  {
+    "run": "trade-http-preflight-20260906T061717Z",
+    "status": {
+      "status": "FAILED",
+      "elapsed_seconds": 2.676295100000061,
+      "error_type": "HTTPStatusError"
+    },
+    "evidence_files": {
+      "manifest.json": "47fc7bbd50eefbeddcb3f16b66ba48a238231febef55c83fee34f2ddf797c3ad",
+      "config.json": "95b44beaaec14220919706182f9acb2579e822106a3392edea58480d289b6696",
+      "status.json": "403caa57275aead4851c1ed697628d6a4e8beca2a361225e00e98e495c32bfb1"
+    }
+  },
+  {
+    "run": "trade-http-preflight-20260906T062055Z",
+    "status": {
+      "status": "COMPLETED",
+      "elapsed_seconds": 7.583392300000924,
+      "error_type": null
+    },
+    "evidence_files": {
+      "manifest.json": "b30c15e2132ba6a3f28351a75beebf7430a571b004c1bd66f10e18be9e5fc87a",
+      "config.json": "48766bedb30f03ce69866f4ce0f3c9edf619e80d59d2ccfb625daaee4e717cdd",
+      "status.json": "fd8c07144444473f3b332883647b1e0d217146353b2e40a92d061d782d37c872",
+      "summary.json": "6b1e66fd6280d5c8b54a585e58ad86b9d501897bda2472f754e4a92788908267"
+    }
+  },
+  {
+    "run": "trade-http-preflight-20260906T062623Z",
+    "status": {
+      "status": "COMPLETED",
+      "elapsed_seconds": 7.6593130999990535,
+      "error_type": null
+    },
+    "evidence_files": {
+      "manifest.json": "a4d716fb8d7bceabe987db82fc2b45251baba586fa60f7e1af49c1c1aa9fb296",
+      "config.json": "72079e17b2a566d616fe9dabe598b62a72e6ec0f71b35e2d0b3069c04e4683fb",
+      "status.json": "59ea89cbca28d4ac72d0f55ca03a9f25a6ef6713627755ada54fcf5c1dd9d271",
+      "summary.json": "ba98a3abebc338e632a43e296016ef0141a2c5cc25a8bde044b882c85f97da49"
+    }
+  },
+  {
+    "run": "trade-http-preflight-20260906T063134Z",
+    "status": {
+      "status": "COMPLETED",
+      "elapsed_seconds": 7.608717900000556,
+      "error_type": null
+    },
+    "evidence_files": {
+      "manifest.json": "25f2a9620991529e8e37c573f6c1304809075673bfcdf1ccae1df5c210b93233",
+      "config.json": "0930d1af8dd8193d0bf2e9b0a608460a0deb2d7e7bd61fb0e6e3a53a19c4d105",
+      "status.json": "a05864c131b39805497f75434f0ee1703f86ac985c1db11a17e7bc72f51bd44b",
+      "summary.json": "7c2a6f51210cb8f684f347cfe14efcbcff5e783532d659eeec6eeb2f56dd66ff"
+    }
+  },
+  {
+    "run": "trade-inprocess-20260906T070809Z",
+    "status": {
+      "status": "COMPLETED",
+      "elapsed_seconds": 120.79965489999995,
+      "error_type": null
+    },
+    "evidence_files": {
+      "manifest.json": "b65123bb5d80d9130ba8acddb0b34885a1a5a21c6bbf6b4d302445f47b861821",
+      "config.json": "451a8fa35eac407e514bd43db9f9f1552f21b10422a78696052d8685a617f592",
+      "status.json": "3a29d9b776b0e51dd9d6e5032fbd6d2187a6a0772cd9ac354d5a91a9af784e34",
+      "summary.json": "cad300ca1a4744da0266100bf3c2412e72da27d21e6ffa1e300a68afa8282a03",
+      "measurement-review.json": "30fbf8d5505afb650659338a72959e55475fde313545c409db8572ab1e3850db"
+    }
+  },
+  {
+    "run": "trade-inprocess-optimized-20260906T075246Z",
+    "status": {
+      "status": "COMPLETED",
+      "elapsed_seconds": 75.16372860000047,
+      "error_type": null
+    },
+    "evidence_files": {
+      "manifest.json": "dfeb50cd3fa30c7b308824b73a2fd0104a8698ec1c65a1898652bc058415d9e1",
+      "config.json": "83957152944d4096b5e8cd90e65e800677bc9ca650fdbb4e0c485833e7a7e119",
+      "status.json": "fa30f929904119eb4135b49e1f6bd82e90bdf87fc0740ba3f2a72eef45998a2c",
+      "summary.json": "2585cd29b3a8193dede0a125e99822bf24c2c4082df9e8acc4a7f625fe29a44c"
+    }
+  },
+  {
+    "run": "trade-inprocess-retest-20260906T071356Z",
+    "status": {
+      "status": "COMPLETED",
+      "elapsed_seconds": 106.30305919999955,
+      "error_type": null
+    },
+    "evidence_files": {
+      "manifest.json": "ff0dfcadede005f34e695e40522df7525b78646e410dbb9b2fd32838cecc3d4b",
+      "config.json": "e12fb5a9d2328c73750f3e27c1ef2dd7c15e68b0a420bdb66c5ad7780fcd51b2",
+      "status.json": "209f4f1ef5338e65392fb535f1c417aa536c3013642d93982188701fffc6fafa",
+      "summary.json": "898155d17ebc4df1f6a53954f8f349876955bce4f148f50db5072aaa917b6b43"
+    }
+  },
+  {
+    "run": "trade-legacy-fixed-20260906T070301Z",
+    "status": {
+      "status": "COMPLETED",
+      "elapsed_seconds": 16.49450439999964,
+      "error_type": null
+    },
+    "evidence_files": {
+      "manifest.json": "56f22dc97beb68f67ef74c26116d1f16196df7f6fb06142113243eae74463b9e",
+      "config.json": "9b1dfefeff8fc749cdefc116b2d713d745d3f69108b37f5f138183e35a5ebfa2",
+      "status.json": "5d0202229dbb0d4fb1120a4f26ace2787746ab7d6fe5989a598ac6432238337a",
+      "evaluation.json": "fe102f68f94a848cc505b9ec4e55917bd68304d00c80a049f3bfe372b85ab4a3"
+    }
+  },
+  {
+    "run": "trade-local-20260906T060941Z",
+    "status": {
+      "status": "COMPLETED",
+      "elapsed_seconds": 10.112112799999522,
+      "error_type": null
+    },
+    "evidence_files": {
+      "manifest.json": "645bfde99db6d9a3bf5f89fe6640a86bdfb9a1e85a909ecac81096b317e23231",
+      "config.json": "dd16760323841d2168a96d0032b66f78209e634213968fe2730e40aa17efe998",
+      "status.json": "aec95af8c8b674c8ad278324ebaa9c6b1317948cd417aa0f27d6dc0a7f8b3670",
+      "evaluation.json": "f362b047d38033fd372d47ecd82318c2c7334657da81269872c4f70aab027f9f"
+    }
+  },
+  {
+    "run": "trade-local-corrected-20260906T084509Z",
+    "status": {
+      "status": "COMPLETED",
+      "elapsed_seconds": 10.211936399999104,
+      "error_type": null
+    },
+    "evidence_files": {
+      "manifest.json": "dcca8da4da91ab7fcc332563d9a045ef93e752b98a24f9d3b54b15879355bdac",
+      "config.json": "3d17e981b8951a0bfec2b7b4a765c531cfa7c30bcdcaa518963a5bb4b4c7d6aa",
+      "status.json": "a587a97261cd26e64497c78e5614132a83d9f35ac8311ddc93261bda5c7c96d5",
+      "evaluation.json": "290a45d12e5f1a22bc13106c1e5481bdb3bd97b5aacd588876c03d0fb9c56cb3"
+    }
+  },
+  {
+    "run": "trade-local-feedback-20260906T064002Z",
+    "status": {
+      "status": "COMPLETED",
+      "elapsed_seconds": 10.622321999999258,
+      "error_type": null
+    },
+    "evidence_files": {
+      "manifest.json": "b138923ffc114d106ddc786ae1042c70fb8316db402cc47f185c848edda593f5",
+      "config.json": "9ead06e970f0a249b0cf3284158bbf07956fc02283ed7f37c4bb2056494d096d",
+      "status.json": "9bc5a51e178d0dc312980b50bb9ebd2e10a9d6ee90ef69b28c2c062a28faf970",
+      "evaluation.json": "136e6f2b62eaeba38294d5389182b7a391b4e654ab992ed53abc7b1e29ab8b84"
+    }
+  },
+  {
+    "run": "trade-observer-diagnostic-20260906T082045Z",
+    "status": {
+      "status": "COMPLETED",
+      "elapsed_seconds": 35.38878210000257,
+      "error_type": null
+    },
+    "evidence_files": {
+      "manifest.json": "c6b5e90247e3c4358bae953d3237b92fdc85f41aa1284578acafaf62b4ff9bb6",
+      "config.json": "3fa715e492decea03e8dedf845e9ce2238d4d06d4464e698b2b3ca1937b56212",
+      "status.json": "b8386d530c80c1431fef0086fa4de832907e875f30650a6da5f034e93fa69a35",
+      "summary.json": "96269defd162ad044a72ff70318b0c796e1384e6196be5912619f186a97db985"
+    }
+  },
+  {
+    "run": "trade-python-direct-baseline-20260906T081014Z",
+    "status": {
+      "status": "COMPLETED",
+      "elapsed_seconds": 150.3929074000007,
+      "error_type": null
+    },
+    "evidence_files": {
+      "manifest.json": "c393d7314423eabe1c17807de9dab0288165ba2f898f7b3fd35eeeb430a0f518",
+      "config.json": "087ccfa4024fb193487e34900fe3275c0dcc4ff43ccff4fcd79186de2cd8cd92",
+      "status.json": "aa0d2ffa50dfc27c8322779db5068949c88917c6400cee43b940ebe8c1923ec8",
+      "summary.json": "8e5b13466277bf131fad76fad13694f93245948469e4d8d4bfc310d56d47e257"
+    }
+  },
+  {
+    "run": "trade-python-direct-optimized-20260906T081014Z",
+    "status": {
+      "status": "COMPLETED",
+      "elapsed_seconds": 302.929024699999,
+      "error_type": null
+    },
+    "evidence_files": {
+      "manifest.json": "92e34cf0ce86baf4222fe8d7f67c925273ef8b5a4e3f692f09e50e0d97095282",
+      "config.json": "399a2e1d7808ce6eb4daf120e21f6ae7ef8b08eb1671f37a45045bceddbd564a",
+      "status.json": "a797309baad61f17b16bf660aaabcd97935088044c93379075b0aaf3dabbe846",
+      "summary.json": "c8ebd187f73d6dd9cf76a91d0bcc84b2d93187c33422c5bbd59b05626fa21a5e"
+    }
+  },
+  {
+    "run": "trade-python-http-20260906T070943Z",
+    "status": {
+      "status": "COMPLETED",
+      "elapsed_seconds": 750.8701208000002,
+      "error_type": null
+    },
+    "evidence_files": {
+      "manifest.json": "13f0599762e91001df09bc9358df3f72d602648bcffd655dc33b9818acd832ee",
+      "config.json": "efeb5c8f63b7ccbe181710c28abe4136636018cec17103199c511550dc5160d6",
+      "status.json": "acb99884ef4a83e3252b71e9a4f8934ba6298c9cef1c6d7cfe48f96f8829f108",
+      "summary.json": "9ecb4ef58b45d8f6585591f18e960e1c3031d0554bba16696915b8e869e62ed1",
+      "transport-review.json": "d35d641e6874ab99cc4c82dcb6dc54f11d1329e59961dc5e73fbe34ac5406d87"
+    }
+  },
+  {
+    "run": "trade-python-optimized-20260906T075246Z",
+    "status": {
+      "status": "COMPLETED",
+      "elapsed_seconds": 303.0926953999988,
+      "error_type": null
+    },
+    "evidence_files": {
+      "manifest.json": "5e86abc18d6ce005b22fbab1ff6efcd931a4000b641c488a20aef7282b20517e",
+      "config.json": "03cbd2cbe1b07c2f1fcfb986d46871a4df9a6b44455e16ea4570e445359e7ecb",
+      "status.json": "2e594c0d0a1e52f25184dd78df4fdb9938ca39f0d46f382d00f863d0f6cfb51b",
+      "summary.json": "57b9f62d76bc28bc2027946dc013ab45b75aacc22c87e03a02b944481a4f63db",
+      "transport-review.json": "d35d641e6874ab99cc4c82dcb6dc54f11d1329e59961dc5e73fbe34ac5406d87"
+    }
+  },
+  {
+    "run": "trade-python-two-workers-20260906T082558Z",
+    "status": {
+      "status": "COMPLETED",
+      "elapsed_seconds": 302.93453640000007,
+      "error_type": null
+    },
+    "evidence_files": {
+      "manifest.json": "836af9cc5f9186c888263a90f3f4d4026c11acce27ee05adcee30e5b5f3a3af5",
+      "config.json": "60e3825ba989c2579f64807a6aa6ca482751bbf707c0a609fae0ab742cf2a28d",
+      "status.json": "ab6f5dc08fe4c17c460f366b23a167b8d0f5e1c292bd198cb9052f5b98b8da2a",
+      "summary.json": "2a31ed5dff48c22ff23173397d72023152706e8eae56443d272009e9d7161fe0"
+    }
+  },
+  {
+    "run": "trade-python-two-workers-capacity-20260906T082558Z",
+    "status": {
+      "reason": "20 并发全量性能未通过；停止 30/50 并发扩容测试。",
+      "status": "NOT_RUN"
+    },
+    "evidence_files": {
+      "config.json": "aa2b3b14c40e7a2184b26b3471383e4a083dd67af4a5093948859d318dfbd9cd",
+      "status.json": "8c09bef5fda9123c7ec0a8a8aa2ae9438491fa2a77bcb8bac8a14cf48a455e9c"
+    }
+  },
+  {
+    "run": "trade-r0-20260906T052707Z",
+    "status": {
+      "status": "COMPLETED",
+      "elapsed_seconds": 8.396760300000096,
+      "error_type": null
+    },
+    "evidence_files": {
+      "manifest.json": "ab841e74cad58f808acf32b26b26bb33c6cd0fcec810a05a3292956bf42ed9e3",
+      "config.json": "eaacf9f246efe7b2003377aec10b5e1762566c8e7ae45d3190976df0887a6d0a",
+      "status.json": "e558030c9f1f92d15116fcaac17877419beb474212eeadb7a0bb6076381d470e",
+      "evaluation.json": "4783d9a7e99f4da7137e6fc97b4c3bcbd5bd6ac6d2b3e631ddb6c74add726346"
+    }
+  },
+  {
+    "run": "trade-repeat-optimized-20260906T084509Z",
+    "status": {
+      "status": "COMPLETED",
+      "elapsed_seconds": 332.88419839999915,
+      "error_type": null
+    },
+    "evidence_files": {
+      "manifest.json": "8c52206e9a0f6e44f6fa6478d87e26c7c4061609676c6ffd3b7e4368a41a5733",
+      "config.json": "75727f91f7c189d33ff26f37873ae84952afc8e2491310ccaddf7d3c713b582b",
+      "status.json": "f6395d905edebc65a9932ae83aa84cbdc4716e9a557f412581c78525f7ded037",
+      "summary.json": "f50ecc5f1121b75d4adfe6d21be9838a2828ca0ba902e645540713881f90d305"
+    }
+  },
+  {
+    "run": "trade-serving-equivalence-20260906T072154Z",
+    "status": {
+      "status": "COMPLETED",
+      "elapsed_seconds": 12.129223699999784,
+      "error_type": null
+    },
+    "evidence_files": {
+      "manifest.json": "35bb7aca86a1a4cd8912d05478eec8c5d932207e3390d0d12afdfa33d0d3f9c8",
+      "config.json": "2ae07870f8a53fb46a5ff1c4a31c1d837b8387a9fcaa68611c2507a6e443c631",
+      "status.json": "7867e3700b134c9644dbdbacd947884f635447b3e437f2806b8efbce332d4bf1",
+      "summary.json": "7e23596592374c67811292b5b77d6c6f9bb86b5c6f18e59c199e622821262dc1"
+    }
+  },
+  {
+    "run": "trade-smoke-20260906T054440Z",
+    "status": {
+      "status": "COMPLETED",
+      "elapsed_seconds": 1010.1437184000006,
+      "error_type": null
+    },
+    "evidence_files": {
+      "manifest.json": "bd4f74e76835bfb750d55187a8bd950289ca8ce568eda22ad17dace32e254de7",
+      "config.json": "a4e58d2a51d18f6de13137d50b1ec20d1b51c601392c06bf8863195790314656",
+      "status.json": "2ec537b52b528e5085777d659420638f12e743409d615870bc130789f0c0ed3c",
+      "evaluation.json": "fe325dab0871dd9f3153f2ef3d33858850be640378c83e678bb7095a3184869d"
+    }
+  },
+  {
+    "run": "trade-soak-optimized-20260906T084509Z",
+    "status": {
+      "status": "COMPLETED",
+      "elapsed_seconds": 1831.8258982999978,
+      "error_type": null
+    },
+    "evidence_files": {
+      "manifest.json": "9e7787f58d5321cbb33877342e43474066f3f1bb3156626d58280e963c12141b",
+      "config.json": "fb95d7caa5572263d3bdc5d3841edac9b43cfe3c2dfef3977e1a28d7074ee35f",
+      "status.json": "8be75355180325768796c02fa3ef37d72efa59dc8eac45254f6b78b7d5066099",
+      "summary.json": "ed921f7e61f8744e3e5560c19500b4cc80fbaff8f7f20ca40a4c0f063e5aea92"
+    }
+  },
+  {
+    "run": "trade-worker-startup-failure-20260906T083400Z",
+    "status": {
+      "reason": "当前镜像的 Uvicorn 不支持 --timeout-worker-healthcheck 参数；未进入性能采样。",
+      "status": "FAILED",
+      "phase": "STARTUP",
+      "time_note": "目录时间为该尝试的近似起始时刻，准确失败响应见控制会话记录。",
+      "metrics_available": false
+    },
+    "evidence_files": {
+      "status.json": "da1dfc3fd83858f8fd3e406aa613086d28ec0b7bbc078a9ceab95601220b7c29"
+    }
+  }
+]

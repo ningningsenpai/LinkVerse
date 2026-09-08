@@ -1,0 +1,27 @@
+{
+  "generated_at_utc": "2026-09-06T07:14:42.201882+00:00",
+  "scope": "PYTHON_LOADED_MODEL_CPU_IN_PROCESS",
+  "http_executed": false,
+  "model_version": "trade-20260906065816234951-6f240414-4f63f5f4",
+  "concurrency": 20,
+  "calls": 2000,
+  "candidate_count": 300,
+  "batch_elapsed_seconds": 23.262088000001313,
+  "throughput_rps": 85.97680483367989,
+  "mean_measured_concurrency": 19.858519291129937,
+  "success_count": 2000,
+  "failure_count": 0,
+  "success_rate": 1.0,
+  "latency_ms": {
+    "p50": 206.0553000010259,
+    "p95": 382.6282000009087,
+    "p99": 608.4869999995135,
+    "max": 2059.502000000066
+  },
+  "thresholds": {
+    "success_rate_min": 0.99,
+    "p95_ms_max": 300
+  },
+  "threshold_passed": false,
+  "limitations": "该结果只覆盖 Python 进程内 CPU 推断，不代表 Trade 或 Gateway HTTP 延迟。"
+}

@@ -1,0 +1,50 @@
+{
+  "scope": "LOCAL_SCRIPTED_REGRESSION",
+  "quality_claim_allowed": false,
+  "users": 5,
+  "test_rows": 5,
+  "catalog": 120,
+  "models": {
+    "before": {
+      "users": 5,
+      "eligible_users": 5,
+      "no_positive_users": 0,
+      "raw_ndcg_at_20": 0.0,
+      "raw_recall_at_50": 0.4,
+      "ndcg_at_20": 0.0,
+      "recall_at_50": 0.4,
+      "hit_rate_at_20": 0.0,
+      "category_violations": 0,
+      "short_lists": 0,
+      "latency_p95_ms": 3.834459999779938,
+      "model_version": "trade-20260906070352390182-6f240414-670bd78a",
+      "coverage_at_20": 0.30833333333333335
+    },
+    "after": {
+      "users": 5,
+      "eligible_users": 5,
+      "no_positive_users": 0,
+      "raw_ndcg_at_20": 0.0,
+      "raw_recall_at_50": 0.4,
+      "ndcg_at_20": 0.0,
+      "recall_at_50": 0.4,
+      "hit_rate_at_20": 0.0,
+      "category_violations": 0,
+      "short_lists": 0,
+      "latency_p95_ms": 3.7992800011124928,
+      "model_version": "trade-20260906070354380998-6f240414-670bd78a",
+      "coverage_at_20": 0.30833333333333335
+    }
+  },
+  "paired_comparison": {
+    "before": "before",
+    "after": "after",
+    "users": 5,
+    "ndcg_delta": 0.0,
+    "bootstrap_95": [
+      0.0,
+      0.0
+    ],
+    "confirmatory": false
+  }
+}

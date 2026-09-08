@@ -1,0 +1,11 @@
+{
+  "output": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation-experiments\\runs\\trade-local-feedback-20260906T064002Z",
+  "cpu_threads": 8,
+  "split_manifest": "D:\\Code\\ning\\LinkVerse\\.cache\\recommendation-execution\\local-feedback-split.json",
+  "purpose": "LOCAL_SCRIPTED_PROTOCOL_REGRESSION",
+  "ranker_trials": 5,
+  "two_tower_trials": 5,
+  "operation": "train",
+  "model_root": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation\\artifacts\\local-feedback-20260906T064002Z",
+  "dataset": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation\\datasets\\REC_1788673864047\\trade-20260906063652-767"
+}

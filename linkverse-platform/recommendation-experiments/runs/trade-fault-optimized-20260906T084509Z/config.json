@@ -1,0 +1,35 @@
+{
+  "model_root": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation\\artifacts\\local-corrected-20260906T084509Z",
+  "purpose": "FINAL_OPTIMIZED_RUNTIME_FAULT_VALIDATION",
+  "before": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation\\artifacts\\local-corrected-20260906T084509Z\\before\\trade-20260906084519050677-6f240414-670bd78a",
+  "after": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation\\artifacts\\local-corrected-20260906T084509Z\\after\\trade-20260906084521028172-6f240414-670bd78a",
+  "container_metrics": true,
+  "fixture": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\.runtime\\recommendation-fixture.json",
+  "output": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation-experiments\\runs\\trade-fault-optimized-20260906T084509Z",
+  "java_processes": [
+    {
+      "name": "linkverse-identity",
+      "pid": 5352,
+      "port": 18081,
+      "jar": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\.runtime\\linkverse-identity\\1f0cfe2bcb4f491d90bb4f5e20bb0282\\linkverse-identity.jar"
+    },
+    {
+      "name": "linkverse-payment",
+      "pid": 49596,
+      "port": 18083,
+      "jar": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\backend\\linkverse-payment\\target\\linkverse-payment-0.1.0-SNAPSHOT.jar"
+    },
+    {
+      "name": "linkverse-trade",
+      "pid": 46900,
+      "port": 18082,
+      "jar": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\.runtime\\linkverse-trade\\623dda4d6e7243bfaee2546144292f72\\linkverse-trade.jar"
+    },
+    {
+      "name": "linkverse-gateway",
+      "pid": 48740,
+      "port": 18080,
+      "jar": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\backend\\linkverse-gateway\\target\\linkverse-gateway-0.1.0-SNAPSHOT.jar"
+    }
+  ]
+}

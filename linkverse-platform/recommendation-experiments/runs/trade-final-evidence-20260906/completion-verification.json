@@ -1,0 +1,56 @@
+{
+  "health": {
+    "gateway": {
+      "status": 200,
+      "body": {
+        "status": "UP",
+        "groups": [
+          "liveness",
+          "readiness"
+        ]
+      }
+    },
+    "identity": {
+      "status": 200,
+      "body": {
+        "status": "UP",
+        "groups": [
+          "liveness",
+          "readiness"
+        ]
+      }
+    },
+    "trade": {
+      "status": 200,
+      "body": {
+        "status": "UP",
+        "groups": [
+          "liveness",
+          "readiness"
+        ]
+      }
+    },
+    "payment": {
+      "status": 200,
+      "body": {
+        "status": "UP",
+        "groups": [
+          "liveness",
+          "readiness"
+        ]
+      }
+    },
+    "recommendation": {
+      "status": 200,
+      "body": {
+        "status": "UP",
+        "model_version": "trade-20260906084521028172-6f240414-670bd78a"
+      }
+    }
+  },
+  "python_syntax_files": 70,
+  "protected_user_changes": {
+    "linkverse-platform/backend/platform-starter-security/src/main/java/ning/linkverse/security/jwt/LinkVerseJwtProfileValidator.java": true,
+    "linkverse-platform/scripts/_infrastructure.ps1": true
+  }
+}

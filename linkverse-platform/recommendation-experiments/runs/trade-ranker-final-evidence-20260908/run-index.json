@@ -1,0 +1,83 @@
+{
+  "trade-ranker-smoke-20260908": {
+    "path": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation-experiments\\runs\\trade-ranker-smoke-20260908",
+    "status": {
+      "status": "COMPLETED",
+      "elapsed_seconds": 24.97660900000119,
+      "error_type": null
+    },
+    "config_sha256": "65937269b3ccfe1022f159209eba0ff891b8db46bb58de4ce83d7cd0642ade20"
+  },
+  "trade-ranker-formal-20260908": {
+    "path": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation-experiments\\runs\\trade-ranker-formal-20260908",
+    "status": {
+      "status": "COMPLETED",
+      "elapsed_seconds": 469.8048104999998,
+      "error_type": null
+    },
+    "config_sha256": "275db1915813e29b515d02f4b878a5ba61b15085158ca51d779d258ccd6a385f"
+  },
+  "trade-ranker-calibration-20260908": {
+    "path": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation-experiments\\runs\\trade-ranker-calibration-20260908",
+    "status": {
+      "status": "COMPLETED",
+      "elapsed_seconds": 98.74823540000034,
+      "error_type": null
+    },
+    "config_sha256": "fc00cc3ce3c0ee801c2e131cb6bef5f07d827707ce8868f68569b9cb63f30f60"
+  },
+  "trade-ranker-request-time-20260908": {
+    "path": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation-experiments\\runs\\trade-ranker-request-time-20260908",
+    "status": {
+      "status": "COMPLETED",
+      "elapsed_seconds": 360.96639140000116,
+      "error_type": null
+    },
+    "config_sha256": "c221cd8da7a3cae7f98d353766a1f50ab76c42844c9b725b180b792f9b7a0ba3"
+  },
+  "trade-ranker-runtime-20260908": {
+    "path": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation-experiments\\runs\\trade-ranker-runtime-20260908",
+    "status": {
+      "status": "FAILED",
+      "elapsed_seconds": 49.29642430000058,
+      "error_type": "ReadTimeout"
+    },
+    "config_sha256": "84d7c037c103eb84440f27e6bc3856491af8add009a686885070b9277deabf1d"
+  },
+  "trade-ranker-runtime-v2-20260908": {
+    "path": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation-experiments\\runs\\trade-ranker-runtime-v2-20260908",
+    "status": {
+      "status": "COMPLETED",
+      "elapsed_seconds": 120.86738220000007,
+      "error_type": null
+    },
+    "config_sha256": "aed217ef07cf0e13505169dc04ecddaecfe468bfce05cc4cb4ffcdccb0a32616"
+  },
+  "trade-ranker-http-before-20260908": {
+    "path": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation-experiments\\runs\\trade-ranker-http-before-20260908",
+    "status": {
+      "status": "COMPLETED",
+      "elapsed_seconds": 152.46308750000026,
+      "error_type": null
+    },
+    "config_sha256": "cd1be940111f7a1fdb9d597c5ecc5234f3fd22b601b74593eadadabb96f2b687"
+  },
+  "trade-ranker-http-after-20260908": {
+    "path": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation-experiments\\runs\\trade-ranker-http-after-20260908",
+    "status": {
+      "status": "COMPLETED",
+      "elapsed_seconds": 287.77448729999924,
+      "error_type": null
+    },
+    "config_sha256": "a557839ea2d5cc3a4d5c2cdadfb53e0b59caafccc8abf9f857831ba10132a98f"
+  },
+  "trade-ranker-inprocess-20260908": {
+    "path": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation-experiments\\runs\\trade-ranker-inprocess-20260908",
+    "status": {
+      "status": "COMPLETED",
+      "elapsed_seconds": 70.18729709999934,
+      "error_type": null
+    },
+    "config_sha256": "778af20c942ae31078ba66b64b613b2bfec1014aa3d7eaaa7fb641e15ec1d71e"
+  }
+}

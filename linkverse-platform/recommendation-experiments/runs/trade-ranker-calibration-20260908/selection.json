@@ -1,0 +1,41 @@
+{
+  "selected": "recall_scale_0.25",
+  "bundle": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation\\artifacts\\ranker-20260908\\trade-20260908070431966489-6f240414-4f63f5f4",
+  "manifest_sha256": "5de0c519409309db7a59edc64fdff2127979204cf837e2a052adaed738542a93",
+  "validation": {
+    "recall_scale_0.25": {
+      "users": 2747,
+      "ndcg_at_20": 0.008190247308852537,
+      "recall_at_50": 0.05436233466812279,
+      "coverage_at_20": 0.5493452571063558,
+      "short_lists": 0,
+      "quota_violations": 0
+    },
+    "recall_scale_0.5": {
+      "users": 2747,
+      "ndcg_at_20": 0.008505041586235515,
+      "recall_at_50": 0.054544351413663386,
+      "coverage_at_20": 0.5351325455126158,
+      "short_lists": 0,
+      "quota_violations": 0
+    },
+    "recall_scale_0.75": {
+      "users": 2747,
+      "ndcg_at_20": 0.008761269183349346,
+      "recall_at_50": 0.054544351413663386,
+      "coverage_at_20": 0.5292238901309486,
+      "short_lists": 0,
+      "quota_violations": 0
+    },
+    "legacy": {
+      "users": 2747,
+      "ndcg_at_20": 0.004283554987219535,
+      "recall_at_50": 0.036585365853658534,
+      "coverage_at_20": 0.6034813158735228,
+      "short_lists": 0,
+      "quota_violations": 0
+    }
+  },
+  "frozen_before_candidate_test": true,
+  "quality_claim_allowed": false
+}

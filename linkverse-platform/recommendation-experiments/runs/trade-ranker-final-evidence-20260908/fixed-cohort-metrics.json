@@ -1,0 +1,17 @@
+{
+  "cold": {
+    "eligible_users": 10,
+    "before_ndcg": 0.0,
+    "after_ndcg": 0.027023815442731976
+  },
+  "sparse": {
+    "eligible_users": 763,
+    "before_ndcg": 0.002646398060807261,
+    "after_ndcg": 0.0076490723806346955
+  },
+  "warm": {
+    "eligible_users": 6768,
+    "before_ndcg": 0.003313944829610789,
+    "after_ndcg": 0.0067337984883598665
+  }
+}

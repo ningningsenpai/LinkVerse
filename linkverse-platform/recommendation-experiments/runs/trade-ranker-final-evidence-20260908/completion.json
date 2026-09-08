@@ -1,0 +1,26 @@
+{
+  "main_ready": {
+    "status": "UP",
+    "model_version": "trade-20260906084521028172-6f240414-670bd78a"
+  },
+  "completed_at": "2026-09-08T07:25:44.2281477+00:00",
+  "remaining_containers": [
+    "pm-agent-assistant-test-redis-1|Up 10 minutes",
+    "pm-agent-assistant-test-mysql-1|Up 10 minutes",
+    "pm-agent-assistant-test-minio-1|Up 10 minutes",
+    "linkverse-mvp-recommendation|Up About an hour (healthy)",
+    "linkverse-mvp-mysql|Up About an hour (healthy)",
+    "linkverse-mvp-redis|Up About an hour (healthy)",
+    "linkverse-mvp-rabbitmq|Up About an hour (healthy)",
+    "linkverse-mvp-nacos|Up About an hour (healthy)",
+    "pm-agent-rabbitmq-1|Up About an hour (healthy)",
+    "pm-agent-redis-1|Up About an hour (healthy)",
+    "pm-agent-mysql-1|Up About an hour (healthy)",
+    "pm-agent-qdrant-1|Up About an hour",
+    "pm-agent-minio-1|Up About an hour (healthy)"
+  ],
+  "temporary_identity_stopped": true,
+  "temporary_container_removed": true,
+  "protocol_sha256": "93B445EEDA3CA379110E0D2678B5C17390CDBE56C09A2AC21F0AB002EF8CF27B",
+  "report_sha256": "78E376A31F088CA7A56333F5DF8DDE9BA6736E1225E51DEE380AD33E0826CFE9"
+}

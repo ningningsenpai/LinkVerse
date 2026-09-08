@@ -1,0 +1,110 @@
+[
+  {
+    "generated_at_utc": "2026-09-06T07:52:59.303225+00:00",
+    "scope": "PYTHON_LOADED_MODEL_CPU_IN_PROCESS",
+    "http_executed": false,
+    "model_version": "trade-20260906065816234951-6f240414-4f63f5f4",
+    "concurrency": 20,
+    "calls": 400,
+    "candidate_count": 300,
+    "batch_elapsed_seconds": 2.1495275999986916,
+    "throughput_rps": 186.08739892441645,
+    "mean_measured_concurrency": 19.61884485690168,
+    "success_count": 400,
+    "failure_count": 0,
+    "success_rate": 1.0,
+    "latency_ms": {
+      "p50": 99.7349999997823,
+      "p95": 175.4164000012679,
+      "p99": 202.5638999984949,
+      "max": 269.8363999988942
+    },
+    "thresholds": {
+      "success_rate_min": 0.99,
+      "p95_ms_max": 300
+    },
+    "threshold_passed": true,
+    "limitations": "该结果只覆盖 Python 进程内 CPU 推断，不代表 Trade 或 Gateway HTTP 延迟。"
+  },
+  {
+    "generated_at_utc": "2026-09-06T07:53:20.542372+00:00",
+    "scope": "PYTHON_LOADED_MODEL_CPU_IN_PROCESS",
+    "http_executed": false,
+    "model_version": "trade-20260906065816234951-6f240414-4f63f5f4",
+    "concurrency": 20,
+    "calls": 2000,
+    "candidate_count": 300,
+    "batch_elapsed_seconds": 11.953433599999698,
+    "throughput_rps": 167.31594175585252,
+    "mean_measured_concurrency": 19.91425649447067,
+    "success_count": 2000,
+    "failure_count": 0,
+    "success_rate": 1.0,
+    "latency_ms": {
+      "p50": 99.91660000014235,
+      "p95": 174.98210000121617,
+      "p99": 323.83519999712007,
+      "max": 1696.323600001051
+    },
+    "thresholds": {
+      "success_rate_min": 0.99,
+      "p95_ms_max": 300
+    },
+    "threshold_passed": true,
+    "limitations": "该结果只覆盖 Python 进程内 CPU 推断，不代表 Trade 或 Gateway HTTP 延迟。"
+  },
+  {
+    "generated_at_utc": "2026-09-06T07:53:41.724684+00:00",
+    "scope": "PYTHON_LOADED_MODEL_CPU_IN_PROCESS",
+    "http_executed": false,
+    "model_version": "trade-20260906065816234951-6f240414-4f63f5f4",
+    "concurrency": 20,
+    "calls": 2000,
+    "candidate_count": 300,
+    "batch_elapsed_seconds": 11.88354099999924,
+    "throughput_rps": 168.30000418226587,
+    "mean_measured_concurrency": 19.90939548237634,
+    "success_count": 2000,
+    "failure_count": 0,
+    "success_rate": 1.0,
+    "latency_ms": {
+      "p50": 98.20830000171554,
+      "p95": 174.8353999973915,
+      "p99": 257.039199997962,
+      "max": 1628.5998999992444
+    },
+    "thresholds": {
+      "success_rate_min": 0.99,
+      "p95_ms_max": 300
+    },
+    "threshold_passed": true,
+    "limitations": "该结果只覆盖 Python 进程内 CPU 推断，不代表 Trade 或 Gateway HTTP 延迟。"
+  },
+  {
+    "generated_at_utc": "2026-09-06T07:54:01.773456+00:00",
+    "scope": "PYTHON_LOADED_MODEL_CPU_IN_PROCESS",
+    "http_executed": false,
+    "model_version": "trade-20260906065816234951-6f240414-4f63f5f4",
+    "concurrency": 20,
+    "calls": 2000,
+    "candidate_count": 300,
+    "batch_elapsed_seconds": 11.235802800001693,
+    "throughput_rps": 178.00241207505871,
+    "mean_measured_concurrency": 19.90824603116934,
+    "success_count": 2000,
+    "failure_count": 0,
+    "success_rate": 1.0,
+    "latency_ms": {
+      "p50": 92.75799999886658,
+      "p95": 163.3135999982187,
+      "p99": 246.717300000455,
+      "max": 1601.7998999996053
+    },
+    "thresholds": {
+      "success_rate_min": 0.99,
+      "p95_ms_max": 300
+    },
+    "threshold_passed": true,
+    "limitations": "该结果只覆盖 Python 进程内 CPU 推断，不代表 Trade 或 Gateway HTTP 延迟。"
+  }
+]

@@ -1,0 +1,13 @@
+{
+  "recall_fit_cutoff": "2026-02-06T12:34:00+00:00",
+  "rank_train_start": "2026-02-06 13:13:00+00:00",
+  "rank_train_end_exclusive": "2026-02-20 00:00:00+00:00",
+  "rank_validation_end_exclusive": "2026-02-26 15:13:00+00:00",
+  "base_manifest_sha256": "486a697737b09678d1516c11668e35e7aef35bd752a9bb4bec6dfc09281443cb",
+  "split_sha256": "d19936eeb3b4d6449863b232c5961768090a0736cee5aa49258e4b19e51012d2",
+  "dataset_manifest_sha256": "e168a3d66eb027b306b070f86f3d59700a6fcc204c6ee2a69f599556d08c5b96",
+  "rank_train_queries": 4644,
+  "rank_validation_queries": 2747,
+  "test_rows_reserved": 14255,
+  "test_previously_viewed": true
+}

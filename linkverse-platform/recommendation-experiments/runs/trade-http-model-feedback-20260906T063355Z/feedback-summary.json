@@ -1,0 +1,17 @@
+{
+  "traffic_origin": "SCRIPTED",
+  "users": 5,
+  "sessions": 15,
+  "user_refunds": 1,
+  "operational_refunds": 1,
+  "outcome_count": 15,
+  "payment_status_counts": {
+    "REFUNDED": 2,
+    "SUCCEEDED": 13
+  },
+  "refund_reason_counts": {
+    "USER_RETURN": 1,
+    "LATE_SUCCESS": 1
+  },
+  "说明": "仅归档 SCRIPTED 本地测试聚合指标；用户标识、订单及会话明细保留在被忽略的 feedback-result.json。"
+}

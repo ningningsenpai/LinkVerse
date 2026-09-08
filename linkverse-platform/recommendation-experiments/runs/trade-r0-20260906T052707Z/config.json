@@ -1,0 +1,10 @@
+{
+  "output": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation-experiments\\runs\\trade-r0-20260906T052707Z",
+  "bundles": {
+    "before": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation\\artifacts\\formal-final\\before\\trade-20260903072306-20c8891e-4f63f5f4",
+    "after": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation\\artifacts\\formal-final\\after\\trade-20260903072831-20c8891e-4f63f5f4"
+  },
+  "dataset": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation\\datasets\\trade-synthetic",
+  "iteration_id": "R0-R1",
+  "operation": "baseline"
+}

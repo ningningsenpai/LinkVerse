@@ -1,0 +1,29 @@
+{
+  "before": {
+    "users": 7541,
+    "ndcg_delta": 0.0036113046310660927,
+    "bootstrap_95": [
+      0.00226389444992759,
+      0.004979281131227447
+    ],
+    "confirmatory": false
+  },
+  "previous_after": {
+    "users": 7541,
+    "ndcg_delta": 0.003553966131734192,
+    "bootstrap_95": [
+      0.0021192786802231734,
+      0.004962950189876162
+    ],
+    "confirmatory": false
+  },
+  "popular": {
+    "users": 7541,
+    "ndcg_delta": 0.004267617276407519,
+    "bootstrap_95": [
+      0.0028848102910077372,
+      0.005662641278855566
+    ],
+    "confirmatory": false
+  }
+}

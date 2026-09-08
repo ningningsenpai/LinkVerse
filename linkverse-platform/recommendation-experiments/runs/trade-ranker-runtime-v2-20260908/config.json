@@ -1,0 +1,11 @@
+{
+  "before": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation\\artifacts\\ranker-20260908\\trade-20260906064730150008-6f240414-4f63f5f4",
+  "after": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation\\artifacts\\ranker-20260908\\trade-20260908070431966489-6f240414-4f63f5f4",
+  "port": 18085,
+  "container_metrics": true,
+  "metric_containers": [
+    "linkverse-mvp-recommendation-ranker-20260908"
+  ],
+  "container_memory_gib": 6,
+  "purpose": "ISOLATED_LINUX_HTTP_VALIDATION"
+}

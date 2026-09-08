@@ -1,0 +1,51 @@
+{
+  "output": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation-experiments\\runs\\trade-business-soak-20260906T070943Z",
+  "fixture": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\.runtime\\recommendation-fixture.json",
+  "container_metrics": true,
+  "bundle": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation\\artifacts\\local-feedback-20260906T064002Z\\after\\trade-20260906070354380998-6f240414-670bd78a",
+  "purpose": "LOCAL_SCRIPTED_20_VU_30_MIN_SOAK_WITH_ONE_SECOND_THINK",
+  "java_processes": [
+    {
+      "name": "linkverse-identity",
+      "pid": 5352,
+      "port": 18081,
+      "jar": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\.runtime\\linkverse-identity\\1f0cfe2bcb4f491d90bb4f5e20bb0282\\linkverse-identity.jar"
+    },
+    {
+      "name": "linkverse-payment",
+      "pid": 49596,
+      "port": 18083,
+      "jar": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\backend\\linkverse-payment\\target\\linkverse-payment-0.1.0-SNAPSHOT.jar"
+    },
+    {
+      "name": "linkverse-trade",
+      "pid": 51020,
+      "port": 18082,
+      "jar": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\.runtime\\linkverse-trade\\abebacc942e14fb4abbe99130c7905a6\\linkverse-trade.jar"
+    },
+    {
+      "name": "linkverse-gateway",
+      "pid": 48740,
+      "port": 18080,
+      "jar": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\backend\\linkverse-gateway\\target\\linkverse-gateway-0.1.0-SNAPSHOT.jar"
+    }
+  ],
+  "metric_containers": [
+    "linkverse-mvp-mysql",
+    "linkverse-mvp-redis",
+    "linkverse-mvp-rabbitmq",
+    "linkverse-mvp-recommendation",
+    "linkverse-mvp-recommendation-benchmark"
+  ],
+  "stages": [
+    {
+      "warmup_seconds": 30,
+      "think_seconds": 1,
+      "concurrency": 20,
+      "stop_on_failure": true,
+      "duration_seconds": 1800,
+      "name": "gateway-20-vu-30-min",
+      "target": "gateway"
+    }
+  ]
+}

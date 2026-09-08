@@ -1,0 +1,15 @@
+{
+  "metric_containers": [
+    "linkverse-mvp-recommendation",
+    "linkverse-mvp-recommendation-ranker-20260908"
+  ],
+  "parent_run": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation-experiments\\runs\\trade-ranker-formal-20260908",
+  "container_metrics": true,
+  "output": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation-experiments\\runs\\trade-ranker-calibration-20260908",
+  "purpose": "VALIDATION_ONLY_BOUNDED_CALIBRATION",
+  "score_scales": [
+    0.25,
+    0.5,
+    0.75
+  ]
+}

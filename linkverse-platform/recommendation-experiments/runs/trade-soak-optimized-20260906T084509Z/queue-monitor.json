@@ -1,0 +1,7 @@
+{
+  "pid": 56416,
+  "interval_seconds": 30,
+  "scope": "linkverse-mvp",
+  "transport": "DIRECT_LOOPBACK",
+  "message_bodies_collected": false
+}

@@ -1,0 +1,56 @@
+{
+  "model_version": "trade-20260906055623-6f240414-4f63f5f4",
+  "bundle": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation\\artifacts\\iteration-20260906T054440Z\\after\\trade-20260906055623-6f240414-4f63f5f4",
+  "data_hash": "4f63f5f4fc7eb54f59e991e240f0be22d99bd05527e2a93aebce9ef7f8bb37c6",
+  "cuda": {
+    "available": true,
+    "device_index": 0,
+    "device_name": "NVIDIA GeForce RTX 4070 SUPER",
+    "memory_bytes": 12878086144,
+    "torch_version": "2.9.0+cu130",
+    "cuda_runtime": "13.0"
+  },
+  "data_source": "SYNTHETIC",
+  "split_rows": {
+    "train": 56954,
+    "validation": 14239,
+    "feedback": 9486,
+    "test": 14255
+  },
+  "two_tower_best_params": {
+    "embedding_dim": 128,
+    "hidden_dims": "256-128",
+    "learning_rate": 0.0021378463985674352,
+    "weight_decay": 0.00012808493003457853,
+    "batch_size": 512,
+    "dropout": 0.28169026107620315,
+    "negative_count": 8,
+    "temperature": 0.0765742963882316,
+    "max_epochs": 40,
+    "patience": 5,
+    "selected_epochs": 6
+  },
+  "two_tower_seed_ndcg_at_20": [
+    0.003245945862452032,
+    0.004352192630769742,
+    0.003267162139409015
+  ],
+  "repeat_maximum_weight_difference": 0.0,
+  "two_tower_ndcg_at_20_mean": 0.0036217668775435966,
+  "two_tower_ndcg_at_20_std": 0.0005165616248064154,
+  "lambda_rank_best_params": {
+    "num_leaves": 56,
+    "learning_rate": 0.17422052367655588,
+    "min_child_samples": 24,
+    "feature_fraction": 0.7202987661789912,
+    "bagging_fraction": 0.6895905052451152,
+    "lambda_l1": 2.5569064876617733e-08,
+    "lambda_l2": 0.04672232126757238,
+    "selected_rounds": 1
+  },
+  "lambda_rank_ndcg_at_20": 0.8317924808696653,
+  "two_tower_trial_count": 0,
+  "lambda_rank_trial_count": 0,
+  "elapsed_seconds": 369.0898352999993,
+  "limitations": "合成工程验证，不代表线上推荐质量"
+}

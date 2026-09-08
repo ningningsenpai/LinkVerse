@@ -1,0 +1,117 @@
+{
+  "scope": "HISTORICAL_SYNTHETIC_REGRESSION",
+  "quality_claim_allowed": false,
+  "users": 7581,
+  "test_rows": 14255,
+  "catalog": 6262,
+  "models": {
+    "popular_quota": {
+      "users": 7581,
+      "eligible_users": 7541,
+      "no_positive_users": 0,
+      "raw_ndcg_at_20": 0.00268479448406086,
+      "raw_recall_at_50": 0.017387767664775976,
+      "ndcg_at_20": 0.0027411489781393045,
+      "recall_at_50": 0.017734164346019536,
+      "hit_rate_at_20": 0.01299562392255669,
+      "category_violations": 0,
+      "short_lists": 0,
+      "latency_p95_ms": 18.46549999936542,
+      "model_version": "trade-20260906065816234951-6f240414-4f63f5f4:popular_quota",
+      "coverage_at_20": 0.003992334717342702
+    },
+    "pool_without_ranker": {
+      "users": 7581,
+      "eligible_users": 7541,
+      "no_positive_users": 0,
+      "raw_ndcg_at_20": 0.00656689763643,
+      "raw_recall_at_50": 0.03853713230444532,
+      "ndcg_at_20": 0.006695738226019572,
+      "recall_at_50": 0.03934049418733148,
+      "hit_rate_at_20": 0.02665428988197852,
+      "category_violations": 0,
+      "short_lists": 5,
+      "latency_p95_ms": 7.254099999045138,
+      "model_version": "trade-20260906065816234951-6f240414-4f63f5f4:pool_without_ranker",
+      "coverage_at_20": 0.5624401149792398
+    },
+    "pool_without_mmr": {
+      "users": 7581,
+      "eligible_users": 7541,
+      "no_positive_users": 0,
+      "raw_ndcg_at_20": 0.004283342881108963,
+      "raw_recall_at_50": 0.03947713896269496,
+      "ndcg_at_20": 0.004312855354250833,
+      "recall_at_50": 0.04002911070276141,
+      "hit_rate_at_20": 0.016841267736374486,
+      "category_violations": 0,
+      "short_lists": 5,
+      "latency_p95_ms": 7.2326999998040264,
+      "model_version": "trade-20260906065816234951-6f240414-4f63f5f4:pool_without_mmr",
+      "coverage_at_20": 0.6531459597572661
+    },
+    "pool_without_itemcf": {
+      "users": 7581,
+      "eligible_users": 7541,
+      "no_positive_users": 0,
+      "raw_ndcg_at_20": 0.003320242529769973,
+      "raw_recall_at_50": 0.04082920333414991,
+      "ndcg_at_20": 0.0033446463947625843,
+      "recall_at_50": 0.0413662454771061,
+      "hit_rate_at_20": 0.014321707996286964,
+      "category_violations": 0,
+      "short_lists": 5,
+      "latency_p95_ms": 8.69319999947038,
+      "model_version": "trade-20260906065816234951-6f240414-4f63f5f4:pool_without_itemcf",
+      "coverage_at_20": 0.7574257425742574
+    },
+    "pool_without_tower": {
+      "users": 7581,
+      "eligible_users": 7541,
+      "no_positive_users": 0,
+      "raw_ndcg_at_20": 0.003252775997836859,
+      "raw_recall_at_50": 0.03958140966451216,
+      "ndcg_at_20": 0.0032906851973188967,
+      "recall_at_50": 0.040277593599434204,
+      "hit_rate_at_20": 0.014454316403659993,
+      "category_violations": 0,
+      "short_lists": 5,
+      "latency_p95_ms": 8.181100000001607,
+      "model_version": "trade-20260906065816234951-6f240414-4f63f5f4:pool_without_tower",
+      "coverage_at_20": 0.8241775790482274
+    },
+    "pool_reference": {
+      "users": 7581,
+      "eligible_users": 7541,
+      "no_positive_users": 0,
+      "raw_ndcg_at_20": 0.0034037544537884276,
+      "raw_recall_at_50": 0.0385393307830981,
+      "ndcg_at_20": 0.0034286012941106693,
+      "recall_at_50": 0.039152632276886354,
+      "hit_rate_at_20": 0.015382575255271183,
+      "category_violations": 0,
+      "short_lists": 5,
+      "latency_p95_ms": 9.475599999859696,
+      "model_version": "trade-20260906065816234951-6f240414-4f63f5f4:pool_reference",
+      "coverage_at_20": 0.8160332162248483
+    }
+  },
+  "paired_comparison": {
+    "before": "popular_quota",
+    "after": "pool_reference",
+    "users": 7541,
+    "ndcg_delta": 0.000687452315971365,
+    "bootstrap_95": [
+      -0.0002836787516106177,
+      0.0016430457520070472
+    ],
+    "confirmatory": false
+  },
+  "limitations": [
+    "消融只覆盖冻结的混合候选池，不能恢复上游已裁掉的候选，不是端到端召回渠道消融。",
+    "多渠道对象只移除该来源独占对象，共享对象保留；未重新计算合并召回分数。",
+    "候选池缺失用户不加额外热门补位，短列表与空列表均进入报告。",
+    "热门基线取模型训练时排序的前 500 个可用对象，并施加同一业务配额。",
+    "各项只用于诊断，未据此选择本轮参数或发布模型。"
+  ]
+}

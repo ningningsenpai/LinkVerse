@@ -1,0 +1,22 @@
+{
+  "status": "NOT_PROMOTED",
+  "purpose": "ENGINEERING",
+  "model_version": "trade-20260906084521028172-6f240414-670bd78a",
+  "manifest_sha256": "1346f1504c5f33034b538a9a6ac688f91bd17d2916bfcd480d5b480928f890b8",
+  "confirmatory": false,
+  "scope": "120 商品的本地脚本工程夹具；不代表全量服务规格或自然用户收益",
+  "checks": {
+    "offline_quality": false,
+    "data_isolation": true,
+    "tests": true,
+    "http_validity": true,
+    "latency": true,
+    "rollback": true
+  },
+  "reasons": [
+    "正式历史回归 NDCG 配对区间跨零，精排正式选参受到修正前同分指标影响。",
+    "最后小样本工程精排为单叶常数模型，不能作为质量候选。",
+    "另一个全量正式模型的单进程直连性能未通过 300ms 门槛；双进程方案未采用。",
+    "没有独立自然用户收益或确认性窗口证据。"
+  ]
+}

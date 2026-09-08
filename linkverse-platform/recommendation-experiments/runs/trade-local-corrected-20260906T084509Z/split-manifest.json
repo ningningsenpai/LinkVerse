@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "boundaries": [
+    "2026-09-06T06:33:56.655783+00:00",
+    "2026-09-06T06:34:04.683687+00:00",
+    "2026-09-06T06:34:12.750887+00:00"
+  ],
+  "end_inclusive": "2026-09-06T06:36:52.953539200Z",
+  "purpose": "LOCAL_SCRIPTED_PROTOCOL_REGRESSION",
+  "rule": "旧反馈训练、HOME 验证、DETAIL 反馈、CART 测试；边界来自请求阶段，不由得分决定"
+}

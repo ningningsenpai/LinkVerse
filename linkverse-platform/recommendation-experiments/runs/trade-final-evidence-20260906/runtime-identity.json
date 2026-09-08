@@ -1,0 +1,54 @@
+{
+  "recommendation": {
+    "image_id": "sha256:45bf5ef254b29d4216694faa4061cfba7493fe60bc847b867afb89e62eb9f560",
+    "name": "/linkverse-mvp-recommendation",
+    "command": null,
+    "mounts": [
+      {
+        "Source": "D:/Code/ning/LinkVerse/linkverse-platform/recommendation/artifacts/local-corrected-20260906T084509Z",
+        "Destination": "/models",
+        "RW": false
+      }
+    ],
+    "entrypoint": [
+      "uvicorn",
+      "linkverse_recommendation.api.app:app",
+      "--host",
+      "0.0.0.0",
+      "--port",
+      "18084"
+    ]
+  },
+  "java": [
+    {
+      "name": "linkverse-identity",
+      "jar": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\.runtime\\linkverse-identity\\1f0cfe2bcb4f491d90bb4f5e20bb0282\\linkverse-identity.jar",
+      "pid": 5352,
+      "jar_sha256": "67746BC9861379E10911E4AF96C0384F41CA937AC79FD341CC7BC2538C9ABD50"
+    },
+    {
+      "name": "linkverse-payment",
+      "jar": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\backend\\linkverse-payment\\target\\linkverse-payment-0.1.0-SNAPSHOT.jar",
+      "pid": 49596,
+      "jar_sha256": "8DBD9EBDCE9E0000C66A7516AAA035B8731AAB85E0F97B0C8FA96DA55C67C9B2"
+    },
+    {
+      "name": "linkverse-trade",
+      "jar": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\.runtime\\linkverse-trade\\623dda4d6e7243bfaee2546144292f72\\linkverse-trade.jar",
+      "pid": 46900,
+      "jar_sha256": "6A7497D7850878A5848699B4240816F91E6A34E1DA1A05990DDC34DB7D090AE3"
+    },
+    {
+      "name": "linkverse-gateway",
+      "jar": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\backend\\linkverse-gateway\\target\\linkverse-gateway-0.1.0-SNAPSHOT.jar",
+      "pid": 48740,
+      "jar_sha256": "D5707EE8D2246AFDF0A0CA7D54FD9394F841627893E83DD031E4AB05FFDD6449"
+    }
+  ],
+  "utc": "2026-09-06T08:58:23.1208658+00:00",
+  "model": {
+    "port": 18084,
+    "model_version": "trade-20260906084521028172-6f240414-670bd78a",
+    "model_root": "D:/Code/ning/LinkVerse/linkverse-platform/recommendation/artifacts/local-corrected-20260906T084509Z"
+  }
+}

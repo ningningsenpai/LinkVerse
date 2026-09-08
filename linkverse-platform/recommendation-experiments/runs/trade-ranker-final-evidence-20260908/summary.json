@@ -1,0 +1,146 @@
+{
+  "quality": {
+    "previous_after": {
+      "users": 7581,
+      "eligible_users": 7541,
+      "no_positive_users": 0,
+      "raw_ndcg_at_20": 0.003279531074245132,
+      "raw_recall_at_50": 0.03779404651980829,
+      "ndcg_at_20": 0.0032993462340092333,
+      "recall_at_50": 0.038270786367855726,
+      "hit_rate_at_20": 0.014454316403659993,
+      "category_violations": 0,
+      "short_lists": 0,
+      "latency_p95_ms": 7.493600000088918,
+      "model_version": "trade-20260906065816234951-6f240414-4f63f5f4",
+      "coverage_at_20": 0.7488022995847972
+    },
+    "popular": {
+      "users": 7581,
+      "eligible_users": 7541,
+      "no_positive_users": 0,
+      "raw_ndcg_at_20": 0.002569148982928651,
+      "raw_recall_at_50": 0.014998021369212505,
+      "ndcg_at_20": 0.0025856950893359066,
+      "recall_at_50": 0.015221235026300668,
+      "hit_rate_at_20": 0.011404323034080361,
+      "category_violations": 0,
+      "short_lists": 0,
+      "latency_p95_ms": 8.855099998982041,
+      "model_version": "trade-20260906064730150008-6f240414-4f63f5f4:popular_quota",
+      "coverage_at_20": 0.003992334717342702
+    },
+    "before": {
+      "users": 7581,
+      "eligible_users": 7541,
+      "no_positive_users": 0,
+      "raw_ndcg_at_20": 0.0031893812786770712,
+      "raw_recall_at_50": 0.03356417359187442,
+      "ndcg_at_20": 0.0032420077346773323,
+      "recall_at_50": 0.03415108517880033,
+      "hit_rate_at_20": 0.014189099588913937,
+      "category_violations": 0,
+      "short_lists": 0,
+      "latency_p95_ms": 8.162899999661022,
+      "model_version": "trade-20260906064730150008-6f240414-4f63f5f4",
+      "coverage_at_20": 0.7687639731715107
+    },
+    "seed_20260917": {
+      "users": 7581,
+      "eligible_users": 7541,
+      "no_positive_users": 0,
+      "raw_ndcg_at_20": 0.005713945802981343,
+      "raw_recall_at_50": 0.04640894215488596,
+      "ndcg_at_20": 0.0057495762135394615,
+      "recall_at_50": 0.04686507410284098,
+      "hit_rate_at_20": 0.02081951995756531,
+      "category_violations": 0,
+      "short_lists": 0,
+      "latency_p95_ms": 12.050299999827985,
+      "model_version": "trade-20260908070431966489-6f240414-4f63f5f4:seed-20260917",
+      "coverage_at_20": 0.7748323219418716
+    },
+    "seed_20261001": {
+      "users": 7581,
+      "eligible_users": 7541,
+      "no_positive_users": 0,
+      "raw_ndcg_at_20": 0.006238544054497358,
+      "raw_recall_at_50": 0.04631220909416398,
+      "ndcg_at_20": 0.006285366737378082,
+      "recall_at_50": 0.046818661160260414,
+      "hit_rate_at_20": 0.02121734517968439,
+      "category_violations": 0,
+      "short_lists": 0,
+      "latency_p95_ms": 11.898300001121243,
+      "model_version": "trade-20260908070431966489-6f240414-4f63f5f4:seed-20261001",
+      "coverage_at_20": 0.8096454806771
+    },
+    "after": {
+      "users": 7581,
+      "eligible_users": 7541,
+      "no_positive_users": 0,
+      "raw_ndcg_at_20": 0.006813773727438586,
+      "raw_recall_at_50": 0.04905716672633966,
+      "ndcg_at_20": 0.006853312365743425,
+      "recall_at_50": 0.04961133107267572,
+      "hit_rate_at_20": 0.025328205808248242,
+      "category_violations": 0,
+      "short_lists": 0,
+      "latency_p95_ms": 10.942500000965083,
+      "model_version": "trade-20260908070431966489-6f240414-4f63f5f4",
+      "coverage_at_20": 0.7077610986905142
+    }
+  },
+  "paired": {
+    "before": {
+      "users": 7541,
+      "ndcg_delta": 0.0036113046310660927,
+      "bootstrap_95": [
+        0.00226389444992759,
+        0.004979281131227447
+      ],
+      "confirmatory": false
+    },
+    "previous_after": {
+      "users": 7541,
+      "ndcg_delta": 0.003553966131734192,
+      "bootstrap_95": [
+        0.0021192786802231734,
+        0.004962950189876162
+      ],
+      "confirmatory": false
+    },
+    "popular": {
+      "users": 7541,
+      "ndcg_delta": 0.004267617276407519,
+      "bootstrap_95": [
+        0.0028848102910077372,
+        0.005662641278855566
+      ],
+      "confirmatory": false
+    }
+  },
+  "decision": {
+    "status": "NOT_PROMOTED",
+    "purpose": "ENGINEERING",
+    "manifest_sha256": "5de0c519409309db7a59edc64fdff2127979204cf837e2a052adaed738542a93",
+    "natural_traffic_evidence": false,
+    "checks": {
+      "offline_quality": true,
+      "data_isolation": true,
+      "tests": true,
+      "http_validity": true,
+      "latency": false,
+      "rollback": true
+    },
+    "business_active_model_unchanged": "trade-20260906084521028172-6f240414-670bd78a",
+    "limitations": [
+      "数据为合成历史，测试窗口已查看，不构成自然用户收益。",
+      "新模型只在隔离 18085 端口测试。"
+    ]
+  },
+  "training_trials": 24,
+  "training_epochs": 1987,
+  "normal_http_requests": 27761,
+  "report": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation-experiments\\iterations\\20260908-精排候选对齐总结.md"
+}

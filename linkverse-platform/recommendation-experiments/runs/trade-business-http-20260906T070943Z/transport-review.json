@@ -1,0 +1,5 @@
+{
+  "acceptance": "不用于本地直连服务延迟验收",
+  "reason": "实际检查发现 HTTPX 读取系统代理，127.0.0.1 使用 HTTPProxy。原始请求和指标完整保留。",
+  "scope": "LOOPBACK_VIA_SYSTEM_PROXY"
+}

@@ -1,0 +1,8 @@
+{
+  "python": "3.12.14 | packaged by conda-forge | (main, Sep  2 2026, 23:18:20) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "pid": 20568,
+  "git_commit": "6f240414c96b83076a96360a1117a2b1bfd7f345",
+  "source_sha256": "cdebb145b97ed1116332e9f1a21064e61eca90e8d7509115c223288ae0091830",
+  "source_archive": "raw/source.zip"
+}

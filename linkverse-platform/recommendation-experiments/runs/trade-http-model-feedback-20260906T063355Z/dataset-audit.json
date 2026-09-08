@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "traffic_origin": "SCRIPTED",
+  "events": 767,
+  "samples": 355,
+  "mature_exposure_negatives": 323,
+  "user_refund_negatives": 2,
+  "verified_conversion_chains": 15,
+  "missing_delivery_ids": 0,
+  "split_rows": [
+    340,
+    5,
+    5,
+    5
+  ],
+  "quality_claim_allowed": false,
+  "snapshot": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation\\datasets\\REC_1788673864047\\trade-20260906063652-767",
+  "split_manifest": ".cache\\recommendation-execution\\local-feedback-split.json"
+}

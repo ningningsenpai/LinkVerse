@@ -1,0 +1,6 @@
+{
+  "bundle": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation\\artifacts\\ranker-20260908\\trade-20260908070431966489-6f240414-4f63f5f4",
+  "output": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation-experiments\\runs\\trade-ranker-inprocess-20260908",
+  "resource_monitor": true,
+  "purpose": "FINAL_CANDIDATE_CPU_REPEATS"
+}

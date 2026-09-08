@@ -1,0 +1,93 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "initial_model",
+      "passed": true,
+      "recovery_seconds": 0.2959999999984575
+    },
+    {
+      "name": "user_token",
+      "passed": true,
+      "status": 401
+    },
+    {
+      "name": "wrong_service_audience",
+      "passed": true,
+      "status": 401
+    },
+    {
+      "name": "malformed_token",
+      "passed": true,
+      "status": 401
+    },
+    {
+      "name": "invalid_signature",
+      "passed": true,
+      "status": 401
+    },
+    {
+      "name": "atomic_switch_0",
+      "passed": true,
+      "requests": 18,
+      "recovery_seconds": 0.5149999999994179
+    },
+    {
+      "name": "atomic_switch_1",
+      "passed": true,
+      "requests": 34,
+      "recovery_seconds": 1.0310000000026776
+    },
+    {
+      "name": "bad_bundle_keeps_old",
+      "passed": true,
+      "requests": 100
+    },
+    {
+      "name": "outside_pointer_keeps_old",
+      "passed": true,
+      "requests": 20
+    },
+    {
+      "name": "paused_concurrency_30_fallback",
+      "passed": true,
+      "requests": 30
+    },
+    {
+      "name": "pause_business_fallback",
+      "passed": true,
+      "requests": 10,
+      "max_latency_ms": 78.2240999978967
+    },
+    {
+      "name": "pause_recovery",
+      "passed": true,
+      "recovery_seconds": 29.81300000000192
+    },
+    {
+      "name": "stop_business_fallback",
+      "passed": true,
+      "requests": 10,
+      "max_latency_ms": 44.00030000033439
+    },
+    {
+      "name": "stop_recovery",
+      "passed": true,
+      "recovery_seconds": 29.4220000000023
+    },
+    {
+      "name": "no_active_model",
+      "passed": true
+    },
+    {
+      "name": "no_model_recovery",
+      "passed": true,
+      "recovery_seconds": 30.5
+    },
+    {
+      "name": "finally_restored",
+      "passed": true,
+      "recovery_seconds": 0.046999999998661224
+    }
+  ]
+}

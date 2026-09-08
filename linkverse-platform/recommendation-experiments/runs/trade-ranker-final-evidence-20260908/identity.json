@@ -1,0 +1,57 @@
+{
+  "runtime": {
+    "image_id": "sha256:de62649d90acaa6c1c4da71ac753d3d015820c8aed7f955d74d6673ed54b2299",
+    "image_tag": "linkverse/recommendation:ranker-calibrated-20260908",
+    "cpu_limit": 4.0,
+    "memory_bytes": 6442450944,
+    "container_id": "71bdc0e08da40a942fdcc8b26cd316767ac16e19052fab8dde6e19b019d5da57",
+    "source_files": {
+      "pipeline/ranking/features.py": {
+        "workspace": "3a2fb39be1bc09969983bf3c853817c62c997a848fc99749d45df9b571bbb963",
+        "container": "3a2fb39be1bc09969983bf3c853817c62c997a848fc99749d45df9b571bbb963",
+        "matched": true
+      },
+      "serving/registry.py": {
+        "workspace": "d86a60a2c7ceb5ac27b4c911f4f8fc750b5636563d990531ae2d20d0729dc1bb",
+        "container": "d86a60a2c7ceb5ac27b4c911f4f8fc750b5636563d990531ae2d20d0729dc1bb",
+        "matched": true
+      },
+      "pipeline/reranking/mmr.py": {
+        "workspace": "700f938df3b123f4692a6f2cbb8ab1227c532435e00eaa072137926462bd91f1",
+        "container": "700f938df3b123f4692a6f2cbb8ab1227c532435e00eaa072137926462bd91f1",
+        "matched": true
+      },
+      "api/app.py": {
+        "workspace": "d11758ab25895ebbda74aeac15ba6577881b770c2b50ebc740f6e455810e4ffc",
+        "container": "d11758ab25895ebbda74aeac15ba6577881b770c2b50ebc740f6e455810e4ffc",
+        "matched": true
+      },
+      "core/model_bundle.py": {
+        "workspace": "11c877390cc890cbc158374d0764f758244fd0a8a2b91de43a63751d58ad5dbe",
+        "container": "11c877390cc890cbc158374d0764f758244fd0a8a2b91de43a63751d58ad5dbe",
+        "matched": true
+      }
+    }
+  },
+  "protected_files": {
+    "linkverse-platform/backend/platform-starter-security/src/main/java/ning/linkverse/security/jwt/LinkVerseJwtProfileValidator.java": {
+      "sha256": "0a46db0ab444303e9d20a279a6f984c48965359ba3535b4272c7200dd7a8e983",
+      "unchanged": true
+    },
+    "linkverse-platform/scripts/_infrastructure.ps1": {
+      "sha256": "dbfdbbd6f6f77cca6e978182bc4d9938fb4d735b98c6fc87f4cf662281605a13",
+      "unchanged": true
+    }
+  },
+  "main_service": {
+    "status": "UP",
+    "model_version": "trade-20260906084521028172-6f240414-670bd78a"
+  },
+  "candidate_service": {
+    "status": "UP",
+    "model_version": "trade-20260908070431966489-6f240414-4f63f5f4"
+  },
+  "syntax_files": 63,
+  "dataset_hash_verified": true,
+  "selected_manifest_sha256": "5de0c519409309db7a59edc64fdff2127979204cf837e2a052adaed738542a93"
+}

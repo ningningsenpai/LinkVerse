@@ -1,0 +1,25 @@
+{
+  "output": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation-experiments\\runs\\trade-ranker-smoke-20260908",
+  "base_bundle": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation\\artifacts\\formal-20260906T060941Z\\before\\trade-20260906064730150008-6f240414-4f63f5f4",
+  "dataset": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation\\datasets\\trade-synthetic",
+  "split_manifest": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation-experiments\\runs\\trade-formal-20260906T060941Z\\split-manifest.json",
+  "model_root": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation\\artifacts\\ranker-smoke-20260908",
+  "rank_validation_start": "2026-02-20T00:00:00+00:00",
+  "ranker_trials": 2,
+  "max_rounds": 20,
+  "seeds": [
+    20260903,
+    20260917,
+    20261001
+  ],
+  "container_metrics": true,
+  "metric_containers": [
+    "linkverse-mvp-recommendation",
+    "linkverse-mvp-mysql",
+    "linkverse-mvp-redis",
+    "linkverse-mvp-rabbitmq"
+  ],
+  "purpose": "HISTORICAL_SYNTHETIC_REGRESSION",
+  "smoke_users": 200,
+  "skip_test": true
+}

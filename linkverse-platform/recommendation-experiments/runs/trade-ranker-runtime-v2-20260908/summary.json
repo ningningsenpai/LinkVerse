@@ -1,0 +1,24 @@
+{
+  "http_parity_cases": 180,
+  "concurrent_swap_requests": 100,
+  "invalid_pointer_requests": 20,
+  "invalid_pointer_kept_active": true,
+  "invalid_token_status": 401,
+  "swaps": [
+    {
+      "stage": "before",
+      "elapsed_seconds_including_validation": 20.936999999999898
+    },
+    {
+      "stage": "after",
+      "elapsed_seconds_including_validation": 22.25
+    },
+    {
+      "stage": "rollback_with_requests",
+      "elapsed_seconds_including_validation": 20.03100000000086
+    }
+  ],
+  "failures": 0,
+  "passed": true,
+  "candidate_manifest_sha256": "5de0c519409309db7a59edc64fdff2127979204cf837e2a052adaed738542a93"
+}

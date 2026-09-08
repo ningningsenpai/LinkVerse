@@ -1,0 +1,87 @@
+{
+  "output": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation-experiments\\runs\\trade-business-http-20260906T070943Z",
+  "fixture": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\.runtime\\recommendation-fixture.json",
+  "container_metrics": true,
+  "bundle": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation\\artifacts\\local-feedback-20260906T064002Z\\after\\trade-20260906070354380998-6f240414-670bd78a",
+  "purpose": "LOCAL_SCRIPTED_BUSINESS_HTTP_PERFORMANCE",
+  "java_processes": [
+    {
+      "name": "linkverse-identity",
+      "pid": 5352,
+      "port": 18081,
+      "jar": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\.runtime\\linkverse-identity\\1f0cfe2bcb4f491d90bb4f5e20bb0282\\linkverse-identity.jar"
+    },
+    {
+      "name": "linkverse-payment",
+      "pid": 49596,
+      "port": 18083,
+      "jar": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\backend\\linkverse-payment\\target\\linkverse-payment-0.1.0-SNAPSHOT.jar"
+    },
+    {
+      "name": "linkverse-trade",
+      "pid": 51020,
+      "port": 18082,
+      "jar": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\.runtime\\linkverse-trade\\abebacc942e14fb4abbe99130c7905a6\\linkverse-trade.jar"
+    },
+    {
+      "name": "linkverse-gateway",
+      "pid": 48740,
+      "port": 18080,
+      "jar": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\backend\\linkverse-gateway\\target\\linkverse-gateway-0.1.0-SNAPSHOT.jar"
+    }
+  ],
+  "metric_containers": [
+    "linkverse-mvp-mysql",
+    "linkverse-mvp-redis",
+    "linkverse-mvp-rabbitmq",
+    "linkverse-mvp-recommendation",
+    "linkverse-mvp-recommendation-benchmark"
+  ],
+  "stages": [
+    {
+      "warmup_seconds": 30,
+      "think_seconds": 0,
+      "concurrency": 20,
+      "stop_on_failure": false,
+      "duration_seconds": 120,
+      "name": "trade-vu20",
+      "target": "trade"
+    },
+    {
+      "warmup_seconds": 30,
+      "think_seconds": 0,
+      "concurrency": 1,
+      "stop_on_failure": false,
+      "duration_seconds": 120,
+      "name": "gateway-vu1",
+      "target": "gateway"
+    },
+    {
+      "warmup_seconds": 30,
+      "think_seconds": 0,
+      "concurrency": 5,
+      "stop_on_failure": false,
+      "duration_seconds": 120,
+      "name": "gateway-vu5",
+      "target": "gateway"
+    },
+    {
+      "warmup_seconds": 30,
+      "think_seconds": 0,
+      "concurrency": 10,
+      "stop_on_failure": false,
+      "duration_seconds": 120,
+      "name": "gateway-vu10",
+      "target": "gateway"
+    },
+    {
+      "warmup_seconds": 30,
+      "think_seconds": 0,
+      "concurrency": 20,
+      "stop_on_failure": false,
+      "duration_seconds": 120,
+      "name": "gateway-vu20",
+      "target": "gateway"
+    }
+  ]
+}

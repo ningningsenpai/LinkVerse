@@ -1,0 +1,56 @@
+{
+  "model_version": "trade-20260906060950032588-6f240414-556f5a03",
+  "bundle": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation\\artifacts\\local-20260906T060941Z\\before\\trade-20260906060950032588-6f240414-556f5a03",
+  "data_hash": "556f5a0380bb7bb0b0ae6b2bbf2d8bcaae50ee8ab905e4de2d72fb70a67c9aa6",
+  "cuda": {
+    "available": true,
+    "device_index": 0,
+    "device_name": "NVIDIA GeForce RTX 4070 SUPER",
+    "memory_bytes": 12878086144,
+    "torch_version": "2.9.0+cu130",
+    "cuda_runtime": "13.0"
+  },
+  "data_source": "REAL",
+  "split_rows": {
+    "train": 10,
+    "validation": 1,
+    "feedback": 1,
+    "test": 2
+  },
+  "two_tower_best_params": {
+    "embedding_dim": 128,
+    "hidden_dims": "256-128",
+    "learning_rate": 0.0021378463985674352,
+    "weight_decay": 0.00012808493003457853,
+    "batch_size": 512,
+    "dropout": 0.28169026107620315,
+    "negative_count": 8,
+    "temperature": 0.0765742963882316,
+    "max_epochs": 40,
+    "patience": 5,
+    "selected_epochs": 2
+  },
+  "two_tower_seed_ndcg_at_20": [
+    0.1934264036172708,
+    0.0,
+    0.0
+  ],
+  "repeat_maximum_weight_difference": 0.0,
+  "two_tower_ndcg_at_20_mean": 0.0644754678724236,
+  "two_tower_ndcg_at_20_std": 0.0911820811055322,
+  "lambda_rank_best_params": {
+    "num_leaves": 103,
+    "learning_rate": 0.15334294558178707,
+    "min_child_samples": 37,
+    "feature_fraction": 0.8387449044024397,
+    "bagging_fraction": 0.9592145369821163,
+    "lambda_l1": 0.06876917143425733,
+    "lambda_l2": 0.0014467811103822674,
+    "selected_rounds": 1
+  },
+  "lambda_rank_ndcg_at_20": 1.0,
+  "two_tower_trial_count": 5,
+  "lambda_rank_trial_count": 5,
+  "elapsed_seconds": 5.110107700000299,
+  "limitations": "合成工程验证，不代表线上推荐质量"
+}

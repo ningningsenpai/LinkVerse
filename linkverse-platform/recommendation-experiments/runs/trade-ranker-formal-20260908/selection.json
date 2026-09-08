@@ -1,0 +1,39 @@
+{
+  "selected": "legacy",
+  "bundle": "D:\\Code\\ning\\LinkVerse\\linkverse-platform\\recommendation\\artifacts\\ranker-20260908\\trade-20260908070109058577-6f240414-4f63f5f4",
+  "manifest_sha256": "c365e93ea28b48cf43200a2a444cbc5c9732c8971bcfcd169b84e4114e207075",
+  "frozen_before_test": true,
+  "validation": {
+    "users": 2747,
+    "ndcg_at_20": 0.004283554987219535,
+    "recall_at_50": 0.036585365853658534,
+    "coverage_at_20": 0.6034813158735228,
+    "short_lists": 0,
+    "quota_violations": 0
+  },
+  "train_audit": {
+    "queries": 4644,
+    "fit_groups": 1358,
+    "missed_or_constant_groups": 3286,
+    "rows": 679000,
+    "positive_rows": 1461,
+    "group_min": 500,
+    "group_max": 500,
+    "feature_count": 15,
+    "feature_archive_sha256": "9fdd2d5a70650204b2963794ecf7c292f9d05bd7abd8399fe48b20c7726e4455",
+    "positive_injection": false
+  },
+  "valid_audit": {
+    "queries": 2747,
+    "fit_groups": 716,
+    "missed_or_constant_groups": 2031,
+    "rows": 358000,
+    "positive_rows": 745,
+    "group_min": 500,
+    "group_max": 500,
+    "feature_count": 15,
+    "feature_archive_sha256": "7483cefecd7c884f334816c438984cb0b9ce5bd9283394efbd6350572a0fba6d",
+    "positive_injection": false
+  },
+  "quality_claim_allowed": false
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "seed": 20260903,
+    "trees": 77,
+    "validation_group_ndcg": 0.05214324227078129,
+    "maximum_difference_from_selected": 0.0
+  },
+  {
+    "seed": 20260917,
+    "trees": 77,
+    "validation_group_ndcg": 0.039260433583618394,
+    "maximum_difference_from_selected": 0.9057260847745946
+  },
+  {
+    "seed": 20261001,
+    "trees": 77,
+    "validation_group_ndcg": 0.03647448735006214,
+    "maximum_difference_from_selected": 0.8857743251814141
+  },
+  {
+    "seed": 20260903,
+    "trees": 77,
+    "validation_group_ndcg": 0.05214324227078129,
+    "maximum_difference_from_selected": 0.0
+  }
+]

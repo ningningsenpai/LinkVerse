@@ -1,0 +1,9 @@
+﻿model,cohort,users,eligible_users,no_positive_users,raw_ndcg_at_20,raw_recall_at_50,ndcg_at_20,recall_at_50,hit_rate_at_20,category_violations,short_lists,latency_p95_ms,model_version,coverage_at_20
+before,all,5,5,0,0.0,0.4,0.0,0.4,0.0,0,0,1.3216399995144457,trade-20260906084519050677-6f240414-670bd78a,0.30833333333333335
+before,cold,0,0,0,,,,,,0,0,,,
+before,sparse,0,0,0,,,,,,0,0,,,
+before,warm,5,5,0,0.0,0.4,0.0,0.4,0.0,0,0,1.3216399995144457,,
+after,all,5,5,0,0.0,0.4,0.0,0.4,0.0,0,0,1.432500001101289,trade-20260906084521028172-6f240414-670bd78a,0.30833333333333335
+after,cold,0,0,0,,,,,,0,0,,,
+after,sparse,0,0,0,,,,,,0,0,,,
+after,warm,5,5,0,0.0,0.4,0.0,0.4,0.0,0,0,1.432500001101289,,
