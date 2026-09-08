@@ -49,6 +49,20 @@ function Import-LinkVerseEnvironmentFile {
     }
 }
 
+function Set-LinkVerseImageReferences {
+    foreach ($prefix in @('MYSQL', 'REDIS', 'RABBITMQ', 'NACOS')) {
+        $image = Get-LinkVerseEnvironmentValue -Name "${prefix}_IMAGE"
+        $digest = Get-LinkVerseEnvironmentValue -Name "${prefix}_IMAGE_DIGEST"
+        $imageReference = if ([string]::IsNullOrWhiteSpace($digest)) {
+            $image
+        }
+        else {
+            "${image}@${digest}"
+        }
+        [Environment]::SetEnvironmentVariable("${prefix}_IMAGE_REF", $imageReference, 'Process')
+    }
+}
+
 function Import-LinkVerseInfrastructureEnvironment {
     param(
         [Parameter(Mandatory = $true)]
@@ -61,6 +75,8 @@ function Import-LinkVerseInfrastructureEnvironment {
     Import-LinkVerseEnvironmentFile -Path $EnvironmentFile
     # 版本文件后加载，防止本地 .env 无意覆盖已冻结的镜像、端口和资源名。
     Import-LinkVerseEnvironmentFile -Path $Context.VersionsFile
+    # 进程环境优先于 Compose env 文件，必须在此消除二次插值留下的字面量。
+    Set-LinkVerseImageReferences
 }
 
 function Get-LinkVerseEnvironmentValue {

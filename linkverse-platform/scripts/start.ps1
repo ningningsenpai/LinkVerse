@@ -55,6 +55,12 @@ try {
         if (-not (Test-Path -LiteralPath $jar -PathType Leaf)) {
             throw "服务包不存在：$jar"
         }
+        # 独立运行副本避免 Windows 锁住 target 下的 JAR，后续构建和快照导出可正常执行。
+        $serviceRuntime = Join-Path $context.RuntimeRoot "$($service.Name)/$([Guid]::NewGuid().ToString('N'))"
+        New-Item -ItemType Directory -Path $serviceRuntime -Force | Out-Null
+        $runtimeJar = Join-Path $serviceRuntime "$($service.Name).jar"
+        Copy-Item -LiteralPath $jar -Destination $runtimeJar
+        $jar = $runtimeJar
         $processLogRoot = Initialize-LinkVerseLogDirectory -Context $context `
             -Module $service.Name -Category 'process'
         $stderr = Join-Path $processLogRoot 'stderr.log'

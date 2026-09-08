@@ -66,6 +66,9 @@ function Initialize-LinkVerseDeliveryEnvironment {
         (Get-LinkVerseEnvironmentValue -Name 'REDIS_HOST_PORT'), 'Process')
     [Environment]::SetEnvironmentVariable('RABBITMQ_PORT',
         (Get-LinkVerseEnvironmentValue -Name 'RABBITMQ_AMQP_HOST_PORT'), 'Process')
+    # Java 与 Compose 共用已收敛的本地账号，避免旧 .env 的别名导致静默断开消息链路。
+    [Environment]::SetEnvironmentVariable('RABBITMQ_USERNAME',
+        (Get-LinkVerseEnvironmentValue -Name 'RABBITMQ_USER'), 'Process')
     return $context
 }
 

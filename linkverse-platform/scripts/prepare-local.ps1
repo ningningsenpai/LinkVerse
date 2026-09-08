@@ -253,6 +253,7 @@ function Update-LinkVerseRecommendationEnvironment {
         New-LinkVerseSafeSecret
     }
     $required = [ordered]@{
+        LINKVERSE_RECOMMENDATION_CLIENT_BOOTSTRAP_ENABLED = 'true'
         LINKVERSE_RECOMMENDATION_CLIENT_SECRET = $clientSecret
         RECOMMENDATION_OAUTH_CLIENT_SECRET     = $clientSecret
         RECOMMENDATION_USER_HMAC_SECRET        = New-LinkVerseSafeSecret
