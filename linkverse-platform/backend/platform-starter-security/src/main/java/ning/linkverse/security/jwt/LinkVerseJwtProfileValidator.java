@@ -37,6 +37,12 @@ public final class LinkVerseJwtProfileValidator implements OAuth2TokenValidator<
         this.requiredScope = normalize(requiredScope);
     }
 
+    /**
+     * 校验 JWT 令牌是否符合业务档案声明。
+     *
+     * @param jwt JWT
+     * @return OAuth2 令牌验证器结果
+     */
     @Override
     public OAuth2TokenValidatorResult validate(Jwt jwt) {
         Objects.requireNonNull(jwt, "JWT 不能为空");
