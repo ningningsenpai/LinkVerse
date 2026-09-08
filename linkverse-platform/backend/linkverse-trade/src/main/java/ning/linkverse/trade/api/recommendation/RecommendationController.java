@@ -37,9 +37,10 @@ public class RecommendationController {
     public RecommendationResponse listings(
             @AuthenticationPrincipal Jwt jwt,
             @RequestParam(defaultValue = "HOME") String scene,
-            @RequestParam(defaultValue = "20") int limit
+            @RequestParam(defaultValue = "20") int limit,
+            @RequestParam(name = "context_listing_id", required = false) Long contextListingId
     ) {
-        return RecommendationResponse.from(recommendationService.recommend(userId(jwt), scene, limit));
+        return RecommendationResponse.from(recommendationService.recommend(userId(jwt), scene, limit, contextListingId));
     }
 
     @PostMapping("/recommendation-events")

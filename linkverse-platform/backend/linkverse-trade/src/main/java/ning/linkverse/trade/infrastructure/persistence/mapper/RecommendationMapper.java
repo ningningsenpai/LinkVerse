@@ -25,6 +25,21 @@ import java.util.List;
 @Mapper
 public interface RecommendationMapper {
 
+    @Select("""
+            SELECT listing_id FROM (
+                SELECT listing_id, action, ROW_NUMBER() OVER (
+                    PARTITION BY listing_id ORDER BY ingested_at DESC, id DESC
+                ) AS sequence_no, ingested_at
+                FROM trade_behavior_event
+                WHERE user_id = #{userId} AND ingested_at <= #{now}
+                  AND ingested_at >= DATE_SUB(#{now}, INTERVAL 1 DAY)
+                  AND (action IN ('DETAIL_OPEN', 'CART_ADD', 'ORDER_CREATED', 'PAYMENT_SUCCEEDED')
+                    OR (action = 'REFUNDED' AND refund_reason_code IN ('USER_RETURN', 'QUALITY_ISSUE')))
+            ) recent WHERE sequence_no = 1 AND action <> 'REFUNDED'
+            ORDER BY ingested_at DESC, listing_id LIMIT 50
+            """)
+    List<Long> selectRecentPositiveListingIds(@Param("userId") long userId, @Param("now") Instant now);
+
     String ELIGIBLE_SELECT = """
             SELECT l.id AS id, l.seller_id AS sellerId, l.category_id AS categoryId,
                    c.code AS categoryCode, l.title AS title, l.author AS author,

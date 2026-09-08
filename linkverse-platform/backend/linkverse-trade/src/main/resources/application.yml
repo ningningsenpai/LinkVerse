@@ -156,7 +156,7 @@ spring:
   flyway:
     enabled: false
   datasource:
-    username: ${RECOMMENDATION_EXPORT_DB_USER:${TRADE_DB_USER:}}
+    username: ${RECOMMENDATION_EXPORT_DB_USER:${TRADE_DB_USERNAME:}}
     password: ${RECOMMENDATION_EXPORT_DB_PASSWORD:${TRADE_DB_PASSWORD:}}
     hikari:
       read-only: true
@@ -172,3 +172,6 @@ linkverse:
   trade:
     payment-events-enabled: false
     snapshot-output: ${RECOMMENDATION_SNAPSHOT_OUTPUT:}
+    snapshot-traffic-origin: ${RECOMMENDATION_SNAPSHOT_TRAFFIC_ORIGIN:UNKNOWN}
+    snapshot-minimum-listing-id: ${RECOMMENDATION_SNAPSHOT_MINIMUM_LISTING_ID:0}
+    snapshot-maximum-listing-id: ${RECOMMENDATION_SNAPSHOT_MAXIMUM_LISTING_ID:9223372036854775807}

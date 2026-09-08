@@ -55,6 +55,11 @@ public class MyBatisPlusRecommendationRepository implements RecommendationReposi
     }
 
     @Override
+    public List<Long> findRecentPositiveListingIds(long userId, Instant now) {
+        return mapper.selectRecentPositiveListingIds(userId, now);
+    }
+
+    @Override
     public RecommendationDelivery insertDelivery(RecommendationDelivery delivery) {
         RecommendationMapper.DeliveryRow row = toRow(delivery);
         mapper.insertDelivery(row);

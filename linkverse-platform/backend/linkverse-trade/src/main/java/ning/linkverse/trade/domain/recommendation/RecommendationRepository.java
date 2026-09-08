@@ -22,6 +22,8 @@ public interface RecommendationRepository {
 
     List<BookListing> findFallbackListings(long userId, Collection<Long> excludedIds, Instant now, int limit);
 
+    List<Long> findRecentPositiveListingIds(long userId, Instant now);
+
     RecommendationDelivery insertDelivery(RecommendationDelivery delivery);
 
     Optional<RecommendationDelivery> findDelivery(long deliveryId, long userId, long listingId);

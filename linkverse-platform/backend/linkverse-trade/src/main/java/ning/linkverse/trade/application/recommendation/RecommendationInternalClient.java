@@ -33,7 +33,8 @@ public class RecommendationInternalClient {
             @Value("${linkverse.trade.recommendation-timeout:800ms}") Duration timeout,
             @Value("${linkverse.trade.recommendation-max-concurrent:20}") int maxConcurrent
     ) {
-        HttpClient httpClient = HttpClient.newBuilder().connectTimeout(timeout).build();
+        HttpClient httpClient = HttpClient.newBuilder().connectTimeout(timeout)
+                .version(HttpClient.Version.HTTP_1_1).build();
         JdkClientHttpRequestFactory requestFactory = new JdkClientHttpRequestFactory(httpClient);
         requestFactory.setReadTimeout(timeout);
         this.restClient = RestClient.builder().requestFactory(requestFactory).baseUrl(baseUrl).build();
@@ -44,7 +45,7 @@ public class RecommendationInternalClient {
 
     public RecommendationInternalResponse recommend(RecommendationInternalRequest request) {
         if (!concurrentCalls.tryAcquire()) {
-            throw new IllegalStateException("推荐服务并发已达上限");
+            throw new java.util.concurrent.RejectedExecutionException("推荐服务并发已达上限");
         }
         try {
             return circuitBreaker.run(() -> restClient.post()

@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Profile;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
@@ -40,21 +42,37 @@ public class RecommendationSnapshotExporter {
     private final Clock clock;
     private final Path outputRoot;
     private final byte[] hmacSecret;
+    private final String trafficOrigin;
+    private final long minimumListingId;
+    private final long maximumListingId;
 
     public RecommendationSnapshotExporter(
             JdbcTemplate jdbcTemplate,
             ObjectMapper objectMapper,
             Clock clock,
             @Value("${linkverse.trade.snapshot-output}") Path outputRoot,
-            @Value("${linkverse.trade.recommendation-user-hmac-secret}") String hmacSecret
+            @Value("${linkverse.trade.recommendation-user-hmac-secret}") String hmacSecret,
+            @Value("${linkverse.trade.snapshot-traffic-origin:UNKNOWN}") String trafficOrigin,
+            @Value("${linkverse.trade.snapshot-minimum-listing-id:0}") long minimumListingId,
+            @Value("${linkverse.trade.snapshot-maximum-listing-id:9223372036854775807}") long maximumListingId
     ) {
         this.jdbcTemplate = jdbcTemplate;
         this.objectMapper = objectMapper;
         this.clock = clock;
         this.outputRoot = outputRoot.toAbsolutePath().normalize();
         this.hmacSecret = hmacSecret.getBytes(StandardCharsets.UTF_8);
+        if (!java.util.Set.of("UNKNOWN", "SCRIPTED", "NATURAL").contains(trafficOrigin)) {
+            throw new IllegalArgumentException("快照流量来源无效");
+        }
+        this.trafficOrigin = trafficOrigin;
+        if (minimumListingId < 0 || maximumListingId < minimumListingId) {
+            throw new IllegalArgumentException("快照商品范围无效");
+        }
+        this.minimumListingId = minimumListingId;
+        this.maximumListingId = maximumListingId;
     }
 
+    @Transactional(readOnly = true, isolation = Isolation.REPEATABLE_READ)
     public Path export() {
         if (hmacSecret.length < 32) {
             throw new IllegalStateException("推荐用户 HMAC 密钥至少需要 32 个 UTF-8 字节");
@@ -73,6 +91,8 @@ public class RecommendationSnapshotExporter {
             manifest.put("schema_version", 1);
             manifest.put("domain", "trade");
             manifest.put("data_source", "REAL");
+            manifest.put("traffic_origin", trafficOrigin);
+            manifest.put("listing_id_range", java.util.List.of(minimumListingId, maximumListingId));
             manifest.put("snapshot_version", version);
             manifest.put("watermark", watermark);
             manifest.put("exported_at", now);
@@ -107,6 +127,7 @@ public class RecommendationSnapshotExporter {
                     FROM book_listing l
                     JOIN book_category c ON c.id = l.category_id
                     JOIN sku_stock s ON s.listing_id = l.id
+                    WHERE l.id BETWEEN ? AND ?
                     ORDER BY l.id
                     """, resultSet -> {
                 Map<String, Object> row = new LinkedHashMap<>();
@@ -125,7 +146,7 @@ public class RecommendationSnapshotExporter {
                 row.put("data_source", "REAL");
                 writeLine(writer, row);
                 count[0]++;
-            });
+            }, minimumListingId, maximumListingId);
         }
         return count[0];
     }
@@ -135,10 +156,11 @@ public class RecommendationSnapshotExporter {
         try (BufferedWriter writer = Files.newBufferedWriter(path, StandardCharsets.UTF_8)) {
             jdbcTemplate.query("""
                     SELECT event_id, user_id, listing_id, action, event_time, ingested_at,
-                           request_id, session_id, position, source, model_version, order_no,
+                           request_id, session_id, recommendation_delivery_id, position, source, model_version, order_no,
                            refund_reason_code, schema_version, data_source
                     FROM trade_behavior_event
                     WHERE id <= ?
+                      AND listing_id BETWEEN ? AND ?
                     ORDER BY event_time, id
                     """, resultSet -> {
                 Map<String, Object> row = new LinkedHashMap<>();
@@ -150,6 +172,7 @@ public class RecommendationSnapshotExporter {
                 row.put("ingested_at", resultSet.getTimestamp("ingested_at").toInstant());
                 row.put("request_id", resultSet.getString("request_id"));
                 row.put("session_id", resultSet.getString("session_id"));
+                row.put("recommendation_delivery_id", resultSet.getObject("recommendation_delivery_id"));
                 Object position = resultSet.getObject("position");
                 row.put("position", position);
                 row.put("source", resultSet.getString("source"));
@@ -160,7 +183,7 @@ public class RecommendationSnapshotExporter {
                 row.put("data_source", resultSet.getString("data_source"));
                 writeLine(writer, row);
                 count[0]++;
-            }, watermark);
+            }, watermark, minimumListingId, maximumListingId);
         }
         return count[0];
     }

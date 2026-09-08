@@ -3,6 +3,8 @@ package ning.linkverse.trade.application.recommendation;
 import ning.linkverse.trade.domain.listing.BookListing;
 import ning.linkverse.trade.domain.recommendation.RecommendationCandidate;
 import ning.linkverse.trade.domain.recommendation.RecommendationRepository;
+import ning.linkverse.trade.application.TradeBusinessMetrics;
+import io.micrometer.core.instrument.simple.SimpleMeterRegistry;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 
@@ -53,7 +55,7 @@ class RecommendationApplicationServiceTest {
         });
         when(repository.findEligibleListings(eq(1001L), anyCollection(), eq(NOW)))
                 .thenReturn(List.of(eligible));
-        when(repository.findFallbackListings(eq(1001L), anyCollection(), eq(NOW), eq(1)))
+        when(repository.findFallbackListings(eq(1001L), anyCollection(), eq(NOW), eq(500)))
                 .thenReturn(List.of(fallback));
         when(deliveryService.persist(anyLong(), any(), any(), any(), any(), anyMap(), any()))
                 .thenReturn(List.of());
@@ -81,7 +83,7 @@ class RecommendationApplicationServiceTest {
         when(client.recommend(any())).thenThrow(new IllegalStateException("服务不可用"));
         when(repository.findEligibleListings(eq(1001L), anyCollection(), eq(NOW)))
                 .thenReturn(List.of());
-        when(repository.findFallbackListings(eq(1001L), anyCollection(), eq(NOW), eq(1)))
+        when(repository.findFallbackListings(eq(1001L), anyCollection(), eq(NOW), eq(500)))
                 .thenReturn(List.of(listing(1L)));
         when(deliveryService.persist(anyLong(), any(), any(), any(), any(), anyMap(), any()))
                 .thenReturn(List.of());
@@ -107,6 +109,31 @@ class RecommendationApplicationServiceTest {
                 .hasMessage("推荐场景或数量不合法");
     }
 
+    @Test
+    void shouldRecordBoundedFailureReasonAndStageDuration() {
+        RecommendationInternalClient client = mock(RecommendationInternalClient.class);
+        RecommendationRepository repository = mock(RecommendationRepository.class);
+        RecommendationDeliveryService deliveryService = mock(RecommendationDeliveryService.class);
+        UserKeyHasher hasher = mock(UserKeyHasher.class);
+        SimpleMeterRegistry registry = new SimpleMeterRegistry();
+        when(hasher.hash(1001L)).thenReturn("a".repeat(64));
+        when(client.recommend(any())).thenThrow(new RuntimeException(
+                "请求上下文不进入指标标签", new java.net.http.HttpTimeoutException("远程超时")));
+        when(repository.findEligibleListings(eq(1001L), anyCollection(), eq(NOW))).thenReturn(List.of());
+        when(repository.findFallbackListings(eq(1001L), anyCollection(), eq(NOW), eq(500))).thenReturn(List.of(listing(1L)));
+        when(deliveryService.persist(anyLong(), any(), any(), any(), any(), anyMap(), any())).thenReturn(List.of());
+        RecommendationApplicationService service = new RecommendationApplicationService(
+                client, repository, deliveryService, hasher, Clock.fixed(NOW, ZoneOffset.UTC), new TradeBusinessMetrics(registry));
+
+        assertThat(service.recommend(1001L, "HOME", 1).fallback()).isTrue();
+        assertThat(registry.get("linkverse.recommendation.fallback").tag("reason", "TIMEOUT").counter().count()).isEqualTo(1);
+        for (String stage : List.of("HISTORY", "REMOTE", "FILTER", "DELIVERY")) {
+            assertThat(registry.get("linkverse.recommendation.stage.duration").tag("stage", stage).timer().count()).isEqualTo(1);
+        }
+        assertThat(registry.getMeters().stream().flatMap(meter -> meter.getId().getTags().stream()).map(tag -> tag.getValue()))
+                .noneMatch(value -> value.contains("请求上下文") || value.contains("1001"));
+    }
+
     private static RecommendationApplicationService service(
             RecommendationInternalClient client,
             RecommendationRepository repository,
@@ -118,7 +145,8 @@ class RecommendationApplicationServiceTest {
                 repository,
                 deliveryService,
                 hasher,
-                Clock.fixed(NOW, ZoneOffset.UTC)
+                Clock.fixed(NOW, ZoneOffset.UTC),
+                new TradeBusinessMetrics(new SimpleMeterRegistry())
         );
     }
 
