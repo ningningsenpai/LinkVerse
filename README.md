@@ -68,21 +68,11 @@ LinkVerse/
 
 ### 服务与数据边界
 
-```mermaid
-flowchart LR
-    client["客户端 / 测试工具"] --> gateway["Gateway"]
-    gateway --> identity["Identity · 账号与 OAuth2"]
-    gateway --> trade["Trade · 商品、订单、秒杀"]
-    gateway --> payment["Payment · 支付、关单、退款"]
-    trade -->|"服务 JWT / HTTP"| payment
-    trade -->|"服务 JWT / HTTP"| recommendation["Recommendation"]
-    identity --> identityDb[("Identity Schema")]
-    trade --> tradeDb[("Trade Schema")]
-    payment --> paymentDb[("Payment Schema")]
-    trade <-->|"准入与状态投影"| redis[("Redis")]
-    trade <-->|"Outbox 与业务事件"| rabbit["RabbitMQ"]
-    payment -->|"Outbox"| rabbit
-```
+下图按接入、网关、应用与领域、基础设施、持久化与模型五层展示当前可运行边界。蓝色表示同步调用，青色表示数据或模型关系，琥珀色表示异步链路与外部系统。
+
+![LinkVerse 当前技术架构](docs/assets/diagrams/system-architecture.svg)
+
+Gateway、Identity、Trade 和 Payment 是当前 Java 可部署单元；Recommendation 以可选 Compose 服务接入。图中 Mock 支付渠道用于当前开发与验证，不代表已接入真实支付机构。
 
 - **数据基准：** MySQL 保存业务最终事实；Identity、Trade、Payment 分别管理独立 Schema，不跨 Schema 写入或 Join。Redis 秒杀库存用于入口准入，Trade 的 MySQL 条件更新负责最终库存裁决。详见[系统架构：数据基准](guide/系统架构.md#数据基准)。
 - **职责划分：** Gateway 管理入口，Identity 管理身份，Trade 管理商品、订单和库存，Payment 管理支付事实，Recommendation 生成有序候选。详见[系统架构：职责划分](guide/系统架构.md#职责划分)。
@@ -95,31 +85,9 @@ flowchart LR
 
 普通下单在 Trade 本地事务中写入订单、商品与金额快照，并通过条件更新扣减库存。Payment 为订单维护唯一支付 Intent；两项业务事实分别持久化，通过同步查询、可靠事件和对账收敛。
 
-```mermaid
-sequenceDiagram
-    participant trade as Trade
-    participant payment as Payment
-    participant provider as Mock 支付渠道
-    participant mq as Outbox / RabbitMQ
-    trade->>payment: 服务令牌 + 订单支付快照
-    payment-->>trade: 唯一支付 Intent
-    alt 支付成功先提交
-        provider->>payment: HMAC 签名成功回调
-        payment->>payment: 验签去重，PENDING → SUCCEEDED
-        payment->>mq: 提交并发布支付成功事件
-        mq->>trade: 至少一次投递
-        trade->>trade: 幂等消费，订单 → PAID
-    else 到期关单先提交
-        trade->>payment: 关闭支付
-        payment->>payment: PENDING → CLOSED
-        trade->>trade: 关闭订单并释放库存
-        opt 迟到成功回调
-            provider->>payment: 成功回调
-            payment->>payment: 进入退款补偿
-            payment->>mq: 发布退款结果，订单不重开
-        end
-    end
-```
+下图将竞态拆成两条可验证路径：支付成功先提交时订单推进到 `PAID`；关单先提交后若收到迟到成功回调，Payment 进入退款补偿，Trade 不重开已关闭订单。
+
+![支付、关单与退款补偿时序](docs/assets/diagrams/payment-consistency-sequence.svg)
 
 幂等键、唯一约束和条件状态迁移限制重复副作用；业务变更与 Outbox 同事务提交，消息允许重复投递，消费结果保持幂等。完整流程见[交易支付与秒杀：普通下单](guide/交易支付与秒杀.md#普通下单)、[交易支付与秒杀：支付链路](guide/交易支付与秒杀.md#支付链路)和[交易支付与秒杀：可靠消息](guide/交易支付与秒杀.md#可靠消息)。
 
@@ -127,19 +95,9 @@ sequenceDiagram
 
 秒杀入口使用 Redis Lua 原子判断活动、库存和用户资格，MySQL 预约与 Outbox 保存可恢复事实，RabbitMQ 异步驱动订单事务。HTTP `202` 只表示预约已受理，用户通过预约查询获得最终结果。
 
-```mermaid
-flowchart TD
-    request["活动、用户和幂等请求"] --> admission{"Redis Lua 原子准入"}
-    admission -->|"售罄或资格冲突"| reject["受控拒绝"]
-    admission -->|"预扣与 pending"| persist["MySQL：预约 + Outbox"]
-    persist --> accepted["返回 202 与预约号"]
-    persist -->|"RabbitMQ"| consume["幂等消费与 MySQL 条件建单"]
-    consume --> success["订单、快照与成功结果"]
-    consume --> failure["失败结果与条件补偿"]
-    success --> project["更新 Redis 状态投影"]
-    failure --> project
-    project --> query["查询预约终态"]
-```
+下图按 Client、Gateway、Trade、Redis、MySQL 和 RabbitMQ 划分泳道，展示从原子准入到异步建单、结果投影和终态查询的完整链路。
+
+![秒杀准入、异步建单与结果查询](docs/assets/diagrams/flash-sale-processing.svg)
 
 MySQL 唯一约束防止重复预约或成单，条件库存更新避免超卖；补偿依据稳定事件号、活动版本和预约终态执行，避免重复释放。详见[交易支付与秒杀：秒杀链路](guide/交易支付与秒杀.md#秒杀链路)和[交易支付与秒杀：补偿与恢复](guide/交易支付与秒杀.md#补偿与恢复)。
 
@@ -147,18 +105,9 @@ MySQL 唯一约束防止重复预约或成单，条件库存更新避免超卖�
 
 推荐系统将离线训练、在线推荐和业务反馈连接为闭环。Recommendation 负责召回、融合、排序和重排；Trade 负责业务上下文、商品过滤、降级、投递追踪与反馈采集。
 
-```mermaid
-flowchart LR
-    behavior["商品快照与交易行为"] --> dataset["清洗、归因、时间切分"]
-    dataset --> models["召回索引 + LambdaRank 模型包"]
-    request["首页 / 详情 / 购物车请求"] --> recall["热门、新品、ItemCF、TF-IDF、双塔"]
-    models --> recall
-    recall --> fusion["归一化加权 + RRF"]
-    fusion --> rank["v2 5 维 / v3 候选 15 维精排"]
-    rank --> rerank["MMR + 类目/卖家配额 + 新品探索"]
-    rerank --> delivery["Trade 过滤、回填与归因"]
-    delivery --> behavior
-```
+下图同时呈现离线数据血缘、模型发布门禁、在线推荐链路和反馈回流。当前活动模型与未晋级候选明确分离，发布失败时继续使用上一版本。
+
+![推荐系统数据血缘与在线消费](docs/assets/diagrams/recommendation-data-flow.svg)
 
 | 环节 | 当前代码支持 | 作用 |
 |---|---|---|
