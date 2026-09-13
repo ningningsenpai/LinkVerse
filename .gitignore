@@ -55,6 +55,7 @@ secrets/
 *.p12
 *.pem
 *.key
+docs/16-项目简历面试讲解与指标口径.md
 
 # prepare-local.ps1 生成的本地运行材料（与上述通用规则重复声明）
 /linkverse-platform/infrastructure/.env
